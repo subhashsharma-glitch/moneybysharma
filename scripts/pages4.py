@@ -27,7 +27,7 @@ pages["energy-providers.html"] = page("energy-providers.html","Energy providers 
 {src("cap","capnews")}
 <h2 id="suppliers">Household energy suppliers</h2>
 <p>Ofgem counted <strong>17 active domestic suppliers</strong> in March 2026. Below are some of the main suppliers currently trading, in alphabetical order. Each link goes to the supplier's own tariff or energy page (all links checked on {CHECKED}). The list isn't complete, and the order says nothing about price or quality.</p>
-<ul class="az" style="columns:2;max-width:560px">{_sl}</ul>
+<ul style="columns:2;max-width:560px;column-gap:2rem">{_sl}</ul>
 <p>To see how suppliers compare on complaints and customer service, Citizens Advice publishes an independent <a href="{S["cacs"][1]}" rel="noopener">customer service comparison</a>.</p>
 {src("rmi","cacs")}
 <h2 id="types">Types of deal explained</h2>
@@ -56,7 +56,7 @@ pages["energy-providers.html"] = page("energy-providers.html","Energy providers 
 {src("ofsw","esg")}
 <h2 id="compare">Accredited comparison sites (Ofgem Confidence Code)</h2>
 <p>Ofgem's voluntary Confidence Code covers household energy price comparison websites. Accredited sites have to list tariffs in price order. They must also say clearly what each tariff includes, and whether it can be bought through their site. The sites below were listed by Ofgem as accredited, in alphabetical order. Ofgem's current home-switching page no longer shows the list, so we couldn't confirm it on Ofgem's live site on {CHECKED}. Look for the Confidence Code logo on the site itself.</p>
-<ul class="az" style="columns:2;max-width:560px">{_pl}</ul>
+<ul style="columns:2;max-width:560px;column-gap:2rem">{_pl}</ul>
 <p class="hint">Comparison sites may not show every tariff, and some earn commission from suppliers. MoneyBySharma earns nothing from any of them.</p>
 {src("ccode")}
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#cap">Price cap now</a><a href="#suppliers">Suppliers</a><a href="#types">Types of deal</a><a href="#switch">How switching works</a><a href="#compare">Comparison sites</a><a href="energy.html">← Energy guide</a></div></aside></div>'''))
