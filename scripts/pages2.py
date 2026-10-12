@@ -1,0 +1,114 @@
+# Pensions, Energy, Electric cars pages (exec'd from build.py; uses page, ph, W, src, S, CHECKED, BR)
+def _pot(start, monthly=100, g=5, f=0.5, infl=2, retire=67, lump=None):
+    net=(1+g/100)*(1-f/100)-1; i=(1+net)**(1/12)-1; pot=0; paid=0
+    first=min(start, lump[0] if lump else start)
+    for age in range(first, retire):
+        for m in range(12):
+            pot*=1+i
+            if age>=start: pot+=monthly; paid+=monthly
+            if lump and lump[0]<=age<lump[1]: pot+=lump[2]/12; paid+=lump[2]/12
+    return pot, pot/(1+infl/100)**(retire-first), paid
+rows="".join(f"<tr><td>{a}</td><td>{67-a}</td><td>£{_pot(a)[2]:,.0f}</td><td>£{_pot(a)[0]:,.0f}</td><td>£{_pot(a)[1]:,.0f}</td></tr>" for a in (18,25,35,45))
+jp=_pot(67,0,lump=(0,18,3600))
+pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplace pensions and starting young – MoneyBySharma","The State Pension for 2026/27, auto-enrolment minimums, SIPPs, tax relief, and why starting young matters – with a start-age calculator.",
+ ph("Pensions","Pensions, explained","The State Pension, workplace pensions and SIPPs for 2026/27 – and why the age you start can matter more than the amount. With investments your capital is at risk; past performance is not a guide to future returns."), W(f'''
+<div class="cols"><div>
+<h2 id="state">The State Pension</h2><ul>
+<li><strong>Full new State Pension 2026/27: £241.30 a week</strong> (about £12,548 a year). This is for people who reached State Pension age on or after 6 April 2016.</li>
+<li>You usually need <strong>35 qualifying years</strong> of National Insurance (paid or credited) for the full amount, and at least <strong>10 qualifying years</strong> to get anything. With 10 to 34 years you get a proportion: for example, 20 years gives 20/35 of the full rate.</li>
+<li>You can check your forecast and any gaps on GOV.UK, and see your <a href="{S["spa"][1]}" rel="noopener">State Pension age</a>. It's currently 66 and rising to 67 between 2026 and 2028.</li></ul>
+<h2 id="workplace">Workplace pensions and auto-enrolment</h2><ul>
+<li>Employers must automatically enrol workers aged 22 to State Pension age who earn over <strong>£10,000</strong> a year (the earnings trigger, unchanged for 2026/27).</li>
+<li>The legal minimum is <strong>8% of qualifying earnings</strong>, with <strong>at least 3% from your employer</strong>. Your own contribution includes tax relief.</li>
+<li>Qualifying earnings for 2026/27 are those between <strong>£6,240</strong> and <strong>£50,270</strong> a year. Many employers pay more than the minimum or use your full salary.</li>
+<li>If you opt out, you usually lose your employer's contribution.</li></ul>
+<h2 id="sipp">SIPPs and tax relief</h2><p>A SIPP is a personal pension where you choose the investments. The rules on tax relief, the £60,000 annual allowance and access age (55, rising to 57 on 6 April 2028) are covered in our <a href="investments.html#sipp">Investments guide</a>. In short, a basic-rate taxpayer paying in £80 gets £100 in their pension. Anyone, including children and non-earners, can pay up to <strong>£2,880 a year</strong> (net) and receive tax relief, making <strong>£3,600 gross</strong>.</p>
+<h2 id="young">Starting very young: worked examples</h2>
+<p>Same contribution, different start ages. Each person pays <strong>£100 a month</strong> (gross, including tax relief) until <strong>67</strong>.</p>
+<div class="flag"><strong>Assumptions, not a forecast:</strong> 5% a year investment growth before charges, 0.5% a year total charges, 2% a year inflation (used to show today's money), contributions paid monthly, no increases. Real returns vary, can be negative, and aren't guaranteed.</div>
+<div class="table-scroll"><table><caption class="sr">Pot at 67 by start age</caption><thead><tr><th scope="col">Start age</th><th scope="col">Years saving</th><th scope="col">Total paid in</th><th scope="col">Pot at 67</th><th scope="col">In today's money</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p>Starting at 18 rather than 45 means paying in about 2.2 times as much in total, but the pot at 67 is nearly five times larger under these assumptions, because early contributions have decades longer to compound.</p>
+<h3>Junior SIPP example</h3><p>A parent pays <strong>£2,880 a year</strong> into a Junior SIPP from birth until the child's 18th birthday. Tax relief tops it up to <strong>£3,600</strong>, so £64,800 goes in, of which £51,840 is from the parent. With no further contributions and the same assumptions, the pot at 67 would be about <strong>£{jp[0]:,.0f}</strong>, or about <strong>£{jp[1]:,.0f}</strong> in today's money. The money is locked away until the child reaches minimum pension age (57 from 2028; it may rise further).</p>
+<section class="calc" id="calc" aria-labelledby="pen-h"><h3 id="pen-h" style="margin-top:0">Start age vs pot at 67</h3>
+<form id="pen-form" class="fields">
+<div><label for="pen-start">Start age</label><input id="pen-start" type="number" min="0" max="66" value="25"></div>
+<div><label for="pen-monthly">Monthly contribution, gross (£)</label><input id="pen-monthly" type="number" min="0" step="10" value="100"></div>
+<div><label for="pen-growth">Assumed growth before charges (% a year)</label><input id="pen-growth" type="number" step="0.1" value="5"></div>
+<div><label for="pen-fee">Total charges (% a year)</label><input id="pen-fee" type="number" step="0.05" min="0" value="0.5"></div>
+<div><label for="pen-infl">Assumed inflation (% a year)</label><input id="pen-infl" type="number" step="0.1" value="2"></div></form>
+<div class="results" aria-live="polite"><div class="res"><span>Pot at 67</span><b id="pen-r-pot">–</b></div><div class="res"><span>In today's money</span><b id="pen-r-real">–</b></div><div class="res"><span>Total paid in</span><b id="pen-r-paid">–</b></div></div>
+<h4>Pot at 67 in today's money, same contribution, starting at 18, 25, 35 and 45</h4><div class="chart-box"><canvas id="pen-chart" style="width:100%;height:100%" role="img" aria-describedby="pen-chart-desc"></canvas></div><p class="sr" id="pen-chart-desc"></p>
+<p class="hint"><strong>Assumptions:</strong> contributions are paid at the end of each month and include tax relief; growth and charges compound monthly at a steady rate ((1 + growth) × (1 − charges) a year); "today's money" divides by inflation over the years saved; contributions don't rise; tax on withdrawal is ignored. This is an illustration, not a forecast. Your capital is at risk.</p></section>
+<h2 id="timing">Time in the market vs timing the market</h2>
+<p>Trying to sell before falls and buy back before rises ("timing the market") is very hard to do consistently. Some of the biggest daily gains have come soon after the biggest falls, so investors who sell in a panic often miss the recovery.</p>
+<p>J.P. Morgan Asset Management's <em>Guide to Retirement 2026</em> illustrates this with the US S&amp;P 500 Total Return index. $10,000 invested from 2 January 2006 to 31 December 2025 grew to <strong>$80,619 (11.0% a year)</strong> if fully invested, but only <strong>$35,866 (6.6% a year)</strong> if you'd missed the 10 best days and <strong>$21,177 (3.8% a year)</strong> if you'd missed the 20 best days. It also notes that six of the 10 best days came within two weeks of the 10 worst days. These are US market figures in dollars, gross of fees, and past performance is not a guide to future returns.</p>
+<h3>Pound-cost averaging</h3><p>Paying a fixed amount in every month, as most pension savers do, means you buy more fund units when prices are low and fewer when they're high. It doesn't guarantee a profit or protect against loss, but it smooths your average purchase price and removes the temptation to guess the "right moment".</p>
+{src("sp","spni","spa","ae","aemin","pentax","aa","nmpa","jpm")}
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#state">State Pension</a><a href="#workplace">Workplace pensions</a><a href="#sipp">SIPPs &amp; tax relief</a><a href="#young">Starting young</a><a href="#calc">Calculator</a><a href="#timing">Time in the market</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
+
+pages["energy.html"] = page("energy.html","Energy bills, solar panels and home batteries – MoneyBySharma","The Ofgem price cap for October–December 2026, fixed vs variable deals, time-of-use tariffs, solar panels, the Smart Export Guarantee and a home battery calculator.",
+ ph("Energy","Energy bills, solar and batteries","How the price cap works, what to compare in a deal, and the numbers behind solar panels and home batteries. We don't recommend suppliers."), W(f'''
+<div class="cols"><div>
+<h2 id="cap">The Ofgem price cap: 1 October to 31 December 2026</h2>
+<p>The cap limits the <strong>unit rates and standing charges</strong> on standard variable (default) tariffs. It doesn't cap your total bill: use more energy and you pay more.</p>
+<div class="table-scroll"><table><caption class="sr">Price cap rates</caption><thead><tr><th scope="col">Direct Debit, average across England, Scotland and Wales</th><th scope="col">Unit rate</th><th scope="col">Standing charge</th></tr></thead><tbody>
+<tr><td>Electricity</td><td>26.32p per kWh</td><td>54.83p per day</td></tr><tr><td>Gas</td><td>7.97p per kWh</td><td>29.68p per day</td></tr></tbody></table></div>
+<p>For a typical dual-fuel household on Direct Debit (2,500 kWh of electricity and 9,500 kWh of gas a year), that works out at <strong>£1,723 a year</strong>, up 4% from £1,663 in July to September 2026. Ofgem says its electricity figures for this period include no VAT, because none is charged on domestic electricity from 1 October 2026 to 31 March 2027. The gas figures include 5% VAT. Your rates depend on your region and how you pay.</p>
+<h2 id="deals">Fixed vs variable deals</h2><ul>
+<li><strong>Variable (default) tariffs</strong> move with the cap every three months.</li>
+<li><strong>Fixed tariffs</strong> lock your unit rates and standing charges for a set period. Your bill still rises if you use more.</li>
+<li><strong>What to compare:</strong> the unit rate, the standing charge, exit fees (and how long they apply), contract length, and how the deal compares with the current cap. A low unit rate with a high standing charge can cost more if you use little energy.</li></ul>
+<h2 id="tou">Time-of-use and EV tariffs</h2><p>Time-of-use tariffs charge different rates at different times. Typically there's a cheap overnight window of a few hours, and some have a pricier peak in the early evening. They usually need a smart meter. They suit households that can shift use – charging an electric car, running a home battery, or using appliances on timers – into the cheap hours. Economy 7 is an older version with seven cheaper night hours. Check the peak and day rates as well as the cheap rate: if you can't shift much, they can cost more than a standard tariff.</p>
+<h2 id="solar">Why solar panels?</h2><ul>
+<li><strong>Cost:</strong> the Energy Saving Trust puts the average home system at around <strong>4.5 kWp</strong> (about 12 panels, 20–30 m² of roof), costing around <strong>£7,600</strong> to install. The cost depends on size, roof access and whether you need scaffolding.</li>
+<li><strong>Generation:</strong> output depends on location, orientation and shading. Per the Energy Saving Trust, east- or west-facing roofs get around 15–20% less energy than south-facing ones. Use the <a href="https://energysavingtrust.org.uk/tools/solar-energy-calculator/" rel="noopener">Energy Saving Trust solar calculator</a> for an estimate for your home. <em>As a rough example only</em>, a south-facing system might produce somewhere around 850 kWh a year per kWp in much of England – an assumption, not a quote.</li>
+<li><strong>Smart Export Guarantee (SEG):</strong> in England, Scotland and Wales, licensed suppliers with 150,000 or more customers must offer a tariff that pays you for electricity you export to the grid. The installation usually needs to be MCS-certified, and you'll need a meter that can record exports. Rates vary by supplier and must be above zero.</li>
+<li><strong>0% VAT:</strong> installing qualifying solar panels, and batteries (with or without solar), in homes in Great Britain is zero-rated for VAT until <strong>31 March 2027</strong>. After that it's due to return to 5%.</li>
+<li>Solar panels on houses are usually "permitted development", but check if you're in a listed building, conservation area or national park.</li></ul>
+<h2 id="battery">A battery without solar</h2><p>A home battery can be charged on a cheap overnight time-of-use rate and then power your home at peak times, when you'd otherwise pay the full rate. Whether that pays back depends on the gap between the two rates, how many full cycles you use, the battery's efficiency, and its price and lifespan.</p>
+<section class="calc" id="calc" aria-labelledby="bat-h"><h3 id="bat-h" style="margin-top:0">Home battery saving and payback</h3>
+<p class="hint">Defaults: the peak rate is the October–December 2026 price-cap average unit rate (26.32p). The cheap rate (7p), battery cost (£4,000), efficiency and lifespan are <strong>example figures only</strong>, not real prices. Replace them with your own quote and tariff.</p>
+<form id="bat-form" class="fields">
+<div><label for="bat-kwh">Usable battery capacity (kWh)</label><input id="bat-kwh" type="number" min="0" step="0.5" value="10"></div>
+<div><label for="bat-eff">Round-trip efficiency (%)</label><input id="bat-eff" type="number" min="1" max="100" value="90"></div>
+<div><label for="bat-cheap">Cheap rate (p/kWh) <span class="hint">example</span></label><input id="bat-cheap" type="number" step="0.01" min="0" value="7"></div>
+<div><label for="bat-peak">Peak rate you avoid (p/kWh)</label><input id="bat-peak" type="number" step="0.01" min="0" value="26.32"></div>
+<div><label for="bat-cycles">Full cycles per year</label><input id="bat-cycles" type="number" min="0" max="730" value="300"></div>
+<div><label for="bat-cost">Installed cost (£) <span class="hint">example</span></label><input id="bat-cost" type="number" min="0" step="100" value="4000"></div>
+<div><label for="bat-life">Lifespan (years)</label><input id="bat-life" type="number" min="1" max="30" value="12"></div>
+<div><label for="bat-degr">Capacity loss per year (%) <span class="hint">example</span></label><input id="bat-degr" type="number" min="0" max="10" step="0.5" value="2"></div></form>
+<div class="results" aria-live="polite"><div class="res"><span>First-year saving</span><b id="bat-r-annual">–</b></div><div class="res"><span>Payback (with degradation)</span><b id="bat-r-payback">–</b></div><div class="res"><span>Net gain over lifespan</span><b id="bat-r-net">–</b></div></div>
+<p id="bat-r-text"></p>
+<p class="hint"><strong>Assumptions:</strong> each cycle fully charges at the cheap rate (energy bought = capacity ÷ efficiency) and fully discharges into your own use at the peak rate. You need enough peak-time demand to use it. Battery capacity falls each year by the degradation rate. Tariffs stay the same. Standing charges, tariff changes, maintenance, inverter replacement and the time value of money are ignored. Illustration only.</p></section>
+{src("cap","capnews","est","seg","vat")}
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#cap">Price cap</a><a href="#deals">Fixed vs variable</a><a href="#tou">Time-of-use</a><a href="#solar">Solar panels</a><a href="#battery">Battery</a><a href="#calc">Calculator</a><p class="hint" style="margin-top:.8rem">Charging an EV? See <a href="electric-cars.html">Electric cars</a>.</p></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
+
+pages["electric-cars.html"] = page("electric-cars.html","Electric cars: running costs, tax and the road to 2035 – MoneyBySharma","EV running costs (home vs public charging), vehicle tax from April 2025, the expensive car supplement, the proposed eVED pay-per-mile charge, company car tax and the ZEV mandate.",
+ ph("Electric cars","Electric cars, explained","Running costs, tax rules and where things are heading – facts and example figures, with no brands recommended."), W(f'''
+<div class="cols"><div>
+<h2 id="costs">Running costs: home vs public charging</h2><p>Cost per mile = electricity price per kWh ÷ miles per kWh. Charging at home on a cheap overnight time-of-use rate is usually far cheaper per mile than public rapid charging. Prices vary widely, so the calculator uses <strong>example rates</strong> you should replace with your own.</p>
+<section class="calc" id="calc" aria-labelledby="ev-h"><h3 id="ev-h" style="margin-top:0">EV charging cost calculator</h3>
+<p class="hint">Example defaults: a 7p/kWh overnight rate and 79p/kWh public rapid charging are <strong>illustrations, not real tariffs</strong>. For reference, the price-cap average electricity unit rate for October–December 2026 is 26.32p/kWh.</p>
+<form id="ev-form" class="fields">
+<div><label for="ev-miles">Miles per year</label><input id="ev-miles" type="number" min="0" step="500" value="8000"></div>
+<div><label for="ev-eff">Efficiency (miles per kWh)</label><input id="ev-eff" type="number" min="0.5" step="0.1" value="3.5"></div>
+<div><label for="ev-home">Home rate (p/kWh) <span class="hint">example</span></label><input id="ev-home" type="number" min="0" step="0.01" value="7"></div>
+<div><label for="ev-public">Public charging rate (p/kWh) <span class="hint">example</span></label><input id="ev-public" type="number" min="0" step="0.01" value="79"></div>
+<div><label for="ev-share">Share of charging at home (%)</label><input id="ev-share" type="number" min="0" max="100" value="80"></div></form>
+<div class="results" aria-live="polite"><div class="res"><span>Home cost per mile</span><b id="ev-r-home">–</b></div><div class="res"><span>Public cost per mile</span><b id="ev-r-public">–</b></div><div class="res"><span>Charging cost per year</span><b id="ev-r-annual">–</b></div></div>
+<p id="ev-r-text"></p><p class="hint"><strong>Assumptions:</strong> charging losses (often several per cent) are ignored, so real costs will be a little higher. Efficiency falls in cold weather and at motorway speeds. Insurance, servicing, tax and depreciation aren't included.</p></section>
+<h2 id="ved">Vehicle tax (VED)</h2><ul>
+<li>Since <strong>1 April 2025</strong>, electric cars pay vehicle tax. For 2026/27, a zero-emission car registered from April 2017 pays the <strong>standard rate of £200</strong> a year, and new zero-emission cars pay a <strong>£10 first-year rate</strong>.</li>
+<li><strong>Expensive car supplement:</strong> an extra <strong>£440 a year</strong> in years 2 to 6 for cars with a list price over £40,000. From April 2026 the threshold for zero-emission cars is <strong>£50,000</strong>.</li></ul>
+<div class="flag"><strong>Proposed – not yet law: pay-per-mile eVED.</strong> At the November 2025 Budget the government announced Electric Vehicle Excise Duty: <strong>3p per mile</strong> for electric cars and <strong>1.5p per mile</strong> for plug-in hybrids from <strong>1 April 2028</strong>, rising with CPI from 2029/30. Draft legislation for Finance Bill 2026-27 was published on 13 July 2026. It's not law yet, and the details could change.</div>
+<h2 id="bik">Company cars and salary sacrifice</h2><p>Company cars are taxed as a benefit in kind (BIK): a percentage of the list price is added to your taxable income. Zero-emission rates are:</p>
+<div class="table-scroll"><table><caption class="sr">BIK rates for zero-emission cars</caption><thead><tr><th scope="col">Tax year</th><th scope="col">2025/26</th><th scope="col">2026/27</th><th scope="col">2027/28</th><th scope="col">2028/29</th><th scope="col">2029/30</th></tr></thead><tbody><tr><td>Zero-emission car BIK</td><td>3%</td><td>4%</td><td>5%</td><td>7%</td><td>9%</td></tr></tbody></table></div>
+<p>Through salary sacrifice, you give up some gross salary in exchange for a car. Because cars with emissions of 75g/km or less are excluded from the less favourable salary-sacrifice tax rules, you pay BIK at these low rates instead of tax on the salary given up. Sacrificing salary can affect other things linked to your pay, such as mortgage affordability, some benefits and pension contributions. <strong>Example:</strong> a car with a £40,000 list price at 4% gives a £1,600 taxable benefit in 2026/27, costing a basic-rate taxpayer £320 and a higher-rate taxpayer £640 in tax for the year.</p>
+<h2 id="battery">Battery health basics</h2><ul><li>All lithium-ion batteries slowly lose capacity with age and use (degradation), which reduces range.</li><li>Frequent rapid charging, very high or low states of charge left for long periods, and extreme heat tend to speed it up. Many owners routinely charge to around 80% for daily use, as manufacturers often suggest.</li><li>Check the manufacturer's battery warranty (length, mileage and the capacity threshold it guarantees). On a used car, ask for a battery state-of-health report.</li></ul>
+<h2 id="future">Why the future points to solar, storage and EVs</h2>
+<p>Put the pieces together – <a href="energy.html#solar">rooftop solar</a>, a <a href="energy.html#battery">home battery</a> and an EV – and a household can generate some of its own electricity by day, store it, top up on cheap overnight rates, and use far less at expensive peak times. An EV's battery is usually much larger than a home battery.</p>
+<p><strong>Vehicle-to-grid (V2G)</strong> and vehicle-to-home (V2H) let a compatible car and charger send power back to your home or the grid at peak times, with you paid or credited for it. It needs a bidirectional charger, a compatible car and a suitable tariff, and it's still at an early stage in the UK.</p>
+<h3>The ZEV mandate timeline</h3><ul><li><strong>2030:</strong> the end of sales of new cars powered only by petrol or diesel, with <strong>80%</strong> of each manufacturer's new car sales required to be zero-emission.</li><li><strong>2030–2035:</strong> new full hybrids and plug-in hybrids can still be sold.</li><li><strong>2035:</strong> <strong>100%</strong> of new cars and vans must be zero-emission.</li><li>The targets rise year by year in between, with compliance flexibilities confirmed in April 2025. Small-volume manufacturers are exempt from the 2030 phase-out but must meet 2035.</li></ul>
+<p>Used petrol, diesel and hybrid cars can still be bought, sold and driven after these dates.</p>
+{src("ved","bik","eved","evedcr","ss","zev","cap")}
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#costs">Running costs</a><a href="#calc">Calculator</a><a href="#ved">Vehicle tax</a><a href="#bik">Company cars</a><a href="#battery">Battery health</a><a href="#future">The future</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))

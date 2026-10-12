@@ -23,11 +23,28 @@ S = {  # sources (checked 12 Oct 2026)
  "aischeme": ("HMRC Savings and Investment Manual – Accrued Income Scheme", "https://www.gov.uk/hmrc-internal-manuals/savings-and-investment-manual/saim4000"),
  "scot": ("GOV.UK – Scottish Income Tax", "https://www.gov.uk/scottish-income-tax"),
  "mas": ("MoneyHelper – Mortgages (free, government-backed guidance)", "https://www.moneyhelper.org.uk/en/homes/buying-a-home"),
+ "sp": ("GOV.UK – The new State Pension: what you'll get", "https://www.gov.uk/new-state-pension/what-youll-get"),
+ "spni": ("GOV.UK – The new State Pension: your National Insurance record", "https://www.gov.uk/new-state-pension/your-national-insurance-record"),
+ "ae": ("GOV.UK/DWP – Automatic enrolment earnings trigger and qualifying earnings band review 2026/27 (18 Dec 2025)", "https://www.gov.uk/government/publications/review-of-the-automatic-enrolment-earnings-trigger-and-qualifying-earnings-band-for-202627/review-of-the-automatic-enrolment-earnings-trigger-and-qualifying-earnings-band-for-202627"),
+ "aemin": ("GOV.UK – Workplace pensions: what you, your employer and the government pay", "https://www.gov.uk/workplace-pensions/what-you-your-employer-and-the-government-pay"),
+ "spa": ("GOV.UK – Check your State Pension age", "https://www.gov.uk/state-pension-age"),
+ "jpm": ("J.P. Morgan Asset Management – Guide to Retirement 2026 (US edition), 'Impact of being out of the market', data as of 31 Dec 2025", "https://am.jpmorgan.com/us/en/asset-management/adv/insights/retirement-insights/guide-to-retirement/"),
+ "cap": ("Ofgem – Energy price cap unit rates and standing charges (1 Oct – 31 Dec 2026)", "https://www.ofgem.gov.uk/information-consumers/energy-advice-households/energy-price-cap-unit-rates-and-standing-charges"),
+ "capnews": ("Ofgem – Energy price cap will rise by 4% from October 2026 (26 Aug 2026)", "https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026"),
+ "est": ("Energy Saving Trust – Solar panels: costs, savings and benefits", "https://energysavingtrust.org.uk/advice/solar-panels/"),
+ "seg": ("Ofgem – Smart Export Guarantee (SEG)", "https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg"),
+ "vat": ("GOV.UK/HMRC – VAT Notice 708/6: energy-saving materials and heating equipment", "https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086"),
+ "ved": ("GOV.UK – Vehicle tax rate tables", "https://www.gov.uk/vehicle-tax-rate-tables"),
+ "eved": ("GOV.UK/HMRC – Electric Vehicle Excise Duty (eVED), draft legislation (13 Jul 2026)", "https://www.gov.uk/government/publications/electric-vehicle-excise-duty-eved/electric-vehicle-excise-duty-eved"),
+ "evedcr": ("GOV.UK – eVED consultation response (13 Jul 2026)", "https://www.gov.uk/government/consultations/consultation-on-the-introduction-of-electric-vehicle-excise-duty-eved/outcome/the-introduction-of-electric-vehicle-excise-duty-eved-consultation-response"),
+ "zev": ("GOV.UK – Phasing out sales of new petrol and diesel cars from 2030: government response (April 2025)", "https://www.gov.uk/government/consultations/phasing-out-sales-of-new-petrol-and-diesel-cars-from-2030-and-supporting-the-zev-transition/outcome/phasing-out-sales-of-new-petrol-and-diesel-cars-from-2030-and-supporting-the-zev-transition-summary-of-responses-and-joint-government-response"),
+ "bik": ("GOV.UK – Company car tax appropriate percentages (Budget 2025 Annex A)", "https://www.gov.uk/government/publications/budget-2025-overview-of-tax-legislation-and-rates-ootlar/annex-a-rates-and-allowances"),
+ "ss": ("GOV.UK – Salary sacrifice for employers (optional remuneration arrangements)", "https://www.gov.uk/guidance/salary-sacrifice-and-the-effects-on-paye"),
  "fcareg": ("FCA Financial Services Register", "https://register.fca.org.uk/"),
 }
 def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
-NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
+NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
  "and is not authorised or regulated by the Financial Conduct Authority (FCA). Do your own research or speak to an FCA-authorised adviser before making decisions. "
@@ -70,12 +87,18 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="investments.html"><span class="tag">Guide</span><h3>Investments</h3><p>Stocks and shares ISAs, SIPPs, index funds and how platform fees work.</p></a>
 <a class="card" href="mortgages.html"><span class="tag">Guide</span><h3>Mortgages</h3><p>Fixed vs tracker, when to look at remortgaging, and how repayments are worked out.</p></a>
 <a class="card" href="gilts.html"><span class="tag">Guide</span><h3>Gilts</h3><p>What UK government bonds are and why low-coupon gilts can be tax-efficient.</p></a>
+<a class="card" href="pensions.html"><span class="tag">Guide</span><h3>Pensions</h3><p>The State Pension, workplace pensions, SIPPs and why starting young matters so much.</p></a>
+<a class="card" href="energy.html"><span class="tag">Guide</span><h3>Energy</h3><p>The Ofgem price cap, fixed vs variable deals, solar panels and home batteries.</p></a>
+<a class="card" href="electric-cars.html"><span class="tag">Guide</span><h3>Electric cars</h3><p>Running costs, vehicle tax, company-car tax and the road to 2035.</p></a>
 <a class="card" href="jargon.html"><span class="tag">Reference</span><h3>Jargon buster</h3><p>A searchable A–Z of around 60 money terms.</p></a>
 <a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>Sharma Simplified packs and the upcoming Money Matters cheat sheet.</p></a></div>
 <h2 id="calculators">Calculators</h2><div class="grid g3">
 <a class="card" href="gilts.html#calc"><h3>Gilt vs savings after tax</h3><p>Gross redemption yield, net yield for your tax band and the equivalent savings rate.</p></a>
 <a class="card" href="mortgages.html#calc"><h3>Mortgage repayments</h3><p>Repayment or interest-only, optional overpayments and a balance chart.</p></a>
-<a class="card" href="investments.html#calc"><h3>Platform fee impact</h3><p>Compare a percentage fee with a flat fee over the years.</p></a></div>
+<a class="card" href="investments.html#calc"><h3>Platform fee impact</h3><p>Compare a percentage fee with a flat fee over the years.</p></a>
+<a class="card" href="pensions.html#calc"><h3>Start age vs pot at 67</h3><p>See how the age you start saving changes your pension pot, after fees and inflation.</p></a>
+<a class="card" href="energy.html#calc"><h3>Home battery payback</h3><p>Charge cheap overnight, use at peak: annual saving and payback.</p></a>
+<a class="card" href="electric-cars.html#calc"><h3>EV charging cost</h3><p>Home vs public charging cost per mile and per year.</p></a></div>
 <h2>Weekly best 3 rates – by email</h2><div class="card"><p>A short weekly email listing the three highest AERs we've checked. <strong>Coming soon</strong> – the form below is switched off and collects nothing.</p>
 <form class="signup" aria-describedby="su-note" onsubmit="return false"><label class="sr" for="su">Email address</label><input id="su" type="email" placeholder="you@example.com" disabled><button class="btn" disabled>Coming soon</button></form><p id="su-note" class="hint">No data is collected. See our <a href="privacy.html">privacy page</a>.</p></div>
 </div>''')
@@ -125,7 +148,7 @@ pages["investments.html"] = page("investments.html", "Investments: ISAs, SIPPs, 
 <li><strong>Junior ISA:</strong> £9,000 a year for under-18s.</li>
 <li>Since 6 April 2024 you can pay into more than one ISA of the same type in a tax year, as long as you stay within the overall limit.</li></ul>
 <div class="flag"><strong>From 6 April 2027:</strong> under-65s will be able to put at most £12,000 of the £20,000 into cash ISAs, and interest on cash held inside a stocks and shares ISA will face a charge. The November 2025 Budget also said the government would consult on a new, simpler ISA product for first-time buyers to replace the Lifetime ISA. That change isn't confirmed in law yet, so check GOV.UK for the latest.</div>
-<h2 id="sipp">SIPPs and pension tax relief</h2><p>A Self-Invested Personal Pension is a personal pension where you choose the investments.</p>
+<h2 id="sipp">SIPPs and pension tax relief</h2><p>See also our <a href="pensions.html">Pensions guide</a> for the State Pension, workplace pensions and a start-age calculator. A Self-Invested Personal Pension is a personal pension where you choose the investments.</p>
 <ul><li><strong>Tax relief:</strong> personal contributions get relief at your marginal rate. With "relief at source", you pay £80 and the provider claims £20 basic-rate relief from HMRC, so £100 goes in. Higher- and additional-rate taxpayers claim the extra through Self Assessment.</li>
 <li><strong>Limits:</strong> relief applies to contributions up to 100% of your UK relevant earnings, or £3,600 gross if you have little or no earnings. The annual allowance (all contributions, including employer) is <strong>£60,000</strong>, tapered for very high incomes. Once you've flexibly accessed a pension, the Money Purchase Annual Allowance of £10,000 applies.</li>
 <li><strong>Access age:</strong> the normal minimum pension age is <strong>55</strong>, rising to <strong>57 on 6 April 2028</strong> (some people have a protected pension age).</li>
@@ -258,7 +281,29 @@ G = [("AER","Annual Equivalent Rate – the interest you'd earn over a year if i
 ("Stocks and shares ISA","An ISA holding investments such as funds and shares. Your capital is at risk."),
 ("Tax year","In the UK, runs from 6 April to 5 April the following year."),
 ("Tracker mortgage","A mortgage whose rate follows Bank Rate plus a set margin."),
-("Yield","The income from an investment as a percentage of its price.")]
+("Yield","The income from an investment as a percentage of its price."),
+("Auto-enrolment","The legal duty on employers to put eligible workers (aged 22 to State Pension age, earning over £10,000 a year) into a workplace pension."),
+("Benefit in kind (BIK)","A taxable perk from your employer, such as a company car. Tax is based on a percentage of the car's list price – 4% for zero-emission cars in 2026/27."),
+("Battery degradation","The gradual loss of a battery's usable capacity as it ages and is cycled."),
+("Economy 7","An electricity meter and tariff with a cheaper rate for seven hours overnight."),
+("eVED","Electric Vehicle Excise Duty – a proposed pay-per-mile charge on electric (3p) and plug-in hybrid (1.5p) cars from April 2028. Draft legislation, not yet law."),
+("Expensive car supplement","An extra £440 a year of vehicle tax in years 2 to 6 for cars with a list price over £40,000 (over £50,000 for zero-emission cars from April 2026)."),
+("Junior SIPP","A SIPP opened for a child by a parent or guardian. Up to £2,880 a year can go in, topped up to £3,600 by tax relief."),
+("kWh","Kilowatt-hour – the unit energy is billed in. A 1 kW appliance running for an hour uses 1 kWh."),
+("kWp","Kilowatt peak – a solar system's maximum output in ideal conditions."),
+("Pound-cost averaging","Investing a fixed amount regularly, so you buy more units when prices are low and fewer when they're high."),
+("Price cap","Ofgem's limit on the unit rates and standing charges suppliers can charge on standard variable (default) tariffs."),
+("Qualifying year","A tax year in which you paid or were credited with enough National Insurance to count towards your State Pension."),
+("Round-trip efficiency","The share of energy put into a battery that you get back out. 90% means 10 kWh in gives 9 kWh out."),
+("Salary sacrifice","Giving up some salary in exchange for a non-cash benefit, such as pension contributions or an electric car."),
+("Smart Export Guarantee (SEG)","A scheme requiring larger electricity suppliers to pay small generators, such as homes with solar panels, for electricity exported to the grid."),
+("Standing charge","A fixed daily charge for being connected to the energy supply, whatever you use."),
+("State Pension","A regular payment from the government once you reach State Pension age, based on your National Insurance record. The full new State Pension is £241.30 a week in 2026/27."),
+("Time-of-use tariff","An energy tariff whose unit rate changes by time of day, often with cheap overnight hours."),
+("Unit rate","The price you pay for each kWh of electricity or gas."),
+("Vehicle-to-grid (V2G)","Technology that lets an electric car send power from its battery back to the home or the grid."),
+("ZEV mandate","Rules requiring carmakers to make a rising share of new car and van sales zero-emission: 80% of new cars by 2030 and 100% by 2035.")]
+G.sort(key=lambda t: t[0].lower())
 letters = sorted(set(t[0][0].upper() for t in G))
 gl = "".join(f'<dt id="t-{i}" data-l="{t[0][0].upper()}">{html.escape(t[0])}</dt><dd>{html.escape(t[1])}</dd>' for i,t in enumerate(G))
 pages["jargon.html"] = page("jargon.html", "Jargon buster: A–Z money glossary – MoneyBySharma", "A searchable A–Z glossary of UK personal-finance terms.",
@@ -297,6 +342,7 @@ pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "Money
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like any web host, GitHub may process technical data such as IP addresses to deliver and secure the site – see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
 <h2>External links</h2><p>Links to other sites (for example Payhip, GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
+exec(open("scripts/pages2.py").read())
 for fn, h in pages.items():
     open(fn, "w").write(h)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

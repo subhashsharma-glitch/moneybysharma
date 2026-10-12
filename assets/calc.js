@@ -62,6 +62,32 @@
     return { dirty: dirty, accrued: fl.accrued, gry: gry, netYield: netEff,
              equivGross: t < 1 ? netEff / (1 - t) : NaN, years: (maturity - settle) / yr };
   }
-  var api = { mortgage: mortgage, fees: fees, gilt: gilt };
+  // Pension pot at retirement: monthly contributions (gross, incl. tax relief) paid at month end
+  function pension(startAge, retireAge, monthly, growthPct, feePct, inflPct, lumpAge, lumpEndAge, lumpYearly) {
+    var net = (1 + growthPct / 100) * (1 - feePct / 100) - 1, i = Math.pow(1 + net, 1 / 12) - 1;
+    var pot = 0, paid = 0, byAge = [];
+    for (var age = Math.min(startAge, lumpAge == null ? startAge : lumpAge); age < retireAge; age++) {
+      for (var m = 0; m < 12; m++) {
+        pot *= 1 + i;
+        if (age >= startAge) { pot += monthly; paid += monthly; }
+        if (lumpAge != null && age >= lumpAge && age < lumpEndAge) { pot += lumpYearly / 12; paid += lumpYearly / 12; }
+      }
+      byAge.push({ age: age + 1, pot: pot });
+    }
+    var yrs = retireAge - Math.min(startAge, lumpAge == null ? startAge : lumpAge);
+    return { pot: pot, real: pot / Math.pow(1 + inflPct / 100, yrs), paid: paid, netGrowth: net, byAge: byAge };
+  }
+  // Home battery charged off-peak, discharged at peak. Rates in pence/kWh. degr = capacity loss % per year.
+  function battery(kWh, effPct, cheapP, peakP, cycles, cost, life, degrPct) {
+    var perCycle = (kWh * peakP - kWh / (effPct / 100) * cheapP) / 100, yr1 = perCycle * cycles, total = 0, payback = null, cum = 0;
+    for (var y = 1; y <= life; y++) { var s = yr1 * Math.pow(1 - (degrPct || 0) / 100, y - 1); if (payback === null && cum + s >= cost) payback = y - 1 + (cost - cum) / s; cum += s; total += s; }
+    return { perCycle: perCycle, annual: yr1, simplePayback: yr1 > 0 ? cost / yr1 : Infinity, payback: payback, lifetimeSaving: total, net: total - cost };
+  }
+  // EV charging cost. Rates in pence/kWh, efficiency in miles/kWh.
+  function ev(miles, mpk, homeP, publicP, homeSharePct) {
+    var h = homeP / mpk, p = publicP / mpk, sh = homeSharePct / 100;
+    return { homePpm: h, publicPpm: p, annual: (miles * sh * h + miles * (1 - sh) * p) / 100, blendedPpm: sh * h + (1 - sh) * p };
+  }
+  var api = { mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
   if (typeof module !== "undefined") module.exports = api; else root.MBSCalc = api;
 })(this);
