@@ -45,12 +45,22 @@ S = {  # sources (checked 12 Oct 2026)
 def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
+NAVG = [("index.html","Home"),
+ ("Guides",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("electric-cars.html","Electric cars")]),
+ ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
+ ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
  "and is not authorised or regulated by the Financial Conduct Authority (FCA). Do your own research or speak to an FCA-authorised adviser before making decisions. "
  "With investments your capital is at risk and you may get back less than you put in. Tax treatment depends on your individual circumstances and may change in future.")
 def page(fn, title, desc, body, head="", scripts=()):
-    nav = "".join(f'<li><a href="{h}"{" aria-current=page" if h==fn else ""}>{t}</a></li>' for h,t in NAV)
+    def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if h==fn else ""}>{t}</a></li>'
+    nav = ""
+    for item in NAVG:
+        if isinstance(item[1], list):
+            cur = any(h==fn for h,_ in item[1])
+            nav += f'<li class="dd"><details><summary{" class=cur" if cur else ""}>{item[0]}</summary><ul>' + "".join(_li(h,t) for h,t in item[1]) + '</ul></details></li>'
+        else: nav += _li(*item)
     sc = "".join(f'<script src="assets/{s}" defer></script>' for s in ("main.js",)+tuple(scripts))
     return f'''<!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -82,7 +92,8 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <div class="kn"><b>£20,000</b><small>ISA allowance 2026/27. <a href="{S["rates"][1]}" rel="noopener">GOV.UK</a></small></div>
 <div class="kn"><b>{html.escape(lowc["name"])}</b><small>A real low-coupon gilt: {lowc["coupon"]}% coupon, matures {d(lowc["maturity"])} (ISIN {lowc["isin"]}). <a href="{GI["sourceUrl"]}" rel="noopener">DMO</a>, close of business {d(GI["closeOfBusiness"])}. Example only, not a recommendation.</small></div>
 </div></section>
-<div class="wrap"><h2>Guides</h2><div class="grid g3">
+<div class="wrap"><a class="card feature" href="how-money-works.html"><span class="tag">New · Illustrated guide</span><h2 style="margin:.4rem 0">How money works, in pictures</h2><p>Where money comes from, what the Bank of England does, why prices rise – and what it all means for your savings, mortgage and investments. Ten simple steps.</p><span class="btn">Start the guide →</span></a>
+<h2>Guides</h2><div class="grid g3">
 <a class="card" href="savings.html"><span class="tag">Guide</span><h3>Savings</h3><p>Easy access, fixed bonds, cash ISAs, regular savers, FSCS protection and how savings interest is taxed.</p></a>
 <a class="card" href="investments.html"><span class="tag">Guide</span><h3>Investments</h3><p>Stocks and shares ISAs, SIPPs, index funds and how platform fees work.</p></a>
 <a class="card" href="mortgages.html"><span class="tag">Guide</span><h3>Mortgages</h3><p>Fixed vs tracker, when to look at remortgaging, and how repayments are worked out.</p></a>
@@ -323,10 +334,14 @@ pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", 
 <div class="card"><span class="tag soon">Coming soon</span><h3>Money Matters cheat sheet</h3><p>A one-page summary of the key UK allowances and rates for 2026/27.</p><button class="btn" disabled>Coming soon</button></div></div>
 <p class="hint" style="margin-top:1rem">Sharma Simplified products are sold through Payhip, which has its own terms and privacy policy. They are general resources, not financial advice.</p>'''))
 # ---------- ABOUT / DISCLAIMER / PRIVACY ----------
-pages["about.html"] = page("about.html", "About – MoneyBySharma", "About MoneyBySharma and how we check our figures.", ph("About","About MoneyBySharma","Plain-English UK money information, by Subhash Sharma."), W(f'''
-<div style="max-width:760px"><h2>What this site is</h2><p>MoneyBySharma explains UK personal finance – savings, ISAs, pensions, mortgages and gilts – in plain British English. It's run by Subhash Sharma, who also publishes practical guides under the Sharma Simplified name.</p>
-<h2>What this site isn't</h2><p>It isn't a financial adviser, broker or comparison service, and it isn't authorised by the FCA. We don't recommend products or tell you what to buy. Comparison tables show facts only.</p>
-<h2>How we check figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, FSCS, the Bank of England and the UK Debt Management Office – and linked with the date we checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate and gilt reference data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let us know.</p>
+pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I started MoneyBySharma, and how I check the figures.", ph("About","About MoneyBySharma","Plain-English UK money information, by Subhash Sharma."), W(f'''
+<div style="max-width:760px"><h2>Why I started MoneyBySharma</h2>
+<p>Hello, I'm Subhash Sharma. I'm passionate about helping everyone become financially free – and I believe that starts with understanding what money actually is and how it works.</p>
+<p>How money works should be taught in schools, but for most of us it isn't. So I've built this site to explain it in plain English: how savings, pensions, mortgages, gilts and investing fit together, without the jargon.</p>
+<p>My hope is to reach as many individuals and families as possible. If you're new to all this, a good place to start is my illustrated guide, <a href="how-money-works.html"><strong>How money works, in pictures</strong></a>.</p>
+<p>I also publish practical guides under the Sharma Simplified name – you'll find them on the <a href="resources.html">Resources</a> page.</p>
+<h2>What this site isn't</h2><p>MoneyBySharma gives information only, not regulated financial advice. It isn't a financial adviser, broker or comparison service, and it isn't authorised or regulated by the Financial Conduct Authority (FCA). I don't recommend products or tell you what to buy, and comparison tables show facts only.</p>
+<h2>How I check the figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, the FSCS, the Bank of England, the ONS and the UK Debt Management Office – and linked with the date I checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate, gilt and inflation data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let me know.</p>
 <p><a href="disclaimer.html">Read the full disclaimer</a> · <a href="privacy.html">Privacy</a></p></div>'''))
 pages["disclaimer.html"] = page("disclaimer.html", "Disclaimer – MoneyBySharma", "Important information about using MoneyBySharma.", ph("Disclaimer","Disclaimer","Please read this before relying on anything on this site."), W(f'''
 <div style="max-width:760px"><h2>Information, not advice</h2><p>Everything on MoneyBySharma is general information for people in the UK. It isn't regulated financial, tax, mortgage or legal advice, and it doesn't take your personal circumstances into account.</p>
@@ -343,6 +358,7 @@ pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "Money
 <h2>External links</h2><p>Links to other sites (for example Payhip, GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
 exec(open("scripts/pages2.py").read())
+exec(open("scripts/pages3.py").read())
 for fn, h in pages.items():
     open(fn, "w").write(h)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

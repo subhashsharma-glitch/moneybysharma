@@ -502,5 +502,7 @@
       "maturity": "2073-10-22",
       "dividendDates": "22 Apr/Oct"
     }
-  ]
+  ],
+  "totalInIssueInclUpliftMillions": 2943368.3,
+  "conventionalInIssueMillions": 2231441.0
 }

@@ -14,4 +14,8 @@ b=C.battery(5,100,10,30,365,3650,15,0);chk('battery2 annual',b.annual,365,0.001)
 let e=C.ev(10000,4,7,79,80);chk('ev1 home ppm',e.homePpm,1.75,1e-9);chk('ev1 public ppm',e.publicPpm,19.75,1e-9);chk('ev1 annual',e.annual,535,1e-6);
 // EV 2: 7,000mi, 3.5 mi/kWh, 28p, 100% home: 8p/mi -> £560
 e=C.ev(7000,3.5,28,79,100);chk('ev2 ppm',e.homePpm,8,1e-9);chk('ev2 annual',e.annual,560,1e-6);
+// Real value 1: £1,000, 2% inflation, 0% interest, 10y -> 1000/1.02^10 = 820.35
+let rv=C.realValue(1000,2,0,10);chk('real1',rv.real,820.35,0.005);
+// Real value 2: interest equals inflation (3%/3%) -> real stays £1,000; nominal 1000*1.03^5 = 1159.27
+rv=C.realValue(1000,3,3,5);chk('real2 real',rv.real,1000,1e-9);chk('real2 nominal',rv.nominal,1159.27,0.005);
 process.exit(ok?0:1);

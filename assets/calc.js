@@ -88,6 +88,12 @@
     var h = homeP / mpk, p = publicP / mpk, sh = homeSharePct / 100;
     return { homePpm: h, publicPpm: p, annual: (miles * sh * h + miles * (1 - sh) * p) / 100, blendedPpm: sh * h + (1 - sh) * p };
   }
-  var api = { mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
+  // Real value of a sum after inflation, with optional interest (both % a year, compounded yearly)
+  function realValue(amount, inflPct, ratePct, years) {
+    var rows = [], nominal = amount, real = amount;
+    for (var y = 1; y <= years; y++) { nominal *= 1 + ratePct / 100; real = nominal / Math.pow(1 + inflPct / 100, y); rows.push({ year: y, nominal: nominal, real: real }); }
+    return { nominal: nominal, real: real, rows: rows };
+  }
+  var api = { realValue: realValue, mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
   if (typeof module !== "undefined") module.exports = api; else root.MBSCalc = api;
 })(this);

@@ -42,3 +42,20 @@ json.dump({"source": "UK Debt Management Office – Gilts in Issue (report D1A)"
            "note": "Reference data only (name, coupon, maturity). Prices are not included – enter a current price from your broker or the DMO.",
            "gilts": gilts}, open("data/gilts.json", "w"), indent=2, ensure_ascii=False)
 print("bank rate", br, "gilts", len(gilts), "cob", cob)
+# Total gilts in issue (all types, nominal incl. index-linked uplift), £ million, from the same D1A report
+tot = sum(float(e.attrib.get("TOTAL_AMOUNT_INCLUDING_IL_UPLIFT", 0) or 0) for e in root)
+conv = sum(float(e.attrib.get("TOTAL_AMOUNT_IN_ISSUE", 0) or 0) for e in root if e.attrib.get("INSTRUMENT_TYPE","").strip()=="Conventional")
+g = json.load(open("data/gilts.json")); g["totalInIssueInclUpliftMillions"] = round(tot, 1); g["conventionalInIssueMillions"] = round(conv, 1)
+json.dump(g, open("data/gilts.json", "w"), indent=2, ensure_ascii=False)
+# ONS CPI annual rate (D7G7)
+import csv, io
+rows = list(csv.reader(io.StringIO(get("https://www.ons.gov.uk/generator?format=csv&uri=/economy/inflationandpriceindices/timeseries/d7g7/mm23"))))
+meta = {r[0]: r[1] for r in rows[:8] if len(r) > 1}
+annual = [{"year": int(r[0]), "rate": float(r[1])} for r in rows if len(r) > 1 and re.fullmatch(r"\d{4}", r[0])]
+monthly = [{"period": r[0], "rate": float(r[1])} for r in rows if len(r) > 1 and re.fullmatch(r"\d{4} [A-Z]{3}", r[0])]
+json.dump({"source": "ONS – CPI annual rate 00: all items (series D7G7, dataset MM23)",
+           "sourceUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23",
+           "released": meta.get("Release date"), "nextRelease": meta.get("Next release"), "fetched": today,
+           "annual": annual, "latestMonth": monthly[-1], "peakMonth": max(monthly, key=lambda m: m["rate"])},
+          open("data/cpi.json", "w"), indent=2)
+print("gilts total £m", tot, "cpi annual", annual[0], annual[-1], monthly[-1])
