@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moneybysharma.co.uk/sitemap.xml

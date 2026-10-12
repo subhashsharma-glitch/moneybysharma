@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static page generator for MoneyBySharma. Run scripts/fetch_data.py first, then this."""
 import json, datetime, html
+from seo import seo_meta
 BR = json.load(open("data/bank-rate.json")); GI = json.load(open("data/gilts.json"))
 CHECKED = "12 October 2026"
 def d(iso): return datetime.date.fromisoformat(iso).strftime("%-d %B %Y")
@@ -66,7 +67,7 @@ def page(fn, title, desc, body, head="", scripts=()):
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{html.escape(desc)}"><meta name="theme-color" content="#0f4c45">
 <link rel="canonical" href="https://moneybysharma.co.uk/{'' if fn=='index.html' else fn}">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">{sc}</head>
+{seo_meta(fn, title, desc)}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">{sc}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="index.html" aria-label="MoneyBySharma home">{LOGO}<span>Money<span class="by">By</span>Sharma</span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
