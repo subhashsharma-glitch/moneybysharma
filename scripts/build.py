@@ -73,7 +73,7 @@ def page(fn, title, desc, body, head="", scripts=()):
 <nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav></div></header>
 <main id="main">{body}{head}</main>
 <footer class="site"><div class="wrap"><div class="disc"><p style="margin:0">{DISC}</p></div>
-<ul><li><a href="about.html">About</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li></ul>
+<ul><li><a href="about.html">About</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li></ul>
 <p style="margin:1rem 0 0">© 2026 MoneyBySharma · Plain-English UK money information · Figures checked {CHECKED} for tax year 2026/27.</p></div></footer>
 </body></html>'''
 def ph(crumb, h1, lead): return f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › {crumb}</div><h1>{h1}</h1><p>{lead}</p></div></div>'
@@ -341,7 +341,7 @@ pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I start
 <p>My hope is to reach as many individuals and families as possible. If you're new to all this, a good place to start is my illustrated guide, <a href="how-money-works.html"><strong>How money works, in pictures</strong></a>.</p>
 <p>I also publish practical guides under the Sharma Simplified name – you'll find them on the <a href="resources.html">Resources</a> page.</p>
 <h2>What this site isn't</h2><p>MoneyBySharma gives information only, not regulated financial advice. It isn't a financial adviser, broker or comparison service, and it isn't authorised or regulated by the Financial Conduct Authority (FCA). I don't recommend products or tell you what to buy, and comparison tables show facts only.</p>
-<h2>How I check the figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, the FSCS, the Bank of England, the ONS and the UK Debt Management Office – and linked with the date I checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate, gilt and inflation data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let me know.</p>
+<h2>How I check the figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, the FSCS, the Bank of England, the ONS and the UK Debt Management Office – and linked with the date I checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate, gilt and inflation data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let me know at <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>.</p>
 <p><a href="disclaimer.html">Read the full disclaimer</a> · <a href="privacy.html">Privacy</a></p></div>'''))
 pages["disclaimer.html"] = page("disclaimer.html", "Disclaimer – MoneyBySharma", "Important information about using MoneyBySharma.", ph("Disclaimer","Disclaimer","Please read this before relying on anything on this site."), W(f'''
 <div style="max-width:760px"><h2>Information, not advice</h2><p>Everything on MoneyBySharma is general information for people in the UK. It isn't regulated financial, tax, mortgage or legal advice, and it doesn't take your personal circumstances into account.</p>
@@ -355,6 +355,7 @@ pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "Money
 <h2>Calculators</h2><p>Calculator inputs stay in your browser and are never sent anywhere.</p>
 <h2>Email sign-up</h2><p>The "weekly best 3 rates" sign-up is switched off ("coming soon") and collects nothing. If we launch it, we'll update this page first to explain what's collected and why.</p>
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like any web host, GitHub may process technical data such as IP addresses to deliver and secure the site – see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
+<h2>Contacting us</h2><p>You can email <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. If you do, your email address and message are used only to reply to you. They aren't added to any mailing list or shared.</p>
 <h2>External links</h2><p>Links to other sites (for example Payhip, GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
 exec(open("scripts/pages2.py").read())
