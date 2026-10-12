@@ -23,6 +23,12 @@ def seo_meta(fn, title, desc):
         out += '<script type="application/ld+json">' + json.dumps([SITE, ORG], ensure_ascii=False) + '</script>\n'
     return out
 
+def write_sitemap(files, lastmod):
+    order = sorted(files, key=lambda f: (f != "index.html", f))
+    urls = "".join(f'  <url><loc>{BASE}{"" if f=="index.html" else f}</loc><lastmod>{lastmod}</lastmod></url>\n' for f in order)
+    open("sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
+    open("robots.txt", "w").write("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n")
+
 if __name__ == "__main__":  # patch already-built pages in place
     import glob, os, re
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

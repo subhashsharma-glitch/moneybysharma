@@ -4,6 +4,7 @@ import json, datetime, html
 from seo import seo_meta
 BR = json.load(open("data/bank-rate.json")); GI = json.load(open("data/gilts.json"))
 CHECKED = "12 October 2026"
+CHECKED_ISO = "2026-10-12"
 def d(iso): return datetime.date.fromisoformat(iso).strftime("%-d %B %Y")
 S = {  # sources (checked 12 Oct 2026)
  "rates": ("GOV.UK – Budget 2025 OOTLAR Annex A: rates and allowances (2026 to 2027)", "https://www.gov.uk/government/publications/budget-2025-overview-of-tax-legislation-and-rates-ootlar/annex-a-rates-and-allowances"),
@@ -45,9 +46,9 @@ S = {  # sources (checked 12 Oct 2026)
 }
 def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
-NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
+NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
@@ -361,6 +362,9 @@ pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "Money
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
 exec(open("scripts/pages2.py").read())
 exec(open("scripts/pages3.py").read())
+exec(open("scripts/pages4.py").read())
 for fn, h in pages.items():
     open(fn, "w").write(h)
+from seo import write_sitemap
+write_sitemap([f for f in pages if f!="404.html"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

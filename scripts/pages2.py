@@ -54,6 +54,7 @@ pages["energy.html"] = page("energy.html","Energy bills, solar panels and home b
 <div class="table-scroll"><table><caption class="sr">Price cap rates</caption><thead><tr><th scope="col">Direct Debit, average across England, Scotland and Wales</th><th scope="col">Unit rate</th><th scope="col">Standing charge</th></tr></thead><tbody>
 <tr><td>Electricity</td><td>26.32p per kWh</td><td>54.83p per day</td></tr><tr><td>Gas</td><td>7.97p per kWh</td><td>29.68p per day</td></tr></tbody></table></div>
 <p>For a typical dual-fuel household on Direct Debit (2,500 kWh of electricity and 9,500 kWh of gas a year), that works out at <strong>£1,723 a year</strong>, up 4% from £1,663 in July to September 2026. Ofgem says its electricity figures for this period include no VAT, because none is charged on domestic electricity from 1 October 2026 to 31 March 2027. The gas figures include 5% VAT. Your rates depend on your region and how you pay.</p>
+<div class="note"><strong>Looking for suppliers and deals?</strong> See <a href="energy-providers.html">Energy providers and deals</a>: the main suppliers, types of tariff, how switching works and accredited comparison sites.</div>
 <h2 id="deals">Fixed vs variable deals</h2><ul>
 <li><strong>Variable (default) tariffs</strong> move with the cap every three months.</li>
 <li><strong>Fixed tariffs</strong> lock your unit rates and standing charges for a set period. Your bill still rises if you use more.</li>
