@@ -94,6 +94,13 @@
     for (var y = 1; y <= years; y++) { nominal *= 1 + ratePct / 100; real = nominal / Math.pow(1 + inflPct / 100, y); rows.push({ year: y, nominal: nominal, real: real }); }
     return { nominal: nominal, real: real, rows: rows };
   }
-  var api = { realValue: realValue, mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
+  // Balance transfer: fee vs interest saved over the 0% period. APR converted to an equivalent monthly rate.
+  function btSave(balance, feePct, months, aprPct, monthly) {
+    var r = Math.pow(1 + aprPct / 100, 1 / 12) - 1, b = balance, interest = 0;
+    for (var m = 0; m < months && b > 0; m++) { var i = b * r; interest += i; b = Math.max(0, b + i - monthly); }
+    var fee = balance * feePct / 100;
+    return { fee: fee, interestAvoided: interest, saving: interest - fee, oldLeft: b, btLeft: Math.max(0, balance + fee - monthly * months) };
+  }
+  var api = { btSave: btSave, realValue: realValue, mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
   if (typeof module !== "undefined") module.exports = api; else root.MBSCalc = api;
 })(this);

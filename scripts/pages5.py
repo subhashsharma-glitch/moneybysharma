@@ -69,6 +69,7 @@ pages["bank-accounts.html"] = page("bank-accounts.html","Bank accounts – Money
 <li><strong>Buffers:</strong> some accounts give an interest-free amount, such as the first few hundred pounds of an arranged overdraft. Interest is charged only on borrowing above it.</li>
 <li><strong>Failed (refused) payment fees:</strong> these are still allowed, but the FCA says they should reasonably reflect the bank's cost of refusing the payment. Basic bank accounts can't charge them.</li>
 </ul>
+<p>Borrowing on a credit card instead? See <a href="credit-cards.html">Credit cards and deals</a>.</p>
 {src("ps1916","conc5c")}
 <h2 id="providers">Banks and building societies A–Z</h2>
 <p>Each link goes to the provider's own current account page, checked on {CHECKED}. This list isn't complete, and the order says nothing about price or quality. We don't show fees, rates or ratings.</p>
@@ -88,4 +89,4 @@ pages["bank-accounts.html"] = page("bank-accounts.html","Bank accounts – Money
 <p><strong>Offers seen on banks' own pages on {CHECKED}</strong> (a summary only; read the full terms on the bank's site):</p>
 <div class="table-scroll"><table><caption class="sr">Switching offers seen on 12 October 2026</caption><thead><tr><th scope="col">Bank (source)</th><th scope="col">Bonus</th><th scope="col">Main conditions as stated by the bank</th></tr></thead><tbody>{_bon}</tbody></table></div>
 <p class="hint">We may not have seen every offer. Offers can end without notice, so the bank's own page is the only reliable source. Inclusion here isn't a recommendation.</p>
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#types">Account types</a><a href="#switch">Switching (CASS)</a><a href="#fscs">FSCS protection</a><a href="#overdrafts">Overdrafts &amp; fees</a><a href="#providers">Providers A–Z</a><a href="#bonuses">Switching bonuses</a><a href="jargon.html">Jargon buster</a></div></aside></div>'''))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#types">Account types</a><a href="#switch">Switching (CASS)</a><a href="#fscs">FSCS protection</a><a href="#overdrafts">Overdrafts &amp; fees</a><a href="#providers">Providers A–Z</a><a href="#bonuses">Switching bonuses</a><a href="credit-cards.html">Credit cards</a><a href="jargon.html">Jargon buster</a></div></aside></div>'''))

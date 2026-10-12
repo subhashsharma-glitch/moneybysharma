@@ -48,7 +48,7 @@ def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
@@ -326,6 +326,18 @@ G += [("Arranged overdraft","A borrowing limit on a current account agreed with 
 ("Temporary high balance","A large sum from a life event, such as a house sale, protected by the FSCS up to £1.4 million for six months."),
 ("Switching bonus","A cash payment some banks offer when you switch your current account and meet set conditions. Offers change often."),
 ("Refused payment fee","A charge for refusing a payment because there isn't enough money. The FCA says it should reflect the bank's actual costs.")]
+G += [("Representative APR","The APR at or below which a lender expects at least 51% of people accepted through an advert to be charged. Others may get a higher rate."),
+("Balance transfer","Moving debt from one credit card to another, often at 0% for a period in exchange for a one-off fee."),
+("Money transfer","Moving money from a credit card into a bank account, usually for a fee."),
+("Minimum payment","The smallest amount you must pay each month to keep a credit card account up to date. Paying only this makes debt last much longer."),
+("Persistent debt","FCA term for when, over 18 months, you've paid more in interest, fees and charges than you've repaid of the borrowing on a card."),
+("Section 75","The Consumer Credit Act rule that makes a card provider jointly liable for purchases over £100 and up to £30,000 paid at least partly by credit card."),
+("Chargeback","A voluntary card-scheme process for asking your card provider to reverse a payment. It covers debit and credit cards, with time limits."),
+("Soft search","A credit check only you can see. It doesn't affect your credit score. Used by eligibility checkers."),
+("Hard search","A credit check made when you apply for credit. Other lenders can see it."),
+("Credit reference agency (CRA)","A company holding credit records. The three main UK CRAs are Equifax, Experian and TransUnion."),
+("Avios","Reward points used by British Airways and some other airlines, collected on some credit cards."),
+("Foreign transaction fee","A charge, often a percentage, added when you spend in a foreign currency.")]
 G.sort(key=lambda t: t[0].lower())
 letters = sorted(set(t[0][0].upper() for t in G))
 gl = "".join(f'<dt id="t-{i}" data-l="{t[0][0].upper()}">{html.escape(t[0])}</dt><dd>{html.escape(t[1])}</dd>' for i,t in enumerate(G))
@@ -374,6 +386,7 @@ exec(open("scripts/pages2.py").read())
 exec(open("scripts/pages3.py").read())
 exec(open("scripts/pages4.py").read())
 exec(open("scripts/pages5.py").read())
+exec(open("scripts/pages6.py").read())
 for fn, h in pages.items():
     open(fn, "w").write(h)
 from seo import write_sitemap
