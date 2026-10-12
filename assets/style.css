@@ -73,3 +73,8 @@ footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;ga
 .chart-box{position:relative;width:100%;height:260px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.hbars{margin:.8rem 0 .4rem;display:grid;gap:.45rem;max-width:640px}
+.hbar{display:grid;grid-template-columns:minmax(6.5rem,9rem) 1fr auto;gap:.6rem;align-items:center;font-size:.9rem}
+.hbar-l{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hbar-t{background:var(--teal-50);border-radius:6px;height:14px;overflow:hidden}
+.hbar-f{display:block;height:100%;background:var(--teal-2);border-radius:6px}.hbar-v{font-variant-numeric:tabular-nums;color:var(--muted);min-width:3.5rem;text-align:right}
+@media(max-width:640px){.t5 th,.t5 td{padding:.45rem .35rem;font-size:.82rem;white-space:normal}}

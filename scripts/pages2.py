@@ -83,6 +83,22 @@ pages["energy.html"] = page("energy.html","Energy bills, solar panels and home b
 {src("cap","capnews","est","seg","vat")}
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#cap">Price cap</a><a href="#deals">Fixed vs variable</a><a href="#tou">Time-of-use</a><a href="#solar">Solar panels</a><a href="#battery">Battery</a><a href="#calc">Calculator</a><p class="hint" style="margin-top:.8rem">Charging an EV? See <a href="electric-cars.html">Electric cars</a>.</p></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
 
+NA_TOTAL=469298; SMMT_SEP_BEV=99201
+BR5=[("Tesla",48883,"10.4% (stated)"),("Kia",32497,None),("BYD",32394,None),("Volkswagen",25357,None)]
+MD5=[("Model 3","Tesla",9929),("Model Y","Tesla",5946),("Sealion 7","BYD",3191),("Seal","BYD",3184),("EV3","Kia",3026)]
+def _bar(label,val,mx): return f'<div class="hbar"><span class="hbar-l">{label}</span><span class="hbar-t"><span class="hbar-f" style="width:{val/mx*100:.1f}%"></span></span><span class="hbar-v">{val:,}</span></div>'
+brows="".join(f"<tr><td>{i+1}</td><td>{b}</td><td>{n:,}</td><td>{sh or f'{n/NA_TOTAL*100:.1f}% (calc.)'}</td></tr>" for i,(b,n,sh) in enumerate(BR5))+'<tr><td>5</td><td colspan="3">Not published in the source report</td></tr>'
+mrows="".join(f"<tr><td>{i+1}</td><td>{m}</td><td>{b}</td><td>{n:,}</td><td>{n/SMMT_SEP_BEV*100:.1f}% (calc.)</td></tr>" for i,(m,b,n) in enumerate(MD5))
+TOP5=f'''<h2 id="top5">Top 5 electric car brands and models in the UK</h2>
+<p>The figures below are new battery-electric (BEV) car registrations, reported by the sources named. Registration volumes are facts about past sales, not a measure of quality and not a recommendation. Overall, BEVs took <strong>26.16% of all new cars</strong> registered in the UK from January to September 2026 (454,947 of 1,739,271), and 28.3% in September 2026 alone (SMMT).</p>
+<h3>Brands – January to September 2026</h3>
+<div class="table-scroll t5"><table><caption class="sr">Top BEV brands year to date</caption><thead><tr><th scope="col">Rank</th><th scope="col">Brand</th><th scope="col">BEV regs</th><th scope="col">Share of BEV regs</th></tr></thead><tbody>{brows}</tbody></table></div>
+<div class="hbars" aria-hidden="true">{"".join(_bar(b,n,BR5[0][1]) for b,n,_ in BR5)}</div>
+<p class="src">Source: New AutoMotive (DVLA-based registration data), Jan–Sep 2026, as reported by <a href="https://www.whichev.net/2026/10/06/uk-electric-car-registrations-hit-record-as-almost-100000-new-evs-join-roads/" rel="noopener">WhichEV, 6 October 2026</a>; see also <a href="https://newautomotive.org/ecc" rel="noopener">New AutoMotive EV market data</a>. "Regs" = registrations; "calc." = calculated by us. Shares are of BEV registrations, not all cars. Tesla's 10.4% is the share as stated. The others are calculated by us from New AutoMotive's published year-to-date BEV total of 469,298. The source named only the top four brands. New AutoMotive's totals differ slightly from SMMT's (454,947) because of different data methods. Checked {CHECKED}.</p>
+<h3>Models – September 2026</h3>
+<div class="table-scroll t5"><table><caption class="sr">Top BEV models September 2026</caption><thead><tr><th scope="col">Rank</th><th scope="col">Model</th><th scope="col">Brand</th><th scope="col">Regs</th><th scope="col">Share of BEV regs</th></tr></thead><tbody>{mrows}</tbody></table></div>
+<div class="hbars" aria-hidden="true">{"".join(_bar(b+" "+m,n,MD5[0][2]) for m,b,n in MD5)}</div>
+<p class="src">Source: <a href="https://www.smmt.co.uk/vehicle-data/electric-vehicle-registrations/" rel="noopener">SMMT – electric vehicle registrations, top 10 BEV models, September 2026</a> (released October 2026). SMMT publishes this model list for the month only, not year to date. Shares are calculated by us from SMMT's published September BEV total of 99,201 (shares of BEV registrations, not all cars). Checked {CHECKED}.</p>'''
 pages["electric-cars.html"] = page("electric-cars.html","Electric cars: running costs, tax and the road to 2035 – MoneyBySharma","EV running costs (home vs public charging), vehicle tax from April 2025, the expensive car supplement, the proposed eVED pay-per-mile charge, company car tax and the ZEV mandate.",
  ph("Electric cars","Electric cars, explained","Running costs, tax rules and where things are heading – facts and example figures, with no brands recommended."), W(f'''
 <div class="cols"><div>
@@ -97,6 +113,7 @@ pages["electric-cars.html"] = page("electric-cars.html","Electric cars: running 
 <div><label for="ev-share">Share of charging at home (%)</label><input id="ev-share" type="number" min="0" max="100" value="80"></div></form>
 <div class="results" aria-live="polite"><div class="res"><span>Home cost per mile</span><b id="ev-r-home">–</b></div><div class="res"><span>Public cost per mile</span><b id="ev-r-public">–</b></div><div class="res"><span>Charging cost per year</span><b id="ev-r-annual">–</b></div></div>
 <p id="ev-r-text"></p><p class="hint"><strong>Assumptions:</strong> charging losses (often several per cent) are ignored, so real costs will be a little higher. Efficiency falls in cold weather and at motorway speeds. Insurance, servicing, tax and depreciation aren't included.</p></section>
+{TOP5}
 <h2 id="ved">Vehicle tax (VED)</h2><ul>
 <li>Since <strong>1 April 2025</strong>, electric cars pay vehicle tax. For 2026/27, a zero-emission car registered from April 2017 pays the <strong>standard rate of £200</strong> a year, and new zero-emission cars pay a <strong>£10 first-year rate</strong>.</li>
 <li><strong>Expensive car supplement:</strong> an extra <strong>£440 a year</strong> in years 2 to 6 for cars with a list price over £40,000. From April 2026 the threshold for zero-emission cars is <strong>£50,000</strong>.</li></ul>
@@ -111,4 +128,4 @@ pages["electric-cars.html"] = page("electric-cars.html","Electric cars: running 
 <h3>The ZEV mandate timeline</h3><ul><li><strong>2030:</strong> the end of sales of new cars powered only by petrol or diesel, with <strong>80%</strong> of each manufacturer's new car sales required to be zero-emission.</li><li><strong>2030–2035:</strong> new full hybrids and plug-in hybrids can still be sold.</li><li><strong>2035:</strong> <strong>100%</strong> of new cars and vans must be zero-emission.</li><li>The targets rise year by year in between, with compliance flexibilities confirmed in April 2025. Small-volume manufacturers are exempt from the 2030 phase-out but must meet 2035.</li></ul>
 <p>Used petrol, diesel and hybrid cars can still be bought, sold and driven after these dates.</p>
 {src("ved","bik","eved","evedcr","ss","zev","cap")}
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#costs">Running costs</a><a href="#calc">Calculator</a><a href="#ved">Vehicle tax</a><a href="#bik">Company cars</a><a href="#battery">Battery health</a><a href="#future">The future</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#costs">Running costs</a><a href="#calc">Calculator</a><a href="#top5">Top 5 brands &amp; models</a><a href="#ved">Vehicle tax</a><a href="#bik">Company cars</a><a href="#battery">Battery health</a><a href="#future">The future</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
