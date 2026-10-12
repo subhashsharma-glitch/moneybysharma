@@ -1,0 +1,16 @@
+{
+  "status": "example",
+  "statusMessage": "Example data – live rates coming soon",
+  "lastUpdated": null,
+  "note": "EVERY ROW BELOW IS A PLACEHOLDER. Providers are fictional and the figures are not real rates. Replace with verified rows (see data/savings-rates.schema.json) and set status to \"live\".",
+  "rates": [
+    {"provider": "Example Bank A", "product": "Placeholder Easy Access", "type": "easy-access", "aer": 4.10, "termMonths": null, "minDeposit": 1, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Building Society B", "product": "Placeholder Easy Access Saver", "type": "easy-access", "aer": 3.85, "termMonths": null, "minDeposit": 100, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Bank C", "product": "Placeholder 1-Year Fixed Bond", "type": "fixed", "aer": 4.25, "termMonths": 12, "minDeposit": 1000, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Platform D", "product": "Placeholder 2-Year Fixed Bond", "type": "fixed", "aer": 4.05, "termMonths": 24, "minDeposit": 5000, "fscs": false, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Bank E", "product": "Placeholder Easy Access Cash ISA", "type": "cash-isa", "aer": 3.95, "termMonths": null, "minDeposit": 1, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Building Society F", "product": "Placeholder 1-Year Fixed Cash ISA", "type": "cash-isa", "aer": 4.00, "termMonths": 12, "minDeposit": 500, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Bank G", "product": "Placeholder Regular Saver", "type": "regular-saver", "aer": 5.50, "termMonths": 12, "minDeposit": 25, "fscs": true, "sourceUrl": "", "checked": null, "example": true},
+    {"provider": "Example Credit Union H", "product": "Placeholder Notice Account", "type": "notice", "aer": 4.15, "termMonths": null, "minDeposit": 10, "fscs": true, "sourceUrl": "", "checked": null, "example": true}
+  ]
+}
