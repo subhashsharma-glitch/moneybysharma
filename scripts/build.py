@@ -48,7 +48,7 @@ def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
@@ -137,7 +137,7 @@ pages["savings.html"] = page("savings.html", "Savings guide and rate table – M
 <h3>Regular savers</h3><p>You pay in a fixed monthly amount (often £25–£500) for usually 12 months. Headline rates can look high, but because money goes in gradually, the interest you actually earn is roughly half what the AER suggests on the full year-end balance. Many require a current account with the same provider.</p>
 <h2 id="fscs">FSCS protection: £120,000</h2><p>Since <strong>1 December 2025</strong>, the Financial Services Compensation Scheme protects eligible deposits up to <strong>£120,000 per person, per authorised firm</strong> (it was £85,000 from 2017 to 30 November 2025). Key points:</p>
 <ul><li>Brands that share one banking licence count as one firm, so the limit covers your total across them.</li><li>Joint accounts: each holder is protected up to £120,000.</li><li>Temporary high balances (for example from a house sale or inheritance) can be protected up to £1.4 million for up to six months.</li><li>Cash ISAs with UK-authorised banks and building societies are covered.</li></ul>
-<p>You can check a firm on the <a href="https://www.fscs.org.uk/check/check-your-money-is-protected/" rel="noopener">FSCS protection checker</a>.</p>
+<p>You can check a firm on the <a href="https://www.fscs.org.uk/check/check-your-money-is-protected/" rel="noopener">FSCS protection checker</a>.</p><div class="note"><strong>Choosing a current account?</strong> See <a href="bank-accounts.html">Bank accounts</a>: account types, switching with CASS, overdraft rules, an A–Z of banks and switching bonuses.</div>
 <h2 id="tax">How savings interest is taxed (2026/27)</h2>
 <table><caption class="sr">Savings tax allowances</caption><thead><tr><th scope="col">Allowance</th><th scope="col">2026/27</th></tr></thead><tbody>
 <tr><td>Personal Allowance</td><td>£12,570 (reduced by £1 for every £2 of income over £100,000)</td></tr>
@@ -316,6 +316,16 @@ G = [("AER","Annual Equivalent Rate – the interest you'd earn over a year if i
 ("Unit rate","The price you pay for each kWh of electricity or gas."),
 ("Vehicle-to-grid (V2G)","Technology that lets an electric car send power from its battery back to the home or the grid."),
 ("ZEV mandate","Rules requiring carmakers to make a rising share of new car and van sales zero-emission: 80% of new cars by 2030 and 100% by 2035.")]
+G += [("Arranged overdraft","A borrowing limit on a current account agreed with your bank in advance. Since April 2020 it's charged as a single annual interest rate."),
+("Unarranged overdraft","Going overdrawn without an agreed limit, or beyond it. The interest rate can't be higher than the arranged overdraft rate."),
+("Basic bank account","A fee-free account with no overdraft. Nine designated UK banks must offer one to eligible people who can't get a standard account."),
+("Current Account Switch Service (CASS)","The free service that moves your current account, payments and Direct Debits to a new bank in 7 working days, with a guarantee."),
+("Packaged bank account","A current account with a monthly fee that includes extras such as travel or phone insurance."),
+("Financial association","A link on your credit files with someone you share credit with, such as a joint account. It stays until you ask for it to be removed."),
+("Banking licence","A bank's authorisation. The FSCS limit applies per licence, so brands sharing one licence count as one bank."),
+("Temporary high balance","A large sum from a life event, such as a house sale, protected by the FSCS up to £1.4 million for six months."),
+("Switching bonus","A cash payment some banks offer when you switch your current account and meet set conditions. Offers change often."),
+("Refused payment fee","A charge for refusing a payment because there isn't enough money. The FCA says it should reflect the bank's actual costs.")]
 G.sort(key=lambda t: t[0].lower())
 letters = sorted(set(t[0][0].upper() for t in G))
 gl = "".join(f'<dt id="t-{i}" data-l="{t[0][0].upper()}">{html.escape(t[0])}</dt><dd>{html.escape(t[1])}</dd>' for i,t in enumerate(G))
@@ -363,6 +373,7 @@ pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page n
 exec(open("scripts/pages2.py").read())
 exec(open("scripts/pages3.py").read())
 exec(open("scripts/pages4.py").read())
+exec(open("scripts/pages5.py").read())
 for fn, h in pages.items():
     open(fn, "w").write(h)
 from seo import write_sitemap
