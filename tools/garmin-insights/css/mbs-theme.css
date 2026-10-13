@@ -1,0 +1,43 @@
+/* MoneyBySharma theme for Garmin Fitness Insights. Palette/fonts from /assets/style.css. */
+:root{
+  --bg:#f8f6f1;--bg2:#eef3f1;--card:#fff;--ink:#14211f;--muted:#4a5a57;--line:#dfe5e2;
+  --accent:#d9822b;--accent2:#176b60;--teal:#0f4c45;--sky:#176b60;--amber:#d9822b;
+  --grad:linear-gradient(135deg,#176b60 0%,#0f4c45 100%);
+  --hero:linear-gradient(135deg,#0f4c45 0%,#0b3a35 100%);
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(15,76,69,.07);
+  --r:14px;--heat0:#e7f2ef;--heat1:#fbe3c8;--heat2:#efb06c;--heat3:#d9822b;--heat4:#8a4b00;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+}
+[data-theme="dark"]{--bg:#0b1f1c;--bg2:#12302b;--card:#102925;--ink:#e6f0ee;--muted:#a9bdb8;--line:#24443f;
+  --heat0:#163a34;--heat1:#4a3a1c;--heat2:#7a5420;--heat3:#c27526;--heat4:#efa35a}
+body{font-family:var(--font);font-size:1.0625rem;line-height:1.6}
+a{color:var(--teal-2,#176b60)}[data-theme="dark"] a{color:#7fd1c3}
+h1,h2,h3{font-family:var(--serif);letter-spacing:-.01em}
+.card h2,.sec-head h2{color:var(--teal)}[data-theme="dark"] .sec-head h2{color:#bfe3dc}
+header.site{position:static}
+header.site a{color:inherit}
+/* hero */
+.hero h1{font-family:var(--serif);font-weight:700}
+.hero h1 span{background:none;color:#f3c58f;-webkit-text-fill-color:#f3c58f}
+.hero p.lead{color:#d7ebe7}
+.topbar .logo{background:#d9822b;box-shadow:none;border-radius:8px}
+.privacy{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#eef7f5}.privacy svg{color:#f3c58f}
+.drop{border-color:rgba(255,255,255,.45)}.drop .big-ic{background:#d9822b}
+/* buttons: site style */
+.btn{background:var(--accent);color:#1e1206;border-radius:999px;box-shadow:none}
+.btn:hover{background:#c5711f;color:#1e1206}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.icon-btn{border-radius:999px}
+.tabs a.on{background:var(--teal);color:#fff}
+.progress>div{background:var(--accent)}
+/* cards, icons, tiles */
+.card{border-radius:var(--radius,14px)}
+.sec-ic.c1,.sec-ic.c4{background:#d9822b}.sec-ic.c2,.sec-ic.c6{background:#176b60}.sec-ic.c3{background:#5b4b8a}.sec-ic.c5{background:#0f4c45}
+.tile.t1{background:#0f4c45}.tile.t2{background:#9a5a14}.tile.t3{background:#2f5d8a}.tile.t4{background:#8a4b00}.tile.t5{background:#5b4b8a}.tile.t6{background:#2e6b3a}
+.summary .headline{background:none;color:var(--teal);-webkit-text-fill-color:currentColor;font-family:var(--serif)}
+[data-theme="dark"] .summary .headline{color:#bfe3dc}
+.nextstep{background:var(--teal-50,#e7f2ef)}[data-theme="dark"] .nextstep{background:#163a34}
+@media print{header.site,footer.site{display:none!important}}
+header.site .logo{width:auto;height:auto;background:none;box-shadow:none;border-radius:0;display:flex;place-items:initial}header.site .logo svg{width:30px;height:30px;stroke:none}
+footer.site .disc p{margin:0}footer.site>.wrap>p{margin:1rem 0 0}

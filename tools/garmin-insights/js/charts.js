@@ -2,7 +2,7 @@
 const registry = new Map();
 const reduce = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 export const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-export const PALETTE = ['#ff6b4a', '#7c5cff', '#13b5a6', '#2f8cff', '#f5a524', '#ec4899', '#22c55e', '#94a3b8'];
+export const PALETTE = ['#d9822b', '#176b60', '#3b6ea8', '#5b4b8a', '#c9a227', '#8e4b8a', '#5e8c31', '#8a9a98'];
 export const alpha = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
 
 export function destroyAll(prefix = '') {

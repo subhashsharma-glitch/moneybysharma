@@ -1,6 +1,0 @@
-.mbs-bar{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;justify-content:space-between;padding:.55rem max(1rem,calc((100% - 1200px)/2));background:#0f4c45;color:#fff;font:600 .95rem/1.3 system-ui,-apple-system,"Segoe UI",sans-serif}
-.mbs-bar a{color:#fff;text-decoration:none}.mbs-bar a:hover,.mbs-bar a:focus-visible{text-decoration:underline}
-.mbs-home{display:inline-flex;align-items:center;gap:.45rem;font-family:Georgia,serif;font-size:1.05rem}
-.mbs-m{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:.35rem;background:#fff;color:#0f4c45;font:700 .9rem system-ui,sans-serif}
-.mbs-by{color:#f2b36b;font-style:italic}.mbs-links{display:flex;gap:1rem;font-weight:500;font-size:.9rem}
-.mbs-foot{margin-top:.8rem}

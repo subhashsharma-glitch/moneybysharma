@@ -4,7 +4,7 @@ import { esc } from './render.js';
 import { mean, median } from './stats.js';
 
 const GROUPS = { run: 'Running', ride: 'Cycling', swim: 'Swimming', walk: 'Walking & hiking', gym: 'Strength & yoga', other: 'Other' };
-const GROUP_COLOR = { run: '#ff6b4a', ride: '#2f8cff', swim: '#13b5a6', walk: '#f5a524', gym: '#a855f7', other: '#94a3b8' };
+const GROUP_COLOR = { run: '#d9822b', ride: '#5b4b8a', swim: '#3b6ea8', walk: '#c9a227', gym: '#8e4b8a', other: '#8a9a98' };
 export function typeGroup(a) {
   const t = String(a.type || '').toLowerCase();
   if (a.isRun) return 'run';
@@ -179,7 +179,7 @@ export function createExplore(ds, ctx) {
     const ys = [...m.keys()].sort();
     if (!ys.length) { document.getElementById('x-year').parentElement.innerHTML = empty('No activities with distance.'); return; }
     const max = Math.max(...ys.map((y) => m.get(y).d));
-    makeChart('x-year', { type: 'bar', data: { labels: ys, datasets: [{ label: `Distance (${uLbl()})`, data: ys.map((y) => +m.get(y).d.toFixed(0)), backgroundColor: ys.map((y) => (m.get(y).d === max ? '#ff6b4a' : alpha('#7c5cff', 0.75))), borderRadius: 8 }] },
+    makeChart('x-year', { type: 'bar', data: { labels: ys, datasets: [{ label: `Distance (${uLbl()})`, data: ys.map((y) => +m.get(y).d.toFixed(0)), backgroundColor: ys.map((y) => (m.get(y).d === max ? '#d9822b' : alpha('#176b60', 0.75))), borderRadius: 8 }] },
       options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.parsed.y.toLocaleString('en-GB')} ${uLbl()} · ${m.get(+c.label).n} activities` } } }, scales: { x: { grid: { display: false } }, y: { title: { text: uLbl() } } } } });
   }
   function chartDonut(r) {
@@ -195,15 +195,15 @@ export function createExplore(ds, ctx) {
     const roll = pts.map((p, i) => ({ x: p.x, y: mean(pts.slice(Math.max(0, i - w + 1), i + 1).map((q) => q.y)) }));
     const long = pts.length ? spanKind(pts[0].x, pts[pts.length - 1].x) : false; const yr = qrange(pts.map((p) => p.y));
     makeChart('x-pace', { type: 'scatter', data: { datasets: [
-      { label: 'Each run', data: pts, backgroundColor: alpha('#ff6b4a', 0.45), pointRadius: pts.length > 600 ? 2 : 3.5, pointHoverRadius: 6 },
-      { label: `Rolling average (${w} runs)`, type: 'line', data: roll, borderColor: '#7c5cff', borderWidth: 3, pointRadius: 0, tension: 0.3 } ] },
+      { label: 'Each run', data: pts, backgroundColor: alpha('#d9822b', 0.45), pointRadius: pts.length > 600 ? 2 : 3.5, pointHoverRadius: 6 },
+      { label: `Rolling average (${w} runs)`, type: 'line', data: roll, borderColor: '#176b60', borderWidth: 3, pointRadius: 0, tension: 0.3 } ] },
       options: { animation: pts.length > 1500 ? false : undefined, scales: { x: { type: 'linear', ticks: { callback: (v) => tickLabel(v, long) } }, y: { reverse: true, ...yr, title: { text: `pace (min/${uLbl()})` }, ticks: { callback: (v) => fmtClock(v) } } },
         plugins: { tooltip: { callbacks: { title: (c) => dayLabel(c[0].parsed.x), label: (c) => `${c.dataset.label}: ${fmtClock(c.parsed.y)} /${uLbl()}` } } } } });
   }
   function chartScatter(runs) {
     const rs = runs.filter((a) => a.avgHr);
     const lo = Math.min(...rs.map((a) => a.day)), hi = Math.max(...rs.map((a) => a.day));
-    const col = (d) => { const f = hi > lo ? (d - lo) / (hi - lo) : 1; return alpha(f > 0.66 ? '#ff6b4a' : f > 0.33 ? '#7c5cff' : '#13b5a6', 0.35 + 0.5 * f); };
+    const col = (d) => { const f = hi > lo ? (d - lo) / (hi - lo) : 1; return alpha(f > 0.66 ? '#d9822b' : f > 0.33 ? '#176b60' : '#3b6ea8', 0.35 + 0.5 * f); };
     const data = rs.map((a) => ({ x: a.avgHr, y: uPace(a.durS / (a.distM / 1000)), d: a.day, km: uDist(a.distM) }));
     makeChart('x-scatter', { type: 'scatter', data: { datasets: [{ label: 'Runs (older = teal, newer = coral)', data, pointBackgroundColor: data.map((p) => col(p.d)), pointBorderColor: 'transparent', pointRadius: data.length > 600 ? 2.5 : 4, pointHoverRadius: 7 }] },
       options: { scales: { x: { ...qrange(data.map((p) => p.x), 0.05), title: { text: 'average heart rate (bpm)' } }, y: { reverse: true, ...qrange(data.map((p) => p.y)), title: { text: `pace (min/${uLbl()})` }, ticks: { callback: (v) => fmtClock(v) } } },
@@ -215,13 +215,13 @@ export function createExplore(ds, ctx) {
     const bands = maxHr ? [['Zone 1 (<60%)', 0, 0.6], ['Zone 2 (60–70%)', 0.6, 0.7], ['Zone 3 (70–80%)', 0.7, 0.8], ['Zone 4 (80–90%)', 0.8, 0.9], ['Zone 5 (90%+)', 0.9, 9]].map(([l, a, b]) => [l, a * maxHr, b * maxHr])
       : [['under 120', 0, 120], ['120–134', 120, 135], ['135–149', 135, 150], ['150–164', 150, 165], ['165+', 165, 999]];
     const mins = bands.map(([, a, b]) => list.filter((x) => x.avgHr >= a && x.avgHr < b).reduce((s, x) => s + x.durS / 60, 0));
-    makeChart('x-effort', { type: 'bar', data: { labels: bands.map((b) => b[0]), datasets: [{ label: 'hours', data: mins.map((m) => +(m / 60).toFixed(1)), backgroundColor: ['#13b5a6', '#2f8cff', '#7c5cff', '#f5a524', '#ff4f7b'], borderRadius: 8 }] },
+    makeChart('x-effort', { type: 'bar', data: { labels: bands.map((b) => b[0]), datasets: [{ label: 'hours', data: mins.map((m) => +(m / 60).toFixed(1)), backgroundColor: ['#3b6ea8', '#5b4b8a', '#176b60', '#c9a227', '#b5485d'], borderRadius: 8 }] },
       options: { indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.parsed.x} h of activities` } } }, scales: { x: { title: { text: 'hours' } }, y: { grid: { display: false } } } } });
     const fig = document.getElementById('x-effort').closest('figure');
     fig.insertAdjacentHTML('beforeend', `<p class="note">Each activity is placed by its <em>average</em> heart rate${maxHr ? ` (max HR ${maxHr} bpm)` : '; add your max HR under "Your details" to see Garmin-style zones'}.</p>`);
   }
   function pbSeries() {
-    const bands = [['5 km', 4900, 5300, '#ff6b4a'], ['10 km', 9800, 10500, '#7c5cff'], ['Half marathon', 21000, 21600, '#13b5a6'], ['Marathon', 42000, 43000, '#f5a524']];
+    const bands = [['5 km', 4900, 5300, '#d9822b'], ['10 km', 9800, 10500, '#176b60'], ['Half marathon', 21000, 21600, '#3b6ea8'], ['Marathon', 42000, 43000, '#c9a227']];
     const runs = ds.activities.filter((a) => a.isRun && valid(a) && a.distM > 0 && a.durS > 0 && a.day != null).sort((a, b) => a.day - b.day);
     return bands.map(([label, lo, hi, color]) => {
       let best = Infinity; const pts = [];
@@ -307,17 +307,17 @@ export function createExplore(ds, ctx) {
     const hideLow = { legend: { labels: { filter: (i) => !/\(low\)/.test(i.text) } } };
     const out = { recovery: [], load: [] };
     const rhr = series('rhr');
-    if (rhr.length >= 5) out.recovery.push(['h-rhr', 'Resting heart rate', 'heart', () => { const r = results.resting_hr; makeChart('h-rhr', { type: 'line', data: { datasets: [...(r?.baseline != null ? band(r.baseline - 3, r.baseline + 3, `Usual range (baseline ${Math.round(r.baseline)} ±3)`, '#13b5a6') : []), { label: 'Daily', data: rhr, borderColor: alpha('#ff4f7b', 0.5), pointRadius: rhr.length > 120 ? 0 : 2, borderWidth: 1.5 }, { label: '7-day average', data: roll(rhr, 7), borderColor: '#ff4f7b', borderWidth: 3, pointRadius: 0, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'bpm' } } }, plugins: { ...hideLow, tooltip: tt(' bpm') } } }); }]);
+    if (rhr.length >= 5) out.recovery.push(['h-rhr', 'Resting heart rate', 'heart', () => { const r = results.resting_hr; makeChart('h-rhr', { type: 'line', data: { datasets: [...(r?.baseline != null ? band(r.baseline - 3, r.baseline + 3, `Usual range (baseline ${Math.round(r.baseline)} ±3)`, '#3b6ea8') : []), { label: 'Daily', data: rhr, borderColor: alpha('#b5485d', 0.5), pointRadius: rhr.length > 120 ? 0 : 2, borderWidth: 1.5 }, { label: '7-day average', data: roll(rhr, 7), borderColor: '#b5485d', borderWidth: 3, pointRadius: 0, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'bpm' } } }, plugins: { ...hideLow, tooltip: tt(' bpm') } } }); }]);
     const hrv = series('hrv');
-    if (hrv.length >= 5) out.recovery.push(['h-hrv', 'Overnight HRV', 'pulse', () => { const r = results.hrv; makeChart('h-hrv', { type: 'line', data: { datasets: [...(r?.lo != null ? band(r.lo, r.hi, `Usual range ${Math.round(r.lo)}–${Math.round(r.hi)} ms`, '#7c5cff') : []), { label: 'Nightly', data: hrv, borderColor: alpha('#7c5cff', 0.45), pointRadius: hrv.length > 120 ? 0 : 2, borderWidth: 1.5 }, { label: '7-day average', data: roll(hrv, 7), borderColor: '#7c5cff', borderWidth: 3, pointRadius: 0, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'ms' } } }, plugins: { ...hideLow, tooltip: tt(' ms') } } }); }]);
+    if (hrv.length >= 5) out.recovery.push(['h-hrv', 'Overnight HRV', 'pulse', () => { const r = results.hrv; makeChart('h-hrv', { type: 'line', data: { datasets: [...(r?.lo != null ? band(r.lo, r.hi, `Usual range ${Math.round(r.lo)}–${Math.round(r.hi)} ms`, '#176b60') : []), { label: 'Nightly', data: hrv, borderColor: alpha('#176b60', 0.45), pointRadius: hrv.length > 120 ? 0 : 2, borderWidth: 1.5 }, { label: '7-day average', data: roll(hrv, 7), borderColor: '#176b60', borderWidth: 3, pointRadius: 0, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'ms' } } }, plugins: { ...hideLow, tooltip: tt(' ms') } } }); }]);
     const sl = series('sleepH'), sc = series('sleepScore');
-    if (sl.length >= 5) out.recovery.push(['h-sleep', 'Sleep', 'moon', () => makeChart('h-sleep', { data: { datasets: [{ type: 'bar', label: 'Hours asleep', data: sl, backgroundColor: sl.map((p) => (p.y >= 7 ? alpha('#2f8cff', 0.8) : p.y >= 6 ? alpha('#f5a524', 0.85) : alpha('#ff4f7b', 0.85))), borderRadius: 4, yAxisID: 'y' }, { type: 'line', label: '7-hour target', data: [{ x: lo, y: 7 }, { x: hi, y: 7 }], borderColor: '#13b5a6', borderDash: [6, 5], pointRadius: 0, borderWidth: 2, yAxisID: 'y' }, ...(sc.length ? [{ type: 'line', label: 'Sleep score', data: sc, borderColor: '#7c5cff', pointRadius: 0, borderWidth: 2, tension: 0.3, yAxisID: 'y2' }] : [])] }, options: { scales: { x: { ...xs, offset: true }, y: { min: 0, title: { text: 'hours' } }, ...(sc.length ? { y2: { position: 'right', min: 0, max: 100, grid: { display: false }, title: { text: 'score' } } } : {}) }, plugins: { tooltip: tt('') } } })]);
+    if (sl.length >= 5) out.recovery.push(['h-sleep', 'Sleep', 'moon', () => makeChart('h-sleep', { data: { datasets: [{ type: 'bar', label: 'Hours asleep', data: sl, backgroundColor: sl.map((p) => (p.y >= 7 ? alpha('#5b4b8a', 0.8) : p.y >= 6 ? alpha('#c9a227', 0.85) : alpha('#b5485d', 0.85))), borderRadius: 4, yAxisID: 'y' }, { type: 'line', label: '7-hour target', data: [{ x: lo, y: 7 }, { x: hi, y: 7 }], borderColor: '#3b6ea8', borderDash: [6, 5], pointRadius: 0, borderWidth: 2, yAxisID: 'y' }, ...(sc.length ? [{ type: 'line', label: 'Sleep score', data: sc, borderColor: '#176b60', pointRadius: 0, borderWidth: 2, tension: 0.3, yAxisID: 'y2' }] : [])] }, options: { scales: { x: { ...xs, offset: true }, y: { min: 0, title: { text: 'hours' } }, ...(sc.length ? { y2: { position: 'right', min: 0, max: 100, grid: { display: false }, title: { text: 'score' } } } : {}) }, plugins: { tooltip: tt('') } } })]);
     const bb = series('bbMax'), bbn = series('bbMin');
-    if (bb.length >= 5) out.recovery.push(['h-bb', 'Body Battery', 'battery', () => makeChart('h-bb', { type: 'line', data: { datasets: [{ label: 'Daily low', data: bbn, borderColor: alpha('#f5a524', 0.6), pointRadius: 0, borderWidth: 1.5 }, { label: 'Daily high', data: bb, borderColor: '#13b5a6', backgroundColor: alpha('#13b5a6', 0.15), fill: bbn.length ? '-1' : false, pointRadius: bb.length > 120 ? 0 : 2, borderWidth: 2.5, tension: 0.3 }, { label: 'High reserve (76+)', data: [{ x: lo, y: 76 }, { x: hi, y: 76 }], borderColor: '#16a34a', borderDash: [6, 5], pointRadius: 0, borderWidth: 2 }] }, options: { scales: { x: xs, y: { min: 0, max: 100 } }, plugins: { tooltip: tt('') } } })]);
+    if (bb.length >= 5) out.recovery.push(['h-bb', 'Body Battery', 'battery', () => makeChart('h-bb', { type: 'line', data: { datasets: [{ label: 'Daily low', data: bbn, borderColor: alpha('#c9a227', 0.6), pointRadius: 0, borderWidth: 1.5 }, { label: 'Daily high', data: bb, borderColor: '#3b6ea8', backgroundColor: alpha('#3b6ea8', 0.15), fill: bbn.length ? '-1' : false, pointRadius: bb.length > 120 ? 0 : 2, borderWidth: 2.5, tension: 0.3 }, { label: 'High reserve (76+)', data: [{ x: lo, y: 76 }, { x: hi, y: 76 }], borderColor: '#16a34a', borderDash: [6, 5], pointRadius: 0, borderWidth: 2 }] }, options: { scales: { x: xs, y: { min: 0, max: 100 } }, plugins: { tooltip: tt('') } } })]);
     const ac = series('acute'), ch = series('chronic');
     const ratio = ds.series('acute', lo, hi).map((p) => { const r = ds.daily.get(p.day); return r && r.acute != null && r.chronic ? { x: p.day, y: r.acute / r.chronic } : null; }).filter(Boolean);
-    if (ac.length >= 5) out.load.push(['h-load', 'Acute vs chronic load', 'gauge', () => makeChart('h-load', { type: 'line', data: { datasets: [{ label: 'Acute (7-day)', data: ac, borderColor: '#ff6b4a', backgroundColor: alpha('#ff6b4a', 0.12), fill: true, pointRadius: 0, borderWidth: 2.5, tension: 0.3 }, { label: 'Chronic', data: ch, borderColor: '#2f8cff', pointRadius: 0, borderWidth: 2.5, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'load' } } }, plugins: { tooltip: tt('') } } })]);
-    if (ratio.length >= 5) out.load.push(['h-ratio', 'Acute : chronic ratio', 'chart', () => makeChart('h-ratio', { type: 'line', data: { datasets: [...band(0.8, 1.3, 'Sweet spot 0.8–1.3', '#16a34a'), { label: 'Danger zone (>1.5)', data: [{ x: lo, y: 1.5 }, { x: hi, y: 1.5 }], borderColor: '#dc2626', borderDash: [6, 5], pointRadius: 0, borderWidth: 2 }, { label: 'Ratio', data: ratio, borderColor: '#7c5cff', pointRadius: 0, borderWidth: 2.5, tension: 0.3 }] }, options: { scales: { x: xs, y: { min: 0, suggestedMax: 1.8 } }, plugins: { ...hideLow, tooltip: tt('') } } })]);
+    if (ac.length >= 5) out.load.push(['h-load', 'Acute vs chronic load', 'gauge', () => makeChart('h-load', { type: 'line', data: { datasets: [{ label: 'Acute (7-day)', data: ac, borderColor: '#d9822b', backgroundColor: alpha('#d9822b', 0.12), fill: true, pointRadius: 0, borderWidth: 2.5, tension: 0.3 }, { label: 'Chronic', data: ch, borderColor: '#5b4b8a', pointRadius: 0, borderWidth: 2.5, tension: 0.3 }] }, options: { scales: { x: xs, y: { title: { text: 'load' } } }, plugins: { tooltip: tt('') } } })]);
+    if (ratio.length >= 5) out.load.push(['h-ratio', 'Acute : chronic ratio', 'chart', () => makeChart('h-ratio', { type: 'line', data: { datasets: [...band(0.8, 1.3, 'Sweet spot 0.8–1.3', '#16a34a'), { label: 'Danger zone (>1.5)', data: [{ x: lo, y: 1.5 }, { x: hi, y: 1.5 }], borderColor: '#dc2626', borderDash: [6, 5], pointRadius: 0, borderWidth: 2 }, { label: 'Ratio', data: ratio, borderColor: '#176b60', pointRadius: 0, borderWidth: 2.5, tension: 0.3 }] }, options: { scales: { x: xs, y: { min: 0, suggestedMax: 1.8 } }, plugins: { ...hideLow, tooltip: tt('') } } })]);
     return out;
   }
   function placeHealth(results) {
