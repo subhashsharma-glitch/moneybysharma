@@ -104,7 +104,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="energy.html"><span class="tag">Guide</span><h3>Energy</h3><p>The Ofgem price cap, fixed vs variable deals, solar panels and home batteries.</p></a>
 <a class="card" href="electric-cars.html"><span class="tag">Guide</span><h3>Electric cars</h3><p>Running costs, vehicle tax, company-car tax and the road to 2035.</p></a>
 <a class="card" href="jargon.html"><span class="tag">Reference</span><h3>Jargon buster</h3><p>A searchable A–Z of around 60 money terms.</p></a>
-<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>Sharma Simplified packs and the upcoming Money Matters cheat sheet.</p></a></div>
+<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>The free Money Matters cheat sheet: 2026/27 figures on one page, with a printable PDF.</p></a></div>
 <h2 id="calculators">Calculators</h2><div class="grid g3">
 <a class="card" href="gilts.html#calc"><h3>Gilt vs savings after tax</h3><p>Gross redemption yield, net yield for your tax band and the equivalent savings rate.</p></a>
 <a class="card" href="mortgages.html#calc"><h3>Mortgage repayments</h3><p>Repayment or interest-only, optional overpayments and a balance chart.</p></a>
@@ -350,20 +350,18 @@ pages["jargon.html"] = page("jargon.html", "Jargon buster: A–Z money glossary 
 <script>(function(){{var q=document.getElementById('gq'),dts=[].slice.call(document.querySelectorAll('#gloss dt')),c=document.getElementById('gcount'),seen={{}};dts.forEach(function(dt){{var l=dt.dataset.l;if(!seen[l]){{seen[l]=1;var a=document.createElement('span');a.id='L-'+l;dt.prepend(a)}}}});
 function f(){{var s=q.value.trim().toLowerCase(),n=0;dts.forEach(function(dt){{var dd=dt.nextElementSibling,m=!s||(dt.textContent+' '+dd.textContent).toLowerCase().indexOf(s)>-1;dt.hidden=dd.hidden=!m;if(m)n++}});c.textContent=n+' of '+dts.length+' terms'}}q.addEventListener('input',f);f()}})();</script>'''))
 # ---------- RESOURCES ----------
-pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", "Downloadable packs from the Sharma Simplified store and upcoming MoneyBySharma resources.",
- ph("Resources","Resources","Practical downloads from Subhash Sharma's Sharma Simplified store, plus free resources on the way."), W('''
+pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", "The free MoneyBySharma Money Matters cheat sheet: UK personal finance figures for 2026/27 on one page, with a printable PDF.",
+ ph("Resources","Resources","Free resources from MoneyBySharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
-<a class="card" href="https://payhip.com/b/2j09p" rel="noopener"><span class="tag">Sharma Simplified</span><h3>ERP &amp; Maintenance pack</h3><p>A practical pack from the Sharma Simplified store on Payhip.</p><span>View on Payhip →</span></a>
-<a class="card" href="https://payhip.com/b/2j09p" rel="noopener"><span class="tag">Sharma Simplified</span><h3>Sharma Simplified store</h3><p>Browse more packs from Sharma Simplified on Payhip.</p><span>Visit the store →</span></a>
-<div class="card"><span class="tag soon">Coming soon</span><h3>Money Matters cheat sheet</h3><p>A one-page summary of the key UK allowances and rates for 2026/27.</p><button class="btn" disabled>Coming soon</button></div></div>
-<p class="hint" style="margin-top:1rem">Sharma Simplified products are sold through Payhip, which has its own terms and privacy policy. They are general resources, not financial advice.</p>'''))
+<div class="card"><span class="tag">Free</span><h3>Money Matters cheat sheet 2026/27</h3><p>The key UK allowances, tax bands, protections and rates on one page, each with its source and "as at" date, plus a money basics checklist.</p>
+<p><a class="btn" href="money-matters-cheat-sheet.html">View the cheat sheet</a></p><p><a href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a></p></div></div>'''))
 # ---------- ABOUT / DISCLAIMER / PRIVACY ----------
 pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I started MoneyBySharma, and how I check the figures.", ph("About","About MoneyBySharma","Plain-English UK money information, by Subhash Sharma."), W(f'''
 <div style="max-width:760px"><h2>Why I started MoneyBySharma</h2>
 <p>Hello, I'm Subhash Sharma. I'm passionate about helping everyone become financially free – and I believe that starts with understanding what money actually is and how it works.</p>
 <p>How money works should be taught in schools, but for most of us it isn't. So I've built this site to explain it in plain English: how savings, pensions, mortgages, gilts and investing fit together, without the jargon.</p>
 <p>My hope is to reach as many individuals and families as possible. If you're new to all this, a good place to start is my illustrated guide, <a href="how-money-works.html"><strong>How money works, in pictures</strong></a>.</p>
-<p>I also publish practical guides under the Sharma Simplified name – you'll find them on the <a href="resources.html">Resources</a> page.</p>
+<p>For a one-page summary of the key figures, see my free <a href="money-matters-cheat-sheet.html">Money Matters cheat sheet</a> on the <a href="resources.html">Resources</a> page.</p>
 <h2>What this site isn't</h2><p>MoneyBySharma gives information only, not regulated financial advice. It isn't a financial adviser, broker or comparison service, and it isn't authorised or regulated by the Financial Conduct Authority (FCA). I don't recommend products or tell you what to buy, and comparison tables show facts only.</p>
 <h2>How I check the figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, the FSCS, the Bank of England, the ONS and the UK Debt Management Office – and linked with the date I checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate, gilt and inflation data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let me know at <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>.</p>
 <p><a href="disclaimer.html">Read the full disclaimer</a> · <a href="privacy.html">Privacy</a></p></div>'''))
@@ -373,20 +371,21 @@ pages["disclaimer.html"] = page("disclaimer.html", "Disclaimer – MoneyBySharma
 <h2>Investments carry risk</h2><p>The value of investments, including gilts sold before maturity, can fall as well as rise, and you may get back less than you invest. Past performance isn't a reliable guide to future results.</p>
 <h2>Tax</h2><p>Tax treatment depends on your individual circumstances and may change in future. Figures are for the 2026/27 tax year unless stated. Scottish income tax bands differ for non-savings income.</p>
 <h2>Accuracy and calculators</h2><p>We work hard to keep figures accurate and sourced, but we can't guarantee that everything is complete or up to date. Calculators give illustrations based on stated assumptions, not forecasts or quotes. Any example rates in the comparison table are clearly marked as placeholders and aren't real.</p>
-<h2>Links</h2><p>We link to external sites, including the Sharma Simplified store on Payhip, for convenience. We aren't responsible for their content.</p></div>'''))
+<h2>Links</h2><p>We link to external sites, such as GOV.UK and the FSCS, for convenience. We aren't responsible for their content.</p></div>'''))
 pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "MoneyBySharma uses no cookies and no analytics.", ph("Privacy","Privacy","Short version: we don't use cookies, we don't track you and we don't collect your data."), W('''
 <div style="max-width:760px"><h2>No cookies, no analytics</h2><p>This site sets no cookies and uses no analytics, advertising or tracking scripts. All fonts, scripts and data are served from this site itself – there are no third-party embeds.</p>
 <h2>Calculators</h2><p>Calculator inputs stay in your browser and are never sent anywhere.</p>
 <h2>Email sign-up</h2><p>The "weekly best 3 rates" sign-up is switched off ("coming soon") and collects nothing. If we launch it, we'll update this page first to explain what's collected and why.</p>
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like any web host, GitHub may process technical data such as IP addresses to deliver and secure the site – see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
 <h2>Contacting us</h2><p>You can email <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. If you do, your email address and message are used only to reply to you. They aren't added to any mailing list or shared.</p>
-<h2>External links</h2><p>Links to other sites (for example Payhip, GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
+<h2>External links</h2><p>Links to other sites (for example GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
 exec(open("scripts/pages2.py").read())
 exec(open("scripts/pages3.py").read())
 exec(open("scripts/pages4.py").read())
 exec(open("scripts/pages5.py").read())
 exec(open("scripts/pages6.py").read())
+exec(open("scripts/pages7.py").read())
 from seo import ext_links
 EXT = 0
 for fn, h in pages.items():
