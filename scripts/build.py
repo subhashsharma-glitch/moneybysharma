@@ -387,8 +387,12 @@ exec(open("scripts/pages3.py").read())
 exec(open("scripts/pages4.py").read())
 exec(open("scripts/pages5.py").read())
 exec(open("scripts/pages6.py").read())
+from seo import ext_links
+EXT = 0
 for fn, h in pages.items():
+    h, c = ext_links(h); EXT += c
     open(fn, "w").write(h)
+print("external links set to open in a new tab:", EXT)
 from seo import write_sitemap
 write_sitemap([f for f in pages if f!="404.html"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

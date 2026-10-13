@@ -23,6 +23,21 @@ def seo_meta(fn, title, desc):
         out += '<script type="application/ld+json">' + json.dumps([SITE, ORG], ensure_ascii=False) + '</script>\n'
     return out
 
+import re as _re
+_A = _re.compile(r'<a\b([^>]*?)\bhref="(https?://[^"]+)"([^>]*)>(.*?)</a>', _re.S)
+def ext_links(h):
+    """Make external http(s) links open in a new tab, with an accessible hint. Returns (html, count)."""
+    n = 0
+    def f(m):
+        nonlocal n
+        pre, url, post, inner = m.groups()
+        host = _re.sub(r'^https?://([^/:?#]+).*$', r'\1', url).lower()
+        if host == "moneybysharma.co.uk" or host.endswith(".moneybysharma.co.uk"): return m.group(0)
+        attrs = _re.sub(r'\s(rel|target)="[^"]*"', '', pre + post)
+        n += 1
+        return f'<a{attrs} href="{url}" target="_blank" rel="noopener noreferrer">{inner}<span class="sr sr-nt"> (opens in new tab)</span></a>'
+    return _A.sub(f, h), n
+
 def write_sitemap(files, lastmod):
     order = sorted(files, key=lambda f: (f != "index.html", f))
     urls = "".join(f'  <url><loc>{BASE}{"" if f=="index.html" else f}</loc><lastmod>{lastmod}</lastmod></url>\n' for f in order)

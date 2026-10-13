@@ -99,3 +99,4 @@ nav.main details ul{padding-left:1rem}
 html.anim .step{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}html.anim .step.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){html.anim .step{opacity:1;transform:none}}
 @media(min-width:960px){nav.main details ul{display:block;white-space:nowrap}}
+a[target="_blank"]::after{content:"\2197";content:"\2197" / "";font-size:.75em;margin-left:.15em;text-decoration:none;display:inline-block}
