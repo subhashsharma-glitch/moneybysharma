@@ -50,6 +50,7 @@ NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Inv
 NAVG = [("index.html","Home"),
  ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
+ ("Tools",[("tools.html","All tools"),("https://subhashsharma-glitch.github.io/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>')],"tools.html"),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
@@ -61,7 +62,9 @@ def page(fn, title, desc, body, head="", scripts=()):
     for item in NAVG:
         if isinstance(item[1], list):
             cur = any(h==fn for h,_ in item[1])
-            nav += f'<li class="dd"><details><summary{" class=cur" if cur else ""}>{item[0]}</summary><ul>' + "".join(_li(h,t) for h,t in item[1]) + '</ul></details></li>'
+            lab = f'<a class="dd-link" href="{item[2]}">{item[0]}</a>' if len(item) > 2 else item[0]
+            cur = cur or (len(item) > 2 and item[2] == fn)
+            nav += f'<li class="dd"><details><summary{" class=cur" if cur else ""}>{lab}</summary><ul>' + "".join(_li(h,t) for h,t in item[1]) + '</ul></details></li>'
         else: nav += _li(*item)
     sc = "".join(f'<script src="assets/{s}" defer></script>' for s in ("main.js",)+tuple(scripts))
     return f'''<!doctype html>
@@ -402,6 +405,12 @@ exec(open("scripts/pages5.py").read())
 exec(open("scripts/pages6.py").read())
 exec(open("scripts/pages7.py").read())
 exec(open("scripts/pages8.py").read())
+pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
+ ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
+<div class="grid g3" style="margin-top:1.5rem">
+<div class="card"><span class="tag">Free tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
+<p><a class="btn" href="https://subhashsharma-glitch.github.io/garmin-insights/">Open Garmin Fitness Insights</a></p></div></div>
+<p class="hint" style="margin-top:1rem">Garmin Fitness Insights is a separate site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
 from seo import ext_links
 EXT = 0
 for fn, h in pages.items():
