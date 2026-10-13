@@ -48,7 +48,7 @@ def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
@@ -338,6 +338,18 @@ G += [("Representative APR","The APR at or below which a lender expects at least
 ("Credit reference agency (CRA)","A company holding credit records. The three main UK CRAs are Equifax, Experian and TransUnion."),
 ("Avios","Reward points used by British Airways and some other airlines, collected on some credit cards."),
 ("Foreign transaction fee","A charge, often a percentage, added when you spend in a foreign currency.")]
+G += [("FTTC (fibre to the cabinet)","Broadband with fibre to the street cabinet and copper to your home. Speed falls with distance from the cabinet."),
+("FTTP (full fibre)","Broadband with fibre all the way into your home – the fastest widely available connection."),
+("Mbps","Megabits per second – the unit broadband speed is measured in."),
+("PSTN switch-off","The closure of the UK's analogue phone network. Openreach's deadline is 31 January 2027; landlines move to digital."),
+("Social tariff","A cheaper broadband or phone package for people on Universal Credit and some other benefits."),
+("One Touch Switch","The broadband and landline switching process since September 2024: you only contact your new provider."),
+("PAC code","Porting Authorisation Code – text PAC to 65075 to switch mobile network and keep your number."),
+("STAC code","Service Termination Authorisation Code – text STAC to 75075 to switch mobile network without keeping your number."),
+("MVNO","Mobile virtual network operator – a mobile provider that uses another company's network, such as giffgaff or Tesco Mobile."),
+("SIM-only","A mobile plan for calls, texts and data without a handset."),
+("Split contract","A mobile contract with the handset and airtime on separate plans, so you pay only for airtime once the phone is paid off."),
+("Roaming","Using your mobile abroad on another country's network. Charges vary by provider.")]
 G.sort(key=lambda t: t[0].lower())
 letters = sorted(set(t[0][0].upper() for t in G))
 gl = "".join(f'<dt id="t-{i}" data-l="{t[0][0].upper()}">{html.escape(t[0])}</dt><dd>{html.escape(t[1])}</dd>' for i,t in enumerate(G))
@@ -389,6 +401,7 @@ exec(open("scripts/pages4.py").read())
 exec(open("scripts/pages5.py").read())
 exec(open("scripts/pages6.py").read())
 exec(open("scripts/pages7.py").read())
+exec(open("scripts/pages8.py").read())
 from seo import ext_links
 EXT = 0
 for fn, h in pages.items():

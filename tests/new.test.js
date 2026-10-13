@@ -22,4 +22,6 @@ rv=C.realValue(1000,3,3,5);chk('real2 real',rv.real,1000,1e-9);chk('real2 nomina
 {let t=C.btSave(3000,3,12,0,100);chk('bt1 fee',t.fee,90,1e-9);chk('bt1 saving',t.saving,-90,1e-9);chk('bt1 btLeft',t.btLeft,1890,1e-9);}
 // Balance transfer 2: £1,200, APR 1.01^12-1 (=1%/month), no payments, 12 months: interest 1200*(1.01^12-1)=152.19; fee 2%=24; saving 128.19
 {let t=C.btSave(1200,2,12,(Math.pow(1.01,12)-1)*100,0);chk('bt2 interest',t.interestAvoided,152.1900,0.001);chk('bt2 saving',t.saving,128.19,0.001);}
+// Speed 1: 4 people, 2 HD (10), 1 4K (25), 1 call (3), 1 gamer (3), browse 4 -> 45; +50% headroom -> 67.5
+{let t=C.speedNeed(4,2,1,1,1,50);chk('speed base',t.base,45,1e-9);chk('speed need',t.need,67.5,1e-9);}
 process.exit(ok?0:1);

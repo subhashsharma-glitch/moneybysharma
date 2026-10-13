@@ -101,6 +101,12 @@
     var fee = balance * feePct / 100;
     return { fee: fee, interestAvoided: interest, saving: interest - fee, oldLeft: b, btLeft: Math.max(0, balance + fee - monthly * months) };
   }
-  var api = { btSave: btSave, realValue: realValue, mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
+  // Rough broadband speed need (Mbps) from simultaneous activities; per-activity figures are stated assumptions.
+  var SPEED = { hd: 5, uhd: 25, call: 3, game: 3, browse: 1 };
+  function speedNeed(people, hd, uhd, calls, gamers, headroomPct) {
+    var base = hd * SPEED.hd + uhd * SPEED.uhd + calls * SPEED.call + gamers * SPEED.game + people * SPEED.browse;
+    return { base: base, need: base * (1 + headroomPct / 100) };
+  }
+  var api = { speedNeed: speedNeed, SPEED: SPEED, btSave: btSave, realValue: realValue, mortgage: mortgage, fees: fees, gilt: gilt, pension: pension, battery: battery, ev: ev };
   if (typeof module !== "undefined") module.exports = api; else root.MBSCalc = api;
 })(this);

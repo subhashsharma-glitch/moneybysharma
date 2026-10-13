@@ -1,0 +1,8 @@
+{
+  "description": "Pages whose dated deals/offers are re-checked in the weekly Monday deal check. Each deal must be re-verified on the provider's own page; remove it if it can't be confirmed, and update the checked date.",
+  "pages": [
+    {"page": "bank-accounts.html", "section": "#bonuses", "label": "Bank accounts – switching bonuses", "dataIn": "scripts/pages5.py (BON)"},
+    {"page": "credit-cards.html", "section": "#deals", "label": "Credit cards – offers", "dataIn": "scripts/pages6.py (DEALS)"},
+    {"page": "broadband-phones.html", "section": "#deals", "label": "Broadband & phones – deals", "dataIn": "scripts/pages8.py (BBDEALS, DCHK)"}
+  ]
+}
