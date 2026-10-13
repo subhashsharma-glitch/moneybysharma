@@ -354,7 +354,10 @@ pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", 
  ph("Resources","Resources","Free resources from MoneyBySharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
 <div class="card"><span class="tag">Free</span><h3>Money Matters cheat sheet 2026/27</h3><p>The key UK allowances, tax bands, protections and rates on one page, each with its source and "as at" date, plus a money basics checklist.</p>
-<p><a class="btn" href="money-matters-cheat-sheet.html">View the cheat sheet</a></p><p><a href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a></p></div></div>'''))
+<p><a class="btn" href="money-matters-cheat-sheet.html">View the cheat sheet</a></p><p><a href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a></p></div>
+<div class="card"><span class="tag">Free PDF</span><h3>Explained Simply: Money Matters</h3><p>A free illustrated guide by Subhash Sharma covering payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, investing and scams, with figures checked for 2026/27.</p>
+<p><a class="btn" href="assets/explained-simply-money-matters.pdf" download>Download the guide</a></p><p class="hint">PDF, 1.7 MB, 15 pages.</p></div></div>
+<p class="hint" style="margin-top:1rem"><strong>Information only – not financial advice.</strong> These resources give general information, not regulated financial advice, and MoneyBySharma isn't authorised or regulated by the FCA. Figures can change, so check the current rules before making decisions.</p>'''))
 # ---------- ABOUT / DISCLAIMER / PRIVACY ----------
 pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I started MoneyBySharma, and how I check the figures.", ph("About","About MoneyBySharma","Plain-English UK money information, by Subhash Sharma."), W(f'''
 <div style="max-width:760px"><h2>Why I started MoneyBySharma</h2>
