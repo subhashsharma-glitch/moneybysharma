@@ -1,0 +1,120 @@
+# Credit scores & debt help (exec'd from build.py). Sources checked 14 Oct 2026.
+C9 = "14 October 2026"
+S9 = {
+ "ico": ("ICO – Credit: your information and credit reference agencies", "https://ico.org.uk/for-the-public/credit/"),
+ "mhscore": ("MoneyHelper – How to improve your credit score", "https://www.moneyhelper.org.uk/en/everyday-money/credit-and-purchases/how-to-improve-your-credit-score"),
+ "ccj": ("GOV.UK – CCJs and your credit rating", "https://www.gov.uk/county-court-judgments-ccj-for-debt/ccjs-and-your-credit-rating"),
+ "dro": ("GOV.UK – Options for dealing with your debts: Debt Relief Orders", "https://www.gov.uk/options-for-paying-off-your-debts/debt-relief-orders"),
+ "dmp": ("GOV.UK – Options for dealing with your debts: Debt Management Plans", "https://www.gov.uk/options-for-paying-off-your-debts/debt-management-plans"),
+ "iva": ("GOV.UK – Options for dealing with your debts: Individual Voluntary Arrangements", "https://www.gov.uk/options-for-paying-off-your-debts/individual-voluntary-arrangements"),
+ "bk": ("GOV.UK – Applying to become bankrupt", "https://www.gov.uk/bankruptcy"),
+ "bs": ("Insolvency Service (GOV.UK) – Debt Respite Scheme (Breathing Space) guidance", "https://www.gov.uk/government/publications/debt-respite-scheme-breathing-space-guidance/debt-respite-scheme-breathing-space-guidance-for-creditors"),
+ "prio": ("MoneyHelper – How to prioritise your debts", "https://www.moneyhelper.org.uk/en/money-troubles/dealing-with-debt/how-to-prioritise-your-debts"),
+ "free": ("GOV.UK – Get free debt advice", "https://www.gov.uk/debt-advice"),
+ "fcaads": ("FCA – Unauthorised or unsuitable debt advice", "https://www.fca.org.uk/consumers/unauthorised-unsuitable-debt-advice"),
+ "fcaflags": ("FCA – Debt advice warning: spot the red flags", "https://www.fca.org.uk/news/press-releases/debt-advice-warning-spot-red-flags"),
+ "mat": ("Money Advice Trust – Mental Health Awareness Week: accessing support and resources", "https://moneyadvicetrust.org/blog/mental-health-awareness-week-accessing-support-and-resources/"),
+ "dmhef": ("Money Advice Trust – Debt and Mental Health Evidence Form", "https://moneyadvicetrust.org/advice-services/dmhef/"),
+}
+def s9(*k): return '<p class="src">Sources (checked ' + C9 + '): ' + "; ".join(f'<a href="{S9[x][1]}" rel="noopener">{S9[x][0]}</a>' for x in k) + ".</p>"
+pages["credit-scores-debt-help.html"] = page("credit-scores-debt-help.html","Credit scores and debt help – MoneyBySharma",
+ "How UK credit files and scores work, how to check yours free, fix mistakes and build a record, plus free debt help, Breathing Space and the main debt options with official figures.",
+ ph("Credit scores &amp; debt help","Credit scores &amp; debt help","What's on your credit file, how to check it free and put mistakes right, and where to find free, confidential help if debts are getting on top of you. Information only – not advice."), W(f'''
+<div class="cols"><div>
+<div class="note" style="margin-top:1.5rem"><strong>Information only – not advice.</strong> MoneyBySharma isn't a debt adviser and isn't authorised by the FCA. This page explains how things work; it doesn't recommend any option, firm or product, and it has no affiliate links. For advice on your own situation, speak to a free debt adviser.</div>
+<div class="note" role="note" style="border-left-color:#b3261e"><strong>Worried about debt right now?</strong> Free, confidential help is available from <a href="https://www.moneyhelper.org.uk/en/money-troubles/dealing-with-debt/use-our-debt-advice-locator" rel="noopener">MoneyHelper's debt advice locator</a>, <a href="https://www.stepchange.org/" rel="noopener">StepChange</a>, <a href="https://nationaldebtline.org/" rel="noopener">National Debtline</a> (0808 808 4000) and <a href="https://www.citizensadvice.org.uk/debt-and-money/" rel="noopener">Citizens Advice</a>. You don't need to pay for debt advice.</div>
+
+<h2 id="file">Credit files and credit scores</h2>
+<p>A <strong>credit file</strong> (or credit report) is a record of how you've managed credit and some bills: loans, cards, overdrafts, mobile and utility accounts, plus your past addresses and public records such as county court judgments (CCJs) and insolvencies. Lenders look at it when you apply to borrow.</p>
+<p>A <strong>credit score</strong> is a number an agency or lender works out from that information. Each agency uses its own scale, and lenders use their own scoring too, so there's no single "credit score".</p>
+<p>The three main consumer <strong>credit reference agencies (CRAs)</strong> are <a href="https://www.experian.co.uk/" rel="noopener">Experian</a>, <a href="https://www.equifax.co.uk/" rel="noopener">Equifax</a> and <a href="https://www.transunion.co.uk/" rel="noopener">TransUnion</a>. They are licensed by the FCA. Lenders don't have to report to all of them, so your files can differ. MoneyHelper also lists a fourth agency, Crediva.</p>
+{s9("ico","mhscore")}
+
+<h2 id="check">Check your file free</h2>
+<ul>
+<li><strong>Your statutory right.</strong> You can ask any CRA for a copy of the information it holds about your financial standing, free of charge. Look for the words "statutory report" on each agency's website, or ask by letter or phone.</li>
+<li><strong>Timing.</strong> Unless it needs more information from you (such as proof of address), the agency has one month to respond. It can take up to two extra months in some cases, but must tell you why within the first month.</li>
+<li><strong>No subscription needed.</strong> The agencies also sell paid monthly services. You don't have to sign up to one to see your file.</li>
+<li><strong>Which agency?</strong> You could start with one report and ask your lenders which agencies they use.</li>
+</ul>
+{s9("ico")}
+
+<h2 id="affects">What affects your file</h2>
+<ul>
+<li><strong>Payment history.</strong> Paying on time builds a positive record. Missed payments, arrears and defaults are recorded. The most recent information tends to matter most to lenders.</li>
+<li><strong>How much credit you use.</strong> Your balances and credit limits appear on your file. Staying within agreed limits, including any overdraft, helps show you're managing credit.</li>
+<li><strong>Electoral roll.</strong> Being registered to vote at your current address helps agencies confirm who you are. Councils send updates monthly, so a change can show within about eight weeks.</li>
+<li><strong>Hard and soft searches.</strong> A <em>soft search</em> (eligibility checkers, some quotes) doesn't affect your score and lenders can't see it. A <em>hard search</em> happens when you apply; it shows on your file, and several in a short time can make lenders more cautious.</li>
+<li><strong>Financial associates.</strong> A joint account or joint mortgage links your file to the other person's, and lenders can look at both. You shouldn't be linked just because you live at the same address. When a joint account closes, you can ask each agency for a <em>notice of disassociation</em>.</li>
+<li><strong>How long records last.</strong> Negative information such as missed payments and defaults usually stays for <strong>6 years</strong>. A CCJ stays on the Register of Judgments, Orders and Fines for <strong>6 years</strong>; if you pay it in full within one month you can get it removed, and if you pay later it stays but shows as paid. A DRO, IVA or bankruptcy stays on your credit record for 6 years.</li>
+</ul>
+{s9("mhscore","ico","ccj","dro")}
+
+<h2 id="errors">Fixing mistakes</h2>
+<ol>
+<li><strong>Tell the agency.</strong> Report the error to the CRA whose file shows it. It checks with the organisation that supplied the information. MoneyHelper says this shouldn't take longer than 28 days, and the entry is marked "disputed" meanwhile.</li>
+<li><strong>Go to the source.</strong> An entry with a company's name on it is usually that company's responsibility, so you may need to contact the lender too. Lenders can correct entries themselves.</li>
+<li><strong>Complain to the ICO.</strong> If an obvious inaccuracy isn't corrected by the agency or lender, you can complain to the <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">Information Commissioner's Office</a>. The ICO doesn't settle financial disputes.</li>
+</ol>
+<p><strong>Notice of correction.</strong> Accurate information can't be removed early, but you can add a short statement explaining the circumstances (for example, a period of illness or job loss). You ask each agency separately. It doesn't change your score, but lenders must read it, so applications may take a little longer.</p>
+<p>If you think someone has applied for credit in your name, report it to the lender and to <a href="https://www.reportfraud.police.uk/" rel="noopener">Report Fraud</a> (Police Scotland on 101 in Scotland).</p>
+{s9("mhscore","ico")}
+
+<h2 id="build">Building a credit record</h2>
+<p>MoneyHelper describes these general steps. They aren't a recommendation to borrow.</p>
+<ul>
+<li>Register to vote at your current address.</li>
+<li>Run a current account and stay within any agreed overdraft.</li>
+<li>Pay bills and any credit on time – Direct Debits can help.</li>
+<li>Check eligibility with a soft search before applying, to avoid unnecessary hard searches.</li>
+<li>Be careful about joint accounts with someone who has a poor credit history.</li>
+<li>Avoid paid "credit repair" firms: they mostly tell you how to do things you can do yourself free.</li>
+</ul>
+{s9("mhscore")}
+
+<h2 id="help">Free debt help</h2>
+<p>Free, confidential and independent debt advice is available across the UK. Organisations listed on GOV.UK include:</p>
+<ul>
+<li><a href="https://www.moneyhelper.org.uk/en/money-troubles/dealing-with-debt" rel="noopener">MoneyHelper</a> – the government-backed service, with a debt advice locator.</li>
+<li><a href="https://www.stepchange.org/" rel="noopener">StepChange Debt Charity</a> – 0800 138 1111.</li>
+<li><a href="https://nationaldebtline.org/" rel="noopener">National Debtline</a> (England and Wales, run by the Money Advice Trust) – 0808 808 4000.</li>
+<li><a href="https://www.citizensadvice.org.uk/debt-and-money/" rel="noopener">Citizens Advice</a> – 0800 144 8848 (England), 0800 702 2020 (Wales).</li>
+</ul>
+<p>Phone numbers as listed on GOV.UK; check opening hours there. The process differs in Scotland and Northern Ireland.</p>
+<div class="note" role="note" style="border-left-color:#b3261e"><strong>Be wary of debt adverts and fee-charging firms.</strong> The FCA warns that some online and social media adverts make misleading claims about writing off debt or being "government backed", and are run by "lead generators" paid to pass your details on. Fees for an IVA can come to several thousand pounds. Warning signs include pressure to decide quickly and not being told about free alternatives. You can check a firm on the <a href="https://register.fca.org.uk/s/" rel="noopener">FCA Register</a>.</div>
+{s9("free","fcaads","fcaflags")}
+
+<h2 id="priority">Priority and non-priority debts</h2>
+<p>Some debts have more serious consequences if they're not paid, whatever their size.</p>
+<div class="grid g2">
+<div class="card"><h3>Priority debts (examples)</h3><ul><li>Mortgage, rent and loans secured on your home</li><li>Council Tax</li><li>Gas and electricity</li><li>Court fines</li><li>Income Tax, National Insurance and VAT</li><li>TV Licence and child maintenance</li><li>Essential hire purchase</li></ul><p class="hint">Not paying can lead to losing your home, disconnection, bailiffs, court action or, in the most serious cases, prison.</p></div>
+<div class="card"><h3>Non-priority debts (examples)</h3><ul><li>Credit and store cards</li><li>Overdrafts and personal loans</li><li>Payday loans</li><li>Catalogue and home credit</li><li>Money owed to friends or family</li><li>Water bills (but worth treating as essential)</li></ul><p class="hint">Creditors can still go to court or use bailiffs eventually, but the consequences are usually less immediate.</p></div>
+</div>
+{s9("prio")}
+
+<h2 id="breathing">Breathing Space (England and Wales)</h2>
+<ul>
+<li><strong>Standard breathing space:</strong> legal protection from creditors for up to <strong>60 days</strong>. Most enforcement action and contact from creditors is paused, and most interest and charges are frozen.</li>
+<li><strong>Mental health crisis breathing space:</strong> for someone receiving mental health crisis treatment. It lasts as long as the treatment, plus <strong>30 days</strong>.</li>
+<li><strong>How to get one:</strong> only through an FCA-authorised debt adviser or a local authority debt advice service. You can't apply on your own.</li>
+<li><strong>Limits:</strong> you can't have a standard breathing space if you've had one in the last 12 months, or if you're in a DRO, IVA or bankruptcy. It isn't a payment holiday: you should keep paying if you can, including ongoing bills like rent, mortgage and energy.</li>
+</ul>
+{s9("bs")}
+
+<h2 id="options">Debt options in outline</h2>
+<p>A free debt adviser can explain which, if any, might suit you. Figures are for England and Wales.</p>
+<div class="table-scroll"><table><thead><tr><th>Option</th><th>What it is</th><th>Key figures and costs</th></tr></thead><tbody>
+<tr><td><strong>Debt Management Plan (DMP)</strong></td><td>An informal agreement to repay all your unsecured debts in affordable amounts. Creditors don't have to agree, and can still take action unless the agreement says otherwise.</td><td>You can arrange it yourself with your creditors, or through an FCA-authorised company, which may charge a set-up fee and a handling fee on each payment.</td></tr>
+<tr><td><strong>Debt Relief Order (DRO)</strong></td><td>Payments to debts (and interest) stop for 12 months, then the included debts are written off. Restrictions apply, such as not borrowing more than £500 without telling the lender.</td><td>Debts under <strong>£50,000</strong>; spare income usually under <strong>£75 a month</strong>; assets under <strong>£2,000</strong>; no vehicle worth <strong>£4,000</strong> or more; not a homeowner. <strong>No fee</strong>. Must apply through an approved adviser.</td></tr>
+<tr><td><strong>Individual Voluntary Arrangement (IVA)</strong></td><td>A legal agreement to pay all or part of your debts through an insolvency practitioner. Starts if creditors holding <strong>75%</strong> of the debt agree.</td><td>Usually a set-up fee and a fee on each payment. The FCA says IVA fees often come to several thousand pounds.</td></tr>
+<tr><td><strong>Bankruptcy</strong></td><td>An adjudicator at the Insolvency Service decides the application, then an official receiver deals with your case. If you own property, an entry can be added to the Land Registry, which may stop you selling it.</td><td>Application fee <strong>£680</strong> (online only; can be paid in instalments). Decision usually within 28 days.</td></tr>
+</tbody></table></div>
+<p>A DRO, IVA or bankruptcy goes on the public Individual Insolvency Register and stays on your credit record for 6 years.</p>
+{s9("dmp","dro","iva","bk","fcaads")}
+
+<h2 id="mental">Debt and mental health</h2>
+<p>Debt and mental health problems often go together. The Money Advice Trust, which runs National Debtline, works with Mental Health UK's <a href="https://www.mentalhealthandmoneyadvice.org/" rel="noopener">Mental Health and Money Advice</a> service to offer extra casework support to people who need it. The Trust also hosts the <strong>Debt and Mental Health Evidence Form</strong>, which a health or social care professional can complete so creditors can take your situation into account. GPs can't charge for completing it.</p>
+<p>If you're in crisis, contact your GP, contact NHS 111, or contact <a href="https://www.samaritans.org/" rel="noopener">Samaritans</a>.</p>
+{s9("mat","dmhef")}
+<p>See also: <a href="credit-cards.html">Credit cards</a> · <a href="bank-accounts.html">Bank accounts</a> · <a href="jargon.html">Jargon buster</a>.</p>
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#file">Credit files</a><a href="#check">Check free</a><a href="#affects">What affects it</a><a href="#errors">Fixing mistakes</a><a href="#build">Building a record</a><a href="#help">Free debt help</a><a href="#priority">Priority debts</a><a href="#breathing">Breathing Space</a><a href="#options">Debt options</a><a href="#mental">Mental health</a></div></aside></div>'''))

@@ -48,7 +48,7 @@ def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("students.html","Students"),("electric-cars.html","Electric cars")]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>')],"tools.html"),
  ("resources.html","Resources"),("about.html","About")]
@@ -405,6 +405,8 @@ exec(open("scripts/pages5.py").read())
 exec(open("scripts/pages6.py").read())
 exec(open("scripts/pages7.py").read())
 exec(open("scripts/pages8.py").read())
+exec(open("scripts/pages9.py").read())
+exec(open("scripts/pages10.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
