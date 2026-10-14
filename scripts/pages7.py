@@ -2,7 +2,9 @@
 TY = "2026/27 (6 Apr 2026 – 5 Apr 2027)"
 def _s(k, asat):
     return f'<a href="{S[k][1]}">{html.escape(S[k][0].split(" – ")[0])}</a>, as at {asat}'
+CSD = []
 def _sec(title, rows):
+    CSD.append({"title": title, "rows": [list(x) for x in rows]})
     r = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td class="cs-src">{c}</td></tr>' for a,b,c in rows)
     return f'<section class="cs-sec"><h2>{title}</h2><table class="cs"><thead><tr><th scope="col">Item</th><th scope="col">Figure</th><th scope="col">Source</th></tr></thead><tbody>{r}</tbody></table></section>'
 lm = CPI["latestMonth"]; cpim = lm["period"].split()[1].title() + " " + lm["period"].split()[0]
@@ -48,3 +50,7 @@ pages["money-matters-cheat-sheet.html"] = page("money-matters-cheat-sheet.html",
  ph('<a href="resources.html">Resources</a> › Money Matters cheat sheet',"Money Matters cheat sheet 2026/27","UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date."), W(f'''
 <p class="cs-actions"><a class="btn" href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a> <a href="resources.html">Back to Resources</a></p>
 <div class="cs-grid">{CS}{BASICS}</div>{CSFOOT}'''))
+
+import re as _re
+json.dump({"sections": CSD, "basics": _re.findall(r"<li>(.*?)</li>", BASICS), "foot": CSFOOT, "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.", "checked": CHECKED},
+          open("data/cheat-sheet.json","w"), ensure_ascii=False, indent=1)
