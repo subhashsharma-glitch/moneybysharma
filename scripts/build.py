@@ -95,7 +95,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <section class="numbers" aria-labelledby="kn"><div class="wrap"><h2 id="kn">Today's key numbers</h2>
 <div class="kn"><b>{BR["rate"]:.2f}%</b><small>Bank of England Bank Rate, since {d(BR["since"])}. <a href="{BR["sourceUrl"]}" rel="noopener">BoE</a> data as at {d(BR["asAt"])}.</small></div>
 <div class="kn"><b>£20,000</b><small>ISA allowance 2026/27. <a href="{S["rates"][1]}" rel="noopener">GOV.UK</a></small></div>
-<div class="kn"><b>{html.escape(lowc["name"])}</b><small>A real low-coupon gilt: {lowc["coupon"]}% coupon, matures {d(lowc["maturity"])} (ISIN {lowc["isin"]}). <a href="{GI["sourceUrl"]}" rel="noopener">DMO</a>, close of business {d(GI["closeOfBusiness"])}. Example only, not a recommendation.</small></div>
+<div class="kn"><b>£12,570</b><small>Personal Allowance 2026/27: income you can earn tax-free. Frozen to April 2031; tapers away above £100,000. <a href="https://www.gov.uk/income-tax-rates" rel="noopener">GOV.UK</a>, 14 Oct 2026 · <a href="money-matters-cheat-sheet.html">Cheat sheet</a></small></div>
 </div></section>
 <div class="wrap"><a class="card feature" href="how-money-works.html"><span class="tag">New · Illustrated guide</span><h2 style="margin:.4rem 0">How money works, in pictures</h2><p>Where money comes from, what the Bank of England does, why prices rise – and what it all means for your savings, mortgage and investments. Ten simple steps.</p><span class="btn">Start the guide →</span></a>
 <h2>Guides</h2><div class="grid g3">
