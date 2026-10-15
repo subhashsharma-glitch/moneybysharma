@@ -1,0 +1,210 @@
+{
+  "as_of": "2026-10-15T15:16:20+01:00",
+  "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
+  "atr": {
+    "name": "ATR model paper book",
+    "start_date": "2026-10-15",
+    "start_cash": 10000.0,
+    "currency": "USD",
+    "position_size": 1000.0,
+    "cash": 9000.0,
+    "open_positions": [
+      {
+        "ticker": "SILVER",
+        "entry_date": "2026-10-15",
+        "entry_price": 56.74,
+        "units": 17.6243,
+        "cost_basis": 1000.0,
+        "stop": 46.47,
+        "target": 60.82,
+        "timeframe": "4h",
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      }
+    ],
+    "closed_trades": [],
+    "totals": {
+      "realised_pnl_usd": 0.0,
+      "realised_pnl_pct": 0.0,
+      "unrealised_pnl_usd": null,
+      "total_pnl_usd": 0.0,
+      "total_pnl_pct": 0.0,
+      "open_positions_cost_basis_usd": 1000.0,
+      "equity_at_cost_usd": 10000.0,
+      "open_count": 1,
+      "closed_count": 0,
+      "win_count": 0,
+      "loss_count": 0
+    },
+    "notes": "The ledger does not store latest prices, so open positions are not marked to market: total P&L covers closed trades only, and open positions are shown at cost basis (cash + cost basis of open positions + realised P&L = equity at cost). start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field)."
+  },
+  "x_buzz": {
+    "name": "X buzz paper book",
+    "start_date": "2026-10-12",
+    "start_cash": 10000.0,
+    "currency": "USD",
+    "position_size": 1000.0,
+    "cash": 653.52,
+    "open_positions": [
+      {
+        "ticker": "PLTR",
+        "entry_date": "2026-10-12",
+        "entry_price": 208.5,
+        "units": 4.796163,
+        "cost_basis": 1000.0,
+        "stop": 191.82,
+        "target": 250.2,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "CRM",
+        "entry_date": "2026-10-13",
+        "entry_price": 233.92,
+        "units": 4.274966,
+        "cost_basis": 1000.0,
+        "stop": 215.2064,
+        "target": 280.704,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "GS",
+        "entry_date": "2026-10-13",
+        "entry_price": 893.95,
+        "units": 1.118631,
+        "cost_basis": 1000.0,
+        "stop": 822.434,
+        "target": 1072.74,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "META",
+        "entry_date": "2026-10-13",
+        "entry_price": 742.96,
+        "units": 1.345967,
+        "cost_basis": 1000.0,
+        "stop": 683.5232,
+        "target": 891.552,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "ASML",
+        "entry_date": "2026-10-14",
+        "entry_price": 1696.94,
+        "units": 0.589296,
+        "cost_basis": 1000.0,
+        "stop": 1561.1848,
+        "target": 2036.328,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "BLK",
+        "entry_date": "2026-10-14",
+        "entry_price": 1102.31,
+        "units": 0.907186,
+        "cost_basis": 1000.0,
+        "stop": 1014.1252,
+        "target": 1322.772,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "SCHW",
+        "entry_date": "2026-10-15",
+        "entry_price": 94.5,
+        "units": 10.582011,
+        "cost_basis": 1000.0,
+        "stop": 86.94,
+        "target": 113.4,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "TSM",
+        "entry_date": "2026-10-15",
+        "entry_price": 419.2,
+        "units": 2.385496,
+        "cost_basis": 1000.0,
+        "stop": 385.664,
+        "target": 503.04,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      },
+      {
+        "ticker": "UNH",
+        "entry_date": "2026-10-15",
+        "entry_price": 397.8997,
+        "units": 2.513196,
+        "cost_basis": 1000.0,
+        "stop": 366.0677,
+        "target": 477.4796,
+        "latest_price": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
+      }
+    ],
+    "closed_trades": [
+      {
+        "ticker": "ASTS",
+        "entry_date": "2026-10-12",
+        "entry_price": 53.065,
+        "exit_date": "2026-10-14",
+        "exit_price": 46.06,
+        "units": 18.844813,
+        "pnl_usd": -132.01,
+        "pnl_pct": -13.2,
+        "exit_reason": "Stop (-8%, $48.82) breached on 13 Oct (day low $46.23, close $47.07) after Piper Sandler downgrade and $1B note-settlement overhang; buzz turned bearish"
+      },
+      {
+        "ticker": "LQDA",
+        "entry_date": "2026-10-14",
+        "entry_price": 36.26,
+        "exit_date": "2026-10-15",
+        "exit_price": 33.7535,
+        "units": 27.578599,
+        "pnl_usd": -69.13,
+        "pnl_pct": -6.91,
+        "exit_reason": "Stop (-8%, $33.36) breached on 14 Oct (day low $33.12 after opening ~$35.70); faded from settlement spike"
+      },
+      {
+        "ticker": "ONDS",
+        "entry_date": "2026-10-12",
+        "entry_price": 7.0203,
+        "exit_date": "2026-10-15",
+        "exit_price": 6.0,
+        "units": 142.444055,
+        "pnl_usd": -145.34,
+        "pnl_pct": -14.53,
+        "exit_reason": "Stop (-8%, $6.46) breached; day low $6.13 on 14 Oct, premarket ~$6.00 on 15 Oct amid small-cap/AI selloff"
+      }
+    ],
+    "totals": {
+      "realised_pnl_usd": -346.48,
+      "realised_pnl_pct": -3.46,
+      "unrealised_pnl_usd": null,
+      "total_pnl_usd": -346.48,
+      "total_pnl_pct": -3.46,
+      "open_positions_cost_basis_usd": 9000.0,
+      "equity_at_cost_usd": 9653.52,
+      "open_count": 9,
+      "closed_count": 3,
+      "win_count": 0,
+      "loss_count": 3
+    },
+    "notes": "The ledger does not store latest prices, so open positions are not marked to market: total P&L covers closed trades only, and open positions are shown at cost basis (cash + cost basis of open positions + realised P&L = equity at cost). start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
+    "description": "X buzz paper strategy: top 3 bullish-trending tickers on X, $1,000 each; exit at 10 trading days, -8%, +20%, or bearish buzz turn. Fake money only."
+  }
+}
