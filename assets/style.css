@@ -139,7 +139,7 @@ table.pt th,table.pt td{text-align:left;padding:.45rem .6rem;border-bottom:1px s
 .es-pages figcaption{font-size:.85rem;color:var(--muted);padding:.45rem .9rem;border-top:1px solid var(--line)}
 /* search-inline (copied verbatim into the Garmin page by garmin_chrome.py) */
 header.site .nav>.logo,header.site .nav>.hs-toggle,header.site .nav>.menu-btn{order:1}
-header.site .nav>.hs{order:2;display:none;flex:0 0 100%;margin:0;padding:0 0 .75rem}
+header.site .nav>.hs{order:2;display:none;flex:0 0 100%;min-width:0;max-width:100%;margin:0;padding:0 0 .75rem}
 header.site .nav>.hs.open{display:block}
 header.site .nav>nav.main{order:3}
 header.site .nav>.hs-toggle{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:44px;height:40px;border:1px solid var(--line,#dfe5e2);border-radius:10px;color:var(--teal,#0f4c45);background:#fff;text-decoration:none}
@@ -209,3 +209,12 @@ nav.main .dd-grp>ul{padding-left:.4rem}
 .contacts{width:100%}
 .wrap-th th,.pay-tbl th,.contacts th{white-space:normal}
 .pay-tbl{min-width:0}
+/* mobile menu: the open menu scrolls inside the header, so every item is reachable */
+@media(max-width:959.98px){
+ header.site.menu-open{max-height:100vh;max-height:100dvh;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+ header.site.menu-open nav.main{padding-bottom:max(.75rem,env(safe-area-inset-bottom))}
+ nav.main .dd-grp.acc>.dd-h{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:.35rem .2rem;border-top:1px solid var(--line);cursor:pointer}
+ nav.main .dd-grp.acc>.dd-h::after{content:"";width:.45rem;height:.45rem;margin-right:.35rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s}
+ nav.main .dd-grp.acc.open>.dd-h::after{transform:rotate(-135deg)}
+ nav.main .dd-grp.acc:not(.open)>ul{display:none}
+}

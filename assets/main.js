@@ -1,4 +1,10 @@
-(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)})}})();
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('nav'),h=document.querySelector('header.site');if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);if(h)h.classList.toggle('menu-open',o)})}})();
+/* Small screens: Guides groups fold into an accordion (the group holding the current page starts open) */
+(function(){var mq=window.matchMedia&&window.matchMedia('(max-width:959.98px)'),hs=[].slice.call(document.querySelectorAll('nav.main .dd-h'));if(!mq||!hs.length)return;
+function tog(h){var li=h.parentNode,o=li.classList.toggle('open');h.setAttribute('aria-expanded',o)}
+function sync(){hs.forEach(function(h){var li=h.parentNode;if(mq.matches){li.classList.add('acc');if(li.querySelector('a[aria-current=page]'))li.classList.add('open');h.setAttribute('role','button');h.tabIndex=0;h.setAttribute('aria-expanded',li.classList.contains('open'))}else{li.classList.remove('acc','open');h.removeAttribute('role');h.removeAttribute('tabindex');h.removeAttribute('aria-expanded')}})}
+hs.forEach(function(h){h.addEventListener('click',function(){if(mq.matches)tog(h)});h.addEventListener('keydown',function(e){if(mq.matches&&(e.key==='Enter'||e.key===' ')){e.preventDefault();tog(h)}})});
+if(mq.addEventListener)mq.addEventListener('change',sync);else if(mq.addListener)mq.addListener(sync);sync()})();
 window.gbp=function(v,dp){return '£'+Number(v).toLocaleString('en-GB',{minimumFractionDigits:dp==null?2:dp,maximumFractionDigits:dp==null?2:dp})};
 window.pct=function(v,dp){return (v*100).toFixed(dp==null?2:dp)+'%'};
 document.addEventListener('click',function(e){document.querySelectorAll('nav.main details[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});

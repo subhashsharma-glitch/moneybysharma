@@ -30,9 +30,10 @@ nav.main summary a.dd-link{display:inline;padding:0;border:0;font:inherit;color:
 header.site .dd-h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.65rem 0 .1rem}
 nav.main .dd-grp>ul{padding-left:.4rem}
 @media(min-width:960px){nav.main .dd-cols details[open]>ul{display:flex;gap:1.6rem;align-items:flex-start;padding:.7rem 1.1rem}nav.main .dd-cols .dd-grp{display:block}nav.main .dd-cols .dd-grp>ul{display:block;padding:0;white-space:nowrap}nav.main .dd-cols .dd-h{padding-top:0}}
+@media(max-width:959.98px){header.site.menu-open{max-height:100vh;max-height:100dvh;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}header.site.menu-open nav.main{padding-bottom:max(.75rem,env(safe-area-inset-bottom))}nav.main .dd-grp.acc>.dd-h{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:.35rem .2rem;border-top:1px solid var(--line);cursor:pointer}nav.main .dd-grp.acc>.dd-h::after{content:"";width:.45rem;height:.45rem;margin-right:.35rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s}nav.main .dd-grp.acc.open>.dd-h::after{transform:rotate(-135deg)}nav.main .dd-grp.acc:not(.open)>ul{display:none}}
 /* search-inline (copied verbatim into the Garmin page by garmin_chrome.py) */
 header.site .nav>.logo,header.site .nav>.hs-toggle,header.site .nav>.menu-btn{order:1}
-header.site .nav>.hs{order:2;display:none;flex:0 0 100%;margin:0;padding:0 0 .75rem}
+header.site .nav>.hs{order:2;display:none;flex:0 0 100%;min-width:0;max-width:100%;margin:0;padding:0 0 .75rem}
 header.site .nav>.hs.open{display:block}
 header.site .nav>nav.main{order:3}
 header.site .nav>.hs-toggle{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;width:44px;height:40px;border:1px solid var(--line,#dfe5e2);border-radius:10px;color:var(--teal,#0f4c45);background:#fff;text-decoration:none}
