@@ -28,7 +28,7 @@ BON = [("Barclays","https://www.barclays.co.uk/current-accounts/","Up to £300: 
  ("NatWest","https://www.natwest.com/current-accounts.html","£200","Switch a current account held elsewhere to a Select or Reward account. The bank's page says T&Cs and restrictions apply – read the full terms on its site.")]
 _bon = "".join(f'<tr><td><a href="{u}" rel="noopener">{n}</a></td><td>{a}</td><td>{c}</td></tr>' for n,u,a,c in BON)
 pages["bank-accounts.html"] = page("bank-accounts.html","Bank accounts – MoneyBySharma",
- "UK current accounts explained: account types, basic bank accounts, switching with CASS, £120,000 FSCS protection, overdraft rules, an A–Z of banks and how switching bonuses work.",
+ "UK current accounts explained: account types, basic bank accounts, switching with CASS, £120,000 FSCS protection, overdraft rules, ways to pay and the protections that apply (chargeback, Section 75, Direct Debit Guarantee), an A–Z of banks and how switching bonuses work.",
  ph("Bank accounts","Bank accounts","Types of current account, how switching works, how your money is protected, overdraft rules, and an A–Z of banks. A neutral list – we don't rate or recommend anyone."), W(f'''
 <div class="cols"><div>
 <div class="note" style="margin-top:1.5rem"><strong>Information only – not advice.</strong> MoneyBySharma has no affiliation with, and receives no payment or commission from, any bank, building society or app. Nothing here is a recommendation. Accounts, fees and offers change often, so always check the current terms with the provider before you apply.</div>
@@ -71,6 +71,7 @@ pages["bank-accounts.html"] = page("bank-accounts.html","Bank accounts – Money
 </ul>
 <p>Borrowing on a credit card instead? See <a href="credit-cards.html">Credit cards and deals</a>.</p>
 {src("ps1916","conc5c")}
+{G4}
 <h2 id="providers">Banks and building societies A–Z</h2>
 <p>Each link goes to the provider's own current account page, checked on {CHECKED}. This list isn't complete, and the order says nothing about price or quality. We don't show fees, rates or ratings.</p>
 <div class="table-scroll"><table><caption class="sr">Current account providers</caption><thead><tr><th scope="col">Provider</th><th scope="col">Type</th></tr></thead><tbody>{_bl}</tbody></table></div>
@@ -89,4 +90,4 @@ pages["bank-accounts.html"] = page("bank-accounts.html","Bank accounts – Money
 <p><strong>Offers seen on banks' own pages on {CHECKED}</strong> (a summary only; read the full terms on the bank's site):</p>
 <div class="table-scroll"><table><caption class="sr">Switching offers seen on 12 October 2026</caption><thead><tr><th scope="col">Bank (source)</th><th scope="col">Bonus</th><th scope="col">Main conditions as stated by the bank</th></tr></thead><tbody>{_bon}</tbody></table></div>
 <p class="hint">We may not have seen every offer. Offers can end without notice, so the bank's own page is the only reliable source. Inclusion here isn't a recommendation.</p>
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#types">Account types</a><a href="#switch">Switching (CASS)</a><a href="#fscs">FSCS protection</a><a href="#overdrafts">Overdrafts &amp; fees</a><a href="#providers">Providers A–Z</a><a href="#bonuses">Switching bonuses</a><a href="credit-cards.html">Credit cards</a><a href="jargon.html">Jargon buster</a></div></aside></div>'''))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#types">Account types</a><a href="#switch">Switching (CASS)</a><a href="#fscs">FSCS protection</a><a href="#overdrafts">Overdrafts &amp; fees</a><a href="#ways">Ways to pay</a><a href="#providers">Providers A–Z</a><a href="#bonuses">Switching bonuses</a><a href="credit-cards.html">Credit cards</a><a href="jargon.html">Jargon buster</a></div></aside></div>'''))

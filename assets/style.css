@@ -50,7 +50,7 @@ table{border-collapse:collapse;width:100%;font-size:.95rem;background:#fff}
 th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--teal-50);color:var(--teal);font-weight:700;white-space:nowrap}
 th button{all:unset;cursor:pointer}th button:focus-visible{outline:3px solid var(--accent)}
-.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+.table-scroll{position:relative;overflow-x:auto;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
 .filters{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:flex-end;margin:1rem 0}
 label{font-weight:600;font-size:.95rem;display:block}
 input,select{font:inherit;padding:.55rem .65rem;border:1px solid #b8c4c1;border-radius:8px;background:#fff;width:100%;color:var(--ink)}
@@ -132,7 +132,7 @@ table.pt th,table.pt td{text-align:left;padding:.45rem .6rem;border-bottom:1px s
 .pt-book h3{margin-top:1.6rem}.pt-book{margin-bottom:2rem}
 
 /* explained simply view */
-.es-toc{columns:2 15rem;column-gap:2rem;padding-left:1.4rem;margin:.5rem 0 1rem}.es-toc li{break-inside:avoid;margin:.2rem 0}
+.es-toc{columns:2 15rem;column-gap:2rem;padding-left:1.4rem;margin:.5rem 0 1rem}.es-toc li{break-inside:avoid;margin:.2rem 0}.es-toc .es-more{font-size:.88rem;white-space:normal}
 .es-pages{max-width:860px;margin:1rem auto 0;display:grid;gap:1.2rem}
 .es-pages figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 .es-pages img{display:block;width:100%;height:auto;background:#f1f5f3}
@@ -187,3 +187,25 @@ header.site .nav>.hs-toggle:hover,header.site .nav>.hs-toggle[aria-expanded=true
 .sp-list{padding:0;margin:1rem 0;background:#fff;border:1px solid var(--line);border-radius:12px}.sp-list:empty{display:none}
 .sp-list .sx-item+.sx-item{border-top:1px solid var(--line)}
 /* end search-inline */
+/* guides menu groups */
+.dd-h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.65rem 0 .1rem}
+nav.main .dd-grp>ul{padding-left:.4rem}
+@media(min-width:960px){
+ nav.main .dd-cols details[open]>ul{display:flex;gap:1.6rem;align-items:flex-start;padding:.7rem 1.1rem}
+ nav.main .dd-cols .dd-grp{display:block}
+ nav.main .dd-cols .dd-grp>ul{display:block;padding:0;white-space:nowrap}
+ nav.main .dd-cols .dd-h{padding-top:0}
+}
+/* gap pages: interest growth, payslip, scams */
+.grow-fig{margin:1rem 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);max-width:560px}
+.grow-fig svg{display:block;width:100%;height:auto}
+.grow-fig figcaption{margin-top:.5rem}
+.pay-tbl td.num,.pay-tbl th.num{text-align:right;font-variant-numeric:tabular-nums}
+.pay-tbl tr.tot th,.pay-tbl tr.tot td{font-weight:700;border-top:2px solid var(--teal)}
+.steps3{display:grid;gap:.8rem;grid-template-columns:1fr;margin:1rem 0}
+@media(min-width:760px){.steps3{grid-template-columns:repeat(3,1fr)}}
+.steps3>div{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+.steps3 h3{margin:.1rem 0 .4rem;color:var(--teal)}
+.contacts{width:100%}
+.wrap-th th,.pay-tbl th,.contacts th{white-space:normal}
+.pay-tbl{min-width:0}

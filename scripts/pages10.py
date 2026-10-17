@@ -25,7 +25,7 @@ S10 = {
 }
 def s10(*k): return '<p class="src">Sources (checked ' + C10 + '): ' + "; ".join(f'<a href="{S10[x][1]}" rel="noopener">{S10[x][0]}</a>' for x in k) + ".</p>"
 pages["students.html"] = page("students.html","Students: money guide – MoneyBySharma",
- "UK student money explained: 2026/27 tuition fee and maintenance loans, Plan 5 repayments, grants, bursaries and DSA, student overdrafts, phones and Wi-Fi, railcards, discounts and hardship funds.",
+ "UK student money explained: 2026/27 tuition fee and maintenance loans, Plan 5 and Plan 2 repayments, grants, bursaries and DSA, student overdrafts, phones and Wi-Fi, railcards, discounts and hardship funds.",
  ph("Students","Students","Student finance for 2026/27, how repayments work, bank accounts, phones, travel, discounts and help if money gets tight. Information only – not advice."), W(f'''
 <div class="cols"><div>
 <div class="note" style="margin-top:1.5rem"><strong>Information only – not advice.</strong> This page explains how things work. It doesn't recommend any lender, bank, network or discount scheme, and it has no affiliate links. Figures are for England unless stated; always check the official source before you decide anything.</div>
@@ -68,6 +68,7 @@ pages["students.html"] = page("students.html","Students: money guide – MoneyBy
 <p>For comparison, GOV.UK lists other plan thresholds as £26,900 (Plan 1), £29,385 (Plan 2), £33,795 (Plan 4) and £21,000 (Postgraduate Loan, repaid at 6%).</p>
 {s10("plan","sfrepay","sfwo","p5int")}
 
+{G6}
 <h2 id="grants">Grants, bursaries and DSA</h2>
 <ul>
 <li><strong>Bursaries, scholarships and awards.</strong> Each university or college sets its own rules on who qualifies, how much and how to apply. The money is paid to you directly and you don't usually pay it back. Ask your student support service.</li>
@@ -127,8 +128,9 @@ pages["students.html"] = page("students.html","Students: money guide – MoneyBy
 <li><strong>Track your spending.</strong> Banking apps and simple spreadsheets can show where money is going.</li>
 <li><strong>Check you get everything you're entitled to.</strong> Bursaries and extra grants aren't always automatic.</li>
 </ul>
+<p>For a step-by-step method and a cushion for surprises, see our <a href="budgeting-emergency-fund.html">budgeting and emergency funds guide</a>.</p>
 <p><strong>Hardship funds.</strong> If you're struggling, your university or college may give you extra money from its hardship fund. GOV.UK lists examples of students who may qualify, such as student parents (especially single parents), mature students, students from low-income families, disabled students, care leavers and students who are homeless. Your university decides who qualifies and how much. The money is paid as a lump sum or in instalments and usually doesn't have to be paid back, though sometimes it's a loan. Contact your student services department.</p>
 <p>If debts are building up, free help is listed on our <a href="credit-scores-debt-help.html#help">debt help page</a>.</p>
 {s10("extra")}
 <p>See also: <a href="bank-accounts.html">Bank accounts</a> · <a href="broadband-phones.html">Broadband &amp; phones</a> · <a href="savings.html">Savings</a> · <a href="jargon.html">Jargon buster</a>.</p>
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#funding">University funding</a><a href="#repay">Repaying: Plan 5</a><a href="#grants">Grants and DSA</a><a href="#bank">Student bank accounts</a><a href="#phones">Mobile and broadband</a><a href="#travel">Travel</a><a href="#discounts">Discounts</a><a href="#budget">Budgeting and hardship</a></div></aside></div>'''))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#funding">University funding</a><a href="#repay">Repaying: Plan 5</a><a href="#plan2">Repaying: Plan 2</a><a href="#grants">Grants and DSA</a><a href="#bank">Student bank accounts</a><a href="#phones">Mobile and broadband</a><a href="#travel">Travel</a><a href="#discounts">Discounts</a><a href="#budget">Budgeting and hardship</a></div></aside></div>'''))

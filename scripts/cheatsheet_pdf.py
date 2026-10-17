@@ -19,9 +19,12 @@ FONTFACES = _fonts()
 SEC = {s["title"]: s for s in D["sections"]}
 PAGES = [  # (kicker, title, subtitle, [section titles])
  ("TAX &amp; SAVINGS", "Income tax and savings", "Bands, allowances and protection", ["Income tax (England, Wales &amp; NI)", "Savings"]),
- ("ISAs &amp; PENSIONS", "ISAs and pensions", "Allowances and key ages", ["ISAs", "Pensions"]),
- ("INVESTING &amp; BILLS", "Investing and bills", "Allowances, rates and your rights", ["Investing", "Bills and consumer rights"]),
- ("MONEY BASICS", "Money basics", "A simple checklist", ["BASICS"]),
+ ("ISAs &amp; INVESTING", "ISAs and investing", "Allowances, tax and protection", ["ISAs", "Investing"]),
+ ("PENSIONS &amp; INSURANCE", "Pensions and insurance", "Key ages, rules of thumb and protection", ["Pensions", "Money habits and insurance"]),
+ ("WORK &amp; PAY", "Work and pay", "National Insurance, minimum wage and deductions", ["Work and pay"]),
+ ("BORROWING &amp; DEBT", "Borrowing and debt", "Caps, protections and who to call", ["Borrowing and debt"]),
+ ("BILLS &amp; RIGHTS", "Bills and your rights", "Prices, refunds and protections", ["Bills and consumer rights"]),
+ ("SCAMS &amp; BASICS", "Scams and money basics", "Where to report, and a simple checklist", ["Scams and fraud", "BASICS"]),
 ]
 TOTAL = 1 + len(PAGES)
 def foot(n): return f'<div class="small">Figures checked {D["checked"]}. General information, not financial advice.</div><div class="foot"><span></span><span class="ft">Money Matters cheat sheet</span><span class="pn">{n:02d} / {TOTAL:02d}</span></div>'

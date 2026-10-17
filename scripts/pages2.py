@@ -10,7 +10,7 @@ def _pot(start, monthly=100, g=5, f=0.5, infl=2, retire=67, lump=None):
     return pot, pot/(1+infl/100)**(retire-first), paid
 rows="".join(f"<tr><td>{a}</td><td>{67-a}</td><td>£{_pot(a)[2]:,.0f}</td><td>£{_pot(a)[0]:,.0f}</td><td>£{_pot(a)[1]:,.0f}</td></tr>" for a in (18,25,35,45))
 jp=_pot(67,0,lump=(0,18,3600))
-pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplace pensions and starting young – MoneyBySharma","The State Pension for 2026/27, auto-enrolment minimums, SIPPs, tax relief, and why starting young matters – with a start-age calculator.",
+pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplace pensions and starting young – MoneyBySharma","The State Pension for 2026/27, auto-enrolment minimums with a worked monthly example, finding lost pensions, SIPPs, tax relief, and why starting young matters – with a start-age calculator.",
  ph("Pensions","Pensions, explained","The State Pension, workplace pensions and SIPPs for 2026/27 – and why the age you start can matter more than the amount. With investments your capital is at risk; past performance is not a guide to future returns."), W(f'''
 <div class="cols"><div>
 <h2 id="state">The State Pension</h2><ul>
@@ -22,6 +22,7 @@ pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplac
 <li>The legal minimum is <strong>8% of qualifying earnings</strong>, with <strong>at least 3% from your employer</strong>. Your own contribution includes tax relief.</li>
 <li>Qualifying earnings for 2026/27 are those between <strong>£6,240</strong> and <strong>£50,270</strong> a year. Many employers pay more than the minimum or use your full salary.</li>
 <li>If you opt out, you usually lose your employer's contribution.</li></ul>
+{G7}
 <h2 id="sipp">SIPPs and tax relief</h2><p>A SIPP is a personal pension where you choose the investments. The rules on tax relief, the £60,000 annual allowance and access age (55, rising to 57 on 6 April 2028) are covered in our <a href="investments.html#sipp">Investments guide</a>. In short, a basic-rate taxpayer paying in £80 gets £100 in their pension. Anyone, including children and non-earners, can pay up to <strong>£2,880 a year</strong> (net) and receive tax relief, making <strong>£3,600 gross</strong>.</p>
 <h2 id="young">Starting very young: worked examples</h2>
 <p>Same contribution, different start ages. Each person pays <strong>£100 a month</strong> (gross, including tax relief) until <strong>67</strong>.</p>
@@ -44,7 +45,7 @@ pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplac
 <p>J.P. Morgan Asset Management's <em>Guide to Retirement 2026</em> illustrates this with the US S&amp;P 500 Total Return index. $10,000 invested from 2 January 2006 to 31 December 2025 grew to <strong>$80,619 (11.0% a year)</strong> if fully invested, but only <strong>$35,866 (6.6% a year)</strong> if you'd missed the 10 best days and <strong>$21,177 (3.8% a year)</strong> if you'd missed the 20 best days. It also notes that six of the 10 best days came within two weeks of the 10 worst days. These are US market figures in dollars, gross of fees, and past performance is not a guide to future returns.</p>
 <h3>Pound-cost averaging</h3><p>Paying a fixed amount in every month, as most pension savers do, means you buy more fund units when prices are low and fewer when they're high. It doesn't guarantee a profit or protect against loss, but it smooths your average purchase price and removes the temptation to guess the "right moment".</p>
 {src("sp","spni","spa","ae","aemin","pentax","aa","nmpa","jpm")}
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#state">State Pension</a><a href="#workplace">Workplace pensions</a><a href="#sipp">SIPPs &amp; tax relief</a><a href="#young">Starting young</a><a href="#calc">Calculator</a><a href="#timing">Time in the market</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#state">State Pension</a><a href="#workplace">Workplace pensions</a><a href="#example">£158 a month example</a><a href="#tracing">Lost pensions</a><a href="#sipp">SIPPs &amp; tax relief</a><a href="#young">Starting young</a><a href="#calc">Calculator</a><a href="#timing">Time in the market</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
 
 pages["energy.html"] = page("energy.html","Energy bills, solar panels and home batteries – MoneyBySharma","The Ofgem price cap for October–December 2026, fixed vs variable deals, time-of-use tariffs, solar panels, the Smart Export Guarantee and a home battery calculator.",
  ph("Energy","Energy bills, solar and batteries","How the price cap works, what to compare in a deal, and the numbers behind solar panels and home batteries. We don't recommend suppliers."), W(f'''

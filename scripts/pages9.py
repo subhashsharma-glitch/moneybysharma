@@ -18,7 +18,7 @@ S9 = {
 }
 def s9(*k): return '<p class="src">Sources (checked ' + C9 + '): ' + "; ".join(f'<a href="{S9[x][1]}" rel="noopener">{S9[x][0]}</a>' for x in k) + ".</p>"
 pages["credit-scores-debt-help.html"] = page("credit-scores-debt-help.html","Credit scores and debt help – MoneyBySharma",
- "How UK credit files and scores work, how to check yours free, fix mistakes and build a record, plus free debt help, Breathing Space and the main debt options with official figures.",
+ "How UK credit files and scores work, how to check yours free, fix mistakes and build a record, what borrowing costs (APR, the payday loan cap, loan sharks and buy now, pay later), plus free debt help, Breathing Space and the main debt options with official figures.",
  ph("Credit scores &amp; debt help","Credit scores &amp; debt help","What's on your credit file, how to check it free and put mistakes right, and where to find free, confidential help if debts are getting on top of you. Information only – not advice."), W(f'''
 <div class="cols"><div>
 <div class="note" style="margin-top:1.5rem"><strong>Information only – not advice.</strong> MoneyBySharma isn't a debt adviser and isn't authorised by the FCA. This page explains how things work; it doesn't recommend any option, firm or product, and it has no affiliate links. For advice on your own situation, speak to a free debt adviser.</div>
@@ -72,6 +72,7 @@ pages["credit-scores-debt-help.html"] = page("credit-scores-debt-help.html","Cre
 </ul>
 {s9("mhscore")}
 
+{G5}
 <h2 id="help">Free debt help</h2>
 <p>Free, confidential and independent debt advice is available across the UK. Organisations listed on GOV.UK include:</p>
 <ul>
@@ -117,4 +118,4 @@ pages["credit-scores-debt-help.html"] = page("credit-scores-debt-help.html","Cre
 <p>If you're in crisis, contact your GP, contact NHS 111, or contact <a href="https://www.samaritans.org/" rel="noopener">Samaritans</a>.</p>
 {s9("mat","dmhef")}
 <p>See also: <a href="credit-cards.html">Credit cards</a> · <a href="bank-accounts.html">Bank accounts</a> · <a href="jargon.html">Jargon buster</a>.</p>
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#file">Credit files</a><a href="#check">Check free</a><a href="#affects">What affects it</a><a href="#errors">Fixing mistakes</a><a href="#build">Building a record</a><a href="#help">Free debt help</a><a href="#priority">Priority debts</a><a href="#breathing">Breathing Space</a><a href="#options">Debt options</a><a href="#mental">Mental health</a></div></aside></div>'''))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#file">Credit files</a><a href="#check">Check free</a><a href="#affects">What affects it</a><a href="#errors">Fixing mistakes</a><a href="#build">Building a record</a><a href="#borrowing">Cost of borrowing</a><a href="#help">Free debt help</a><a href="#priority">Priority debts</a><a href="#breathing">Breathing Space</a><a href="#options">Debt options</a><a href="#mental">Mental health</a></div></aside></div>'''))

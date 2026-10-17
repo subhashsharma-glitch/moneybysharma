@@ -27,6 +27,9 @@ body a[target="_blank"]::after{content:"\2197";content:"\2197" / "";font-size:.7
 header.site .dd-link{color:inherit;text-decoration:none}
 header.site .dd-desc{display:block;font-size:.75rem;color:var(--muted);font-weight:400;margin-top:.1rem;max-width:22rem;white-space:normal}
 nav.main summary a.dd-link{display:inline;padding:0;border:0;font:inherit;color:inherit}
+header.site .dd-h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:.65rem 0 .1rem}
+nav.main .dd-grp>ul{padding-left:.4rem}
+@media(min-width:960px){nav.main .dd-cols details[open]>ul{display:flex;gap:1.6rem;align-items:flex-start;padding:.7rem 1.1rem}nav.main .dd-cols .dd-grp{display:block}nav.main .dd-cols .dd-grp>ul{display:block;padding:0;white-space:nowrap}nav.main .dd-cols .dd-h{padding-top:0}}
 /* search-inline (copied verbatim into the Garmin page by garmin_chrome.py) */
 header.site .nav>.logo,header.site .nav>.hs-toggle,header.site .nav>.menu-btn{order:1}
 header.site .nav>.hs{order:2;display:none;flex:0 0 100%;margin:0;padding:0 0 .75rem}

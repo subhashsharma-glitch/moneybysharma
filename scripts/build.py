@@ -46,9 +46,14 @@ S = {  # sources (checked 12 Oct 2026)
 }
 def src(*keys):
     return '<p class="src">Sources (checked ' + CHECKED + '): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
+exec(open("scripts/gap_common.py").read())
+exec(open("scripts/gap_sections.py").read())
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("savings.html","Savings"),("bank-accounts.html","Bank accounts"),("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("students.html","Students"),("electric-cars.html","Electric cars")]),
+ ("Guides",[("group","Everyday money",[("pay-tax-payslip.html","Pay, tax &amp; your payslip"),("budgeting-emergency-fund.html","Budgeting &amp; emergency funds"),("bank-accounts.html","Bank accounts"),("students.html","Students")]),
+  ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
+  ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("gilts.html","Gilts")]),
+  ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper trading experiment<small class="dd-desc">Fake-money trades and totals. Experiment only</small>')],"tools.html"),
  ("resources.html","Resources"),("about.html","About")]
@@ -61,10 +66,13 @@ def page(fn, title, desc, body, head="", scripts=()):
     nav = ""
     for item in NAVG:
         if isinstance(item[1], list):
-            cur = any(h==fn for h,_ in item[1])
+            flat = [x for e in item[1] for x in (e[2] if e[0]=="group" else [e])]
+            cur = any(h==fn for h,_ in flat)
             lab = f'<a class="dd-link" href="{item[2]}">{item[0]}</a>' if len(item) > 2 else item[0]
             cur = cur or (len(item) > 2 and item[2] == fn)
-            nav += f'<li class="dd"><details><summary{" class=cur" if cur else ""}>{lab}</summary><ul>' + "".join(_li(h,t) for h,t in item[1]) + '</ul></details></li>'
+            inner = "".join(f'<li class="dd-grp"><span class="dd-h">{e[1]}</span><ul>' + "".join(_li(h,t) for h,t in e[2]) + '</ul></li>' if e[0]=="group" else _li(*e) for e in item[1])
+            grp = " dd-cols" if any(e[0]=="group" for e in item[1]) else ""
+            nav += f'<li class="dd{grp}"><details><summary{" class=cur" if cur else ""}>{lab}</summary><ul>' + inner + '</ul></details></li>'
         else: nav += _li(*item)
     sc = "".join(f'<script src="assets/{s}" defer></script>' for s in ("main.js","search.js")+tuple(scripts))
     return f'''<!doctype html>
@@ -101,6 +109,10 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 </div></section>
 <div class="wrap"><a class="card feature" href="how-money-works.html"><span class="tag">New · Illustrated guide</span><h2 style="margin:.4rem 0">How money works, in pictures</h2><p>Where money comes from, what the Bank of England does, why prices rise – and what it all means for your savings, mortgage and investments. Ten simple steps.</p><span class="btn">Start the guide →</span></a>
 <h2>Guides</h2><div class="grid g3">
+<a class="card" href="pay-tax-payslip.html"><span class="tag">Guide</span><h3>Pay, tax &amp; your payslip</h3><p>Tax codes, National Insurance, student loan and pension deductions, minimum wage, and a take-home pay illustration.</p></a>
+<a class="card" href="scams-fraud.html"><span class="tag">Guide</span><h3>Scams &amp; fraud</h3><p>Warning signs, 159, 7726 and Report Fraud, and what protection exists if you are tricked into a bank transfer.</p></a>
+<a class="card" href="budgeting-emergency-fund.html"><span class="tag">Guide</span><h3>Budgeting &amp; emergency funds</h3><p>Plan from take-home pay, the 50/30/20 rule of thumb, how much to keep for emergencies and common mistakes.</p></a>
+<a class="card" href="insurance-basics.html"><span class="tag">Guide</span><h3>Insurance basics</h3><p>Premium, excess and claims explained, the legal minimum for motor cover, contents, travel and life cover, and FSCS protection.</p></a>
 <a class="card" href="savings.html"><span class="tag">Guide</span><h3>Savings</h3><p>Easy access, fixed bonds, cash ISAs, regular savers, FSCS protection and how savings interest is taxed.</p></a>
 <a class="card" href="investments.html"><span class="tag">Guide</span><h3>Investments</h3><p>Stocks and shares ISAs, SIPPs, index funds and how platform fees work.</p></a>
 <a class="card" href="mortgages.html"><span class="tag">Guide</span><h3>Mortgages</h3><p>Fixed vs tracker, when to look at remortgaging, and how repayments are worked out.</p></a>
@@ -108,8 +120,8 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="pensions.html"><span class="tag">Guide</span><h3>Pensions</h3><p>The State Pension, workplace pensions, SIPPs and why starting young matters so much.</p></a>
 <a class="card" href="energy.html"><span class="tag">Guide</span><h3>Energy</h3><p>The Ofgem price cap, fixed vs variable deals, solar panels and home batteries.</p></a>
 <a class="card" href="electric-cars.html"><span class="tag">Guide</span><h3>Electric cars</h3><p>Running costs, vehicle tax, company-car tax and the road to 2035.</p></a>
-<a class="card" href="jargon.html"><span class="tag">Reference</span><h3>Jargon buster</h3><p>A searchable A–Z of around 60 money terms.</p></a>
-<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>The free Money Matters cheat sheet: 2026/27 figures on one page, with a printable PDF.</p></a></div>
+<a class="card" href="jargon.html"><span class="tag">Reference</span><h3>Jargon buster</h3><p>A searchable A–Z of plain-English money terms.</p></a>
+<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>The free Money Matters cheat sheet: 2026/27 figures at a glance, with a printable PDF.</p></a></div>
 <h2 id="calculators">Calculators</h2><div class="grid g3">
 <a class="card" href="gilts.html#calc"><h3>Gilt vs savings after tax</h3><p>Gross redemption yield, net yield for your tax band and the equivalent savings rate.</p></a>
 <a class="card" href="mortgages.html#calc"><h3>Mortgage repayments</h3><p>Repayment or interest-only, optional overpayments and a balance chart.</p></a>
@@ -140,6 +152,7 @@ pages["savings.html"] = page("savings.html", "Savings guide and rate table – M
 <h3>Cash ISAs</h3><p>Interest in an ISA is free of UK Income Tax and doesn't use your Personal Savings Allowance. For 2026/27 the overall ISA allowance is <strong>£20,000</strong>, which you can put entirely into a cash ISA. Cash ISAs come in easy access, notice and fixed versions. Check whether yours is "flexible" (lets you withdraw and replace money in the same tax year).</p>
 <div class="flag"><strong>Changing from 6 April 2027:</strong> following the November 2025 Budget, the annual cash ISA limit falls to <strong>£12,000</strong> for people aged 64 or under at the end of the tax year. The overall ISA allowance stays at £20,000, and people aged 65 or over keep a £20,000 cash ISA limit. New rules will also stop transfers from stocks and shares ISAs into cash ISAs for under-65s. The regulations (SI 2026/1018) were made on 10 September 2026. None of this affects the 2026/27 tax year.</div>
 <h3>Regular savers</h3><p>You pay in a fixed monthly amount (often £25–£500) for usually 12 months. Headline rates can look high, but because money goes in gradually, the interest you actually earn is roughly half what the AER suggests on the full year-end balance. Many require a current account with the same provider.</p>
+{GROW}
 <h2 id="fscs">FSCS protection: £120,000</h2><p>Since <strong>1 December 2025</strong>, the Financial Services Compensation Scheme protects eligible deposits up to <strong>£120,000 per person, per authorised firm</strong> (it was £85,000 from 2017 to 30 November 2025). Key points:</p>
 <ul><li>Brands that share one banking licence count as one firm, so the limit covers your total across them.</li><li>Joint accounts: each holder is protected up to £120,000.</li><li>Temporary high balances (for example from a house sale or inheritance) can be protected up to £1.4 million for up to six months.</li><li>Cash ISAs with UK-authorised banks and building societies are covered.</li></ul>
 <p>You can check a firm on the <a href="https://www.fscs.org.uk/check/check-your-money-is-protected/" rel="noopener">FSCS protection checker</a>.</p><div class="note"><strong>Choosing a current account?</strong> See <a href="bank-accounts.html">Bank accounts</a>: account types, switching with CASS, overdraft rules, an A–Z of banks and switching bonuses.</div>
@@ -154,15 +167,15 @@ pages["savings.html"] = page("savings.html", "Savings guide and rate table – M
 <p><strong>Example:</strong> if your only income is a salary of £15,000, your other income is £2,430 above the Personal Allowance, so your starting rate band is £5,000 − £2,430 = £2,570. You could then earn £2,570 of interest at 0% plus £1,000 under the Personal Savings Allowance before paying tax.</p>
 <div class="flag"><strong>Changing from 6 April 2027:</strong> savings income tax rates rise by 2 percentage points to <strong>22% / 42% / 47%</strong> (Finance Act 2026). The Personal Savings Allowance and starting rate figures above are for 2026/27. Scottish taxpayers: savings income uses UK (not Scottish) rates and bands.</div>
 {src("rates","savtax","sav27","fscs","isa","cashisa","isasi","boe")}
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#table">Rates table</a><a href="#types">Account types</a><a href="#fscs">FSCS £120,000</a><a href="#tax">Savings tax</a><p class="hint" style="margin-top:.8rem">Compare gilts with savings on the <a href="gilts.html#calc">gilt calculator</a>.</p></div></aside></div>'''), scripts=("savings-table.js",))
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#table">Rates table</a><a href="#types">Account types</a><a href="#grow">How interest grows</a><a href="#fscs">FSCS £120,000</a><a href="#tax">Savings tax</a><p class="hint" style="margin-top:.8rem">Compare gilts with savings on the <a href="gilts.html#calc">gilt calculator</a>.</p></div></aside></div>'''), scripts=("savings-table.js","calc-ui6.js"))
 # ---------- INVESTMENTS ----------
-pages["investments.html"] = page("investments.html", "Investments: ISAs, SIPPs, index funds and fees – MoneyBySharma", "Stocks and shares ISAs, Lifetime ISAs, SIPP tax relief and access age, index funds and platform fees explained, with a fee-impact calculator.",
+pages["investments.html"] = page("investments.html", "Investments: ISAs, SIPPs, index funds and fees – MoneyBySharma", "Stocks and shares ISAs, Lifetime ISAs, SIPP tax relief and access age, investment risk, spreading and FSCS protection, index funds and platform fees explained, with a fee-impact calculator.",
  ph("Investments","Investing basics","ISAs, pensions, index funds and fees – the rules for 2026/27 in plain English. Investments can fall as well as rise; your capital is at risk."), W(f'''
 <div class="cols"><div>
 <h2 id="isa">ISAs</h2><p>An Individual Savings Account shelters savings and investments from UK Income Tax and Capital Gains Tax. You must be a UK resident aged 18 or over (16 or over for a cash ISA under current rules).</p>
 <ul><li><strong>Allowance:</strong> £20,000 in 2026/27, which can be split across cash, stocks and shares, Innovative Finance and Lifetime ISAs. Unused allowance does not roll over. The government has said the £20,000 limit stays until April 2031.</li>
 <li><strong>Stocks and shares ISA:</strong> holds funds, shares, investment trusts, bonds and gilts. Values go up and down.</li>
-<li><strong>Lifetime ISA (LISA):</strong> open aged 18–39 and pay in up to £4,000 a year (counts towards the £20,000) until age 50. The government adds a 25% bonus (up to £1,000 a year). Withdrawals for a first home (up to £450,000) or from age 60 are bonus-free; other withdrawals face a 25% charge, which means you can get back less than you paid in.</li>
+<li><strong>Lifetime ISA (LISA):</strong> open aged 18–39 and pay in up to £4,000 a year (counts towards the £20,000) until age 50. The government adds a 25% bonus (up to £1,000 a year). You can withdraw without the 25% charge to buy a first home costing £450,000 or less (bought at least 12 months after your first payment, using a conveyancer or solicitor) or from age 60; other withdrawals face a 25% charge, which means you can get back less than you paid in.</li>
 <li><strong>Junior ISA:</strong> £9,000 a year for under-18s.</li>
 <li>Since 6 April 2024 you can pay into more than one ISA of the same type in a tax year, as long as you stay within the overall limit.</li></ul>
 <div class="flag"><strong>From 6 April 2027:</strong> under-65s will be able to put at most £12,000 of the £20,000 into cash ISAs, and interest on cash held inside a stocks and shares ISA will face a charge. The November 2025 Budget also said the government would consult on a new, simpler ISA product for first-time buyers to replace the Lifetime ISA. That change isn't confirmed in law yet, so check GOV.UK for the latest.</div>
@@ -172,6 +185,7 @@ pages["investments.html"] = page("investments.html", "Investments: ISAs, SIPPs, 
 <li><strong>Access age:</strong> the normal minimum pension age is <strong>55</strong>, rising to <strong>57 on 6 April 2028</strong> (some people have a protected pension age).</li>
 <li><strong>Tax-free cash:</strong> usually up to 25% of your pension, capped by the Lump Sum Allowance of £268,275. The rest is taxed as income when you take it.</li></ul>
 <p class="hint">The November 2025 Budget announced that salary-sacrifice pension contributions above £2,000 a year will attract National Insurance from April 2029. This affects workplace schemes, not the income-tax relief described above.</p>
+{G10}
 <h2 id="index">Index funds</h2><p>An index (tracker) fund aims to match a market index, such as the FTSE All-Share or a global index, rather than trying to beat it. They usually have lower ongoing charges than actively managed funds. The value still rises and falls with the market, and the fund's return will be slightly below the index after charges. Things to compare: the ongoing charges figure (OCF), how closely it tracks its index ("tracking difference"), whether income is paid out or reinvested ("inc" or "acc" units), and whether it's a fund (OEIC/unit trust) or an exchange-traded fund (ETF).</p>
 <h2 id="fees">Platform fees explained</h2><p>Your total cost is usually the <strong>platform fee</strong> (for holding your account) + the <strong>fund's ongoing charge</strong> + any <strong>dealing charges</strong>. Platforms usually charge either:</p>
 <ul><li><strong>a percentage</strong> of your pot each year (often tiered, sometimes capped), which suits smaller pots, or</li><li><strong>a flat fee</strong> in pounds, which costs relatively less as your pot grows.</li></ul>
@@ -186,8 +200,8 @@ pages["investments.html"] = page("investments.html", "Investments: ISAs, SIPPs, 
 <div class="results" aria-live="polite"><div class="res"><span>With % fee</span><b id="fee-r-pct">–</b></div><div class="res"><span>With flat fee</span><b id="fee-r-flat">–</b></div><div class="res"><span>No platform fee</span><b id="fee-r-none">–</b></div></div>
 <p id="fee-r-text"></p>
 <p class="hint"><strong>Assumptions:</strong> a single lump sum, no further contributions or withdrawals; growth compounds once a year at a steady rate (real returns vary and can be negative); the percentage fee is taken on the year-end value; the flat fee is taken at each year end; fund charges, dealing costs, inflation and tax are ignored. Figures are illustrations, not forecasts.</p></section>
-{src("rates","isa","cashisa","tfs","lisa","pentax","aa","nmpa")}
-</div><aside><div class="card toc"><h3>On this page</h3><a href="#isa">ISAs</a><a href="#sipp">SIPPs</a><a href="#index">Index funds</a><a href="#fees">Platform fees</a><a href="#calc">Fee calculator</a></div></aside></div>'''), scripts=("calc.js","calc-ui.js"))
+{src("rates","isa","cashisa","tfs","lisa","lisa2","pentax","aa","nmpa")}
+</div><aside><div class="card toc"><h3>On this page</h3><a href="#isa">ISAs</a><a href="#sipp">SIPPs</a><a href="#risk">Risk &amp; protection</a><a href="#index">Index funds</a><a href="#fees">Platform fees</a><a href="#calc">Fee calculator</a></div></aside></div>'''), scripts=("calc.js","calc-ui.js"))
 # ---------- MORTGAGES ----------
 pages["mortgages.html"] = page("mortgages.html", "Mortgages: fixed vs tracker and repayment calculator – MoneyBySharma", "Fixed vs tracker mortgages, remortgage timing and a repayment / interest-only calculator with overpayments and an amortisation chart.",
  ph("Mortgages","Mortgages, explained","How fixed and tracker deals work, when to start thinking about remortgaging, and what your monthly payment might be."), W(f'''
@@ -265,7 +279,7 @@ G = [("AER","Annual Equivalent Rate – the interest you'd earn over a year if i
 ("Fixed-rate bond","A savings account paying a fixed rate for a set term, usually with no access until it ends."),
 ("Fixed-rate mortgage","A mortgage whose interest rate stays the same for a set period."),
 ("Flexible ISA","An ISA that lets you withdraw money and pay it back in the same tax year without using more allowance."),
-("FSCS","Financial Services Compensation Scheme – protects eligible deposits up to £120,000 per person, per authorised firm (from 1 December 2025)."),
+("FSCS","Financial Services Compensation Scheme – protects eligible deposits up to £120,000 per person, per authorised firm (from 1 December 2025). For investments, if a regulated firm fails it may pay up to £85,000 per person, per firm."),
 ("Gilt","A bond issued by the UK government."),
 ("Gross","Before tax or charges are taken off."),
 ("Gross redemption yield (GRY)","The annual return on a bond held to maturity, including coupons and any gain or loss to its £100 redemption value, before tax."),
@@ -355,6 +369,7 @@ G += [("FTTC (fibre to the cabinet)","Broadband with fibre to the street cabinet
 ("SIM-only","A mobile plan for calls, texts and data without a handset."),
 ("Split contract","A mobile contract with the handset and airtime on separate plans, so you pay only for airtime once the phone is paid off."),
 ("Roaming","Using your mobile abroad on another country's network. Charges vary by provider.")]
+G += GAP_JARGON
 G.sort(key=lambda t: t[0].lower())
 letters = sorted(set(t[0][0].upper() for t in G))
 gl = "".join(f'<dt id="t-{i}" data-l="{t[0][0].upper()}">{html.escape(t[0])}</dt><dd>{html.escape(t[1])}</dd>' for i,t in enumerate(G))
@@ -370,7 +385,7 @@ function f(){{var s=q.value.trim().toLowerCase(),n=0;dts.forEach(function(dt){{v
 pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", "Free MoneyBySharma resources: the Money Matters cheat sheet for 2026/27 and the Explained Simply: Money Matters illustrated guide, each to read online or download as a PDF.",
  ph("Resources","Resources","Free resources from MoneyBySharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
-<div class="card"><span class="tag">Free</span><h3>Money Matters cheat sheet 2026/27</h3><p>The key UK allowances, tax bands, protections and rates on one page, each with its source and "as at" date, plus a money basics checklist.</p>
+<div class="card"><span class="tag">Free</span><h3>Money Matters cheat sheet 2026/27</h3><p>The key UK allowances, tax bands, protections and rates in one place, each with its source and "as at" date, plus a money basics checklist.</p>
 <p><a class="btn" href="money-matters-cheat-sheet.html">View the cheat sheet</a></p><p><a href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a></p></div>
 <div class="card"><span class="tag">Free PDF</span><h3>Explained Simply: Money Matters</h3><p>A free illustrated guide by MoneyBySharma covering payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, investing and scams, with figures checked for 2026/27.</p>
 <p><a class="btn" href="explained-simply-money-matters.html">View the guide</a></p><p><a href="assets/explained-simply-money-matters.pdf" download>Download the PDF</a> <span class="hint">· 1.7 MB, 15 pages</span></p></div></div>
@@ -381,7 +396,7 @@ pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I start
 <p>Hello, I'm Subhash Sharma. I'm passionate about helping everyone become financially free – and I believe that starts with understanding what money actually is and how it works.</p>
 <p>How money works should be taught in schools, but for most of us it isn't. So I've built this site to explain it in plain English: how savings, pensions, mortgages, gilts and investing fit together, without the jargon.</p>
 <p>My hope is to reach as many individuals and families as possible. If you're new to all this, a good place to start is my illustrated guide, <a href="how-money-works.html"><strong>How money works, in pictures</strong></a>.</p>
-<p>For a one-page summary of the key figures, see my free <a href="money-matters-cheat-sheet.html">Money Matters cheat sheet</a> on the <a href="resources.html">Resources</a> page.</p>
+<p>For a short summary of the key figures, see my free <a href="money-matters-cheat-sheet.html">Money Matters cheat sheet</a> on the <a href="resources.html">Resources</a> page.</p>
 <h2>What this site isn't</h2><p>MoneyBySharma gives information only, not regulated financial advice. It isn't a financial adviser, broker or comparison service, and it isn't authorised or regulated by the Financial Conduct Authority (FCA). I don't recommend products or tell you what to buy, and comparison tables show facts only.</p>
 <h2>How I check the figures</h2><p>Every allowance, rate and limit is checked against official sources – GOV.UK, HMRC, legislation.gov.uk, the FSCS, the Bank of England, the ONS and the UK Debt Management Office – and linked with the date I checked it. Figures on this site were last checked on {CHECKED}. The Bank Rate, gilt and inflation data are refreshed automatically whenever the site is rebuilt. If you spot an error, please let me know at <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>.</p>
 <p><a href="disclaimer.html">Read the full disclaimer</a> · <a href="privacy.html">Privacy</a></p></div>'''))
@@ -412,6 +427,8 @@ exec(open("scripts/pages10.py").read())
 exec(open("scripts/pages11.py").read())
 exec(open("scripts/pages12.py").read())
 exec(open("scripts/pages13.py").read())
+exec(open("scripts/pages14.py").read())
+exec(open("scripts/pages15.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
@@ -423,7 +440,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by
 from search_index import build_search
 SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0, "Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded."),
  ("assets/explained-simply-money-matters.pdf", "Explained Simply: Money Matters (PDF)", "Resources", 3, "A 15-page plain-English guide to UK money: payslips, tax, savings, borrowing, student loans, pensions, insurance, investing and scams."),
- ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, ISA and pension allowances, FSCS, Bank Rate, CPI and more.")]
+ ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, National Insurance, ISA and pension allowances, FSCS, scam reporting numbers, Bank Rate, CPI and more.")]
 SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 from seo import ext_links

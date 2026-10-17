@@ -2,7 +2,16 @@
 ES_PAGES = ["Cover", "Your payslip, decoded", "Tax, NI &amp; minimum pay", "Budgeting that sticks", "Bank accounts &amp; paying", "Saving &amp; interest",
  "Where to keep savings", "Borrowing &amp; credit", "Student loans, simply", "Pensions, simply", "Insurance &amp; investing", "Scams &amp; fraud",
  "Money words, decoded", "Mistakes everyone makes", "Keep these numbers handy"]
-_toc = "".join(f'<li><a href="#page-{i}">{t}</a> <span class="hint">· page {i}</span></li>' for i, t in enumerate(ES_PAGES, 1))
+ES_MORE = {2: [("pay-tax-payslip.html#payslip", "Pay, tax and your payslip")], 3: [("pay-tax-payslip.html#tax", "Income Tax and National Insurance")],
+ 4: [("budgeting-emergency-fund.html", "Budgeting and emergency funds")], 5: [("bank-accounts.html#ways", "Ways to pay and your protections")],
+ 6: [("savings.html#grow", "How interest grows")], 7: [("savings.html#types", "Types of savings account")],
+ 8: [("credit-scores-debt-help.html#borrowing", "What borrowing costs")], 9: [("students.html#plan2", "Plan 2 and Plan 5 repayments")],
+ 10: [("pensions.html#example", "The £158 a month example"), ("pensions.html#tracing", "Lost pensions")],
+ 11: [("insurance-basics.html", "Insurance basics"), ("investments.html#risk", "Risk and protection")],
+ 12: [("scams-fraud.html", "Scams and fraud")], 13: [("jargon.html", "Jargon buster")],
+ 14: [("budgeting-emergency-fund.html#mistakes", "Common mistakes")], 15: [("money-matters-cheat-sheet.html", "Money Matters cheat sheet")]}
+def _more(i): return "".join(f' <a class="es-more" href="{h}">Read more: {t}</a>' for h, t in ES_MORE.get(i, []))
+_toc = "".join(f'<li><a href="#page-{i}">{t}</a> <span class="hint">· page {i}</span>{(" <span class=\"hint\">·</span>" + _more(i)) if i in ES_MORE else ""}</li>' for i, t in enumerate(ES_PAGES, 1))
 _imgs = "".join(f'<figure id="page-{i}"><img src="assets/explained-simply/page-{i:02d}.webp" width="1125" height="1407" loading="{"eager" if i == 1 else "lazy"}" decoding="async" alt="Page {i} of 15 of Explained Simply: Money Matters: {t}. The full text is in the PDF download."><figcaption>Page {i} of 15 · {t}</figcaption></figure>' for i, t in enumerate(ES_PAGES, 1))
 pages["explained-simply-money-matters.html"] = page("explained-simply-money-matters.html", "Explained Simply: Money Matters – free illustrated guide – MoneyBySharma",
  "Explained Simply: Money Matters is a free 15-page illustrated guide to UK money by MoneyBySharma, covering payslips, tax, budgeting, savings, borrowing, student loans, pensions and scams. Read it here or download the PDF.",
