@@ -74,9 +74,10 @@ def page(fn, title, desc, body, head="", scripts=()):
 {seo_meta(fn, title, desc)}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">{sc}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="index.html" aria-label="MoneyBySharma home">{LOGO}<span>Money<span class="by">By</span>Sharma</span></a>
-<a class="search-btn" href="search.html" aria-label="Search the site" aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sb-t">Search</span><kbd aria-hidden="true">/</kbd></a>
+<a class="hs-toggle" href="search.html" aria-label="Search the site" aria-controls="hs" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav></div></header>
+<nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav>
+<form class="hs" id="hs" role="search" action="search.html" method="get"><div class="hs-row"><label class="sr" for="hs-q">Search MoneyBySharma</label><svg width="16" height="16" class="hs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hs-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the site"><kbd aria-hidden="true">/</kbd><button class="hs-go" type="submit">Search</button></div></form></div></header>
 <main id="main">{body}{head}</main>
 <footer class="site"><div class="wrap"><div class="disc"><p style="margin:0">{DISC}</p></div>
 <ul><li><a href="about.html">About</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li></ul>
@@ -366,13 +367,13 @@ pages["jargon.html"] = page("jargon.html", "Jargon buster: A–Z money glossary 
 <script>(function(){{var q=document.getElementById('gq'),dts=[].slice.call(document.querySelectorAll('#gloss dt')),c=document.getElementById('gcount'),seen={{}};dts.forEach(function(dt){{var l=dt.dataset.l;if(!seen[l]){{seen[l]=1;var a=document.createElement('span');a.id='L-'+l;dt.prepend(a)}}}});
 function f(){{var s=q.value.trim().toLowerCase(),n=0;dts.forEach(function(dt){{var dd=dt.nextElementSibling,m=!s||(dt.textContent+' '+dd.textContent).toLowerCase().indexOf(s)>-1;dt.hidden=dd.hidden=!m;if(m)n++}});c.textContent=n+' of '+dts.length+' terms'}}q.addEventListener('input',f);f()}})();</script>'''))
 # ---------- RESOURCES ----------
-pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", "The free MoneyBySharma Money Matters cheat sheet: UK personal finance figures for 2026/27 on one page, with a printable PDF.",
+pages["resources.html"] = page("resources.html", "Resources – MoneyBySharma", "Free MoneyBySharma resources: the Money Matters cheat sheet for 2026/27 and the Explained Simply: Money Matters illustrated guide, each to read online or download as a PDF.",
  ph("Resources","Resources","Free resources from MoneyBySharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
 <div class="card"><span class="tag">Free</span><h3>Money Matters cheat sheet 2026/27</h3><p>The key UK allowances, tax bands, protections and rates on one page, each with its source and "as at" date, plus a money basics checklist.</p>
 <p><a class="btn" href="money-matters-cheat-sheet.html">View the cheat sheet</a></p><p><a href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the printable PDF (A4)</a></p></div>
-<div class="card"><span class="tag">Free PDF</span><h3>Explained Simply: Money Matters</h3><p>A free illustrated guide by Subhash Sharma covering payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, investing and scams, with figures checked for 2026/27.</p>
-<p><a class="btn" href="assets/explained-simply-money-matters.pdf" download>Download the guide</a></p><p class="hint">PDF, 1.7 MB, 15 pages.</p></div></div>
+<div class="card"><span class="tag">Free PDF</span><h3>Explained Simply: Money Matters</h3><p>A free illustrated guide by MoneyBySharma covering payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, investing and scams, with figures checked for 2026/27.</p>
+<p><a class="btn" href="explained-simply-money-matters.html">View the guide</a></p><p><a href="assets/explained-simply-money-matters.pdf" download>Download the PDF</a> <span class="hint">· 1.7 MB, 15 pages</span></p></div></div>
 <p class="hint" style="margin-top:1rem"><strong>Information only – not financial advice.</strong> These resources give general information, not regulated financial advice, and MoneyBySharma isn't authorised or regulated by the FCA. Figures can change, so check the current rules before making decisions.</p>'''))
 # ---------- ABOUT / DISCLAIMER / PRIVACY ----------
 pages["about.html"] = page("about.html", "About – MoneyBySharma", "Why I started MoneyBySharma, and how I check the figures.", ph("About","About MoneyBySharma","Plain-English UK money information, by Subhash Sharma."), W(f'''
@@ -410,6 +411,7 @@ exec(open("scripts/pages9.py").read())
 exec(open("scripts/pages10.py").read())
 exec(open("scripts/pages11.py").read())
 exec(open("scripts/pages12.py").read())
+exec(open("scripts/pages13.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">

@@ -115,67 +115,89 @@
     });
   }
 
-  /* ---------- overlay ---------- */
-  var ov, input, list, status, active = -1, opener, last = null;
-  function build() {
-    if (ov) return;
-    ov = document.createElement('div'); ov.className = 'sx'; ov.hidden = true;
-    ov.innerHTML = '<div class="sx-back" data-close></div><div class="sx-box" role="dialog" aria-modal="true" aria-label="Search MoneyBySharma">' +
-      '<form class="sx-form" role="search" action="search.html"><label class="sr" for="sx-q">Search MoneyBySharma</label>' +
-      '<input id="sx-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search guides, tools and jargon" role="combobox" aria-expanded="false" aria-controls="sx-list" aria-autocomplete="list">' +
-      '<button type="button" class="sx-x" data-close aria-label="Close search">Esc</button></form>' +
-      '<p class="sx-status" id="sx-status" role="status" aria-live="polite"></p><ul id="sx-list" class="sx-list" role="listbox" aria-label="Search results"></ul>' +
-      '<p class="sx-foot"><a class="sx-all" hidden>See all results</a><span class="sx-keys">↑↓ to move · Enter to open · Esc to close</span></p></div>';
-    document.body.appendChild(ov);
-    var f = ov.querySelector('form'); f.setAttribute('action', new URL('search.html', ROOT).href);
-    input = ov.querySelector('input'); list = ov.querySelector('ul'); status = ov.querySelector('#sx-status');
+  /* ---------- header search (inline dropdown) ---------- */
+  var form, input, toggle, panel, list, status, all, active = -1, shown = false, N = 8;
+  function isPage() { return document.body.getAttribute('data-search') === 'page'; }
+  function narrow() { return toggle && getComputedStyle(toggle).display !== 'none'; }   // icon + expanding row layout (< 1024px)
+  function init() {
+    form = document.getElementById('hs'); if (!form) return;
+    input = document.getElementById('hs-q'); toggle = document.querySelector('.hs-toggle');
+    var row = form.querySelector('.hs-row');
+    form.setAttribute('action', new URL('search.html', ROOT).href);
+    if (toggle) toggle.setAttribute('href', new URL('search.html', ROOT).href);
+    panel = document.createElement('div'); panel.className = 'hs-panel'; panel.id = 'hs-panel'; panel.hidden = true;
+    status = document.createElement('p'); status.className = 'sx-status'; status.id = 'hs-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    list = document.createElement('ul'); list.className = 'sx-list'; list.id = 'hs-list'; list.setAttribute('role', 'listbox'); list.setAttribute('aria-label', 'Search results');
+    var foot = document.createElement('p'); foot.className = 'hs-foot';
+    all = document.createElement('a'); all.className = 'sx-all'; all.hidden = true; all.textContent = 'See all results';
+    var keys = document.createElement('span'); keys.className = 'hs-keys'; keys.textContent = '↑↓ to move · Enter to open · Esc to close';
+    foot.appendChild(all); foot.appendChild(keys);
+    panel.appendChild(status); panel.appendChild(list); panel.appendChild(foot); row.appendChild(panel);
+    input.setAttribute('role', 'combobox'); input.setAttribute('aria-expanded', 'false'); input.setAttribute('aria-controls', 'hs-list');
+    input.setAttribute('aria-autocomplete', 'list'); input.setAttribute('aria-haspopup', 'listbox');
+
     input.addEventListener('input', run);
-    ov.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) close(); else if (e.target.closest('a.sx-all,.sx-item a')) { /* normal navigation */ } });
-    f.addEventListener('submit', function (e) { var cur = list.querySelector('.sx-item[aria-selected=true] a'); if (cur) { e.preventDefault(); location.href = cur.href; } });
-    ov.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') { e.preventDefault(); close(); }
-      else if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
-      else if (e.key === 'Tab') { var f2 = [input, ov.querySelector('.sx-x'), ov.querySelector('.sx-all:not([hidden])')].filter(Boolean), i = f2.indexOf(document.activeElement); e.preventDefault(); f2[(i + (e.shiftKey ? -1 : 1) + f2.length) % f2.length].focus(); }
+    input.addEventListener('focus', function () { load(); if (input.value.trim() && last && !shown) show(); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (!shown && last && last.res.length) show(); move(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); if (shown) move(-1); }
+      else if (e.key === 'Enter') { var cur = list.querySelector('.sx-item[aria-selected=true] a'); if (shown && cur) { e.preventDefault(); location.href = cur.href; } }
+      else if (e.key === 'Escape') {
+        if (shown) { e.preventDefault(); hide(); }
+        else if (narrow() && form.classList.contains('open')) { e.preventDefault(); collapse(true); }
+      }
     });
+    form.addEventListener('submit', function (e) {
+      var cur = list.querySelector('.sx-item[aria-selected=true] a');
+      if (shown && cur) { e.preventDefault(); location.href = cur.href; }
+      else if (!input.value.trim()) { e.preventDefault(); input.focus(); }
+    });
+    if (toggle) {
+      toggle.addEventListener('click', function (e) { e.preventDefault(); if (form.classList.contains('open')) collapse(true); else expandRow(); });
+      toggle.addEventListener('pointerover', load);
+    }
+    document.addEventListener('pointerdown', function (e) {
+      if (form.contains(e.target) || (toggle && toggle.contains(e.target))) return;
+      hide();   // never collapse the row here: it would shift the layout between pointerdown and click
+    });
+    document.addEventListener('focusin', function (e) { if (shown && !form.contains(e.target) && !(toggle && toggle.contains(e.target))) hide(); });
   }
+  function expandRow() { form.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); load(); input.focus(); }
+  function collapse(refocus) { hide(); form.classList.remove('open'); if (toggle) { toggle.setAttribute('aria-expanded', 'false'); if (refocus) toggle.focus(); } }
+  function show() { if (shown) return; shown = true; panel.hidden = false; input.setAttribute('aria-expanded', 'true'); }
+  function hide() { if (!form) return; shown = false; panel.hidden = true; active = -1; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); list.querySelectorAll('.sx-item').forEach(function (li) { li.setAttribute('aria-selected', 'false'); }); }
   function move(d) {
     var items = list.querySelectorAll('.sx-item'); if (!items.length) return;
-    active = (active + d + items.length) % items.length; select(items);
-  }
-  function select(items) {
-    items = items || list.querySelectorAll('.sx-item');
+    active = active < 0 ? (d > 0 ? 0 : items.length - 1) : (active + d + items.length) % items.length;
     items.forEach(function (li, i) { li.setAttribute('aria-selected', i === active ? 'true' : 'false'); });
-    if (items[active]) { input.setAttribute('aria-activedescendant', items[active].id); items[active].scrollIntoView({ block: 'nearest' }); } else input.removeAttribute('aria-activedescendant');
+    var li = items[active]; input.setAttribute('aria-activedescendant', li.id);
+    if (li.offsetTop < list.scrollTop) list.scrollTop = li.offsetTop;                                   // keep it in view without scrolling the page
+    else if (li.offsetTop + li.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = li.offsetTop + li.offsetHeight - list.clientHeight;
   }
   function run() {
-    var q = input.value.trim(), all = ov.querySelector('.sx-all');
+    var q = input.value.trim();
     active = -1; input.removeAttribute('aria-activedescendant');
-    if (!q) { list.textContent = ''; status.textContent = ''; all.hidden = true; input.setAttribute('aria-expanded', 'false'); return; }
+    if (!q) { last = null; list.textContent = ''; status.textContent = ''; all.hidden = true; hide(); return; }
     load().then(function () {
       if (input.value.trim() !== q) return;
-      var out = search(q, 8); last = out; renderList(list, out, q, 'sx-r');
-      input.setAttribute('aria-expanded', out.res.length ? 'true' : 'false');
-      status.textContent = out.res.length ? (out.total > 8 ? 'Showing 8 of ' + out.total + ' results' : out.total + (out.total === 1 ? ' result' : ' results')) : 'No results for “' + q + '”. Try a shorter or different word.';
-      all.href = new URL('search.html?q=' + encodeURIComponent(q), ROOT).href; all.hidden = !out.res.length || out.total <= 8;
-      if (out.res.length) { active = 0; select(); }
-    }).catch(function () { status.textContent = 'Search is unavailable right now.'; });
+      var out = search(q, N); last = out; renderList(list, out, q, 'hs-r'); list.scrollTop = 0;
+      status.textContent = out.res.length ? (out.total > N ? 'Showing ' + N + ' of ' + out.total + ' results' : out.total + (out.total === 1 ? ' result' : ' results')) : 'No results for “' + q + '”. Try a shorter or different word.';
+      all.href = new URL('search.html?q=' + encodeURIComponent(q), ROOT).href; all.hidden = !out.res.length;
+      shown = false; show();
+    }).catch(function (err) { if (window.console) console.error(err && err.stack); status.textContent = 'Search is unavailable right now.'; show(); });
   }
-  function open(e) {
-    if (e) e.preventDefault();
-    build(); opener = document.activeElement; ov.hidden = false; document.documentElement.classList.add('sx-open');
-    load(); input.focus(); input.select();
+  var last = null;
+  function focusSearch() {
+    if (!form) return;
+    document.querySelectorAll('nav.main details[open]').forEach(function (d) { d.removeAttribute('open'); });
+    if (narrow()) expandRow(); else { load(); input.focus(); input.select(); }
   }
-  function close() { if (!ov || ov.hidden) return; ov.hidden = true; document.documentElement.classList.remove('sx-open'); if (opener && opener.focus) opener.focus(); }
-
-  document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('.search-btn'); if (b && !(ov && !ov.hidden)) { if (document.body.getAttribute('data-search') === 'page') { e.preventDefault(); var pq = document.getElementById('sp-q'); if (pq) pq.focus(); return; } open(e); } });
-  document.addEventListener('pointerover', function (e) { if (e.target.closest && e.target.closest('.search-btn')) load(); });
   document.addEventListener('keydown', function (e) {
     if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
     var t = e.target, tag = t && t.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
-    if (document.body.getAttribute('data-search') === 'page') { var q = document.getElementById('sp-q'); if (q) { e.preventDefault(); q.focus(); } return; }
-    open(e);
+    if (isPage()) { var q = document.getElementById('sp-q'); if (q) { e.preventDefault(); q.focus(); return; } }
+    if (form) { e.preventDefault(); focusSearch(); }
   });
 
   /* ---------- search.html (no overlay) ---------- */
@@ -196,6 +218,7 @@
     document.getElementById('sp-form').addEventListener('submit', function (e) { e.preventDefault(); go(); });
     go();
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', pageMode); else pageMode();
-  window.mbsSearch = { open: open, search: function (q) { return load().then(function () { return search(q, 50); }); } };
+  function ready() { init(); pageMode(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
+  window.mbsSearch = { open: focusSearch, search: function (q) { return load().then(function () { return search(q, 50); }); } };
 })();
