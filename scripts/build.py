@@ -50,7 +50,7 @@ exec(open("scripts/gap_common.py").read())
 exec(open("scripts/gap_sections.py").read())
 NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("mortgages.html","Mortgages"),("gilts.html","Gilts"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("electric-cars.html","Electric cars"),("jargon.html","Jargon buster"),("resources.html","Resources"),("about.html","About")]
 NAVG = [("index.html","Home"),
- ("Guides",[("group","Everyday money",[("pay-tax-payslip.html","Pay, tax &amp; your payslip"),("budgeting-emergency-fund.html","Budgeting &amp; emergency funds"),("bank-accounts.html","Bank accounts"),("students.html","Students")]),
+ ("Guides",[("group","Everyday money",[("pay-tax-payslip.html","Pay, tax &amp; your payslip"),("budgeting-emergency-fund.html","Budgeting &amp; emergency funds"),("deals.html","Deals &amp; savings"),("bank-accounts.html","Bank accounts"),("students.html","Students")]),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
@@ -112,6 +112,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="pay-tax-payslip.html"><span class="tag">Guide</span><h3>Pay, tax &amp; your payslip</h3><p>Tax codes, National Insurance, student loan and pension deductions, minimum wage, and a take-home pay illustration.</p></a>
 <a class="card" href="scams-fraud.html"><span class="tag">Guide</span><h3>Scams &amp; fraud</h3><p>Warning signs, 159, 7726 and Report Fraud, and what protection exists if you are tricked into a bank transfer.</p></a>
 <a class="card" href="budgeting-emergency-fund.html"><span class="tag">Guide</span><h3>Budgeting &amp; emergency funds</h3><p>Plan from take-home pay, the 50/30/20 rule of thumb, how much to keep for emergencies and common mistakes.</p></a>
+<a class="card" href="deals.html"><span class="tag">Guide</span><h3>Deals &amp; savings</h3><p>Supermarket loyalty prices, cinema memberships and subscription prices from the retailers' own pages, each with a checked date.</p></a>
 <a class="card" href="insurance-basics.html"><span class="tag">Guide</span><h3>Insurance basics</h3><p>Premium, excess and claims explained, the legal minimum for motor cover, contents, travel and life cover, and FSCS protection.</p></a>
 <a class="card" href="savings.html"><span class="tag">Guide</span><h3>Savings</h3><p>Easy access, fixed bonds, cash ISAs, regular savers, FSCS protection and how savings interest is taxed.</p></a>
 <a class="card" href="investments.html"><span class="tag">Guide</span><h3>Investments</h3><p>Stocks and shares ISAs, SIPPs, index funds and how platform fees work.</p></a>
@@ -429,6 +430,7 @@ exec(open("scripts/pages12.py").read())
 exec(open("scripts/pages13.py").read())
 exec(open("scripts/pages14.py").read())
 exec(open("scripts/pages15.py").read())
+exec(open("scripts/pages16.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">

@@ -3,6 +3,7 @@
   "pages": [
     {"page": "bank-accounts.html", "section": "#bonuses", "label": "Bank accounts – switching bonuses", "dataIn": "scripts/pages5.py (BON)"},
     {"page": "credit-cards.html", "section": "#deals", "label": "Credit cards – offers", "dataIn": "scripts/pages6.py (DEALS)"},
-    {"page": "broadband-phones.html", "section": "#deals", "label": "Broadband & phones – deals", "dataIn": "scripts/pages8.py (BBDEALS, DCHK)"}
+    {"page": "broadband-phones.html", "section": "#deals", "label": "Broadband & phones – deals", "dataIn": "scripts/pages8.py (BBDEALS, DCHK)"},
+    {"page": "deals.html", "section": "", "label": "Deals & savings – all entries (supermarkets, cinema, subscriptions, high street)", "dataIn": "data/deals.json (scripts/update_deals.py; entries with check.mode manual need an agent or browser check)"}
   ]
 }

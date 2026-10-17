@@ -1,0 +1,1027 @@
+{
+ "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
+ "updated": "2026-10-17",
+ "groups": [
+  {
+   "id": "supermarkets",
+   "title": "Supermarkets",
+   "kind": "cards",
+   "intro": "Loyalty prices, member offers and price-match schemes, as the supermarkets describe them. Most need you to scan a card or app each time you shop.",
+   "entries": [
+    {
+     "id": "tesco-clubcard",
+     "name": "Tesco Clubcard Prices",
+     "tag": "Loyalty prices",
+     "summary": "Tesco says its “Your Clubcard Prices” are personalised offers for eligible customers, based on what they have bought before.",
+     "points": [
+      "New offers arrive in the Tesco app every Wednesday and last for 7 days, to 11:59pm on the following Tuesday.",
+      "You have to unlock them in the app or online each week, then scan your Clubcard at the till or link it to your online account.",
+      "Tesco's own page says Clubcard Prices may not show in your online basket, but you still pay the Clubcard Price and see it on your receipt."
+     ],
+     "links": [
+      [
+       "Tesco – Your Clubcard Prices (help page)",
+       "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/your-clubcard-prices"
+      ],
+      [
+       "Tesco – expiry dates of Your Clubcard Prices",
+       "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/expiry-dates-of-your-clubcard-prices-and-when-they-renew"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/your-clubcard-prices",
+      "expect": [
+       "valid for 7 days",
+       "every Wednesday"
+      ]
+     }
+    },
+    {
+     "id": "sainsburys-nectar",
+     "name": "Sainsbury's Nectar Prices",
+     "tag": "Loyalty prices",
+     "summary": "Nectar Prices are lower prices on a selected range of products at Sainsbury's, in store (not Sainsbury's Local) and online, for Nectar members.",
+     "points": [
+      "In store, scan or swipe your Nectar card or app at the checkout. Online, add your Nectar card to your Sainsbury's account first.",
+      "“Your Nectar Prices” are up to 10 personalised offers a week. New ones land each Friday and you have to unlock them before you shop.",
+      "Sainsbury's terms say Nectar Prices cannot be applied after the event: if you don't scan or unlock first, you don't get the discount."
+     ],
+     "links": [
+      [
+       "Sainsbury's – Nectar Prices (help page)",
+       "https://help.sainsburys.co.uk/help/products/nectarprices"
+      ],
+      [
+       "Sainsbury's – Nectar Prices terms",
+       "https://help.sainsburys.co.uk/help/terms-and-conditions/nectarprice"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
+      "expect": [
+       "scan or swipe your Nectar card or app in-store",
+       "up to 10 products each week"
+      ]
+     }
+    },
+    {
+     "id": "asda-rewards",
+     "name": "Asda Rewards",
+     "tag": "Loyalty scheme",
+     "summary": "Asda Rewards is an app. Asda says you earn “Cashpot” money by completing missions, such as shopping in certain categories or hitting spending targets.",
+     "points": [
+      "You can convert your Cashpot balance into vouchers to spend in Asda stores and on Asda.com. The money must be spent at Asda and excludes George.com.",
+      "Asda's app listing says you have 6 months from the month you earned it to convert your savings before they expire.",
+      "Asda's app listing also says you build your Cashpot through missions, not on every item you buy."
+     ],
+     "links": [
+      [
+       "Asda – Asda Rewards",
+       "https://www.asda.com/rewards/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.asda.com/rewards/",
+      "expect": [
+       "Cashpot",
+       "Excludes George.com"
+      ]
+     }
+    },
+    {
+     "id": "morrisons-more",
+     "name": "Morrisons More",
+     "tag": "Loyalty prices",
+     "summary": "Morrisons says More Card members get personalised offers and More Card Prices on selected products when they scan the card in store or online.",
+     "points": [
+      "Morrisons says you earn 5 More Points on every product when you scan your card (the page marks this with an asterisk, so read its terms for exclusions).",
+      "When your balance reaches 5,000 points, Morrisons says it gives you a “Fiver” to spend with them."
+     ],
+     "links": [
+      [
+       "Morrisons – Morrisons More",
+       "https://www.morrisons.com/more"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.morrisons.com/more",
+      "expect": [
+       "5000 points",
+       "More Card Prices"
+      ]
+     }
+    },
+    {
+     "id": "lidl-plus",
+     "name": "Lidl Plus",
+     "tag": "Loyalty scheme",
+     "summary": "Lidl says the Lidl Plus app gives you weekly exclusive offers and personalised coupons, and you collect points when you scan the app as you shop.",
+     "points": [
+      "Points can be spent on rewards in Lidl's Rewards Marketplace.",
+      "Lidl says to check the Coupons section of the app for tailor-made coupons and to check the app each week for exclusive offers."
+     ],
+     "links": [
+      [
+       "Lidl GB – Lidl Plus app",
+       "https://www.lidl.co.uk/c/lidl-plus/s10023095"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
+      "expect": [
+       "Personalised coupons for you",
+       "Rewards Marketplace"
+      ]
+     }
+    },
+    {
+     "id": "coop-membership",
+     "name": "Co-op membership",
+     "tag": "Member prices",
+     "summary": "Co-op says members get lower prices on everyday essentials and personalised offers every week, which you choose and then redeem by scanning your membership card online or in store.",
+     "points": [
+      "Co-op says it costs £1 to join, and you get that £1 back on your first shop in store when you select your personalised offer.",
+      "Members also choose a local cause to support, and Co-op says the cause gets a share of its profits."
+     ],
+     "links": [
+      [
+       "Co-op – membership",
+       "https://www.coop.co.uk/membership"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.coop.co.uk/membership",
+      "expect": [
+       "It costs just £1 to join",
+       "Lower prices on everyday essentials"
+      ]
+     }
+    },
+    {
+     "id": "aldi",
+     "name": "Aldi: Price Check and price guarantees",
+     "tag": "Everyday low prices",
+     "summary": "Aldi says it compares its prices with competitors' equivalent products every week, and publishes a “Weekly Price Check” page showing the comparisons.",
+     "points": [
+      "Aldi says it regularly monitors competitor prices across the market. Its “Save” page lists Price Drops, Super 6 and Specialbuy Steals.",
+      {
+       "t": "Time-limited guarantee (Aldi's own terms): it says it will match the lowest UK supermarket price on pumpkins and squash (excluding multi-buys and promotional prices) between 10 September and 1 November 2026, if you can show proof of a lower price for an equivalent size on the date you buy.",
+       "until": "2026-11-01"
+      }
+     ],
+     "links": [
+      [
+       "Aldi – Save",
+       "https://www.aldi.co.uk/save"
+      ],
+      [
+       "Aldi – Price Check",
+       "https://www.aldi.co.uk/corporate/terms-and-conditions/price-check"
+      ],
+      [
+       "Aldi – Swap (comparison terms and guarantees)",
+       "https://www.aldi.co.uk/corporate/terms-and-conditions/swap"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.aldi.co.uk/save",
+      "expect": [
+       "Weekly Price Check"
+      ]
+     }
+    },
+    {
+     "id": "aldi-price-match",
+     "name": "“Aldi Price Match” at Tesco and Sainsbury's",
+     "tag": "Price match",
+     "summary": "“Aldi Price Match” is run by Tesco and by Sainsbury's, not by Aldi. Each matches the price of selected products against comparable Aldi products.",
+     "points": [
+      "Tesco says it matches over 600 products, checks Aldi prices in store and/or online twice a week, and doesn't match Aldi promotional prices. The products vary by week and aren't in Express or Northern Ireland stores.",
+      "Sainsbury's says it covers selected products only, not in Northern Ireland, with prices checked twice weekly. Its terms link to a table of the matched products, which it says is updated regularly."
+     ],
+     "links": [
+      [
+       "Tesco – Aldi Price Match",
+       "https://www.tesco.com/groceries/en-GB/zone/aldi-price-match/"
+      ],
+      [
+       "Sainsbury's – Aldi Price Match terms",
+       "https://help.sainsburys.co.uk/help/terms-and-conditions/aldipm-t-cs"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.tesco.com/groceries/en-GB/zone/aldi-price-match/",
+      "expect": [
+       "twice weekly"
+      ]
+     }
+    },
+    {
+     "id": "tgtg",
+     "name": "Too Good To Go",
+     "tag": "Surplus food",
+     "summary": "Too Good To Go says its app shows which cafes, restaurants, bakeries and stores near you have good food left over, to buy at half the price or less.",
+     "points": [
+      "You reserve and pay in the app, then collect in the pick-up window shown, swiping the app in front of the staff.",
+      "Its terms say you can cancel in the app any time before pick-up ends. A reservation isn't a purchase until you collect."
+     ],
+     "links": [
+      [
+       "Too Good To Go – how the app works",
+       "https://www.toogoodtogo.com/how-does-the-app-work"
+      ],
+      [
+       "Too Good To Go – how to collect",
+       "https://www.toogoodtogo.com/en-gb/how-to-collect-too-good-to-go"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.toogoodtogo.com/how-does-the-app-work",
+      "expect": [
+       "half of the price or less"
+      ]
+     }
+    },
+    {
+     "id": "waitrose-mywaitrose",
+     "name": "My Waitrose",
+     "tag": "Loyalty scheme",
+     "summary": "Waitrose says all My Waitrose members can enjoy special savings on a variety of products, online and in store, by using their My Waitrose card.",
+     "points": [
+      "Personalised offers are tailored to each member, so the number and type of offers can vary and there may be times when none are available. You select them in the My Waitrose hub online or in the app, and they apply when you scan your card at checkout.",
+      "Waitrose also mentions a free hot drink offer and member-only competitions for members.",
+      "“Little Treats”: Waitrose says that each month you spend £50, £100 and £250 earns a Little Treat voucher, up to three a month. You must scan your card in the qualifying shop, and terms apply."
+     ],
+     "links": [
+      [
+       "Waitrose – My Waitrose benefits and offers",
+       "https://www.waitrose.com/ecom/help-information/customer-service/my-waitrose-card-and-money-off-vouchers/mywaitrose-vouchers"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.waitrose.com/ecom/help-information/customer-service/my-waitrose-card-and-money-off-vouchers/mywaitrose-vouchers",
+      "expect": [
+       "Little Treats",
+       "Personalised Offers"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "cinema",
+   "title": "Cinema",
+   "kind": "cards",
+   "intro": "Memberships, free schemes and 2-for-1 offers, taken from the cinemas' own pages. Ticket prices vary by cinema, film and time, so check your local cinema's page.",
+   "entries": [
+    {
+     "id": "cineworld-unlimited",
+     "name": "Cineworld Unlimited",
+     "tag": "Membership",
+     "summary": "Cineworld says its Unlimited monthly membership lets you see unlimited films, and that the cost depends on your local cinema and which membership group it is in. Check your cinema on its page for the price.",
+     "points": [
+      "You can pre-book up to 5 films at a time, and Unlimited screenings don't count towards that limit.",
+      "Members get 10% off in-cinema snacks and drinks, rising to 25% after 3 months, or from sign-up if you pay 12 months upfront (Cineworld says this is the premium Unlimited membership).",
+      "All members get 10% off in-cinema Starbucks. Terms apply."
+     ],
+     "links": [
+      [
+       "Cineworld – Unlimited",
+       "https://www.cineworld.co.uk/unlimited/"
+      ],
+      [
+       "Cineworld – offers",
+       "https://www.cineworld.co.uk/offers/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.cineworld.co.uk/unlimited/",
+      "expect": [
+       "pre-book up to 5 films",
+       "25% off snacks"
+      ]
+     }
+    },
+    {
+     "id": "odeon-limitless",
+     "name": "ODEON myLIMITLESS",
+     "tag": "Membership",
+     "summary": "ODEON publishes the price and terms of its myLIMITLESS memberships in its help centre. We couldn't read these pages automatically, so no prices are shown here: please check the official page.",
+     "points": [],
+     "links": [
+      [
+       "ODEON help centre – Limitless",
+       "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless"
+      ],
+      [
+       "ODEON – How much is myLIMITLESS Plus?",
+       "https://help.odeon.co.uk/hc/en-gb/articles/12586034948242-How-much-is-myLIMITLESS-Plus"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless",
+      "expect": []
+     }
+    },
+    {
+     "id": "picturehouse",
+     "name": "Picturehouse membership",
+     "tag": "Membership",
+     "summary": "Prices published by Picturehouse for its memberships (all include complimentary cinema tickets, according to its page):",
+     "points": [
+      "Weekday Saver Light: from £6.99 a month or £69.90 a year. Monday to Thursday, all cinemas except Picturehouse Central.",
+      "Classic: from £9.99 a month or £99.90 a year. Every day, all cinemas except Picturehouse Central.",
+      "Premium West End: from £15.99 a month or £159.90 a year. Any day, includes Picturehouse Central and its Members' Bar.",
+      "Picturehouse says members get 10% off food and drink. Its page says the plan you choose is a fixed 12-month membership: read the terms on renewal before you join."
+     ],
+     "links": [
+      [
+       "Picturehouse – membership",
+       "https://www.picturehouses.com/membership"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.picturehouses.com/membership",
+      "expect": [
+       "£6.99 / month",
+       "£99.90 / yearly",
+       "£15.99 / month"
+      ]
+     }
+    },
+    {
+     "id": "everyman",
+     "name": "Everyman membership",
+     "tag": "Membership",
+     "summary": "Prices in Everyman's membership terms (all are 12-month terms):",
+     "points": [
+      "Everyman: £95 a year, with 6 membership tickets a year. No monthly plan.",
+      "Everyicon: £350 a year, or £31 a month for 12 months, with 24 membership tickets a year.",
+      "Everywhere: £680 a year, or £59 a month, with unlimited membership tickets."
+     ],
+     "links": [
+      [
+       "Everyman – membership terms and conditions",
+       "https://www.everymancinema.com/membership-terms-and-conditions/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
+      "expect": [
+       "Membership fee: £95",
+       "Membership fee: £350 per year",
+       "Membership fee: £680"
+      ]
+     }
+    },
+    {
+     "id": "vue-club",
+     "name": "Vue: Club Vue (free)",
+     "tag": "Free member scheme",
+     "summary": "Vue says its free Club Vue app gives you a digital stamp with each booking. Once you have 10 stamps you get a free film ticket.",
+     "points": [
+      "Vue says members can self-refund tickets bought online or in the app, up to two hours before the session starts.",
+      "Vue also says members unlock free tickets, snacks and drinks as rewards once earned."
+     ],
+     "links": [
+      [
+       "Vue – Vue Members",
+       "https://www.myvue.com/offers/vue-members"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.myvue.com/offers/vue-members",
+      "expect": [
+       "collected 10"
+      ]
+     }
+    },
+    {
+     "id": "meerkat-movies",
+     "name": "Meerkat Movies (2 for 1 on Tuesdays or Wednesdays)",
+     "tag": "2-for-1 tickets",
+     "summary": "Vue and Showcase each publish this scheme on their own sites. It comes from Compare the Market: you claim a voucher code through Compare the Market, then use it at the cinema.",
+     "points": [
+      "Vue says: 2 standard tickets, cheapest free, on Tuesdays or Wednesdays at participating cinemas, with the app-only membership ending on 19 July 2027. Extra charges apply for 3D films and premium seating or auditoriums.",
+      "Showcase says: one code per year for Tuesdays or Wednesdays on full-price tickets. It can't be used for Gallery seating or Event Cinema, extra fees apply for 3D, XPlus and XLR seating even on the free ticket, and codes can't currently be redeemed in the Showcase app."
+     ],
+     "links": [
+      [
+       "Vue – Meerkat Movies",
+       "https://www.myvue.com/offers/meerkat-movies"
+      ],
+      [
+       "Showcase – Meerkat Movies",
+       "https://www.showcasecinemas.co.uk/meerkat-movies/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.myvue.com/offers/meerkat-movies",
+      "expect": []
+     }
+    },
+    {
+     "id": "showcase-offers",
+     "name": "Showcase offers",
+     "tag": "Ticket offer",
+     "summary": "Showcase publishes its current offers on one page.",
+     "points": [
+      {
+       "t": "Showcase says that until Friday 30 October 2026 you can buy 5 tickets for £25 to use at any Showcase cinema, for any film showing until that date. Terms and exclusions apply, and voucher codes aren't valid for Event Cinema titles.",
+       "until": "2026-10-31"
+      }
+     ],
+     "links": [
+      [
+       "Showcase – offers and competitions",
+       "https://www.showcasecinemas.co.uk/offers-competitions/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.showcasecinemas.co.uk/offers-competitions/",
+      "expect": [
+       "5 tickets for just £25"
+      ]
+     },
+     "expires": "2026-10-31"
+    }
+   ]
+  },
+  {
+   "id": "subscriptions",
+   "title": "Subscriptions",
+   "kind": "table",
+   "intro": "Prices shown on each service's own UK page. Where a service shows an advert-supported tier, annual plan or student plan, it is listed.",
+   "entries": [
+    {
+     "id": "netflix",
+     "name": "Netflix",
+     "tag": "Streaming (ad tier available)",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Netflix – plans and pricing (UK)",
+       "https://help.netflix.com/en/node/24926/gb"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://help.netflix.com/en/node/24926/gb",
+      "expect": [
+       "Standard with adverts : £7.99 / month",
+       "Standard : £13.99 / month",
+       "Premium : £20.99 / month"
+      ]
+     },
+     "plans": [
+      [
+       "Standard with adverts",
+       "£7.99 / month"
+      ],
+      [
+       "Standard",
+       "£13.99 / month"
+      ],
+      [
+       "Premium",
+       "£20.99 / month"
+      ]
+     ],
+     "note": "Netflix says plans are billed monthly and it doesn't offer annual, multi-month or lifetime plans. Extra members cost extra."
+    },
+    {
+     "id": "spotify",
+     "name": "Spotify Premium",
+     "tag": "Music",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Spotify – Premium (UK)",
+       "https://www.spotify.com/uk/premium/"
+      ],
+      [
+       "Spotify – Student",
+       "https://www.spotify.com/uk/student/"
+      ],
+      [
+       "Spotify – Duo",
+       "https://www.spotify.com/uk/duo/"
+      ],
+      [
+       "Spotify – Family",
+       "https://www.spotify.com/uk/family/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.spotify.com/uk/premium/",
+      "expect": [
+       "£12.99 per month"
+      ]
+     },
+     "plans": [
+      [
+       "Individual",
+       "£12.99 / month"
+      ],
+      [
+       "Duo (2 accounts, same address)",
+       "£17.99 / month"
+      ],
+      [
+       "Family (up to 6 accounts, same address)",
+       "£21.99 / month"
+      ],
+      [
+       "Student (eligible students)",
+       "£5.99 / month"
+      ]
+     ],
+     "note": "Spotify says the Student plan switches to Individual (£12.99 a month) when you stop being eligible.",
+     "offers": [
+      {
+       "t": "Spotify's page says new Premium users get 2 months for £0 on Individual, then £12.99 a month. The offer ends 30 October 2026.",
+       "until": "2026-10-30"
+      }
+     ]
+    },
+    {
+     "id": "prime",
+     "name": "Amazon Prime",
+     "tag": "Delivery and video",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Amazon – Prime (UK)",
+       "https://www.amazon.co.uk/amazonprime"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.amazon.co.uk/amazonprime",
+      "expect": [
+       "£8.99 per month",
+       "£95 per year",
+       "£4.49 per month after trial"
+      ]
+     },
+     "plans": [
+      [
+       "Monthly",
+       "£8.99 / month"
+      ],
+      [
+       "Annual",
+       "£95 / year"
+      ],
+      [
+       "Students and 18–24 year-olds (monthly)",
+       "£4.49 / month"
+      ]
+     ],
+     "note": "Amazon's page shows a 30-day free trial, after which the subscription continues until cancelled. Prime Video is shown with limited adverts."
+    },
+    {
+     "id": "disney",
+     "name": "Disney+",
+     "tag": "Streaming (ad tier available)",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Disney+ (UK)",
+       "https://www.disneyplus.com/en-gb"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.disneyplus.com/en-gb",
+      "expect": [
+       "Standard with Ads From £5.99/mo",
+       "then £15.99/mo"
+      ]
+     },
+     "plans": [
+      [
+       "Standard with Ads",
+       "from £5.99 / month for 6 months, then £6.99"
+      ],
+      [
+       "Standard",
+       "from £9.99 / month for 6 months, then £11.99"
+      ],
+      [
+       "Premium",
+       "from £11.99 / month for 6 months, then £15.99"
+      ]
+     ],
+     "note": "Disney+ describes the lower price as based on a 6-month minimum term. Check the page for the terms that apply when you join."
+    },
+    {
+     "id": "apple-music",
+     "name": "Apple Music",
+     "tag": "Music",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Apple – Apple Music (UK)",
+       "https://www.apple.com/uk/apple-music/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.apple.com/uk/apple-music/",
+      "expect": [
+       "Individual £11.99/month",
+       "Family £19.99/month",
+       "£5.99/month"
+      ]
+     },
+     "plans": [
+      [
+       "Individual",
+       "£11.99 / month"
+      ],
+      [
+       "Family",
+       "£19.99 / month"
+      ],
+      [
+       "Student (verified students)",
+       "£5.99 / month"
+      ]
+     ],
+     "note": "Apple says there is a free first month for new subscribers, and that the Student plan comes with Apple TV at no extra cost."
+    },
+    {
+     "id": "apple-tv",
+     "name": "Apple TV",
+     "tag": "Streaming",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "Apple – Apple TV (UK)",
+       "https://www.apple.com/uk/apple-tv/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.apple.com/uk/apple-tv/",
+      "expect": [
+       "£9.99 per month after a free 7-day trial",
+       "from £18.95 per month"
+      ]
+     },
+     "plans": [
+      [
+       "Monthly (after a free 7-day trial)",
+       "£9.99 / month"
+      ],
+      [
+       "Apple One bundles (include Apple TV)",
+       "from £18.95 / month"
+      ]
+     ],
+     "note": "Apple says Apple TV is free for three months if you buy a new Apple device and redeem the offer within 90 days."
+    },
+    {
+     "id": "now",
+     "name": "NOW (Sky)",
+     "tag": "Streaming (ad tier available)",
+     "summary": "",
+     "points": [],
+     "links": [
+      [
+       "NOW (UK)",
+       "https://www.nowtv.com/"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.nowtv.com/",
+      "expect": [
+       "£4.99 a month 6-month minimum term",
+       "auto-renews at £7.99pm"
+      ]
+     },
+     "plans": [
+      [
+       "Entertainment Saver Plan (promotion, 6-month minimum term)",
+       "£4.99 / month"
+      ],
+      [
+       "Entertainment Membership after the minimum term",
+       "£7.99 / month"
+      ]
+     ],
+     "note": "NOW says the Entertainment Membership auto-renews at £7.99 a month after the minimum term unless you cancel, and that standard memberships include adverts."
+    },
+    {
+     "id": "youtube-premium",
+     "name": "YouTube Premium",
+     "tag": "Video and music",
+     "summary": "YouTube shows its plans and prices on its own page. We couldn't read the prices from an official page automatically, so none are shown here.",
+     "points": [],
+     "links": [
+      [
+       "YouTube – Premium",
+       "https://www.youtube.com/premium"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.youtube.com/premium",
+      "expect": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "highstreet",
+   "title": "High street",
+   "kind": "cards",
+   "intro": "Loyalty schemes and member offers from high-street chains, as they describe them.",
+   "entries": [
+    {
+     "id": "ms-sparks",
+     "name": "M&S Sparks",
+     "tag": "Loyalty offers",
+     "summary": "M&S says Sparks gives you offers: you activate an offer, shop, and earn a reward once you reach the spend target.",
+     "points": [
+      "You activate an offer by selecting “Activate offer”. M&S says the page then shows whether the target has to be met in one transaction or across several.",
+      "M&S says rewards for fashion, home and beauty purchases show as pending for 14 days to allow for returns."
+     ],
+     "links": [
+      [
+       "M&S – loyalty and rewards help",
+       "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards"
+      ],
+      [
+       "M&S – join Sparks",
+       "https://www.marksandspencer.com/joinsparks"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
+      "expect": [
+       "Activate offer",
+       "pending for 14 days"
+      ]
+     }
+    },
+    {
+     "id": "bq-club",
+     "name": "B&Q Club",
+     "tag": "Loyalty offers",
+     "summary": "B&Q says that when you scan your B&Q Club card every time you shop, it emails you money-off coupons for future shops.",
+     "points": [
+      "B&Q says that if you register to receive offers by email, it sends your first coupon: £5 off when you spend £30 or more."
+     ],
+     "links": [
+      [
+       "B&Q – B&Q Club",
+       "https://www.diy.com/bandqclub"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.diy.com/bandqclub",
+      "expect": [
+       "£5 off when you spend £30 or more"
+      ]
+     }
+    },
+    {
+     "id": "pret",
+     "name": "Club Pret",
+     "tag": "Subscription",
+     "summary": "Pret says Club Pret gives you 50% off up to five hot or iced barista-made drinks a day, for £5 a month. The page marks “iced” with an asterisk, so check its terms for exclusions.",
+     "points": [
+      "Pret says you subscribe and claim in the Pret app. It is a monthly subscription, so check how to cancel before you join."
+     ],
+     "links": [
+      [
+       "Pret – Club Pret",
+       "https://www.pret.co.uk/en-GB/club-pret"
+      ]
+     ],
+     "status": "ok",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "auto",
+      "url": "https://www.pret.co.uk/en-GB/club-pret",
+      "expect": [
+       "50% off up to five hot or iced",
+       "£5 per month"
+      ]
+     }
+    },
+    {
+     "id": "boots",
+     "name": "Boots Advantage Card",
+     "tag": "Loyalty scheme",
+     "summary": "Boots publishes how its Advantage Card works in its terms and conditions. We couldn't read these pages automatically, so no figures are shown here.",
+     "points": [],
+     "links": [
+      [
+       "Boots – Advantage Card terms and conditions",
+       "https://www.boots.com/terms-conditions/advantage-card-terms-and-conditions"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.boots.com/terms-conditions/advantage-card-terms-and-conditions",
+      "expect": []
+     }
+    },
+    {
+     "id": "superdrug",
+     "name": "Superdrug Health & Beautycard",
+     "tag": "Loyalty scheme",
+     "summary": "Superdrug publishes how its card works on its own site. We couldn't read the pages automatically, so no figures are shown here.",
+     "points": [],
+     "links": [
+      [
+       "Superdrug – about the Health & Beautycard",
+       "https://www.superdrug.com/beautycard/about-card"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.superdrug.com/beautycard/about-card",
+      "expect": []
+     }
+    },
+    {
+     "id": "argos-nectar",
+     "name": "Argos and Nectar",
+     "tag": "Loyalty scheme",
+     "summary": "Argos publishes how Nectar works at Argos in its help centre. We couldn't read it automatically, so no figures are shown here.",
+     "points": [],
+     "links": [
+      [
+       "Argos – Nectar",
+       "https://help.argos.co.uk/help/nectar"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://help.argos.co.uk/help/nectar",
+      "expect": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "students",
+   "title": "Student discount services",
+   "kind": "cards",
+   "intro": "Pointers to the student discount services themselves. We don't list individual brand discounts or codes here.",
+   "entries": [
+    {
+     "id": "unidays",
+     "name": "UNiDAYS",
+     "tag": "Student verification",
+     "summary": "A student verification service that lists discounts from many brands. Each brand sets its own offer and terms, so check the brand's page.",
+     "points": [],
+     "links": [
+      [
+       "UNiDAYS (UK)",
+       "https://www.myunidays.com/GB/en-GB"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.myunidays.com/GB/en-GB",
+      "expect": []
+     }
+    },
+    {
+     "id": "student-beans",
+     "name": "Student Beans",
+     "tag": "Student verification",
+     "summary": "A student verification service that lists discounts from many brands. Each brand sets its own offer and terms, so check the brand's page.",
+     "points": [],
+     "links": [
+      [
+       "Student Beans (UK)",
+       "https://www.studentbeans.com/uk"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.studentbeans.com/uk",
+      "expect": []
+     }
+    },
+    {
+     "id": "totum",
+     "name": "TOTUM",
+     "tag": "Student card",
+     "summary": "The official site of the TOTUM student card. Check it for current discounts and the card price.",
+     "points": [],
+     "links": [
+      [
+       "TOTUM",
+       "https://www.totum.com/"
+      ]
+     ],
+     "status": "link-only",
+     "checked": "2026-10-17",
+     "check": {
+      "mode": "manual",
+      "url": "https://www.totum.com/",
+      "expect": []
+     }
+    }
+   ]
+  }
+ ]
+}

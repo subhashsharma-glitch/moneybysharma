@@ -60,7 +60,9 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
          # go-live additions (only matter once these exist on origin/main; harmless before)
          "pay-tax-payslip.html", "scams-fraud.html", "budgeting-emergency-fund.html", "insurance-basics.html",
          "assets/calc-ui6.js", "assets/calc-ui7.js", "assets/money-matters-cheat-sheet-2026-27.pdf", "assets/explained-simply-money-matters.pdf",
-         "scripts/gap_common.py", "scripts/gap_sections.py", "scripts/pages14.py", "scripts/pages15.py"]
+         "scripts/gap_common.py", "scripts/gap_sections.py", "scripts/pages14.py", "scripts/pages15.py",
+         # deals & savings (preview until approved; only matters once these exist on origin/main)
+         "deals.html", "data/deals.json", "scripts/pages16.py", "scripts/update_deals.py"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))

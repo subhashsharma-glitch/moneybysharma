@@ -218,3 +218,15 @@ nav.main .dd-grp>ul{padding-left:.4rem}
  nav.main .dd-grp.acc.open>.dd-h::after{transform:rotate(-135deg)}
  nav.main .dd-grp.acc:not(.open)>ul{display:none}
 }
+/* deals & savings */
+.dl-jump{font-size:.95rem;line-height:1.9}
+.dl-tips{padding-left:1.2rem}.dl-tips li{margin:.5rem 0}
+.dl-card{display:flex;flex-direction:column;min-width:0}
+.dl-card ul{margin:.2rem 0 .6rem;padding-left:1.1rem;color:var(--muted)}.dl-card li{margin:.35rem 0}
+.dl-card .dl-links{list-style:none;padding:0;margin:auto 0 .4rem;font-size:.92rem}.dl-card .dl-links li{margin:.25rem 0;color:var(--ink)}
+.dl-meta{margin:.2rem 0 0!important;font-size:.82rem;color:var(--muted)}
+.dl-offer{background:var(--accent-50);border-radius:8px;padding:.5rem .7rem;margin:.6rem 0!important;color:var(--ink)!important;font-size:.92rem}
+.dl-plans th,.dl-plans td{font-size:.92rem;vertical-align:top}.dl-plans td{white-space:normal}
+.tag-muted{background:#eef1f0;color:#4a5a57}
+.dl-card h3{overflow-wrap:anywhere}
+.dl-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.1rem}.dl-tags .tag{align-self:flex-start}
