@@ -56,6 +56,9 @@ def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
     return bool(re.search(r"placeholder|dummy|lorem|sample data|example data|mock", txt, re.I))
+GH = shutil.which("gh") or "/usr/local/bin/gh"
+# the repo's configured credential helper points at /usr/bin/gh, which is not where gh lives on the box: name the real path
+CRED = ["-c", "credential.helper=", "-c", f"credential.helper=!{GH} auth git-credential"]
 def run(*a): return subprocess.run(a, cwd=ROOT, check=True)
 def git(*a): return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True)
 def main():
@@ -87,7 +90,7 @@ def main():
         "commit", "-m", f"Paper trading: update export as of {d['as_of']}")
     print("committed locally.")
     if not a.push: print("not pushed (use --push)."); return
-    if subprocess.run(["timeout", "90", "git", "pull", "--rebase", "--autostash", "-q"], cwd=ROOT).returncode != 0: fail("could not sync with remote; commit kept locally, NOT pushed")
-    if subprocess.run(["timeout", "90", "git", "push", "-q"], cwd=ROOT).returncode != 0: fail("push failed; commit kept locally")
+    if subprocess.run(["timeout", "90", "git", *CRED, "pull", "--rebase", "--autostash", "-q"], cwd=ROOT).returncode != 0: fail("could not sync with remote; commit kept locally, NOT pushed")
+    if subprocess.run(["timeout", "90", "git", *CRED, "push", "-q"], cwd=ROOT).returncode != 0: fail("push failed; commit kept locally")
     print("pushed:", git("log", "--oneline", "-1").stdout.strip())
 if __name__ == "__main__": main()
