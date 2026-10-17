@@ -27,3 +27,34 @@ body a[target="_blank"]::after{content:"\2197";content:"\2197" / "";font-size:.7
 header.site .dd-link{color:inherit;text-decoration:none}
 header.site .dd-desc{display:block;font-size:.75rem;color:var(--muted);font-weight:400;margin-top:.1rem;max-width:22rem;white-space:normal}
 nav.main summary a.dd-link{display:inline;padding:0;border:0;font:inherit;color:inherit}
+header.site .nav .search-btn{display:inline-flex;align-items:center;gap:.45rem;margin-left:auto;border:1px solid var(--line);border-radius:10px;padding:.45rem .65rem;min-height:40px;color:var(--teal);text-decoration:none;background:#fff;font-size:.93rem}
+header.site .nav .search-btn:hover{background:var(--teal-50,#e7f2ef)}
+header.site .nav .search-btn .sb-t,header.site .nav .search-btn kbd{display:none}
+@media(min-width:960px){header.site .nav .search-btn{order:3;margin-left:.6rem}nav.main{margin-left:auto}header.site .nav .search-btn .sb-t{display:inline}header.site .nav .search-btn kbd{display:inline;font:inherit;font-size:.75rem;border:1px solid var(--line);border-radius:5px;padding:0 .35rem;color:var(--muted,#4a5a57)}}
+/* search-overlay (copied verbatim into the Garmin page by garmin_chrome.py) */
+html.sx-open{overflow:hidden}
+.sx{position:fixed;inset:0;z-index:100;display:flex;justify-content:center;align-items:flex-start;padding:7vh 1rem 1rem;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.sx[hidden]{display:none}
+.sx-back{position:absolute;inset:0;background:rgba(11,31,28,.55)}
+.sx-box{position:relative;display:flex;flex-direction:column;width:100%;max-width:680px;max-height:84vh;background:#fff;color:#14211f;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);font-size:1rem;line-height:1.5}
+.sx-form{display:flex;gap:.5rem;padding:.8rem;border-bottom:1px solid #dfe5e2;margin:0}
+.sx-form input,.sp-form input{flex:1;min-width:0;font:inherit;font-size:1.05rem;padding:.6rem .8rem;border:2px solid #176b60;border-radius:10px;color:#14211f;background:#fff}
+.sx-x{border:1px solid #dfe5e2;background:#fff;border-radius:8px;padding:0 .75rem;font:inherit;font-size:.8rem;color:#4a5a57;cursor:pointer;min-height:44px}
+.sx-status{margin:0;padding:.5rem 1rem 0;font-size:.85rem;color:#4a5a57}
+.sx-list,.sp-list{list-style:none;margin:0;padding:.4rem;overflow:auto}
+.sx-list{flex:1}
+.sx-item a{display:block;padding:.6rem .7rem;border-radius:10px;text-decoration:none;color:#14211f}
+.sx-item a:hover,.sx-item[aria-selected=true] a{background:#e7f2ef}
+.sx-item[aria-selected=true] a{outline:2px solid #176b60}
+.sx-t{display:block;font-weight:700;color:#0f4c45}
+.sx-m{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#8a4b00;font-weight:700}
+.sx-s{display:block;font-size:.9rem;color:#4a5a57}
+.sx-item mark{background:#fbe3c0;color:inherit;border-radius:3px;padding:0 1px}
+.sx-foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:0;padding:.55rem 1rem;border-top:1px solid #dfe5e2;font-size:.8rem;color:#4a5a57}
+.sx-all{font-weight:700;color:#0f4c45}
+.sx-all[hidden]{display:none}
+@media(max-width:600px){.sx{padding-top:3vh}.sx-keys{display:none}.sx-box{max-height:92vh}}
+.sp-form{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;margin:1.5rem 0 .5rem}.sp-form label{flex-basis:100%;font-weight:600}
+.sp-list{padding:0;margin:1rem 0;background:#fff;border:1px solid var(--line);border-radius:12px}.sp-list:empty{display:none}
+.sp-list .sx-item+.sx-item{border-top:1px solid var(--line)}
+/* end search-overlay */

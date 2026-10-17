@@ -51,7 +51,7 @@ def validate(d):
         if t["win_count"] != sum(c["pnl_usd"] > 0 for c in b["closed_trades"]): fail(f"{k}: win_count mismatch")
         if any(o.get("unrealised_pnl_usd") is not None for o in b["open_positions"]): print(f"note: {k} has unrealised P&L values; the page still does not show them")
     walk(d)
-STAGE = ["data/paper-trades.json", "paper-trading.html", "sitemap.xml", "tools.html", "tools/garmin-insights/index.html"]
+STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.html", "sitemap.xml", "tools.html", "tools/garmin-insights/index.html"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))

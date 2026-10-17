@@ -66,7 +66,7 @@ def page(fn, title, desc, body, head="", scripts=()):
             cur = cur or (len(item) > 2 and item[2] == fn)
             nav += f'<li class="dd"><details><summary{" class=cur" if cur else ""}>{lab}</summary><ul>' + "".join(_li(h,t) for h,t in item[1]) + '</ul></details></li>'
         else: nav += _li(*item)
-    sc = "".join(f'<script src="assets/{s}" defer></script>' for s in ("main.js",)+tuple(scripts))
+    sc = "".join(f'<script src="assets/{s}" defer></script>' for s in ("main.js","search.js")+tuple(scripts))
     return f'''<!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{html.escape(desc)}"><meta name="theme-color" content="#0f4c45">
@@ -74,6 +74,7 @@ def page(fn, title, desc, body, head="", scripts=()):
 {seo_meta(fn, title, desc)}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">{sc}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav"><a class="logo" href="index.html" aria-label="MoneyBySharma home">{LOGO}<span>Money<span class="by">By</span>Sharma</span></a>
+<a class="search-btn" href="search.html" aria-label="Search the site" aria-haspopup="dialog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sb-t">Search</span><kbd aria-hidden="true">/</kbd></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav></div></header>
 <main id="main">{body}{head}</main>
@@ -408,6 +409,7 @@ exec(open("scripts/pages8.py").read())
 exec(open("scripts/pages9.py").read())
 exec(open("scripts/pages10.py").read())
 exec(open("scripts/pages11.py").read())
+exec(open("scripts/pages12.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
@@ -416,6 +418,12 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by
 <div class="card"><span class="tag">Experiment</span><h3>Paper trading experiment</h3><p>A log of two fake-money trading books: trades, positions and totals. Experiment only, not advice or a recommendation.</p>
 <p><a class="btn" href="paper-trading.html">View the experiment</a></p></div></div>
 <p class="hint" style="margin-top:1rem">Garmin Fitness Insights runs entirely in your browser on this site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
+from search_index import build_search
+SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0, "Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded."),
+ ("assets/explained-simply-money-matters.pdf", "Explained Simply: Money Matters (PDF)", "Resources", 3, "A 15-page plain-English guide to UK money: payslips, tax, savings, borrowing, student loans, pensions, insurance, investing and scams."),
+ ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, ISA and pension allowances, FSCS, Bank Rate, CPI and more.")]
+SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
+print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 from seo import ext_links
 EXT = 0
 for fn, h in pages.items():
@@ -423,5 +431,5 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f!="404.html" and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
+write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])
