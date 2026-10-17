@@ -61,9 +61,11 @@ LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
  "and is not authorised or regulated by the Financial Conduct Authority (FCA). Do your own research or speak to an FCA-authorised adviser before making decisions. "
  "With investments your capital is at risk and you may get back less than you put in. Tax treatment depends on your individual circumstances and may change in future.")
+FBICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.6A8 8 0 1 1 21 12z"/></svg>'
+FBBAR = f'<a class="fb-bar" href="feedback.html">{FBICON}<span><strong>Feedback</strong> – tell me what to fix or cover</span></a>'
 def page(fn, title, desc, body, head="", scripts=()):
     def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if h==fn else ""}>{t}</a></li>'
-    nav = ""
+    nav = f'<li class="fb-mob"><a href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>Send feedback</a></li>'
     for item in NAVG:
         if isinstance(item[1], list):
             flat = [x for e in item[1] for x in (e[2] if e[0]=="group" else [e])]
@@ -81,14 +83,15 @@ def page(fn, title, desc, body, head="", scripts=()):
 <link rel="canonical" href="https://moneybysharma.co.uk/{'' if fn=='index.html' else fn}">
 {seo_meta(fn, title, desc)}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">{sc}</head>
 <body><a class="skip" href="#main">Skip to content</a>
-<header class="site"><div class="wrap nav"><a class="logo" href="index.html" aria-label="MoneyBySharma home">{LOGO}<span>Money<span class="by">By</span>Sharma</span></a>
+<header class="site">{FBBAR}<div class="wrap nav"><a class="logo" href="index.html" aria-label="MoneyBySharma home">{LOGO}<span>Money<span class="by">By</span>Sharma</span></a>
 <a class="hs-toggle" href="search.html" aria-label="Search the site" aria-controls="hs" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav>
+<a class="fb-btn" href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>{FBICON}<span>Feedback</span></a>
 <form class="hs" id="hs" role="search" action="search.html" method="get"><div class="hs-row"><label class="sr" for="hs-q">Search MoneyBySharma</label><svg width="16" height="16" class="hs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hs-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the site"><kbd aria-hidden="true">/</kbd><button class="hs-go" type="submit">Search</button></div></form></div></header>
 <main id="main">{body}{head}</main>
 <footer class="site"><div class="wrap"><div class="disc"><p style="margin:0">{DISC}</p></div>
-<ul><li><a href="about.html">About</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li></ul>
+<ul><li><a href="about.html">About</a></li><li><a href="feedback.html">Feedback</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li></ul>
 <p style="margin:1rem 0 0">© 2026 MoneyBySharma · Plain-English UK money information · Figures checked {CHECKED} for tax year 2026/27.</p></div></footer>
 </body></html>'''
 def ph(crumb, h1, lead): return f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › {crumb}</div><h1>{h1}</h1><p>{lead}</p></div></div>'
@@ -132,7 +135,8 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="electric-cars.html#calc"><h3>EV charging cost</h3><p>Home vs public charging cost per mile and per year.</p></a></div>
 <h2>Weekly best 3 rates – by email</h2><div class="card"><p>A short weekly email listing the three highest AERs we've checked. <strong>Coming soon</strong> – the form below is switched off and collects nothing.</p>
 <form class="signup" aria-describedby="su-note" onsubmit="return false"><label class="sr" for="su">Email address</label><input id="su" type="email" placeholder="you@example.com" disabled><button class="btn" disabled>Coming soon</button></form><p id="su-note" class="hint">No data is collected. See our <a href="privacy.html">privacy page</a>.</p></div>
-</div>''')
+</div>
+<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>''')
 # ---------- SAVINGS ----------
 pages["savings.html"] = page("savings.html", "Savings guide and rate table – MoneyBySharma", "UK savings explained: easy access, fixed bonds, cash ISAs, regular savers, FSCS £120,000 protection, the Personal Savings Allowance and starting rate.",
  ph("Savings","Savings, explained","How the main UK savings accounts work, how your money is protected, and how savings interest is taxed in 2026/27."), W(f'''
@@ -412,6 +416,7 @@ pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "Money
 <div style="max-width:760px"><h2>No cookies, no analytics</h2><p>This site sets no cookies and uses no analytics, advertising or tracking scripts. All fonts, scripts and data are served from this site itself – there are no third-party embeds.</p>
 <h2>Calculators</h2><p>Calculator inputs stay in your browser and are never sent anywhere.</p>
 <h2>Email sign-up</h2><p>The "weekly best 3 rates" sign-up is switched off ("coming soon") and collects nothing. If we launch it, we'll update this page first to explain what's collected and why.</p>
+<h2>Feedback</h2><p>The <a href="feedback.html">feedback page</a> opens a message in your own email app, addressed to <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. This site doesn't receive, store or process what you type, and nothing is sent until you press Send in your email app. Your message is used to improve the site, and your email address only to reply to you. Neither is shared or sold.</p>
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like any web host, GitHub may process technical data such as IP addresses to deliver and secure the site – see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
 <h2>Contacting us</h2><p>You can email <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. If you do, your email address and message are used only to reply to you. They aren't added to any mailing list or shared.</p>
 <h2>External links</h2><p>Links to other sites (for example GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
@@ -431,6 +436,7 @@ exec(open("scripts/pages13.py").read())
 exec(open("scripts/pages14.py").read())
 exec(open("scripts/pages15.py").read())
 exec(open("scripts/pages16.py").read())
+exec(open("scripts/pages17.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">

@@ -5,7 +5,7 @@ R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 css=open(f'{R}/assets/style.css').read()
 sx=re.search(r'/\* search-inline.*?/\* end search-inline \*/',css,re.S).group(0)
 css=css.replace(sx,'')   # the search block is appended verbatim below (already scoped)
-KEEP=re.compile(r'header\.site|nav\.main|\.nav\b|\.logo|\.menu-btn|footer\.site|\.dd-|\.sr\b|\.sr-nt|target=')
+KEEP=re.compile(r'header\.site|nav\.main|\.nav\b|\.logo|\.menu-btn|footer\.site|\.dd-|\.sr\b|\.sr-nt|\.fb-(bar|btn)\b|target=')
 def scope(sel):
     out=[]
     for p in sel.split(','):
