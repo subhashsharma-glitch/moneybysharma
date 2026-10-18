@@ -1,9 +1,11 @@
-/* Feedback page: builds a pre-filled email (mailto:) in the visitor's own email app. Nothing is sent or stored by this site. */
+/* Feedback page: posts the form to FormSubmit (formsubmit.co) by AJAX, so the visitor stays on this page.
+   Same service as the YA Transit site. On any failure it shows the direct address with a mailto/copy fallback. */
 (function(){
 var form=document.getElementById('fb-form');if(!form)return;
-var TO='hello@moneybysharma.co.uk';
+var ENDPOINT=form.getAttribute('data-endpoint'),TO=form.getAttribute('data-email');
 var $=function(id){return document.getElementById(id)};
-var type=$('fb-type'),pg=$('fb-page'),msg=$('fb-msg'),em=$('fb-email'),cnt=$('fb-count'),after=$('fb-after');
+var type=$('fb-type'),pg=$('fb-page'),msg=$('fb-msg'),em=$('fb-email'),cnt=$('fb-count'),hp=$('fb-hp'),send=$('fb-send');
+var done=$('fb-done'),fail=$('fb-fail');
 var LABEL={dislike:"Something I don't like",topic:"A topic I'd like covered",suggestion:'A suggestion or improvement',mistake:'A mistake or out-of-date information'};
 /* optional prefill: feedback.html?type=mistake&page=deals.html (a page file name is mapped to its nearest area; an area key also works) */
 var MAP={};try{MAP=JSON.parse(pg.getAttribute('data-map')||'{}')}catch(e){}
@@ -21,21 +23,35 @@ function build(){
  var url=path&&/^[A-Za-z0-9\-_\/]+\.html(#[\w-]+)?$/.test(path)?'https://moneybysharma.co.uk/'+path:'';
  var where=area?(area+(path?' \u2013 '+path:'')):'Not specified';
  var subject='MoneyBySharma feedback: '+LABEL[type.value]+(area&&pg.value!=='other'?' ('+area+')':'');
- var body=msg.value.trim()+'\n\n---\nType: '+LABEL[type.value]+'\nPart of the site: '+where+(url?'\nPage: '+url:'')+(em.value.trim()?'\nReply to: '+em.value.trim():'')+'\n';
- return{subject:subject,body:body,href:'mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)};
+ var data={_subject:subject,_template:'table',_captcha:'false',Form:'Feedback',Type:LABEL[type.value],Area:where,Message:msg.value.trim()};
+ if(url)data.Page=url;
+ var mail=em.value.trim();if(mail){data.email=mail;data._replyto=mail}
+ var body=data.Message+'\n\n---\nType: '+data.Type+'\nPart of the site: '+where+(url?'\nPage: '+url:'')+(mail?'\nReply to: '+mail:'')+'\n';
+ return{subject:subject,body:body,data:data,mailto:'mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)};
 }
+function show(box){done.hidden=box!==done;fail.hidden=box!==fail;if(box){box.hidden=false;try{box.focus();box.scrollIntoView({block:'center',behavior:'smooth'})}catch(x){}}}
+function busy(on){send.disabled=on;if(!send.hasAttribute('data-label'))send.setAttribute('data-label',send.textContent);send.textContent=on?'Sending\u2026':send.getAttribute('data-label')}
 form.addEventListener('submit',function(e){
  e.preventDefault();
+ if(send.disabled)return;
  var b1=flag(type,'fb-type-err',!type.value);
  var b2=flag(msg,'fb-msg-err',!msg.value.trim());
  var v=em.value.trim(),b3=flag(em,'fb-email-err',v!==''&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
  if(b1||b2||b3){(b1?type:b2?msg:em).focus();return}
  var m=build();
- $('fb-copy-src').value='To: '+TO+'\nSubject: '+m.subject+'\n\n'+m.body;
- after.hidden=false;after.focus();
- try{after.scrollIntoView({block:'nearest',behavior:'smooth'})}catch(x){}
- window.location.href=m.href;
+ $('fb-mailto').href=m.mailto;$('fb-copy-src').value='To: '+TO+'\nSubject: '+m.subject+'\n\n'+m.body;$('fb-copied').textContent='';
+ if(hp&&hp.value){show(done);form.hidden=true;return}   /* honeypot filled: pretend success, send nothing */
+ show(null);busy(true);
+ var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},15000);
+ fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(m.data),signal:ctl?ctl.signal:undefined})
+  .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return{ok:r.ok,j:j}})})
+  .then(function(res){clearTimeout(timer);busy(false);
+   var s=res.j&&res.j.success;
+   if(res.ok&&(s===true||s==='true')){form.hidden=true;show(done)}else show(fail)})
+  .catch(function(){clearTimeout(timer);busy(false);show(fail)});
 });
+var again=$('fb-again');
+if(again)again.addEventListener('click',function(){form.reset();count();prefillArea='';prefillPath='';form.hidden=false;show(null);type.focus()});
 var copy=$('fb-copy');
 if(copy)copy.addEventListener('click',function(){
  var src=$('fb-copy-src'),out=$('fb-copied'),text=src.value;

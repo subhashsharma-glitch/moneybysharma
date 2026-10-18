@@ -258,3 +258,7 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .fb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1rem}.fb-actions .hint{flex:1 1 14rem;margin:0}
 .fb-after{margin-top:1.2rem}.btn.ghost-dark{background:transparent;color:var(--teal);border:2px solid var(--teal)}.btn.ghost-dark:hover{background:var(--teal-50);color:var(--teal)}
 .fb-side .card h3{margin:1rem 0 .3rem;font-size:1.05rem}
+.hp-field{position:absolute!important;left:-10000px;width:1px;height:1px;overflow:hidden}
+.fb-ok{border-left-color:#2e7d32;background:#e8f5e9}.fb-bad{border-left-color:#b3261e;background:#fdecea}
+.fb-after p:first-child{margin-top:0}.fb-after .btn{margin:.2rem .4rem .2rem 0}
+.fb-form button[disabled]{opacity:.75;cursor:progress}
