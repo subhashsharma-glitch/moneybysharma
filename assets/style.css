@@ -262,3 +262,10 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .fb-ok{border-left-color:#2e7d32;background:#e8f5e9}.fb-bad{border-left-color:#b3261e;background:#fdecea}
 .fb-after p:first-child{margin-top:0}.fb-after .btn{margin:.2rem .4rem .2rem 0}
 .fb-form button[disabled]{opacity:.75;cursor:progress}
+/* weekly email sign-up (home page) */
+.wk{max-width:46rem}.wk-form{margin:.4rem 0 .6rem}
+.wk-row{display:grid;gap:.7rem;grid-template-columns:minmax(0,1fr);align-items:end}@media(min-width:560px){.wk-row{grid-template-columns:minmax(0,1fr) auto}}
+.wk-f input{margin-top:.3rem}.wk-f [aria-invalid=true],.wk-check input[aria-invalid=true]{outline:2px solid rgba(179,38,30,.45);border-color:#b3261e}
+.wk-check{display:flex;gap:.6rem;align-items:flex-start;margin-top:.9rem;font-weight:400;font-size:.95rem}
+.wk-check input{width:1.2rem;height:1.2rem;flex:none;margin:.15rem 0 0;padding:0}
+.wk .fb-after{margin:.8rem 0}
