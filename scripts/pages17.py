@@ -1,21 +1,29 @@
 # Feedback page (exec'd from build.py after pages16). No server: the form builds a pre-filled email in the visitor's own email app
 # (mailto:) to the contact address already published on the site. assets/feedback.js does the work; nothing is stored by the site.
-import re as _re, html as _h
+import re as _re, html as _h, json as _json
 FB_EMAIL = "hello@moneybysharma.co.uk"   # the contact address already used in the footer and on the privacy/about pages
-_pg = [("", "Not about a particular page")]
-def _add(h, t):
-    t = _h.unescape(_re.sub(r"<[^>]+>", "", t)).strip()
-    if h != "tools/garmin-insights/" or True: _pg.append((h, t))
-for _it in NAVG:
-    if isinstance(_it[1], list):
-        for _e in _it[1]:
-            if _e[0] == "group":
-                for _h2, _t in _e[2]: _add(_h2, _t)
-            else: _add(*_e)
-    else: _add(*_it)
-_pg.append(("calculators", "The calculators"))
-_pg.append(("other", "The whole site / somewhere else"))
-_opts = "".join(f'<option value="{_h.escape(h)}">{_h.escape(t)}</option>' for h, t in _pg)
+# Short list of site areas (value, label). Files map to the nearest area so ?page=<file> links still preselect something sensible.
+_AREAS = [("home", "Home page"),
+          ("savings", "Savings & bank accounts"),
+          ("invest", "Investments & pensions"),
+          ("credit", "Credit, debt & borrowing"),
+          ("guides", "Guides & jargon"),
+          ("tools", "Tools & Garmin Fitness Insights"),
+          ("deals", "Deals & savings"),
+          ("other", "Whole site / something else")]
+_MAP = {"index.html": "home", "search.html": "home", "404.html": "home",
+        "savings.html": "savings", "bank-accounts.html": "savings",
+        "investments.html": "invest", "pensions.html": "invest", "gilts.html": "invest",
+        "credit-cards.html": "credit", "credit-scores-debt-help.html": "credit", "mortgages.html": "credit",
+        "pay-tax-payslip.html": "guides", "budgeting-emergency-fund.html": "guides", "students.html": "guides", "insurance-basics.html": "guides",
+        "scams-fraud.html": "guides", "energy.html": "guides", "energy-providers.html": "guides", "broadband-phones.html": "guides",
+        "electric-cars.html": "guides", "how-money-works.html": "guides", "jargon.html": "guides", "resources.html": "guides",
+        "money-matters-cheat-sheet.html": "guides", "explained-simply-money-matters.html": "guides",
+        "about.html": "other", "disclaimer.html": "other", "privacy.html": "other", "feedback.html": "other",
+        "tools.html": "tools", "tools/garmin-insights/": "tools", "tools/garmin-insights/index.html": "tools", "paper-trading.html": "tools", "calculators": "tools",
+        "deals.html": "deals"}
+_map_json = _h.escape(_json.dumps(_MAP, separators=(",", ":")), quote=True)
+_opts = '<option value="">Not sure / skip</option>' + "".join(f'<option value="{k}">{_h.escape(v)}</option>' for k, v in _AREAS)
 _types = [("dislike", "Something I don't like"), ("topic", "A topic I'd like covered"), ("suggestion", "A suggestion or improvement"), ("mistake", "A mistake or out-of-date information")]
 _topts = '<option value="" disabled selected>Choose one…</option>' + "".join(f'<option value="{k}">{_h.escape(v)}</option>' for k, v in _types)
 pages["feedback.html"] = page("feedback.html", "Feedback – tell me what to improve – MoneyBySharma",
@@ -26,7 +34,7 @@ pages["feedback.html"] = page("feedback.html", "Feedback – tell me what to imp
 <div class="fb-form-col">
 <form id="fb-form" class="fb-form" novalidate>
 <div class="fb-field"><label for="fb-type">What is it about? <span class="req">(required)</span></label><select id="fb-type" name="type" required aria-describedby="fb-type-err">{_topts}</select><p class="fb-err" id="fb-type-err" hidden>Please choose what your message is about.</p></div>
-<div class="fb-field"><label for="fb-page">Which page does it relate to? <span class="opt">(optional)</span></label><select id="fb-page" name="page">{_opts}</select></div>
+<div class="fb-field"><label for="fb-page">Which part of the site is it about? <span class="opt">(optional)</span></label><select id="fb-page" name="page" data-map="{_map_json}">{_opts}</select></div>
 <div class="fb-field"><label for="fb-msg">Your message <span class="req">(required)</span></label><textarea id="fb-msg" name="message" rows="7" maxlength="1500" required aria-describedby="fb-msg-hint fb-msg-err" placeholder="For example: “I couldn't find…”, “Please explain…”, “This figure looks out of date…”"></textarea>
 <p class="hint" id="fb-msg-hint"><span id="fb-count">0</span> / 1,500 characters. Please don't include bank details, account numbers or other sensitive information.</p><p class="fb-err" id="fb-msg-err" hidden>Please write a short message.</p></div>
 <div class="fb-field"><label for="fb-email">Your email address <span class="opt">(optional – only if you'd like a reply)</span></label><input id="fb-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" aria-describedby="fb-email-hint fb-email-err"><p class="hint" id="fb-email-hint">Leave this blank if you don't need an answer. Your email app also shows your address to me when you send, so this is only needed if you'd prefer a reply to a different address.</p><p class="fb-err" id="fb-email-err" hidden>That doesn't look like an email address – check it or leave it blank.</p></div>
