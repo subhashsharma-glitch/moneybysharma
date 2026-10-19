@@ -51,6 +51,10 @@ th,td{text-align:left;padding:.6rem .7rem;border-bottom:1px solid var(--line);ve
 th{background:var(--teal-50);color:var(--teal);font-weight:700;white-space:nowrap}
 th button{all:unset;cursor:pointer}th button:focus-visible{outline:3px solid var(--accent)}
 .table-scroll{position:relative;overflow-x:auto;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+.table-scroll{scrollbar-width:thin;scrollbar-color:#9fb8b3 transparent}.table-scroll::-webkit-scrollbar{height:8px}.table-scroll::-webkit-scrollbar-thumb{background:#9fb8b3;border-radius:8px}
+.table-scroll.has-more{background:linear-gradient(to right,#fff 30%,rgba(255,255,255,0)) left/2.5rem 100% no-repeat local,linear-gradient(to left,#fff 30%,rgba(255,255,255,0)) right/2.5rem 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(15,76,69,.22),transparent) right/.9rem 100% no-repeat scroll,#fff}
+.scroll-hint{display:block;margin:.3rem 0 .35rem;font-size:.82rem;color:var(--muted)}.scroll-hint[hidden]{display:none}
+@media print{.scroll-hint{display:none!important}.table-scroll{overflow:visible}}
 .rt-table table{width:100%;font-size:.9rem}.rt-table th,.rt-table td{padding:.5rem .45rem;vertical-align:top}.rt-table th button{padding:0}
 .rt-table td.r-cond{white-space:normal;min-width:13rem;font-size:.86rem;line-height:1.45}.rt-table td.r-prov{min-width:7rem}.rt-table td.r-src{min-width:6.5rem}
 .rt-table .r-chk{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;margin-top:.2rem}

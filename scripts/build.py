@@ -482,10 +482,23 @@ SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 from seo import ext_links
 EXT = 0
+import re as _re
+def wrap_tables(h):
+    """Every <table> sits in a .table-scroll wrapper (horizontal scroll + hint) so wide tables never clip; already-wrapped tables are left alone."""
+    out, pos, n = [], 0, 0
+    for m in _re.finditer(r"<table\b.*?</table>", h, _re.S):
+        before = h[max(0, m.start() - 160):m.start()]
+        out.append(h[pos:m.start()])
+        if _re.search(r'<div class="[^"]*\btable-scroll\b[^"]*"[^>]*>\s*$', before): out.append(m.group(0))
+        else: out.append('<div class="table-scroll">' + m.group(0) + "</div>"); n += 1
+        pos = m.end()
+    out.append(h[pos:]); return "".join(out), n
+WRAPPED = 0
 for fn, h in pages.items():
+    h, w = wrap_tables(h); WRAPPED += w
     h, c = ext_links(h); EXT += c
     open(fn, "w").write(h)
-print("external links set to open in a new tab:", EXT)
+print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
 write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])
