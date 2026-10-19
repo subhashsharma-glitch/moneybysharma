@@ -158,9 +158,9 @@ def _srterm(r):
 def _srday(s): return datetime.date.fromisoformat(s).strftime("%-d %b %Y") if s else "–"
 def _srrow(r):
     e = html.escape; mn = "Not stated" if r["minDeposit"] is None else f"£{r['minDeposit']:,.0f}"
-    src = f'<a href="{e(r["sourceUrl"])}" target="_blank" rel="noopener">{e(r["provider"])} page<span class="sr"> (opens in a new tab)</span></a>' if r["sourceUrl"] else "–"
+    src = f'<a href="{e(r["sourceUrl"])}" target="_blank" rel="noopener">Provider page<span class="sr"> for {e(r["provider"])} (opens in a new tab)</span></a>' if r["sourceUrl"] else "–"
     cells = [("Provider", f"<strong>{e(r['provider'])}</strong>", "r-prov"), ("Product", e(r["product"]), ""), ("Type", _SRT[r["type"]], ""), ("AER", f"<b>{r['aer']:.2f}%</b>", ""),
-             ("Term", e(_srterm(r)), ""), ("Min deposit", mn, ""), ("Key conditions", e(r.get("conditions", "")), "r-cond"), ("FSCS", "Yes" if r["fscs"] else "No", ""), ("Source", src, ""), ("Checked", _srday(r["checked"]), "")]
+             ("Term", e(_srterm(r)), ""), ("Min deposit", mn, ""), ("Key conditions", e(r.get("conditions", "")), "r-cond"), ("FSCS", "Yes" if r["fscs"] else "No", ""), ("Source", src + f'<span class="r-chk">Checked {_srday(r["checked"])}</span>', "r-src")]
     return "<tr>" + "".join(f'<td data-label="{l}"' + (f' class="{c}"' if c else "") + f">{h}</td>" for l, h, c in cells) + "</tr>"
 SR_ROWS = "".join(_srrow(r) for r in sorted(SR["rates"], key=lambda r: -r["aer"]))
 SR_LIVE = SR.get("status") == "live"
@@ -170,12 +170,13 @@ pages["savings.html"] = page("savings.html", "Savings guide and rate table – M
  ph("Savings","Savings, explained","How the main UK savings accounts work, how your money is protected, and how savings interest is taxed in 2026/27."), W(f'''
 <h2 id="table">Savings rates comparison</h2>
 {SR_BANNER}
-<p>This table shows facts only: the named bank or building society, the product, its AER and key conditions, each read on the provider's own website on the date shown{SR_DATE}. It is sorted by AER (highest first) by default; click a column heading to re-sort. The sort order is not a ranking or a recommendation, and the right account depends on your circumstances. Rates change often and products can be withdrawn at any time, so always check the provider's own page, including its summary box, before you open an account. We are not paid by any provider and there are no affiliate links.</p>
+<p>This table shows facts only: the named bank or building society, the product, its AER and key conditions, each read on the provider's own website on the date shown{SR_DATE}. It is sorted by AER (highest first) by default; use “Sort by” (or, on wide screens, a column heading) to re-sort. The sort order is not a ranking or a recommendation, and the right account depends on your circumstances. Rates change often and products can be withdrawn at any time, so always check the provider's own page, including its summary box, before you open an account. We are not paid by any provider and there are no affiliate links.</p>
 <div class="filters"><div><label for="f-type">Account type</label><select id="f-type"><option value="">All types</option><option value="easy-access">Easy access</option><option value="notice">Notice</option><option value="fixed">Fixed bond</option><option value="cash-isa">Cash ISA</option><option value="regular-saver">Regular saver</option></select></div>
 <div><label for="f-min">I can deposit up to (£)</label><input id="f-min" type="number" min="0" inputmode="numeric" placeholder="Any"></div>
+<div><label for="f-sort">Sort by</label><select id="f-sort"><option value="aer:-1">AER, high to low</option><option value="aer:1">AER, low to high</option><option value="provider:1">Provider, A to Z</option><option value="minDeposit:1">Min deposit, low to high</option><option value="termMonths:1">Term, short to long</option></select></div>
 <div class="check"><input id="f-fscs" type="checkbox"><label for="f-fscs">FSCS-protected only</label></div></div>
 <div class="table-scroll rt-table" id="rates"><table><caption class="sr">Savings accounts</caption><thead><tr>
-<th data-k="provider" scope="col"><button>Provider</button></th><th data-k="product" scope="col"><button>Product</button></th><th data-k="type" scope="col"><button>Type</button></th><th data-k="aer" scope="col"><button>AER ▾</button></th><th data-k="termMonths" scope="col"><button>Term</button></th><th data-k="minDeposit" scope="col"><button>Min deposit</button></th><th scope="col">Key conditions</th><th data-k="fscs" scope="col"><button>FSCS</button></th><th scope="col">Source</th><th data-k="checked" scope="col"><button>Checked</button></th></tr></thead><tbody>{SR_ROWS}</tbody></table></div>
+<th data-k="provider" scope="col"><button>Provider</button></th><th data-k="product" scope="col"><button>Product</button></th><th data-k="type" scope="col"><button>Type</button></th><th data-k="aer" scope="col"><button>AER ▾</button></th><th data-k="termMonths" scope="col"><button>Term</button></th><th data-k="minDeposit" scope="col"><button>Min deposit</button></th><th scope="col">Key conditions</th><th data-k="fscs" scope="col"><button>FSCS</button></th><th scope="col">Source</th></tr></thead><tbody>{SR_ROWS}</tbody></table></div>
 <p class="hint" id="rates-count" aria-live="polite"></p>
 <div class="cols"><div>
 <h2 id="types">The main types of savings account</h2>
