@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-18T22:41:09+01:00",
+  "as_of": "2026-10-19T14:12:46+01:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -7,7 +7,7 @@
     "start_cash": 10000.0,
     "currency": "USD",
     "position_size": 1000.0,
-    "cash": 9000.0,
+    "cash": 7000.0,
     "open_positions": [
       {
         "ticker": "SILVER",
@@ -24,6 +24,38 @@
         "market_value_usd": 1009.96,
         "unrealised_pnl_usd": 9.96,
         "unrealised_pnl_pct": 1.0
+      },
+      {
+        "ticker": "MU",
+        "entry_date": "2026-10-19",
+        "entry_price": 912.24,
+        "units": 1.0962,
+        "cost_basis": 1000.0,
+        "stop": 775.59,
+        "target": 958.82,
+        "timeframe": "4h",
+        "latest_price": 912.24,
+        "latest_price_date": "2026-10-19",
+        "price_source": "TradingView 4h chart (pre-market) at entry",
+        "market_value_usd": 1000.0,
+        "unrealised_pnl_usd": 0.0,
+        "unrealised_pnl_pct": 0.0
+      },
+      {
+        "ticker": "UMAC",
+        "entry_date": "2026-10-19",
+        "entry_price": 16.87,
+        "units": 59.2768,
+        "cost_basis": 1000.0,
+        "stop": 13.34,
+        "target": 17.25,
+        "timeframe": "4h",
+        "latest_price": 16.87,
+        "latest_price_date": "2026-10-19",
+        "price_source": "TradingView 4h chart (pre-market) at entry",
+        "market_value_usd": 1000.0,
+        "unrealised_pnl_usd": 0.0,
+        "unrealised_pnl_pct": 0.0
       }
     ],
     "closed_trades": [],
@@ -31,22 +63,23 @@
       "realised_pnl_usd": 0.0,
       "realised_pnl_pct": 0.0,
       "unrealised_pnl_usd": 9.96,
-      "unrealised_pnl_pct": 1.0,
+      "unrealised_pnl_pct": 0.33,
       "total_pnl_usd": 9.96,
       "total_pnl_pct": 0.1,
-      "open_positions_cost_basis_usd": 1000.0,
-      "open_positions_market_value_usd": 1009.96,
+      "open_positions_cost_basis_usd": 3000.0,
+      "open_positions_market_value_usd": 3009.96,
       "equity_at_cost_usd": 10000.0,
       "equity_at_market_usd": 10009.96,
       "marked_as_of": [
-        "2026-10-16"
+        "2026-10-16",
+        "2026-10-19"
       ],
-      "open_count": 1,
+      "open_count": 3,
       "closed_count": 0,
       "win_count": 0,
       "loss_count": 0
     },
-    "notes": "Open positions are marked to the last daily close as of 2026-10-16 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field)."
+    "notes": "Open positions are marked to the last daily close as of 2026-10-16, 2026-10-19 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field)."
   },
   "x_buzz": {
     "name": "X buzz paper book",
@@ -54,23 +87,8 @@
     "start_cash": 10000.0,
     "currency": "USD",
     "position_size": 1000.0,
-    "cash": 653.52,
+    "cash": 549.73,
     "open_positions": [
-      {
-        "ticker": "PLTR",
-        "entry_date": "2026-10-12",
-        "entry_price": 208.5,
-        "units": 4.796163,
-        "cost_basis": 1000.0,
-        "stop": 191.82,
-        "target": 250.2,
-        "latest_price": 186.03,
-        "latest_price_date": "2026-10-16",
-        "price_source": "Nasdaq historical quotes",
-        "market_value_usd": 892.23,
-        "unrealised_pnl_usd": -107.77,
-        "unrealised_pnl_pct": -10.78
-      },
       {
         "ticker": "CRM",
         "entry_date": "2026-10-13",
@@ -190,6 +208,20 @@
         "market_value_usd": 1008.87,
         "unrealised_pnl_usd": 8.87,
         "unrealised_pnl_pct": 0.89
+      },
+      {
+        "ticker": "IRON",
+        "entry_date": "2026-10-19",
+        "entry_price": 83.07,
+        "units": 12.03804,
+        "cost_basis": 1000.0,
+        "stop": 76.4244,
+        "target": 99.684,
+        "latest_price": null,
+        "latest_price_date": null,
+        "market_value_usd": null,
+        "unrealised_pnl_usd": null,
+        "unrealised_pnl_pct": null
       }
     ],
     "closed_trades": [
@@ -225,28 +257,37 @@
         "pnl_usd": -145.34,
         "pnl_pct": -14.53,
         "exit_reason": "Stop (-8%, $6.46) breached; day low $6.13 on 14 Oct, premarket ~$6.00 on 15 Oct amid small-cap/AI selloff"
+      },
+      {
+        "ticker": "PLTR",
+        "entry_date": "2026-10-12",
+        "entry_price": 208.5,
+        "exit_date": "2026-10-19",
+        "exit_price": 186.86,
+        "units": 4.796163,
+        "pnl_usd": -103.79,
+        "pnl_pct": -10.38,
+        "exit_reason": "Stop (-8%, $191.82) breached: 16 Oct close $186.03 (day low $184.45) after ~7-8% AI-software selloff; premarket ~$186.86 on 19 Oct"
       }
     ],
     "totals": {
-      "realised_pnl_usd": -346.48,
-      "realised_pnl_pct": -3.46,
-      "unrealised_pnl_usd": -175.54,
-      "unrealised_pnl_pct": -1.95,
-      "total_pnl_usd": -522.02,
-      "total_pnl_pct": -5.22,
+      "realised_pnl_usd": -450.27,
+      "realised_pnl_pct": -4.5,
+      "unrealised_pnl_usd": null,
+      "unrealised_pnl_pct": null,
+      "total_pnl_usd": -450.27,
+      "total_pnl_pct": -4.5,
       "open_positions_cost_basis_usd": 9000.0,
-      "open_positions_market_value_usd": 8824.46,
-      "equity_at_cost_usd": 9653.52,
-      "equity_at_market_usd": 9477.98,
-      "marked_as_of": [
-        "2026-10-16"
-      ],
+      "open_positions_market_value_usd": null,
+      "equity_at_cost_usd": 9549.73,
+      "equity_at_market_usd": null,
+      "marked_as_of": null,
       "open_count": 9,
-      "closed_count": 3,
+      "closed_count": 4,
       "win_count": 0,
-      "loss_count": 3
+      "loss_count": 4
     },
-    "notes": "Open positions are marked to the last daily close as of 2026-10-16 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
+    "notes": "Only 8 of 9 open positions have a stored daily close (as of 2026-10-16), so unrealised P&L and equity at market are not reported; total P&L covers closed trades only and equity at cost is shown instead. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
     "description": "X buzz paper strategy: top 3 bullish-trending tickers on X, $1,000 each; exit at 10 trading days, -8%, +20%, or bearish buzz turn. Fake money only."
   }
 }
