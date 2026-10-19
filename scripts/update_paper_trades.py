@@ -51,7 +51,20 @@ def validate(d):
         if abs(sum(c["pnl_usd"] for c in b["closed_trades"]) - t["realised_pnl_usd"]) > 0.05: fail(f"{k}: realised P&L does not match trades")
         if abs(t["realised_pnl_usd"] / b["start_cash"] * 100 - t["realised_pnl_pct"]) > 0.02: fail(f"{k}: realised % mismatch")
         if t["win_count"] != sum(c["pnl_usd"] > 0 for c in b["closed_trades"]): fail(f"{k}: win_count mismatch")
-        if any(o.get("unrealised_pnl_usd") is not None for o in b["open_positions"]): print(f"note: {k} has unrealised P&L values; the page still does not show them")
+        # mark-to-market fields are optional (older exports have them null/missing: the page then falls back to cost basis); when present they must be consistent
+        marked = [o for o in b["open_positions"] if o.get("market_value_usd") is not None]
+        for o in marked:
+            for f in ("latest_price", "latest_price_date", "unrealised_pnl_usd"):
+                if o.get(f) is None: fail(f"{k} {o['ticker']}: market_value_usd given but {f} missing")
+            datetime.date.fromisoformat(o["latest_price_date"])
+            if abs(o["units"] * o["latest_price"] - o["market_value_usd"]) > 0.1: fail(f"{k} {o['ticker']}: market value does not match units x latest price")
+            if abs(o["market_value_usd"] - o["cost_basis"] - o["unrealised_pnl_usd"]) > 0.1: fail(f"{k} {o['ticker']}: unrealised P&L does not match market value - cost basis")
+            if o.get("unrealised_pnl_pct") is not None and abs(o["unrealised_pnl_usd"] / o["cost_basis"] * 100 - o["unrealised_pnl_pct"]) > 0.02: fail(f"{k} {o['ticker']}: unrealised % mismatch")
+        if t.get("unrealised_pnl_usd") is not None or t.get("equity_at_market_usd") is not None:
+            if len(marked) != len(b["open_positions"]): fail(f"{k}: totals are marked to market but not every open position has a latest price")
+            if abs(sum(o["unrealised_pnl_usd"] for o in marked) - (t.get("unrealised_pnl_usd") or 0)) > 0.1 * max(1, len(marked)): fail(f"{k}: unrealised total does not match positions")
+            if t.get("equity_at_market_usd") is None or abs(b["cash"] + sum(o["market_value_usd"] for o in marked) - t["equity_at_market_usd"]) > 0.1 * max(1, len(marked)): fail(f"{k}: equity at market does not match cash + market values")
+            if not t.get("marked_as_of"): fail(f"{k}: marked totals without marked_as_of")
     walk(d)
 # Files the refresh may commit: the data-driven outputs, plus the guides added in October 2026 so that
 # they are covered once they are live. A file is only ever committed if the build changed it AND it is
