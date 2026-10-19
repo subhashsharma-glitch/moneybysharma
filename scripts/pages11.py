@@ -1,4 +1,5 @@
 # Paper trading experiment (PREVIEW) – exec'd from build.py. Reads data/paper-trades.json (copy of Chase's cleaned export).
+import re
 PT_PREVIEW = False   # True: page is noindex and left out of the sitemap
 PT = json.load(open("data/paper-trades.json"))
 _PT_FOOTNOTE_DATE = lambda iso: datetime.date.fromisoformat(iso[:10]).strftime("%-d %b %Y")
@@ -15,8 +16,10 @@ def _short_reason(r):
     return "Stop-loss level reached" if r.lower().startswith("stop") else html.escape(r.split(";")[0][:90])
 def _has_mtm(o): return all(o.get(k) is not None for k in ("latest_price", "market_value_usd", "unrealised_pnl_usd"))   # tolerate exports without (or with null) mark-to-market fields
 def _book_mtm(b): return b["totals"].get("unrealised_pnl_usd") is not None and b["totals"].get("equity_at_market_usd") is not None
+def _at_entry(o): return bool(re.search(r"\bentry\b", o.get("price_source") or "", re.I))   # opened since the last close: valued at entry price
 def _marked(b):
-    m = b["totals"].get("marked_as_of") or sorted({o["latest_price_date"] for o in b["open_positions"] if o.get("latest_price_date")})
+    closes = sorted({o["latest_price_date"] for o in b["open_positions"] if o.get("latest_price_date") and not _at_entry(o)})
+    m = closes or b["totals"].get("marked_as_of") or sorted({o["latest_price_date"] for o in b["open_positions"] if o.get("latest_price_date")})
     return ", ".join(_PT_FOOTNOTE_DATE(x) for x in (m if isinstance(m, list) else [m]))
 PT_MTM = any(_book_mtm(PT[k]) for k in ("atr", "x_buzz"))
 PT_MARKED = sorted({_marked(PT[k]) for k in ("atr", "x_buzz") if _book_mtm(PT[k])})
@@ -59,13 +62,17 @@ def _book(key, label, blurb):
         def _orow(o):
             if _has_mtm(o):
                 dt = f'<span class="pt-d">{_PT_FOOTNOTE_DATE(o["latest_price_date"])}</span>' if o.get("latest_price_date") else ""
+                if _at_entry(o): dt += '<span class="pt-d">Entry price (opened since last close)</span>'
+
                 mv = f'<td>{_px(o["latest_price"])}{dt}</td><td>{_usd(o["market_value_usd"])}</td><td class="{cls(o["unrealised_pnl_usd"])}">{_usd(o["unrealised_pnl_usd"], True)}</td><td class="{cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td>'
             else:
                 mv = f'<td>Not shown</td><td>{_usd(o["cost_basis"])} <span class="pt-d">at cost</span></td><td>Not shown</td><td>Not shown</td>'
             return f'<tr><th scope="row">{html.escape(o["ticker"])}</th><td>{_PT_FOOTNOTE_DATE(o["entry_date"])}</td><td>{_px(o["entry_price"])}</td><td>{o["units"]:,.4g}</td><td>{_usd(o["cost_basis"])}</td>{mv}</tr>'
         orow = "".join(_orow(o) for o in b["open_positions"])
-        srcs = sorted({o["price_source"] for o in b["open_positions"] if o.get("price_source") and _has_mtm(o)})
-        srct = f'<p class="hint">Latest price source: {html.escape("; ".join(srcs))}. Prices in US dollars.</p>' if srcs else ""
+        srcs = sorted({o["price_source"] for o in b["open_positions"] if o.get("price_source") and _has_mtm(o) and not _at_entry(o)})
+        n_entry = sum(1 for o in b["open_positions"] if _has_mtm(o) and _at_entry(o))
+        srct = (f'<p class="hint">Latest price source: {html.escape("; ".join(srcs))}. Prices in US dollars.' if srcs else '<p class="hint">Prices in US dollars.') + (f' {n_entry} position{"s" if n_entry != 1 else ""} opened since the last close {"are" if n_entry != 1 else "is"} shown at {"their" if n_entry != 1 else "its"} entry price, so {"they show" if n_entry != 1 else "it shows"} no unrealised P&amp;L yet.' if n_entry else "") + '</p>'
+
         openp = f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>Ticker</th><th>Entered</th><th>Entry price ($)</th><th>Units</th><th>Cost basis ($)</th><th>Latest price ($) and date</th><th>Market value ($)</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th></tr></thead><tbody>{orow}</tbody></table></div>{srct}'
     else:
         openp = '<p class="hint">No open positions in this book.</p>'
