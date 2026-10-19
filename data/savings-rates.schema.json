@@ -2,26 +2,106 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "MoneyBySharma savings rates",
   "type": "object",
-  "required": ["status", "rates"],
+  "required": [
+    "status",
+    "rates"
+  ],
   "properties": {
-    "status": {"enum": ["example", "live"], "description": "'example' shows the placeholder banner"},
-    "statusMessage": {"type": "string"},
-    "lastUpdated": {"type": ["string", "null"], "format": "date"},
-    "rates": {"type": "array", "items": {
-      "type": "object",
-      "required": ["provider", "product", "type", "aer", "termMonths", "minDeposit", "fscs", "sourceUrl", "checked"],
-      "properties": {
-        "provider": {"type": "string"},
-        "product": {"type": "string"},
-        "type": {"enum": ["easy-access", "notice", "fixed", "cash-isa", "regular-saver"]},
-        "aer": {"type": "number", "description": "Annual Equivalent Rate, % (e.g. 4.1)"},
-        "termMonths": {"type": ["integer", "null"], "description": "null = no fixed term"},
-        "minDeposit": {"type": "number", "description": "GBP"},
-        "fscs": {"type": "boolean", "description": "Covered by FSCS deposit protection (UK-authorised deposit taker)"},
-        "sourceUrl": {"type": "string", "description": "Provider page the rate was checked against"},
-        "checked": {"type": ["string", "null"], "format": "date"},
-        "example": {"type": "boolean", "description": "true = placeholder row, never real"}
+    "status": {
+      "enum": [
+        "example",
+        "live"
+      ],
+      "description": "'example' shows the placeholder banner"
+    },
+    "statusMessage": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "rates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "provider",
+          "product",
+          "type",
+          "aer",
+          "termMonths",
+          "minDeposit",
+          "fscs",
+          "sourceUrl",
+          "checked"
+        ],
+        "properties": {
+          "provider": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "easy-access",
+              "notice",
+              "fixed",
+              "cash-isa",
+              "regular-saver"
+            ]
+          },
+          "aer": {
+            "type": "number",
+            "description": "Annual Equivalent Rate, % (e.g. 4.1)"
+          },
+          "termMonths": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "null = no fixed term"
+          },
+          "minDeposit": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "GBP; null = not stated on the provider page checked"
+          },
+          "fscs": {
+            "type": "boolean",
+            "description": "Covered by FSCS deposit protection (UK-authorised deposit taker)"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "description": "Provider page the rate was checked against"
+          },
+          "checked": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "example": {
+            "type": "boolean",
+            "description": "true = placeholder row, never real"
+          },
+          "conditions": {
+            "type": "string",
+            "description": "Key conditions, as stated by the provider"
+          },
+          "termLabel": {
+            "type": "string",
+            "description": "Optional display text for the term (e.g. fixed to a date)"
+          }
+        }
       }
-    }}
+    }
   }
 }
