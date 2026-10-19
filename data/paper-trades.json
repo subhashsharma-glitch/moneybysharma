@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-19T14:12:46+01:00",
+  "as_of": "2026-10-19T17:41:30+01:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -217,11 +217,12 @@
         "cost_basis": 1000.0,
         "stop": 76.4244,
         "target": 99.684,
-        "latest_price": null,
-        "latest_price_date": null,
-        "market_value_usd": null,
-        "unrealised_pnl_usd": null,
-        "unrealised_pnl_pct": null
+        "latest_price": 83.07,
+        "latest_price_date": "2026-10-19",
+        "price_source": "Entry price (opened since last close)",
+        "market_value_usd": 1000.0,
+        "unrealised_pnl_usd": 0.0,
+        "unrealised_pnl_pct": 0.0
       }
     ],
     "closed_trades": [
@@ -273,21 +274,24 @@
     "totals": {
       "realised_pnl_usd": -450.27,
       "realised_pnl_pct": -4.5,
-      "unrealised_pnl_usd": null,
-      "unrealised_pnl_pct": null,
-      "total_pnl_usd": -450.27,
-      "total_pnl_pct": -4.5,
+      "unrealised_pnl_usd": -67.77,
+      "unrealised_pnl_pct": -0.75,
+      "total_pnl_usd": -518.04,
+      "total_pnl_pct": -5.18,
       "open_positions_cost_basis_usd": 9000.0,
-      "open_positions_market_value_usd": null,
+      "open_positions_market_value_usd": 8932.23,
       "equity_at_cost_usd": 9549.73,
-      "equity_at_market_usd": null,
-      "marked_as_of": null,
+      "equity_at_market_usd": 9481.96,
+      "marked_as_of": [
+        "2026-10-16",
+        "2026-10-19"
+      ],
       "open_count": 9,
       "closed_count": 4,
       "win_count": 0,
       "loss_count": 4
     },
-    "notes": "Only 8 of 9 open positions have a stored daily close (as of 2026-10-16), so unrealised P&L and equity at market are not reported; total P&L covers closed trades only and equity at cost is shown instead. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
+    "notes": "Open positions are marked to the last daily close as of 2026-10-16, 2026-10-19 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
     "description": "X buzz paper strategy: top 3 bullish-trending tickers on X, $1,000 each; exit at 10 trading days, -8%, +20%, or bearish buzz turn. Fake money only."
   }
 }
