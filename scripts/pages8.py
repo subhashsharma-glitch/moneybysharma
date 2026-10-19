@@ -1,5 +1,6 @@
 # Broadband & phones page (exec'd from build.py)
-DCHK = "13 October 2026"  # links and deals on this page checked on this date
+DCHK = "19 October 2026"  # deals table on this page checked on this date
+LCHK = "13 October 2026"  # provider and network A–Z links checked on this date
 S.update({
  "ofchk": ("Ofcom – Broadband and mobile coverage checker", "https://checker.ofcom.org.uk/"),
  "orchk": ("Openreach – Fibre checker", "https://www.openreach.com/fibre-checker"),
@@ -29,9 +30,9 @@ NETS = [("EE","https://ee.co.uk/mobile","Network"),("O2","https://www.o2.co.uk/"
 _bb = "".join(f'<li><a href="{u}">{n}</a></li>' for n,u in BB)
 _nt = "".join(f'<tr><td><a href="{u}">{n}</a></td><td>{k}</td></tr>' for n,u,k in NETS)
 BBDEALS = [("BT","Full Fibre 300","https://www.bt.com/broadband","£30.99 a month, rising to £34.99 in March 2027 and £38.99 in March 2028; 24-month contract; £0 activation fee"),
- ("Community Fibre","300 Mbps Full Fibre (London)","https://communityfibre.co.uk/","£19 a month, £22 from April 2027, £25 from April 2028; average 350 Mbps download/upload; 24-month contract, new customers; offer ends 14 Oct 2026"),
- ("Plusnet","Full Fibre","https://www.plus.net/broadband/","From £24.99 a month, £28.99 from 31 March 2027, £32.99 from 31 March 2028; £9.99 one-off activation fee"),
- ("YouFibre","You 1000","https://www.youfibre.com/","£24 a month (limited-time deal); average 900 Mbps wired upload and download; no in-contract price rises"),
+ ("Community Fibre","150 Mbps Full Fibre (London)","https://communityfibre.co.uk/","£19 a month, £22 from April 2027, £25 from April 2028; average 150 Mbps download/upload; 24-month contract, new customers; no set-up fee"),
+ ("Plusnet","Full Fibre","https://www.plus.net/broadband/","From £24.99 a month, £28.99 from 31 March 2027, £32.99 from 31 March 2028; 24-month contract; £9.99 one-off activation fee"),
+ ("YouFibre","You 1000","https://www.youfibre.com/","£24 a month (limited-time deal, prices available until 31 Oct 2026); average 900 Mbps wired upload and download; no in-contract price rises"),
  ("VOXI (mobile)","75GB SIM only","https://www.voxi.co.uk/","£12 a month, plus unlimited data for social media, music and video; offer ends 26 Nov 2026")]
 _dl = "".join(f'<tr><td><a href="{u}">{n}</a></td><td>{p}</td><td>{x}</td></tr>' for n,p,u,x in BBDEALS)
 pages["broadband-phones.html"] = page("broadband-phones.html","Broadband &amp; phones – MoneyBySharma",
@@ -89,7 +90,7 @@ pages["broadband-phones.html"] = page("broadband-phones.html","Broadband &amp; p
 </ul>
 {src("ots","ofprice","ofcomp","ofecn")}
 <h2 id="providers">Broadband providers A–Z</h2>
-<p>Each link goes to the provider's own broadband page, checked on {DCHK}. This list isn't complete, and the order says nothing about price or quality. Many smaller full fibre networks only serve some areas.</p>
+<p>Each link goes to the provider's own broadband page, checked on {LCHK}. This list isn't complete, and the order says nothing about price or quality. Many smaller full fibre networks only serve some areas.</p>
 <ul style="columns:2;max-width:560px;column-gap:2rem">{_bb}</ul>
 <h2 id="phones">Mobile phones</h2>
 <ul>
@@ -103,11 +104,11 @@ pages["broadband-phones.html"] = page("broadband-phones.html","Broadband &amp; p
 </ul>
 {src("ofmob","oflock","ofroam","ofroamt")}
 <h3 id="networks">Networks and MVNOs A–Z</h3>
-<p>Each link was checked on {DCHK}. This list isn't complete, and the order says nothing about price or quality.</p>
+<p>Each link was checked on {LCHK}. This list isn't complete, and the order says nothing about price or quality.</p>
 <div class="table-scroll"><table><caption class="sr">Mobile networks and MVNOs</caption><thead><tr><th scope="col">Provider</th><th scope="col">Type</th></tr></thead><tbody>{_nt}</tbody></table></div>
 <h2 id="deals">Deals seen on providers' own pages</h2>
 <p>These figures were copied from each provider's own page on <strong>{DCHK}</strong>. They're a factual snapshot, not a recommendation. Availability, speeds and prices depend on your address and eligibility. Deals change often and many end soon, so check the provider's page and contract summary for current terms.</p>
-<div class="table-scroll"><table><caption class="sr">Broadband and mobile deals seen on 12 October 2026</caption><thead><tr><th scope="col">Provider (source)</th><th scope="col">Package</th><th scope="col">Price and terms as stated by the provider</th></tr></thead><tbody>{_dl}</tbody></table></div>
+<div class="table-scroll"><table><caption class="sr">Broadband and mobile deals seen on {DCHK}</caption><thead><tr><th scope="col">Provider (source)</th><th scope="col">Package</th><th scope="col">Price and terms as stated by the provider</th></tr></thead><tbody>{_dl}</tbody></table></div>
 <p class="hint">Checked {DCHK}. Deals we couldn't confirm on a provider's own page have been left out.</p>
 <p>See also: <a href="bank-accounts.html">Bank accounts</a> · <a href="energy-providers.html">Energy providers and deals</a> · <a href="jargon.html">Jargon buster</a>.</p>
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#types">Connection types</a><a href="#speed">Speeds</a><a href="#calc">Speed helper</a><a href="#check">Availability</a><a href="#digital">Digital landlines</a><a href="#prices">Price rises</a><a href="#social">Social tariffs</a><a href="#switch">Switching</a><a href="#providers">Broadband A–Z</a><a href="#phones">Mobile phones</a><a href="#networks">Networks A–Z</a><a href="#deals">Deals seen</a><a href="jargon.html">Jargon buster</a></div></aside></div>'''), scripts=("calc.js","calc-ui5.js"))
