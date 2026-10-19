@@ -1,6 +1,6 @@
 {
  "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
- "updated": "2026-10-17",
+ "updated": "2026-10-19",
  "groups": [
   {
    "id": "supermarkets",
@@ -26,10 +26,14 @@
       [
        "Tesco – expiry dates of Your Clubcard Prices",
        "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/expiry-dates-of-your-clubcard-prices-and-when-they-renew"
+      ],
+      [
+       "Tesco – Clubcard Prices not showing in my basket at checkout",
+       "https://www.tesco.com/help/pages/online-grocery-faqs/clubcard-prices-vouchers-and-ecoupons/clubcard-prices-not-showing-in-my-basket-at-checkout"
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/your-clubcard-prices",
@@ -60,7 +64,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
@@ -84,10 +88,14 @@
       [
        "Asda – Asda Rewards",
        "https://www.asda.com/rewards/"
+      ],
+      [
+       "Asda Rewards on the App Store (Asda's own listing)",
+       "https://apps.apple.com/gb/app/asda-rewards/id1578902078"
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.asda.com/rewards/",
@@ -113,7 +121,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.morrisons.com/more",
@@ -139,7 +147,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
@@ -165,7 +173,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.coop.co.uk/membership",
@@ -179,7 +187,7 @@
      "id": "aldi",
      "name": "Aldi: Price Check and price guarantees",
      "tag": "Everyday low prices",
-     "summary": "Aldi says it compares its prices with competitors' equivalent products every week, and publishes a “Weekly Price Check” page showing the comparisons.",
+     "summary": "Aldi says it compares its prices with competitors' equivalent products every week. Its Price Check page lists dated “Weekly Price Check” comparisons; when we checked on 19 October 2026, the latest one listed was dated 24 August 2026.",
      "points": [
       "Aldi says it regularly monitors competitor prices across the market. Its “Save” page lists Price Drops, Super 6 and Specialbuy Steals.",
       {
@@ -202,7 +210,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.aldi.co.uk/save",
@@ -217,7 +225,7 @@
      "tag": "Price match",
      "summary": "“Aldi Price Match” is run by Tesco and by Sainsbury's, not by Aldi. Each matches the price of selected products against comparable Aldi products.",
      "points": [
-      "Tesco says it matches over 600 products, checks Aldi prices in store and/or online twice a week, and doesn't match Aldi promotional prices. The products vary by week and aren't in Express or Northern Ireland stores.",
+      "Tesco says it matches selected Tesco products against comparable Aldi products, checks Aldi prices in GB stores and/or online twice a week, and doesn't match Aldi promotional prices. The products vary by week, and it isn't in Northern Ireland stores. Tesco now says a selected range of everyday products is price matched in Tesco Express too, not the full range.",
       "Sainsbury's says it covers selected products only, not in Northern Ireland, with prices checked twice weekly. Its terms link to a table of the matched products, which it says is updated regularly."
      ],
      "links": [
@@ -231,7 +239,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/groceries/en-GB/zone/aldi-price-match/",
@@ -257,10 +265,14 @@
       [
        "Too Good To Go – how to collect",
        "https://www.toogoodtogo.com/en-gb/how-to-collect-too-good-to-go"
+      ],
+      [
+       "Too Good To Go – terms and conditions (UK)",
+       "https://www.toogoodtogo.com/en-gb/terms-and-conditions"
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.toogoodtogo.com/how-does-the-app-work",
@@ -286,7 +298,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.waitrose.com/ecom/help-information/customer-service/my-waitrose-card-and-money-off-vouchers/mywaitrose-vouchers",
@@ -325,7 +337,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.cineworld.co.uk/unlimited/",
@@ -337,9 +349,9 @@
     },
     {
      "id": "odeon-limitless",
-     "name": "ODEON myLIMITLESS",
+     "name": "ODEON Limitless",
      "tag": "Membership",
-     "summary": "ODEON publishes the price and terms of its myLIMITLESS memberships in its help centre. We couldn't read these pages automatically, so no prices are shown here: please check the official page.",
+     "summary": "ODEON explains how its Limitless membership works in its help centre, and links to the Limitless terms from there. We couldn't read prices from an official ODEON page, so no prices are shown here: please check ODEON's own site.",
      "points": [],
      "links": [
       [
@@ -347,12 +359,12 @@
        "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless"
       ],
       [
-       "ODEON – How much is myLIMITLESS Plus?",
-       "https://help.odeon.co.uk/hc/en-gb/articles/12586034948242-How-much-is-myLIMITLESS-Plus"
+       "ODEON help centre – Where can I read the Limitless small print?",
+       "https://help.odeon.co.uk/hc/en-gb/articles/39741620736274-Where-can-I-read-the-Limitless-small-print"
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless",
@@ -377,7 +389,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.picturehouses.com/membership",
@@ -405,7 +417,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
@@ -432,7 +444,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/vue-members",
@@ -461,7 +473,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/meerkat-movies",
@@ -476,7 +488,7 @@
      "points": [
       {
        "t": "Showcase says that until Friday 30 October 2026 you can buy 5 tickets for £25 to use at any Showcase cinema, for any film showing until that date. Terms and exclusions apply, and voucher codes aren't valid for Event Cinema titles.",
-       "until": "2026-10-31"
+       "until": "2026-10-30"
       }
      ],
      "links": [
@@ -486,7 +498,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.showcasecinemas.co.uk/offers-competitions/",
@@ -494,7 +506,7 @@
        "5 tickets for just £25"
       ]
      },
-     "expires": "2026-10-31"
+     "expires": "2026-10-30"
     }
    ]
   },
@@ -517,7 +529,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://help.netflix.com/en/node/24926/gb",
@@ -568,7 +580,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.spotify.com/uk/premium/",
@@ -615,7 +627,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.amazon.co.uk/amazonprime",
@@ -654,7 +666,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.disneyplus.com/en-gb",
@@ -692,7 +704,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-music/",
@@ -731,7 +743,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-tv/",
@@ -765,7 +777,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.nowtv.com/",
@@ -799,7 +811,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.youtube.com/premium",
@@ -834,7 +846,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
@@ -859,7 +871,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.diy.com/bandqclub",
@@ -883,7 +895,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "auto",
       "url": "https://www.pret.co.uk/en-GB/club-pret",
@@ -926,7 +938,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.superdrug.com/beautycard/about-card",
@@ -946,7 +958,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://help.argos.co.uk/help/nectar",
@@ -974,7 +986,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.myunidays.com/GB/en-GB",
@@ -994,7 +1006,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.studentbeans.com/uk",
@@ -1014,7 +1026,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-17",
+     "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.totum.com/",
