@@ -929,40 +929,56 @@
      "id": "superdrug",
      "name": "Superdrug Health & Beautycard",
      "tag": "Loyalty scheme",
-     "summary": "Superdrug publishes how its card works on its own site. We couldn't read the pages automatically, so no figures are shown here.",
-     "points": [],
+     "summary": "Superdrug's own page says you earn points on your Superdrug shopping in store and online once your free Health & Beautycard is registered.",
+     "points": [
+      "You earn 1 point for every £1 you spend, plus more on bonus point offers for selected products or days.",
+      "Points are spent in multiples of 100: 100 points = £1, and you can use them as part-payment in store or online.",
+      "Register the card online (or with a form in store) and show it at the till; for online orders, register it on your Superdrug account.",
+      "Superdrug lists other member benefits too, such as free standard delivery on orders over £20 (£25 for non-members) and member prices on selected products."
+     ],
      "links": [
       [
        "Superdrug – about the Health & Beautycard",
        "https://www.superdrug.com/beautycard/about-card"
       ]
      ],
-     "status": "link-only",
+     "status": "ok",
      "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://www.superdrug.com/beautycard/about-card",
-      "expect": []
+      "expect": [
+       "1 point for every £1 you spend",
+       "100 points = £1"
+      ]
      }
     },
     {
      "id": "argos-nectar",
      "name": "Argos and Nectar",
      "tag": "Loyalty scheme",
-     "summary": "Argos publishes how Nectar works at Argos in its help centre. We couldn't read it automatically, so no figures are shown here.",
-     "points": [],
+     "summary": "Argos's help centre says you can collect and spend Nectar points at Argos, in store and online.",
+     "points": [
+      "You collect 1 point per £1 you spend at Argos.",
+      "500 points are worth £2.50 when buying products through Argos.",
+      "Online, you need to link your Nectar card to your Argos account; in store, have your Nectar card to hand at the till.",
+      "Argos says points show in your Nectar account within 30 days."
+     ],
      "links": [
       [
        "Argos – Nectar",
        "https://help.argos.co.uk/help/nectar"
       ]
      ],
-     "status": "link-only",
+     "status": "ok",
      "checked": "2026-10-19",
      "check": {
       "mode": "manual",
       "url": "https://help.argos.co.uk/help/nectar",
-      "expect": []
+      "expect": [
+       "1 point per £1 you spend at Argos",
+       "500 points are worth £2.50"
+      ]
      }
     }
    ]
