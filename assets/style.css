@@ -296,3 +296,6 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .an-res{margin-top:1rem}@media(min-width:640px){.an-res{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
 .an-est{margin:.8rem 0 .3rem}
 @media(prefers-color-scheme:dark){.an-prov{background:var(--card,#1b2a2a)}}
+.apv{border:1px solid var(--line);border-radius:10px;margin:.6rem 0;padding:.2rem .8rem;background:#fff}.apv summary{cursor:pointer;font-weight:700;padding:.5rem 0}.apv[open]{padding-bottom:.6rem}
+@media(prefers-color-scheme:dark){.apv{background:var(--card,#1b2a2a)}}
+@media(max-width:520px){.apv{padding:.2rem .4rem}.apv table{font-size:.8rem}.apv th,.apv td{padding:.35rem .3rem!important}.apv thead th{white-space:nowrap}.apv tbody th{white-space:normal}}

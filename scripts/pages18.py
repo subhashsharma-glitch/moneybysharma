@@ -72,3 +72,22 @@ _pp = pages["pensions.html"]
 _cta = '<p class="note"><b>Thinking about an annuity?</b> See our <a href="annuities.html">annuities page</a>: an income estimate from published market rates, enhanced annuities, drawdown versus annuity, and UK providers A to Z.</p>'
 if 'Thinking about an annuity' not in _pp and '<h2 id="young">' in _pp:
     pages["pensions.html"] = _pp.replace('<h2 id="young">', _cta + '<h2 id="young">', 1)
+# ---- Provider-by-pot tables (Which?/MoneyHelper per-provider figures for £100,000; other pots scaled and labelled) ----
+APV = _json.load(open("data/annuity-providers.json"))
+def _fd2(x): return _dt.date.fromisoformat(x).strftime("%-d %b %Y")
+_POTS = [50000, 100000, 200000, 500000]
+_apv_src = f'{_x(APV["source_url"],"Which? annuity rates article")} (figures from the MoneyHelper annuity comparison tool), quotes dated {_fd2(APV["quotes_dated"])}, checked {_fd2(APV["checked"])}'
+_blocks = ""
+for _age, _sc in APV["scenarios"].items():
+    for _i, (_name, _pv) in enumerate(_sc.items()):
+        _rows = "".join(f'<tr><th scope="row">{_n.replace("&","&amp;")}</th>' + "".join(f'<td class="num">£{round(_v*p/100000):,}</td>' for p in _POTS) + "</tr>" for _n, _v in sorted(_pv.items()))
+        _blocks += (f'<details class="apv"{" open" if _age=="65" and _i==0 else ""}><summary>Age {_age}: {_name}</summary>'
+            f'<div class="table-scroll"><table><caption class="sr">Estimated yearly income before tax, age {_age}, {_name}, by provider and amount used</caption>'
+            f'<thead><tr><th scope="col">Provider (A to Z)</th>' + "".join(f'<th scope="col" class="num">£{p//1000}k{"" if p==100000 else "*"}</th>' for p in _POTS) + f'</tr></thead><tbody>{_rows}</tbody></table></div></details>')
+APV_HTML = f'''<h2 id="by-provider">Income by provider and pot size</h2>
+<p>Indicative yearly income before tax from the amount you use to buy the annuity, by named provider. Providers are listed A to Z, not ranked. Source: {_apv_src}.</p>
+<p class="note"><b>How to read this.</b> The £100k column is the published figure for each provider. Columns marked * are <b>our estimate</b>, scaled in proportion from that £100,000 figure. Per-provider figures for other pot sizes aren't published in a comparable form, and real quotes for small pots are often lower and for large pots may differ. Basis: a healthy person, CB23 postcode, paid yearly in arrears, no guarantee period; for joint life the partner is the same age and gets 50%. These aren't quotes: get personal quotes from {_x("https://comparison.moneyhelper.org.uk/en/tools/annuities","MoneyHelper's comparison tool")} or the provider. Information only, no affiliation with any provider.</p>
+{_blocks}
+<p class="src">Figures can be very different for you: health, postcode, payment timing and options all change quotes. The basis also differs from the calculator above (which uses HL's table, paid monthly in advance), so the two won't match exactly.</p>
+'''
+pages["annuities.html"] = pages["annuities.html"].replace('<h2 id="tfc">', APV_HTML + '<h2 id="tfc">', 1)
