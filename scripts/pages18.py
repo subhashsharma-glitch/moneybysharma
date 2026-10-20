@@ -2,7 +2,10 @@
 # published, dated market table. Combinations not in that table show "estimate not available"; no invented adjustment factors.
 import json as _json
 AN = _json.load(open("data/annuity-rates.json"))
-AN_CHK = "20 Oct 2026"
+import datetime as _dt
+def _fd(x): return _dt.date.fromisoformat(x).strftime("%-d %b %Y")
+AN_CHK = _fd(AN["checked"]); AN_QD = _fd(AN["quotes_dated"])
+AN_PCHK = "20 Oct 2026"  # provider pages: update only when they are re-checked by hand
 def _x(h,t): return f'<a href="{h}" target="_blank" rel="noopener">{t}</a>'
 AN_PROV = [
  ("Aviva","https://www.aviva.co.uk/retirement/pension-annuity/","Pension annuity: standard and enhanced options."),
@@ -12,13 +15,13 @@ AN_PROV = [
  ("Scottish Widows","https://www.scottishwidows.co.uk/retirement/retirement-options/your-pension-options/guaranteed-income.html","Standard and enhanced annuities. Non-customers buy through an adviser or intermediary; minimum £10,000 after tax-free cash."),
  ("Standard Life","https://www.standardlife.co.uk/retirement/options/pension-annuity","Pension annuity; minimum pot £10,000, maximum age 85."),
 ]
-_rows = "".join(f'<li class="an-prov"><h3>{_x(u,n+" ↗")}</h3><p>{d}</p><p class="an-rate"><b>Rates on request:</b> get a quote via {_x("https://comparison.moneyhelper.org.uk/en/tools/annuities","MoneyHelper")} or the provider.</p><p class="src">Official page checked {AN_CHK}. No published rate table found on this page.</p></li>' for n,u,d in AN_PROV)
+_rows = "".join(f'<li class="an-prov"><h3>{_x(u,n+" ↗")}</h3><p>{d}</p><p class="an-rate"><b>Rates on request:</b> get a quote via {_x("https://comparison.moneyhelper.org.uk/en/tools/annuities","MoneyHelper")} or the provider.</p><p class="src">Official page checked {AN_PCHK}. No published rate table found on this page.</p></li>' for n,u,d in AN_PROV)
 _ages = AN["ages"]; _sm = AN["smoker_example"]
 _tbl_rows = ""
 _lbl = {"single|level|0":"Single life, level, no guarantee","single|level|5":"Single life, level, 5-year guarantee","single|rpi|5":"Single life, RPI-linked, 5-year guarantee","single|3pc|5":"Single life, rising 3% a year, 5-year guarantee","joint|level|0":"Joint life (50% to partner), level, no guarantee","joint|3pc|0":"Joint life (50% to partner), rising 3% a year, no guarantee"}
 for k,v in AN["rates"].items():
     _tbl_rows += f'<tr><th scope="row">{_lbl[k]}</th>' + "".join(f'<td class="num">£{x:,}</td>' for x in v) + "</tr>"
-_src = f'{_x(AN["source_url"],"Hargreaves Lansdown annuity rate table")}, quotes dated 15 Oct 2026, checked {AN_CHK}'
+_src = f'{_x(AN["source_url"],"Hargreaves Lansdown annuity rate table")}, quotes dated {AN_QD}, checked {AN_CHK}'
 AN_BODY = ph("Guides › Pensions › Annuities", "Annuities: income estimate and providers",
  "What an annuity is, a rough income estimate from published market rates, and the main UK providers. Information only, not advice.") + W(f'''
 <p class="banner">Information only, not financial advice. MoneyBySharma has no affiliation with any provider listed and receives no payment or commission.</p>
@@ -34,7 +37,7 @@ AN_BODY = ph("Guides › Pensions › Annuities", "Annuities: income estimate an
 </form>
 <div id="an-out" aria-live="polite"></div>
 <p class="src">Reference rates: {_src}. These are the highest standard quotes HL's tool found across the providers it compares for a £100,000 purchase (average postcode, paid monthly in advance; joint life assumes a partner 3 years younger). We use the published figure for the nearest age at or below yours and apply it in proportion to the amount you'd use. We don't adjust for anything the source doesn't publish, so other combinations show "not available". Your actual quote will differ and is likely to be lower for small pots.</p>
-<script type="application/json" id="an-data">{_json.dumps({"ages":_ages,"rates":AN["rates"],"src":"Hargreaves Lansdown annuity rate table","url":AN["source_url"],"dated":"15 Oct 2026","checked":AN_CHK})}</script>
+<script type="application/json" id="an-data">{_json.dumps({"ages":_ages,"rates":AN["rates"],"src":"Hargreaves Lansdown annuity rate table","url":AN["source_url"],"dated":AN_QD,"checked":AN_CHK})}</script>
 </section>
 <h2 id="table">The published reference figures</h2>
 <p>Annual income before tax from a £100,000 annuity purchase. Source: {_src}.</p>
@@ -43,7 +46,7 @@ AN_BODY = ph("Guides › Pensions › Annuities", "Annuities: income estimate an
 <p>From age 55 (57 from 6 April 2028) you can usually take up to 25% of your pension as a tax-free lump sum, up to a lifetime limit of £268,275 (the Lump Sum Allowance). If you take it before buying an annuity, only the remaining 75% buys income, so your annuity is smaller. Annuity income itself is taxable like a salary. You can't add the cash back later to boost the annuity, so think about what you'd use it for.</p>
 <h2 id="enhanced">Enhanced annuities: health and lifestyle</h2>
 <p>If you have a health condition (such as diabetes, high blood pressure or heart problems) or lifestyle factors (such as smoking or being overweight), providers may expect to pay you for a shorter time and offer a higher income. This is called an enhanced annuity. Even common conditions can count, so it's worth answering the health questions fully when you get quotes.</p>
-<p>Published example: for a 65-year-old buying a single life, level annuity with no guarantee, HL's table shows £{_sm["standard"]:,} a year from £100,000 at standard rates and £{_sm["smoker"]:,} for someone who has {_sm["profile"]} (quotes dated 15 Oct 2026). Our calculator shows standard rates only.</p>
+<p>Published example: for a 65-year-old buying a single life, level annuity with no guarantee, HL's table shows £{_sm["standard"]:,} a year from £100,000 at standard rates and £{_sm["smoker"]:,} for someone who has {_sm["profile"]} (quotes dated {AN_QD}). Our calculator shows standard rates only.</p>
 <h2 id="drawdown">Drawdown versus annuity</h2>
 <div class="table-scroll"><table><thead><tr><th scope="col"></th><th scope="col">Annuity</th><th scope="col">Drawdown</th></tr></thead><tbody>
 <tr><th scope="row">Income</th><td>Guaranteed, set when you buy</td><td>You choose how much to take; it isn't guaranteed</td></tr>
@@ -56,7 +59,7 @@ AN_BODY = ph("Guides › Pensions › Annuities", "Annuities: income estimate an
 <h2 id="compare">Comparing quotes</h2>
 <p>You don't have to buy from your current pension provider. {_x("https://comparison.moneyhelper.org.uk/en/tools/annuities","MoneyHelper's annuity comparison tool")} compares quotes across the market and is impartial and backed by government. A regulated financial adviser can recommend a product, usually for a fee.</p>
 <h2 id="providers">UK annuity providers (A to Z)</h2>
-<p class="note">Listed alphabetically, not ranked. Information only, no affiliation: MoneyBySharma isn't linked to any of these providers and doesn't receive payment from them. None of these official pages published an annuity rate table when we checked on {AN_CHK}.</p>
+<p class="note">Listed alphabetically, not ranked. Information only, no affiliation: MoneyBySharma isn't linked to any of these providers and doesn't receive payment from them. None of these official pages published an annuity rate table when we checked on {AN_PCHK}.</p>
 <ul class="an-provs">{_rows}</ul>
 <h2 id="scams">Pension scam warning</h2>
 <p class="banner">Be wary of cold calls, texts or emails about your pension, offers of a "free pension review", promises of high returns or early access before 55, and pressure to decide quickly. Check any firm on the FCA Register before you act. See the FCA's {_x("https://www.fca.org.uk/scamsmart","ScamSmart")} guidance and its {_x("https://www.fca.org.uk/consumers/pension-scams","pension scams page")}.</p>
