@@ -94,7 +94,7 @@ def page(fn, title, desc, body, head="", scripts=()):
 <ul><li><a href="about.html">About</a></li><li><a href="feedback.html">Feedback</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li></ul>
 <p style="margin:1rem 0 0">© 2026 MoneyBySharma · Plain-English UK money information · Figures checked {CHECKED} for tax year 2026/27.</p></div></footer>
 </body></html>'''
-def ph(crumb, h1, lead): return f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › {crumb}</div><h1>{h1}</h1><p>{lead}</p></div></div>'
+def ph(crumb, h1, lead): return f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › {crumb}</div><h1>{h1}</h1>{f"<p>{lead}</p>" if lead else ""}</div></div>'
 def W(x): return f'<div class="wrap">{x}</div>'
 pages = {}
 # ---------- HOME ----------
@@ -471,7 +471,7 @@ exec(open("scripts/pages16.py").read())
 exec(open("scripts/pages17.py").read())
 exec(open("scripts/pages18.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
- ph("Tools","Tools","Tools."), W('''
+ ph("Tools","Tools",""), W('''
 <div class="grid g3" style="margin-top:1.5rem">
 <div class="card"><span class="tag">Tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
 <p><a class="btn" href="tools/garmin-insights/">Open Garmin Fitness Insights</a></p></div>
