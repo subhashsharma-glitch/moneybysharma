@@ -1,0 +1,18 @@
+{
+ "source": "Hargreaves Lansdown, annuity rate table (annual income from a £100,000 pension used to buy an annuity)",
+ "source_url": "https://www.hl.co.uk/retirement/annuities/best-buy-rates",
+ "quotes_dated": "2026-10-15",
+ "checked": "2026-10-20",
+ "purchase_price": 100000,
+ "basis": "Highest quote found by HL's online quote tool across the providers it compares, on 15 October 2026. Average postcode, paid monthly in advance, standard (not enhanced) rates. Joint life: 50% of the income continues to the partner, who is assumed to be 3 years younger.",
+ "ages": [55, 60, 65, 70, 75],
+ "rates": {
+  "single|level|0":  [7078, 7476, 8211, 9002, 10212],
+  "single|level|5":  [7070, 7461, 8146, 8886, 9950],
+  "single|rpi|5":    [4486, 4922, 5618, 6417, 7592],
+  "single|3pc|5":    [4956, 5350, 6094, 6915, 8095],
+  "joint|level|0":   [6696, 7144, 7658, 8361, 9146],
+  "joint|3pc|0":     [4595, 5034, 5609, 6312, 7266]
+ },
+ "smoker_example": {"age": 65, "type": "single|level|0", "standard": 8211, "smoker": 8755, "profile": "smoked 10 cigarettes a day for the last 20 years and drinks 15 units of alcohol a week"}
+}

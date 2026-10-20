@@ -287,3 +287,12 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .wk .fb-after{margin:.8rem 0}
 .res-cover{display:block;width:100%;max-width:220px;height:auto;margin:0 0 .8rem;border-radius:8px;border:1px solid var(--line);box-shadow:0 2px 10px rgba(11,27,51,.15)}
 .res-btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem}.res-btns .btn{margin:0}.btn.btn-alt{background:#fff;color:var(--teal);border:2px solid var(--teal);padding:calc(.7rem - 2px) calc(1.15rem - 2px)}.btn.btn-alt:hover{background:var(--teal-50)}
+/* annuities page */
+.an-provs{list-style:none;padding:0;display:grid;gap:.9rem;grid-template-columns:1fr}
+@media(min-width:760px){.an-provs{grid-template-columns:1fr 1fr}}
+.an-prov{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);min-width:0;overflow-wrap:anywhere}
+.an-prov h3{margin:0 0 .4rem;font-size:1.1rem}.an-prov p{margin:.35rem 0}
+.an-rate{background:var(--teal-50);border-radius:8px;padding:.5rem .7rem}
+.an-res{margin-top:1rem}@media(min-width:640px){.an-res{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+.an-est{margin:.8rem 0 .3rem}
+@media(prefers-color-scheme:dark){.an-prov{background:var(--card,#1b2a2a)}}

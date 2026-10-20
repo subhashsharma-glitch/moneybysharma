@@ -52,7 +52,7 @@ NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Inv
 NAVG = [("index.html","Home"),
  ("Guides",[("group","Everyday money",[("pay-tax-payslip.html","Pay, tax &amp; your payslip"),("budgeting-emergency-fund.html","Budgeting &amp; emergency funds"),("deals.html","Deals &amp; savings"),("bank-accounts.html","Bank accounts"),("students.html","Students")]),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
-  ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("gilts.html","Gilts")]),
+  ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("jargon.html","Jargon buster")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper trading experiment<small class="dd-desc">Fake-money trades and totals. Experiment only</small>')],"tools.html"),
@@ -469,6 +469,7 @@ exec(open("scripts/pages14.py").read())
 exec(open("scripts/pages15.py").read())
 exec(open("scripts/pages16.py").read())
 exec(open("scripts/pages17.py").read())
+exec(open("scripts/pages18.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools by Subhash Sharma, including Garmin Fitness Insights.",
  ph("Tools","Tools","Tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
