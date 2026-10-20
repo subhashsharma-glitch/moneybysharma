@@ -470,8 +470,8 @@ exec(open("scripts/pages15.py").read())
 exec(open("scripts/pages16.py").read())
 exec(open("scripts/pages17.py").read())
 exec(open("scripts/pages18.py").read())
-pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools by Subhash Sharma, including Garmin Fitness Insights.",
- ph("Tools","Tools","Tools by Subhash Sharma."), W('''
+pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
+ ph("Tools","Tools","Tools."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
 <div class="card"><span class="tag">Tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
 <p><a class="btn" href="tools/garmin-insights/">Open Garmin Fitness Insights</a></p></div>
