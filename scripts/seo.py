@@ -7,7 +7,7 @@ ORG = {"@context": "https://schema.org", "@type": "Organization", "@id": BASE + 
        "logo": BASE + "assets/favicon.svg", "founder": {"@type": "Person", "name": "Subhash Sharma"}}
 SITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": BASE + "#website",
         "name": "MoneyBySharma", "url": BASE, "inLanguage": "en-GB",
-        "description": "Plain-English UK personal-finance information: savings, ISAs, pensions, mortgages and gilts, with free calculators.",
+        "description": "Plain-English UK personal-finance information: savings, ISAs, pensions, mortgages and gilts, with simple calculators.",
         "publisher": {"@id": BASE + "#organization"}}
 
 def seo_meta(fn, title, desc):

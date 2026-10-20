@@ -103,10 +103,10 @@ BD_ACTION = "https://buttondown.com/api/emails/embed-subscribe/" + BUTTONDOWN_US
 BD_PAGE = "https://buttondown.com/" + BUTTONDOWN_USERNAME
 now = datetime.date.today().isoformat()
 lowc = sorted([g for g in GI["gilts"] if g["maturity"] > (datetime.date.today()+datetime.timedelta(days=365)).isoformat()], key=lambda g: (g["coupon"], g["maturity"]))[0]
-pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK money information", "Clear, neutral UK personal-finance information: savings, ISAs, pensions, mortgages and gilts, with free calculators.", f'''
+pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK money information", "Clear, neutral UK personal-finance information: savings, ISAs, pensions, mortgages and gilts, with simple calculators.", f'''
 <section class="hero"><div class="wrap"><span class="tag" style="background:rgba(255,255,255,.15);color:#fff">UK · Tax year 2026/27</span>
 <h1>Money, explained in plain English.</h1>
-<p>MoneyBySharma is a free UK personal-finance information site. Clear guides to savings, ISAs, pensions, mortgages and gilts – with simple calculators and every figure linked to its official source.</p>
+<p>MoneyBySharma is a UK personal-finance information site. Clear guides to savings, ISAs, pensions, mortgages and gilts – with simple calculators and every figure linked to its official source.</p>
 <div class="cta"><a class="btn" href="savings.html">Start with savings</a><a class="btn ghost" href="#calculators">Try the calculators</a></div></div></section>
 <section class="numbers" aria-labelledby="kn"><div class="wrap"><h2 id="kn">Today's key numbers</h2>
 <div class="kn"><b>{BR["rate"]:.2f}%</b><small>Bank of England Bank Rate, since {d(BR["since"])}. <a href="{BR["sourceUrl"]}" rel="noopener">BoE</a> data as at {d(BR["asAt"])}.</small></div>
@@ -128,7 +128,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="energy.html"><span class="tag">Guide</span><h3>Energy</h3><p>The Ofgem price cap, fixed vs variable deals, solar panels and home batteries.</p></a>
 <a class="card" href="electric-cars.html"><span class="tag">Guide</span><h3>Electric cars</h3><p>Running costs, vehicle tax, company-car tax and the road to 2035.</p></a>
 <a class="card" href="jargon.html"><span class="tag">Reference</span><h3>Jargon buster</h3><p>A searchable A–Z of plain-English money terms.</p></a>
-<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>The free Money Matters cheat sheet: 2026/27 figures at a glance, with a printable PDF.</p></a></div>
+<a class="card" href="resources.html"><span class="tag">Resources</span><h3>Downloads &amp; tools</h3><p>The Money Matters cheat sheet: 2026/27 figures at a glance, with a printable PDF.</p></a></div>
 <h2 id="calculators">Calculators</h2><div class="grid g3">
 <a class="card" href="gilts.html#calc"><h3>Gilt vs savings after tax</h3><p>Gross redemption yield, net yield for your tax band and the equivalent savings rate.</p></a>
 <a class="card" href="mortgages.html#calc"><h3>Mortgage repayments</h3><p>Repayment or interest-only, optional overpayments and a balance chart.</p></a>
@@ -469,10 +469,10 @@ exec(open("scripts/pages14.py").read())
 exec(open("scripts/pages15.py").read())
 exec(open("scripts/pages16.py").read())
 exec(open("scripts/pages17.py").read())
-pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Free tools by Subhash Sharma, including Garmin Fitness Insights.",
- ph("Tools","Tools","Free tools by Subhash Sharma."), W('''
+pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools by Subhash Sharma, including Garmin Fitness Insights.",
+ ph("Tools","Tools","Tools by Subhash Sharma."), W('''
 <div class="grid g3" style="margin-top:1.5rem">
-<div class="card"><span class="tag">Free tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
+<div class="card"><span class="tag">Tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
 <p><a class="btn" href="tools/garmin-insights/">Open Garmin Fitness Insights</a></p></div>
 <div class="card"><span class="tag">Experiment</span><h3>Paper trading experiment</h3><p>A log of two fake-money trading books: trades, positions and totals. Experiment only, not advice or a recommendation.</p>
 <p><a class="btn" href="paper-trading.html">View the experiment</a></p></div></div>
