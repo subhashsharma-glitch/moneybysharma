@@ -299,3 +299,4 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .apv{border:1px solid var(--line);border-radius:10px;margin:.6rem 0;padding:.2rem .8rem;background:#fff}.apv summary{cursor:pointer;font-weight:700;padding:.5rem 0}.apv[open]{padding-bottom:.6rem}
 @media(prefers-color-scheme:dark){.apv{background:var(--card,#1b2a2a)}}
 @media(max-width:520px){.apv{padding:.2rem .4rem}.apv table{font-size:.8rem}.apv th,.apv td{padding:.35rem .3rem!important}.apv thead th{white-space:nowrap}.apv tbody th{white-space:normal}}
+.res-brand{display:flex;align-items:center;gap:.4rem;margin:.1rem 0 .5rem;font-family:var(--serif);font-weight:700;color:var(--teal);font-size:1rem}.res-brand .by{color:var(--accent);font-style:italic;font-weight:600}
