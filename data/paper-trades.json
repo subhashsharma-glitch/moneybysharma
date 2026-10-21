@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-20T14:03:07+01:00",
+  "as_of": "2026-10-21T14:04:39+01:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -18,12 +18,12 @@
         "stop": 46.47,
         "target": 60.82,
         "timeframe": "4h",
-        "latest_price": 57.23,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 58.14,
+        "latest_price_date": "2026-10-20",
         "price_source": "Yahoo Finance SI=F (COMEX silver futures)",
-        "market_value_usd": 1008.64,
-        "unrealised_pnl_usd": 8.64,
-        "unrealised_pnl_pct": 0.86
+        "market_value_usd": 1024.68,
+        "unrealised_pnl_usd": 24.67,
+        "unrealised_pnl_pct": 2.47
       },
       {
         "ticker": "MU",
@@ -34,12 +34,12 @@
         "stop": 775.59,
         "target": 958.82,
         "timeframe": "4h",
-        "latest_price": 904.9,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 896.07,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 991.95,
-        "unrealised_pnl_usd": -8.05,
-        "unrealised_pnl_pct": -0.8
+        "market_value_usd": 982.27,
+        "unrealised_pnl_usd": -17.73,
+        "unrealised_pnl_pct": -1.77
       },
       {
         "ticker": "UMAC",
@@ -50,12 +50,12 @@
         "stop": 13.34,
         "target": 17.25,
         "timeframe": "4h",
-        "latest_price": 16.4,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 16.38,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 972.14,
-        "unrealised_pnl_usd": -27.86,
-        "unrealised_pnl_pct": -2.79
+        "market_value_usd": 970.95,
+        "unrealised_pnl_usd": -29.05,
+        "unrealised_pnl_pct": -2.9
       },
       {
         "ticker": "SPCX",
@@ -66,28 +66,27 @@
         "stop": null,
         "target": null,
         "timeframe": "4h",
-        "latest_price": 146.65,
+        "latest_price": 147.79,
         "latest_price_date": "2026-10-20",
-        "price_source": "Entry price (opened since last close)",
-        "market_value_usd": 1000.01,
-        "unrealised_pnl_usd": 0.0,
-        "unrealised_pnl_pct": 0.0
+        "price_source": "Nasdaq quote (official 4pm ET close)",
+        "market_value_usd": 1007.78,
+        "unrealised_pnl_usd": 7.77,
+        "unrealised_pnl_pct": 0.78
       }
     ],
     "closed_trades": [],
     "totals": {
       "realised_pnl_usd": 0.0,
       "realised_pnl_pct": 0.0,
-      "unrealised_pnl_usd": -27.27,
-      "unrealised_pnl_pct": -0.68,
-      "total_pnl_usd": -27.27,
-      "total_pnl_pct": -0.27,
+      "unrealised_pnl_usd": -14.32,
+      "unrealised_pnl_pct": -0.36,
+      "total_pnl_usd": -14.32,
+      "total_pnl_pct": -0.14,
       "open_positions_cost_basis_usd": 4000.0,
-      "open_positions_market_value_usd": 3972.74,
+      "open_positions_market_value_usd": 3985.68,
       "equity_at_cost_usd": 10000.0,
-      "equity_at_market_usd": 9972.74,
+      "equity_at_market_usd": 9985.68,
       "marked_as_of": [
-        "2026-10-19",
         "2026-10-20"
       ],
       "open_count": 4,
@@ -95,7 +94,7 @@
       "win_count": 0,
       "loss_count": 0
     },
-    "notes": "Open positions are marked to the last daily close as of 2026-10-19, 2026-10-20 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field)."
+    "notes": "Open positions are marked to the last daily close as of 2026-10-20 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field)."
   },
   "x_buzz": {
     "name": "X buzz paper book",
@@ -103,7 +102,7 @@
     "start_cash": 10000.0,
     "currency": "USD",
     "position_size": 1000.0,
-    "cash": 492.91,
+    "cash": 423.65,
     "open_positions": [
       {
         "ticker": "CRM",
@@ -113,12 +112,12 @@
         "cost_basis": 1000.0,
         "stop": 215.2064,
         "target": 280.704,
-        "latest_price": 242.45,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 242.44,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 1036.47,
-        "unrealised_pnl_usd": 36.47,
-        "unrealised_pnl_pct": 3.65
+        "market_value_usd": 1036.42,
+        "unrealised_pnl_usd": 36.42,
+        "unrealised_pnl_pct": 3.64
       },
       {
         "ticker": "GS",
@@ -128,27 +127,12 @@
         "cost_basis": 1000.0,
         "stop": 822.434,
         "target": 1072.74,
-        "latest_price": 875.78,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 885.18,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 979.67,
-        "unrealised_pnl_usd": -20.33,
-        "unrealised_pnl_pct": -2.03
-      },
-      {
-        "ticker": "META",
-        "entry_date": "2026-10-13",
-        "entry_price": 742.96,
-        "units": 1.345967,
-        "cost_basis": 1000.0,
-        "stop": 683.5232,
-        "target": 891.552,
-        "latest_price": 705.44,
-        "latest_price_date": "2026-10-19",
-        "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 949.5,
-        "unrealised_pnl_usd": -50.5,
-        "unrealised_pnl_pct": -5.05
+        "market_value_usd": 990.19,
+        "unrealised_pnl_usd": -9.81,
+        "unrealised_pnl_pct": -0.98
       },
       {
         "ticker": "ASML",
@@ -158,12 +142,12 @@
         "cost_basis": 1000.0,
         "stop": 1561.1848,
         "target": 2036.328,
-        "latest_price": 1647.12,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 1630.84,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 970.64,
-        "unrealised_pnl_usd": -29.36,
-        "unrealised_pnl_pct": -2.94
+        "market_value_usd": 961.05,
+        "unrealised_pnl_usd": -38.95,
+        "unrealised_pnl_pct": -3.9
       },
       {
         "ticker": "BLK",
@@ -173,12 +157,12 @@
         "cost_basis": 1000.0,
         "stop": 1014.1252,
         "target": 1322.772,
-        "latest_price": 1124.6,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 1128.57,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 1020.22,
-        "unrealised_pnl_usd": 20.22,
-        "unrealised_pnl_pct": 2.02
+        "market_value_usd": 1023.82,
+        "unrealised_pnl_usd": 23.82,
+        "unrealised_pnl_pct": 2.38
       },
       {
         "ticker": "SCHW",
@@ -188,12 +172,12 @@
         "cost_basis": 1000.0,
         "stop": 86.94,
         "target": 113.4,
-        "latest_price": 89.58,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 90.89,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 947.94,
-        "unrealised_pnl_usd": -52.06,
-        "unrealised_pnl_pct": -5.21
+        "market_value_usd": 961.8,
+        "unrealised_pnl_usd": -38.2,
+        "unrealised_pnl_pct": -3.82
       },
       {
         "ticker": "TSM",
@@ -203,12 +187,12 @@
         "cost_basis": 1000.0,
         "stop": 385.664,
         "target": 503.04,
-        "latest_price": 420.22,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 425.29,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 1002.43,
-        "unrealised_pnl_usd": 2.43,
-        "unrealised_pnl_pct": 0.24
+        "market_value_usd": 1014.53,
+        "unrealised_pnl_usd": 14.53,
+        "unrealised_pnl_pct": 1.45
       },
       {
         "ticker": "UNH",
@@ -218,12 +202,12 @@
         "cost_basis": 1000.0,
         "stop": 366.0677,
         "target": 477.4796,
-        "latest_price": 406.88,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 419.34,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 1022.57,
-        "unrealised_pnl_usd": 22.57,
-        "unrealised_pnl_pct": 2.26
+        "market_value_usd": 1053.88,
+        "unrealised_pnl_usd": 53.88,
+        "unrealised_pnl_pct": 5.39
       },
       {
         "ticker": "MMM",
@@ -233,12 +217,27 @@
         "cost_basis": 1000.0,
         "stop": 151.8,
         "target": 198.0,
-        "latest_price": 162.01,
-        "latest_price_date": "2026-10-19",
+        "latest_price": 171.5,
+        "latest_price_date": "2026-10-20",
         "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 981.88,
-        "unrealised_pnl_usd": -18.12,
-        "unrealised_pnl_pct": -1.81
+        "market_value_usd": 1039.39,
+        "unrealised_pnl_usd": 39.39,
+        "unrealised_pnl_pct": 3.94
+      },
+      {
+        "ticker": "SPCX",
+        "entry_date": "2026-10-21",
+        "entry_price": 160.02,
+        "units": 6.249219,
+        "cost_basis": 1000.0,
+        "stop": 147.2184,
+        "target": 192.024,
+        "latest_price": 160.02,
+        "latest_price_date": "2026-10-21",
+        "price_source": "Entry price (opened since last close)",
+        "market_value_usd": 1000.0,
+        "unrealised_pnl_usd": 0.0,
+        "unrealised_pnl_pct": 0.0
       }
     ],
     "closed_trades": [
@@ -296,28 +295,40 @@
         "pnl_usd": -56.82,
         "pnl_pct": -5.68,
         "exit_reason": "Stop (-8%, $76.42) breached on 19 Oct: shares opened at $72.70 and hit a low of $69.98 after the premarket spike faded (closed $78.93); premarket low $76.17 today"
+      },
+      {
+        "ticker": "META",
+        "entry_date": "2026-10-13",
+        "entry_price": 742.96,
+        "exit_date": "2026-10-21",
+        "exit_price": 691.5,
+        "units": 1.345967,
+        "pnl_usd": -69.26,
+        "pnl_pct": -6.93,
+        "exit_reason": "Stop (-8%, $683.52) breached on 20 Oct: shares traded as low as $681.05 around 9:50am ET in the pre-earnings dip (closed $694.25); earnings after the close today"
       }
     ],
     "totals": {
-      "realised_pnl_usd": -507.09,
-      "realised_pnl_pct": -5.07,
-      "unrealised_pnl_usd": -88.68,
-      "unrealised_pnl_pct": -0.99,
-      "total_pnl_usd": -595.77,
-      "total_pnl_pct": -5.96,
+      "realised_pnl_usd": -576.35,
+      "realised_pnl_pct": -5.76,
+      "unrealised_pnl_usd": 81.09,
+      "unrealised_pnl_pct": 0.9,
+      "total_pnl_usd": -495.26,
+      "total_pnl_pct": -4.95,
       "open_positions_cost_basis_usd": 9000.0,
-      "open_positions_market_value_usd": 8911.32,
-      "equity_at_cost_usd": 9492.91,
-      "equity_at_market_usd": 9404.23,
+      "open_positions_market_value_usd": 9081.09,
+      "equity_at_cost_usd": 9423.65,
+      "equity_at_market_usd": 9504.74,
       "marked_as_of": [
-        "2026-10-19"
+        "2026-10-20",
+        "2026-10-21"
       ],
       "open_count": 9,
-      "closed_count": 5,
+      "closed_count": 6,
       "win_count": 0,
-      "loss_count": 5
+      "loss_count": 6
     },
-    "notes": "Open positions are marked to the last daily close as of 2026-10-19 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
+    "notes": "Open positions are marked to the last daily close as of 2026-10-20, 2026-10-21 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
     "description": "X buzz paper strategy: top 3 bullish-trending tickers on X, $1,000 each; exit at 10 trading days, -8%, +20%, or bearish buzz turn. Fake money only."
   }
 }
