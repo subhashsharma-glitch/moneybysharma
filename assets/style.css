@@ -307,3 +307,9 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 .art-fig.narrow img{max-width:560px}
 .art-fig figcaption{margin-top:.5rem;font-size:.92rem;color:var(--muted)}
 .pull{font-family:Georgia,serif;font-size:1.35rem;color:var(--teal);border-left:4px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1.2rem 0}
+
+/* X (Twitter) follow link: footer and invite line */
+footer.site .x-follow{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:#fff}footer.site .x-follow:hover span,footer.site .x-follow:focus span{text-decoration:underline}
+footer.site .x-follow .x-ic{flex:none;background:#d9822b;color:#fff;border-radius:5px;padding:3px;width:20px;height:20px}footer.site .x-h{color:#f3c79a}
+.x-invite{display:flex;align-items:center;gap:.6rem;background:#e7f2ef;color:#0f4c45;border-left:4px solid #d9822b;border-radius:10px;padding:.7rem 1rem;margin:1.2rem 0;font-size:1rem;max-width:760px;overflow-wrap:anywhere}
+.x-invite .x-ic{flex:none;background:#0f4c45;color:#fff;border-radius:6px;padding:4px;width:24px;height:24px}.x-invite a{color:#0f4c45;font-weight:700}

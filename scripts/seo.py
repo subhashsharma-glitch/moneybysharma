@@ -17,7 +17,7 @@ def seo_meta(fn, title, desc):
            f'<meta property="og:title" content="{t}"><meta property="og:description" content="{d}">'
            f'<meta property="og:url" content="{url}"><meta property="og:image" content="{IMG}">'
            f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_GB">\n'
-           f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{t}">'
+           f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@moneybysharma"><meta name="twitter:creator" content="@moneybysharma"><meta name="twitter:title" content="{t}">'
            f'<meta name="twitter:description" content="{d}"><meta name="twitter:image" content="{IMG}">\n')
     if fn == "index.html":
         out += '<script type="application/ld+json">' + json.dumps([SITE, ORG], ensure_ascii=False) + '</script>\n'

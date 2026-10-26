@@ -41,6 +41,10 @@ header.site a.fb-bar,header.site a.fb-bar:hover{color:#fff}
 @media(max-width:349px){.fb-bar{font-size:.8rem;padding:0 .5rem;gap:.35rem}}
 nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 @media(min-width:960px){.fb-bar{display:none}nav.main .fb-mob{display:none}header.site .nav>.fb-btn{display:inline-flex;align-items:center;gap:.4rem;order:2;flex:none;padding:.42rem .95rem;border-radius:999px;background:var(--accent);color:#1e1206;font-weight:700;font-size:.93rem;text-decoration:none;white-space:nowrap}header.site .nav>.fb-btn:hover{background:#c5711f;color:#1e1206}header.site .nav>.fb-btn[aria-current=page]{box-shadow:0 0 0 3px rgba(217,130,43,.35)}}
+footer.site .x-follow{display:inline-flex;align-items:center;gap:.35rem;text-decoration:none;color:#fff}
+footer.site .x-follow:hover span,footer.site .x-follow:focus span{text-decoration:underline}
+footer.site .x-follow .x-ic{flex:none;background:#d9822b;color:#fff;border-radius:5px;padding:3px;width:20px;height:20px}
+footer.site .x-h{color:#f3c79a}
 /* search-inline (copied verbatim into the Garmin page by garmin_chrome.py) */
 header.site .nav>.logo,header.site .nav>.hs-toggle,header.site .nav>.menu-btn{order:1}
 header.site .nav>.hs{order:2;display:none;flex:0 0 100%;min-width:0;max-width:100%;margin:0;padding:0 0 .75rem}
