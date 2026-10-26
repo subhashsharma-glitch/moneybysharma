@@ -151,21 +151,26 @@ def _agents():
     s = f"{buys} paper buys and {sells} paper sells recorded" + (f'; latest: {E(last["action"].lower())} {E(last["ticker"] or "")}, {_day(last["t"])}.' if last else ".")
     a.append(("Executor", "Records paper fills at the quoted price. Fake money: no broker, no wallet, no real orders.", s))
     a.append(("Logger", "Writes every action down with a plain-English reason, including coins it didn't buy.",
-              f"{len(PT_LOG)} actions in the log, newest {_day(PT_LOG[0]['t'])}." if PT_LOG else "No actions logged yet."))
+              f"{len(PT_LOG)} actions in the log ({sum(1 for e in PT_LOG if e['action'] == 'Rejected')} rug-check rejections listed separately), newest {_day(PT_LOG[0]['t'])}." if PT_LOG else "No actions logged yet."))
     s = f"Combined paper equity {_usd(PT_TOTAL_EQ)} against {_usd(PT_TOTAL_START)} of fake starting cash."
     a.append(("Equity", "Marks open positions to the latest recorded prices and adds up cash plus positions for each book.", s))
     return "".join(f'<div class="tm-ag"><div class="tm-agh"><span class="tm-dot" aria-hidden="true"></span>{E(n)}</div><p class="tm-role">{E(r)}</p><p class="tm-st"><span class="tm-pr" aria-hidden="true">&gt;</span> {s}</p></div>' for n, r, s in a)
 
+def _log_li(e):
+    tk = f' <b>{E(str(e["ticker"]))}</b>' if e.get("ticker") else ""
+    act = E(str(e["action"]))
+    ac = "tm-buy" if act == "Paper buy" else "tm-sell" if act == "Paper sell" else "tm-rej" if act in ("Rejected", "Skipped") else ""
+    return f'<li><span class="tm-t">[{_day(e["t"])}]</span> <span class="tm-b">{E(e["book"])}</span> <span class="tm-g">{E(str(e["stage"]))}</span> <span class="{ac}">{act}</span>{tk}<span class="tm-r">{E(str(e["reason"]))}</span></li>'
 def _log_html():
+    """Main log: every action except rug-check rejections, which can flood it; those go in a collapsible list."""
     if not PT_LOG: return '<p class="tm-empty">No actions logged yet.</p>'
-    li = []
-    for e in PT_LOG[:PT_LOG_N]:
-        tk = f' <b>{E(str(e["ticker"]))}</b>' if e.get("ticker") else ""
-        act = E(str(e["action"]))
-        ac = "tm-buy" if act == "Paper buy" else "tm-sell" if act == "Paper sell" else "tm-rej" if act in ("Rejected", "Skipped") else ""
-        li.append(f'<li><span class="tm-t">[{_day(e["t"])}]</span> <span class="tm-b">{E(e["book"])}</span> <span class="tm-g">{E(str(e["stage"]))}</span> <span class="{ac}">{act}</span>{tk}<span class="tm-r">{E(str(e["reason"]))}</span></li>')
-    more = f'<p class="tm-foot">Showing the latest {min(PT_LOG_N, len(PT_LOG))} of {len(PT_LOG)} actions in this export.</p>'
-    return '<ol class="tm-log" reversed>' + "".join(li) + '</ol>' + more
+    main = [e for e in PT_LOG if e["action"] != "Rejected"]; rej = [e for e in PT_LOG if e["action"] == "Rejected"]
+    out = ('<ol class="tm-log">' + "".join(_log_li(e) for e in main[:PT_LOG_N]) + '</ol>') if main else '<p class="tm-empty">No actions other than rejections logged yet.</p>'
+    out += f'<p class="tm-foot">Showing the latest {min(PT_LOG_N, len(main))} of {len(main)} actions (excluding rejections) in this export.</p>'
+    if rej:
+        out += (f'<details class="tm-rejs"><summary>Coins rejected by the rug check ({len(rej)} in this export)</summary>'
+                '<ol class="tm-log">' + "".join(_log_li(e) for e in rej) + '</ol></details>')
+    return out
 
 # ---------- per-book detail ----------
 def _book(key, label, tag, desc):
