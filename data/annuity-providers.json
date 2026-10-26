@@ -2,19 +2,61 @@
  "source": "Which? annuity rates article (figures from the MoneyHelper annuity comparison tool)",
  "source_url": "https://www.which.co.uk/money/pensions-and-retirement/accessing-your-pensions/annuities/annuity-rates-aQGfH6W5n2rm",
  "quotes_dated": "2026-10-19",
- "checked": "2026-10-20",
+ "checked": "2026-10-26",
  "purchase_price": 100000,
  "basis": "Healthy person, £100,000 purchase, CB23 postcode, paid annually in arrears; joint life partner is the same age and receives 50%. Which? says the figures are a guide only.",
  "scenarios": {
   "65": {
-   "Single life, level": {"Aviva":8018,"Canada Life":8237,"Just":6703,"Legal & General":7835,"Scottish Widows":8206,"Standard Life":8095},
-   "Joint life (50%), level": {"Aviva":7384,"Canada Life":7862,"Just":6530,"Legal & General":7463,"Scottish Widows":7755,"Standard Life":7674},
-   "Joint life (50%), rising 3% a year": {"Aviva":5255,"Canada Life":5745,"Just":4749,"Legal & General":5497,"Scottish Widows":5722,"Standard Life":5564}
+   "Single life, level": {
+    "Aviva": 8018,
+    "Canada Life": 8237,
+    "Just": 6703,
+    "Legal & General": 7835,
+    "Scottish Widows": 8206,
+    "Standard Life": 8095
+   },
+   "Joint life (50%), level": {
+    "Aviva": 7384,
+    "Canada Life": 7862,
+    "Just": 6530,
+    "Legal & General": 7463,
+    "Scottish Widows": 7755,
+    "Standard Life": 7674
+   },
+   "Joint life (50%), rising 3% a year": {
+    "Aviva": 5255,
+    "Canada Life": 5745,
+    "Just": 4749,
+    "Legal & General": 5497,
+    "Scottish Widows": 5722,
+    "Standard Life": 5564
+   }
   },
   "70": {
-   "Single life, level": {"Aviva":8843,"Canada Life":8947,"Just":7516,"Legal & General":8603,"Scottish Widows":9094,"Standard Life":8835},
-   "Joint life (50%), level": {"Aviva":8070,"Canada Life":8571,"Just":7080,"Legal & General":8169,"Scottish Widows":8596,"Standard Life":8283},
-   "Joint life (50%), rising 3% a year": {"Aviva":6013,"Canada Life":6542,"Just":5383,"Legal & General":6270,"Scottish Widows":6560,"Standard Life":6243}
+   "Single life, level": {
+    "Aviva": 8843,
+    "Canada Life": 8947,
+    "Just": 7516,
+    "Legal & General": 8603,
+    "Scottish Widows": 9094,
+    "Standard Life": 8835
+   },
+   "Joint life (50%), level": {
+    "Aviva": 8070,
+    "Canada Life": 8571,
+    "Just": 7080,
+    "Legal & General": 8169,
+    "Scottish Widows": 8596,
+    "Standard Life": 8283
+   },
+   "Joint life (50%), rising 3% a year": {
+    "Aviva": 6013,
+    "Canada Life": 6542,
+    "Just": 5383,
+    "Legal & General": 6270,
+    "Scottish Widows": 6560,
+    "Standard Life": 6243
+   }
   }
  }
 }
