@@ -7,7 +7,7 @@ def _sec(title, rows):
     CSD.append({"title": title, "rows": [list(x) for x in rows]})
     r = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td class="cs-src">{c}</td></tr>' for a,b,c in rows)
     return f'<section class="cs-sec"><h2>{title}</h2><table class="cs"><thead><tr><th scope="col">Item</th><th scope="col">Figure</th><th scope="col">Source</th></tr></thead><tbody>{r}</tbody></table></section>'
-lm = CPI["latestMonth"]; cpim = lm["period"].split()[1].title() + " " + lm["period"].split()[0]
+lm = CPI["latestMonth"]; CPI_BULLETIN = CPI.get("bulletinUrl", CPI["sourceUrl"]); CPI_PUB = datetime.datetime.strptime(CPI["released"],"%d-%m-%Y").strftime("%-d %b %Y"); CPI_CHK = datetime.date.fromisoformat(CPI["fetched"]).strftime("%-d %b %Y"); CPI_NEXT = datetime.datetime.strptime(CPI["nextRelease"],"%d %B %Y").strftime("%-d %b %Y"); cpim = lm["period"].split()[1].title() + " " + lm["period"].split()[0]
 CS = (
  _sec("Income tax (England, Wales &amp; NI)", [
   ("Personal Allowance","£12,570 (reduced by £1 for every £2 of income over £100,000)",_s("rates",TY)),
@@ -19,7 +19,7 @@ CS = (
   ("Starting rate for savings","0% on up to £5,000, reduced £1 for £1 by other income above the Personal Allowance",_s("savtax",TY)),
   ("FSCS deposit protection","£120,000 per person, per banking licence (was £85,000 until 30 Nov 2025)",_s("fscsbb","1 Dec 2025")),
   ("Bank Rate",f'{BR["rate"]:.2f}% (since {d(BR["since"])})',_s("boe",d(BR["asAt"]))),
-  ("CPI inflation",f'{lm["rate"]}% in the year to {cpim}',_s("cpi","ONS release of " + datetime.datetime.strptime(CPI["released"],"%d-%m-%Y").strftime("%-d %B %Y")))]) +
+  ("CPI inflation",f'{lm["rate"]}% in the year to {cpim}',f'<a href="{CPI_BULLETIN}">ONS</a>, published {CPI_PUB}, checked {CPI_CHK}; next release {CPI_NEXT}')]) +
  _sec("ISAs", [
   ("ISA allowance","£20,000 a year across all ISAs",_s("isa",TY)),
   ("Cash ISA change","From 6 April 2027, under-65s can put at most £12,000 of the £20,000 in cash ISAs",_s("cashisa","Nov 2025 announcement")),
@@ -76,7 +76,7 @@ BASICS = '''<section class="cs-sec cs-basics"><h2>Money basics checklist</h2><ul
 <li><strong>Get your employer's pension match</strong> – contributing enough to get the full employer contribution adds money you'd otherwise miss out on.</li>
 <li><strong>Use your ISAs</strong> – interest, dividends and gains inside an ISA are tax-free.</li>
 <li><strong>Give it time</strong> – investing is for five years or more; staying invested through ups and downs matters more than timing the market.</li></ul></section>'''
-CSFOOT = f'<p class="cs-foot"><strong>Information only – not financial advice.</strong> MoneyBySharma isn\'t authorised or regulated by the FCA. Figures were checked between 12 and 17 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>'
+CSFOOT = f'<p class="cs-foot"><strong>Information only – not financial advice.</strong> MoneyBySharma isn\'t authorised or regulated by the FCA. Figures were checked between 12 and 26 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>'
 pages["money-matters-cheat-sheet.html"] = page("money-matters-cheat-sheet.html","Money Matters cheat sheet 2026/27 – MoneyBySharma",
  "The key UK personal finance figures for 2026/27 in one place: tax bands, National Insurance, minimum wage, savings and ISA allowances, pensions, FSCS, scam reporting numbers, Bank Rate, CPI and more, each with its source.",
  ph('<a href="resources.html">Resources</a> › Money Matters cheat sheet',"Money Matters cheat sheet 2026/27","UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date."), W(f'''
@@ -84,5 +84,5 @@ pages["money-matters-cheat-sheet.html"] = page("money-matters-cheat-sheet.html",
 <div class="cs-grid">{CS}{BASICS}</div>{CSFOOT}'''))
 
 import re as _re
-json.dump({"sections": CSD, "basics": _re.findall(r"<li>(.*?)</li>", BASICS), "foot": CSFOOT, "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.", "checked": "12–17 October 2026"},
+json.dump({"sections": CSD, "basics": _re.findall(r"<li>(.*?)</li>", BASICS), "foot": CSFOOT, "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.", "checked": "12–26 October 2026"},
           open("data/cheat-sheet.json","w"), ensure_ascii=False, indent=1)

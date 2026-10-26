@@ -1,8 +1,8 @@
 {
   "rate": 3.75,
-  "asAt": "2026-10-09",
+  "asAt": "2026-10-23",
   "since": "2025-12-18",
   "source": "Bank of England Database, series IUDBEDR (Official Bank Rate)",
   "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate",
-  "fetched": "2026-10-12"
+  "fetched": "2026-10-26"
 }

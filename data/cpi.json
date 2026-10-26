@@ -1,9 +1,9 @@
 {
   "source": "ONS \u2013 CPI annual rate 00: all items (series D7G7, dataset MM23)",
   "sourceUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23",
-  "released": "16-09-2026",
-  "nextRelease": "21 October 2026",
-  "fetched": "2026-10-12",
+  "released": "21-10-2026",
+  "nextRelease": "18 November 2026",
+  "fetched": "2026-10-26",
   "annual": [
     {
       "year": 1989,
@@ -155,11 +155,12 @@
     }
   ],
   "latestMonth": {
-    "period": "2026 AUG",
-    "rate": 3.1
+    "period": "2026 SEP",
+    "rate": 3.5
   },
   "peakMonth": {
     "period": "2022 OCT",
     "rate": 11.1
-  }
+  },
+  "bulletinUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026"
 }
