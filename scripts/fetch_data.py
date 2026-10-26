@@ -53,9 +53,23 @@ rows = list(csv.reader(io.StringIO(get("https://www.ons.gov.uk/generator?format=
 meta = {r[0]: r[1] for r in rows[:8] if len(r) > 1}
 annual = [{"year": int(r[0]), "rate": float(r[1])} for r in rows if len(r) > 1 and re.fullmatch(r"\d{4}", r[0])]
 monthly = [{"period": r[0], "rate": float(r[1])} for r in rows if len(r) > 1 and re.fullmatch(r"\d{4} [A-Z]{3}", r[0])]
+# Link to the ONS consumer price inflation bulletin for the latest month, e.g. .../consumerpriceinflation/september2026.
+# Checked with a request; if it can't be confirmed, keep the existing bulletinUrl only when it is for the same month.
+_y, _m = monthly[-1]["period"].split()
+_mn = datetime.datetime.strptime(_m.title(), "%b").strftime("%B").lower()
+_bul = f"https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/{_mn}{_y}"
+try:
+    get(_bul)
+except Exception:
+    try:
+        _old = json.load(open("data/cpi.json")).get("bulletinUrl")
+    except Exception:
+        _old = None
+    _bul = _old if _old and _old.endswith(f"/{_mn}{_y}") else None
 json.dump({"source": "ONS – CPI annual rate 00: all items (series D7G7, dataset MM23)",
            "sourceUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23",
            "released": meta.get("Release date"), "nextRelease": meta.get("Next release"), "fetched": today,
-           "annual": annual, "latestMonth": monthly[-1], "peakMonth": max(monthly, key=lambda m: m["rate"])},
+           "annual": annual, "latestMonth": monthly[-1], "peakMonth": max(monthly, key=lambda m: m["rate"]),
+           **({"bulletinUrl": _bul} if _bul else {})},
           open("data/cpi.json", "w"), indent=2)
 print("gilts total £m", tot, "cpi annual", annual[0], annual[-1], monthly[-1])

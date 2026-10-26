@@ -80,7 +80,7 @@ CSFOOT = f'<p class="cs-foot"><strong>Information only – not financial advice.
 pages["money-matters-cheat-sheet.html"] = page("money-matters-cheat-sheet.html","Money Matters cheat sheet 2026/27 – MoneyBySharma",
  "The key UK personal finance figures for 2026/27 in one place: tax bands, National Insurance, minimum wage, savings and ISA allowances, pensions, FSCS, scam reporting numbers, Bank Rate, CPI and more, each with its source.",
  ph('<a href="resources.html">Resources</a> › Money Matters cheat sheet',"Money Matters cheat sheet 2026/27","UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date."), W(f'''
-<p class="cs-actions"><a class="btn" href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the PDF (620 KB, 8 pages)</a> <a href="resources.html">Back to Resources</a></p>
+<p class="cs-actions"><a class="btn" href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the PDF (635 KB, 8 pages)</a> <a href="resources.html">Back to Resources</a></p>
 <div class="cs-grid">{CS}{BASICS}</div>{CSFOOT}'''))
 
 import re as _re
