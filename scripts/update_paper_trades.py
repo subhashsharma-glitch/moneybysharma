@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Update the Paper trading experiment page from Chase's cleaned export.
+"""Update the Paper Trading Experiment page (paper-trading.html, built by scripts/pages11.py) from Chase's cleaned export.
+
+Books: "atr" and "x_buzz" are required and validated strictly (fields unchanged). "meme_jup" (Solana meme coins,
+Jupiter prices) is optional: until it is in the export the page shows it as "starting"; once present it is picked up
+automatically and checked for internal consistency. Optional per-book "log" arrays feed the activity log; unknown
+extra fields are ignored.
 
 Refresh command (weekdays):  python3 scripts/update_paper_trades.py --push
 
@@ -18,8 +23,9 @@ import argparse, datetime, json, os, re, shutil, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = "/workspace/paper-trading/public/paper-trades.json"
 BOOKS = ("atr", "x_buzz")
+OPTIONAL_BOOKS = ("meme_jup",)
 BAD_KEYS = re.compile(r"account|acct|iban|sort.?code|password|token|secret|ibkr|broker", re.I)
-BAD_VAL = re.compile(r"\b[A-Z]{1,2}\d{6,9}\b|\b\d{8,}\b")   # account-number-like strings
+BAD_VAL = re.compile(r"\b[A-Z]{1,2}\d{6,9}\b|(?<![\d.,])\d{8,}\b")   # account-number-like strings
 def fail(m): sys.exit("VALIDATION FAILED: " + m)
 def walk(x, path=""):
     if isinstance(x, dict):
@@ -65,7 +71,30 @@ def validate(d):
             if abs(sum(o["unrealised_pnl_usd"] for o in marked) - (t.get("unrealised_pnl_usd") or 0)) > 0.1 * max(1, len(marked)): fail(f"{k}: unrealised total does not match positions")
             if t.get("equity_at_market_usd") is None or abs(b["cash"] + sum(o["market_value_usd"] for o in marked) - t["equity_at_market_usd"]) > 0.1 * max(1, len(marked)): fail(f"{k}: equity at market does not match cash + market values")
             if not t.get("marked_as_of"): fail(f"{k}: marked totals without marked_as_of")
+    for k in OPTIONAL_BOOKS:
+        if k in d: validate_optional(k, d[k])
     walk(d)
+def validate_optional(k, b):
+    """Looser checks for the meme book (prices are tiny and P&L includes a modelled exit cost): structure and totals."""
+    if not isinstance(b, dict): fail(f"{k}: not an object")
+    for f in ("start_cash", "cash", "open_positions", "closed_trades", "totals"):
+        if f not in b: fail(f"{k}: missing {f}")
+    t = b["totals"]
+    if not isinstance(b["open_positions"], list) or not isinstance(b["closed_trades"], list) or not isinstance(t, dict): fail(f"{k}: bad structure")
+    if t.get("open_count", len(b["open_positions"])) != len(b["open_positions"]): fail(f"{k}: open_count mismatch")
+    if t.get("closed_count", len(b["closed_trades"])) != len(b["closed_trades"]): fail(f"{k}: closed_count mismatch")
+    for o in b["open_positions"]:
+        for f in ("ticker", "entry_price", "units", "cost_basis"):
+            if o.get(f) is None: fail(f"{k}: open position missing {f}")
+    for c in b["closed_trades"]:
+        for f in ("ticker", "entry_price", "exit_price", "units", "pnl_usd"):
+            if c.get(f) is None: fail(f"{k}: closed trade missing {f}")
+    if t.get("realised_pnl_usd") is not None and abs(sum(c["pnl_usd"] for c in b["closed_trades"]) - t["realised_pnl_usd"]) > 0.05 * max(1, len(b["closed_trades"])): fail(f"{k}: realised P&L does not match trades")
+    if t.get("unrealised_pnl_usd") is not None and all(o.get("unrealised_pnl_usd") is not None for o in b["open_positions"]):
+        if abs(sum(o["unrealised_pnl_usd"] for o in b["open_positions"]) - t["unrealised_pnl_usd"]) > 0.05 * max(1, len(b["open_positions"])): fail(f"{k}: unrealised total does not match positions")
+    if t.get("equity_at_market_usd") is not None and t.get("realised_pnl_usd") is not None and t.get("unrealised_pnl_usd") is not None:
+        if abs(b["start_cash"] + t["realised_pnl_usd"] + t["unrealised_pnl_usd"] - t["equity_at_market_usd"]) > 0.1 * max(1, len(b["open_positions"]) + len(b["closed_trades"])): fail(f"{k}: equity does not add up")
+    if "log" in b and not (isinstance(b["log"], list) and all(isinstance(e, dict) for e in b["log"])): fail(f"{k}: log is not a list of entries")
 # Files the refresh may commit: the data-driven outputs, plus the guides added in October 2026 so that
 # they are covered once they are live. A file is only ever committed if the build changed it AND it is
 # listed here; a build that changes anything else is refused (see check_changes).
@@ -80,7 +109,7 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
          "assets/weekly.js"]
 def placeholder(d):
     if d.get("placeholder"): return True
-    txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
+    txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS + OPTIONAL_BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
     return bool(re.search(r"placeholder|dummy|lorem|sample data|example data|mock", txt, re.I))
 GH = shutil.which("gh") or "/usr/local/bin/gh"
 # the repo's configured credential helper points at /usr/bin/gh, which is not where gh lives on the box: name the real path

@@ -313,3 +313,17 @@ footer.site .x-follow{display:inline-flex;align-items:center;gap:.35rem;text-dec
 footer.site .x-follow .x-ic{flex:none;background:#d9822b;color:#fff;border-radius:5px;padding:3px;width:20px;height:20px}footer.site .x-h{color:#f3c79a}
 .x-invite{display:flex;align-items:center;gap:.6rem;background:#e7f2ef;color:#0f4c45;border-left:4px solid #d9822b;border-radius:10px;padding:.7rem 1rem;margin:1.2rem 0;font-size:1rem;max-width:760px;overflow-wrap:anywhere}
 .x-invite .x-ic{flex:none;background:#0f4c45;color:#fff;border-radius:6px;padding:4px;width:24px;height:24px}.x-invite a{color:#0f4c45;font-weight:700}
+/* paper trading experiment: Grok Bot Terminal dashboard */
+.pt-warn{background:#fff4e0;border:2px solid #b3261e;border-radius:12px;padding:.9rem 1.1rem;margin:1.5rem 0 1rem}.pt-warn p{margin:.3rem 0}.pt-warn-h{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:#8a1c14}
+.tm{background:#0b2421;color:#d6ece7;border-radius:14px;border:1px solid #0f4c45;box-shadow:var(--shadow);margin:1.4rem 0 2rem;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:.88rem}
+.tm-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;background:#0f4c45;padding:.55rem .9rem}.tm-dots{display:inline-flex;gap:.35rem}.tm-dots i{width:.7rem;height:.7rem;border-radius:50%;background:#d9822b;display:block}.tm-dots i+i{background:#e7f2ef}.tm-dots i+i+i{background:#7fb8ad}
+.tm-title{font-weight:700;color:#fff;letter-spacing:.02em}.tm-asof{margin-left:auto;color:#b9d9d2;font-size:.8rem}
+.tm-body{padding:.6rem 1rem 1.1rem}.tm .tm-h{font-family:inherit;color:#d9822b;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;margin:1.1rem 0 .6rem}.tm .tm-h span{color:#8fb5ad;text-transform:none;letter-spacing:0;font-weight:400}
+.tm-eqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.7rem}.tm-eq,.tm-ag{background:#10302c;border:1px solid #1d4a44;border-radius:10px;padding:.7rem .85rem;min-width:0}
+.tm-eq.tm-wait{border-style:dashed}.tm-k{color:#d9822b;font-size:.75rem;letter-spacing:.08em}.tm-n{color:#e7f2ef;font-weight:700}.tm-v{font-family:var(--serif);font-size:1.7rem;color:#fff;margin:.15rem 0}.tm-c,.tm-s{font-size:.8rem;color:#b9d9d2}
+.tm .pt-neg{color:#ff9b8f!important}.tm .pt-pos{color:#8fe0a8!important}.tm-sum{margin:.7rem 0 0;color:#b9d9d2}.tm-sum b{color:#fff}
+.tm-ags{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.7rem}.tm-agh{display:flex;align-items:center;gap:.45rem;color:#fff;font-weight:700}.tm-dot{width:.55rem;height:.55rem;border-radius:50%;background:#8fe0a8;flex:none}
+.tm-role{margin:.35rem 0;color:#a9c9c2;font-size:.8rem;line-height:1.45}.tm-st{margin:0;color:#e7f2ef;line-height:1.45;overflow-wrap:anywhere}.tm-pr{color:#d9822b;font-weight:700}
+.tm-log{list-style:none;margin:0;padding:.5rem .7rem;background:#071a18;border:1px solid #1d4a44;border-radius:10px;max-height:32rem;overflow-y:auto}.tm-log li{padding:.35rem 0;border-bottom:1px dashed #1d4a44;line-height:1.45;overflow-wrap:anywhere}.tm-log li:last-child{border-bottom:0}
+.tm-t{color:#7fb8ad}.tm-b{color:#d9822b;font-weight:700}.tm-g{color:#b9d9d2}.tm-buy{color:#8fe0a8;font-weight:700}.tm-sell{color:#ffd08a;font-weight:700}.tm-rej{color:#ff9b8f}.tm-log b{color:#fff}.tm-r{display:block;color:#a9c9c2;padding-left:1rem}
+.tm-foot,.tm-empty{margin:.5rem 0 0;color:#8fb5ad;font-size:.8rem}

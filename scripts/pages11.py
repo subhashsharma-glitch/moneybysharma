@@ -1,110 +1,252 @@
-# Paper trading experiment (PREVIEW) – exec'd from build.py. Reads data/paper-trades.json (copy of Chase's cleaned export).
+# Paper Trading Experiment ("Grok Bot Terminal" dashboard) – exec'd from build.py.
+# Reads data/paper-trades.json (copy of Chase's cleaned export, refreshed by scripts/update_paper_trades.py).
+# Books: "atr" and "x_buzz" (required, fields unchanged) and "meme_jup" (optional: shown as "starting" until it
+# appears in the export). Every number on the page comes from the JSON; missing fields show "–", never a guess.
 import re
+from zoneinfo import ZoneInfo
 PT_PREVIEW = False   # True: page is noindex and left out of the sitemap
 PT = json.load(open("data/paper-trades.json"))
-_PT_FOOTNOTE_DATE = lambda iso: datetime.date.fromisoformat(iso[:10]).strftime("%-d %b %Y")
+PT_START_DEFAULT = 10000.0   # each book starts with $10,000 of fake money (used only for a book not in the export yet)
+E = html.escape
+def _num(x):
+    try: return None if x is None or isinstance(x, bool) else float(x)
+    except (TypeError, ValueError): return None
 def _usd(x, sign=False):
+    x = _num(x)
     if x is None: return "–"
-    s = f"{abs(x):,.2f}"
-    return ("+" if sign and x > 0 else "−" if x < 0 else "") + "$" + s
+    return ("+" if sign and x > 0 else "−" if x < 0 else "") + "$" + f"{abs(x):,.2f}"
 def _pct(x, sign=True):
+    x = _num(x)
     if x is None: return "–"
     return ("+" if sign and x > 0 else "−" if x < 0 else "") + f"{abs(x):.2f}%"
-def _px(x): return f"{x:,.2f}" if x >= 1 else f"{x:,.4f}"
-def _short_reason(r):
-    r = (r or "").strip()
-    return "Stop-loss level reached" if r.lower().startswith("stop") else html.escape(r.split(";")[0][:90])
-def _has_mtm(o): return all(o.get(k) is not None for k in ("latest_price", "market_value_usd", "unrealised_pnl_usd"))   # tolerate exports without (or with null) mark-to-market fields
-def _book_mtm(b): return b["totals"].get("unrealised_pnl_usd") is not None and b["totals"].get("equity_at_market_usd") is not None
-def _at_entry(o): return bool(re.search(r"\bentry\b", o.get("price_source") or "", re.I))   # opened since the last close: valued at entry price
-def _marked(b):
-    closes = sorted({o["latest_price_date"] for o in b["open_positions"] if o.get("latest_price_date") and not _at_entry(o)})
-    m = closes or b["totals"].get("marked_as_of") or sorted({o["latest_price_date"] for o in b["open_positions"] if o.get("latest_price_date")})
-    return ", ".join(_PT_FOOTNOTE_DATE(x) for x in (m if isinstance(m, list) else [m]))
-PT_MTM = any(_book_mtm(PT[k]) for k in ("atr", "x_buzz"))
-PT_MARKED = sorted({_marked(PT[k]) for k in ("atr", "x_buzz") if _book_mtm(PT[k])})
-PT_MARKED_TXT = " and ".join(PT_MARKED)
+def _px(x):
+    x = _num(x)
+    if x is None: return "–"
+    if x >= 1: return f"{x:,.2f}"
+    if x >= 0.01: return f"{x:.4f}"
+    if x <= 0: return f"{x:g}"
+    import math
+    return f"{x:.{min(12, 3 - math.floor(math.log10(x)))}f}"
+def _units(u):
+    u = _num(u)
+    if u is None: return "–"
+    return f"{u:,.0f}" if u >= 1000 else f"{u:,.4g}"
+def _cls(v): v = _num(v) or 0; return "pt-neg" if v < 0 else "pt-pos" if v > 0 else ""
+def _day(s):
+    """'2026-10-23' or '2026-10-23 13:18' -> '23 Oct 2026' / '23 Oct 2026, 13:18'."""
+    if not s: return "–"
+    s = str(s)
+    try:
+        dt = datetime.date.fromisoformat(s[:10]).strftime("%-d %b %Y")
+    except ValueError: return E(s)
+    t = s[11:16] if len(s) >= 16 and s[13] == ":" else ""
+    return dt + (", " + t if t else "")
 _ts = datetime.datetime.fromisoformat(PT["as_of"])
+if _ts.tzinfo: _ts = _ts.astimezone(ZoneInfo("Europe/London"))
 PT_ASOF = _ts.strftime("%-d %B %Y, %H:%M") + " UK time"
 PT_PLACEHOLDER = bool(PT.get("placeholder"))
-def _book(key, label, blurb):
-    b = PT[key]; t = b["totals"]; n = t["closed_count"]
-    win = f'{t["win_count"] / n * 100:.0f}% ({t["win_count"]} of {n})' if n else "– (no closed trades yet)"
-    cls = lambda v: "pt-neg" if (v or 0) < 0 else "pt-pos" if (v or 0) > 0 else ""
-    mtm = _book_mtm(b)
-    eq_cost = t.get("equity_at_cost_usd", b["cash"] + sum(o["cost_basis"] for o in b["open_positions"]))
-    if mtm:
-        mk = _marked(b)
-        mid = (f'<div><span>Unrealised P&amp;L (open positions)</span><b class="{cls(t["unrealised_pnl_usd"])}">{_usd(t["unrealised_pnl_usd"], True)}</b></div>'
-               f'<div><span>Unrealised P&amp;L, % of open cost basis</span><b class="{cls(t["unrealised_pnl_pct"])}">{_pct(t.get("unrealised_pnl_pct"))}</b></div>'
-               f'<div><span>Total P&amp;L (closed + unrealised)</span><b class="{cls(t.get("total_pnl_usd"))}">{_usd(t.get("total_pnl_usd"), True)}</b></div>'
-               f'<div><span>Total P&amp;L, % of starting cash</span><b class="{cls(t.get("total_pnl_pct"))}">{_pct(t.get("total_pnl_pct"))}</b></div>'
-               f'<div class="pt-eq"><span>Equity at market (cash + open positions at last close)</span><b>{_usd(t["equity_at_market_usd"])}</b></div>')
-        mnote = f'<p class="pt-mark" role="note"><strong>Marked to last close, {mk}.</strong> Open positions are valued at the last official end-of-day closing price, not a live price, so unrealised figures can be days old and are not realised until a position closes.</p>'
-    else:
-        mid = (f'<div><span>Unrealised P&amp;L (open positions)</span><b>Not shown</b></div>'
-               f'<div class="pt-eq"><span>Equity at cost (cash + open positions at cost basis)</span><b>{_usd(eq_cost)}</b></div>')
-        mnote = ""
-    tot = (f'<div class="pt-tot"><div><span>Cash</span><b>{_usd(b["cash"])}</b></div>'
-           f'<div><span>Starting cash</span><b>{_usd(b["start_cash"])}</b></div>'
-           f'<div><span>Closed-trade P&amp;L</span><b class="{cls(t["realised_pnl_usd"])}">{_usd(t["realised_pnl_usd"], True)}</b></div>'
-           f'<div><span>Closed-trade P&amp;L, % of starting cash</span><b class="{cls(t["realised_pnl_pct"])}">{_pct(t["realised_pnl_pct"])}</b></div>'
-           f'{mid}'
-           f'<div><span>Closed trades</span><b>{n}</b></div>'
-           f'<div><span>Open positions</span><b>{t["open_count"]}</b></div>'
-           f'<div><span>Win rate (closed trades)</span><b>{win}</b></div></div>{mnote}')
-    if b["closed_trades"]:
-        rows = "".join(f'<tr><th scope="row">{html.escape(c["ticker"])}</th><td>{_PT_FOOTNOTE_DATE(c["entry_date"])}</td><td>{_px(c["entry_price"])}</td><td>{_PT_FOOTNOTE_DATE(c["exit_date"])}</td><td>{_px(c["exit_price"])}</td><td>{c["units"]:,.4g}</td><td class="{cls(c["pnl_usd"])}">{_usd(c["pnl_usd"], True)}</td><td class="{cls(c["pnl_pct"])}">{_pct(c["pnl_pct"])}</td><td>{_short_reason(c.get("exit_reason"))}</td></tr>' for c in sorted(b["closed_trades"], key=lambda c: c["exit_date"], reverse=True))
-        closed = f'<div class="table-scroll"><table class="pt"><thead><tr><th>Ticker</th><th>Entered</th><th>Entry price ($)</th><th>Exited</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>How it closed</th></tr></thead><tbody>{rows}</tbody></table></div>'
-    else:
-        closed = '<p class="hint">No closed trades yet in this book.</p>'
-    if b["open_positions"]:
-        def _orow(o):
-            if _has_mtm(o):
-                dt = f'<span class="pt-d">{_PT_FOOTNOTE_DATE(o["latest_price_date"])}</span>' if o.get("latest_price_date") else ""
-                if _at_entry(o): dt += '<span class="pt-d">Entry price (opened since last close)</span>'
 
-                mv = f'<td>{_px(o["latest_price"])}{dt}</td><td>{_usd(o["market_value_usd"])}</td><td class="{cls(o["unrealised_pnl_usd"])}">{_usd(o["unrealised_pnl_usd"], True)}</td><td class="{cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td>'
-            else:
-                mv = f'<td>Not shown</td><td>{_usd(o["cost_basis"])} <span class="pt-d">at cost</span></td><td>Not shown</td><td>Not shown</td>'
-            return f'<tr><th scope="row">{html.escape(o["ticker"])}</th><td>{_PT_FOOTNOTE_DATE(o["entry_date"])}</td><td>{_px(o["entry_price"])}</td><td>{o["units"]:,.4g}</td><td>{_usd(o["cost_basis"])}</td>{mv}</tr>'
-        orow = "".join(_orow(o) for o in b["open_positions"])
-        srcs = sorted({o["price_source"] for o in b["open_positions"] if o.get("price_source") and _has_mtm(o) and not _at_entry(o)})
-        n_entry = sum(1 for o in b["open_positions"] if _has_mtm(o) and _at_entry(o))
-        srct = (f'<p class="hint">Latest price source: {html.escape("; ".join(srcs))}. Prices in US dollars.' if srcs else '<p class="hint">Prices in US dollars.') + (f' {n_entry} position{"s" if n_entry != 1 else ""} opened since the last close {"are" if n_entry != 1 else "is"} shown at {"their" if n_entry != 1 else "its"} entry price, so {"they show" if n_entry != 1 else "it shows"} no unrealised P&amp;L yet.' if n_entry else "") + '</p>'
+BOOKS = [  # key, label, short tag, how it picks (static description of the book's rule)
+ ("atr", "IA-ATR signals", "ATR", "Opens a position when a chart-based model using Average True Range (a measure of how much a price typically moves) gives a BUY signal; closes on its SELL signal, stop or target."),
+ ("x_buzz", "X buzz", "X BUZZ", None),
+ ("meme_jup", "Solana meme coins", "MEME", "Paper-only book of Solana meme coins priced from Jupiter's public price data. No wallet and no real orders."),
+]
+def _book_desc(key, default):
+    b = PT.get(key) or {}
+    if key == "x_buzz":
+        s = b.get("description") or ""
+        s = s.split(": ", 1)[1] if ": " in s else s
+        return s or "Opens positions in tickers that are trending bullishly on X."
+    return default
+def _present(key):
+    b = PT.get(key)
+    return isinstance(b, dict) and isinstance(b.get("totals"), dict)
 
-        openp = f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>Ticker</th><th>Entered</th><th>Entry price ($)</th><th>Units</th><th>Cost basis ($)</th><th>Latest price ($) and date</th><th>Market value ($)</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th></tr></thead><tbody>{orow}</tbody></table></div>{srct}'
+def _equity(b):
+    """(equity, basis) from the export: equity at market if given, else equity at cost, else cash + cost basis."""
+    t = b.get("totals") or {}
+    if _num(t.get("equity_at_market_usd")) is not None: return _num(t["equity_at_market_usd"]), "market"
+    if _num(t.get("equity_at_cost_usd")) is not None: return _num(t["equity_at_cost_usd"]), "cost"
+    c = _num(b.get("cash"))
+    if c is None: return None, None
+    return c + sum(_num(o.get("cost_basis")) or 0 for o in b.get("open_positions") or []), "cost"
+def _at_entry(o): return bool(re.search(r"\bentry\b", o.get("price_source") or "", re.I))
+def _marked(key, b):
+    """When open positions were last priced, in words."""
+    ops = b.get("open_positions") or []
+    if key == "meme_jup":
+        ts = sorted({o.get("latest_price_time_uk") for o in ops if o.get("latest_price_time_uk")})
+        if not ts: ts = (b.get("totals") or {}).get("marked_as_of") or []
+        ts = ts if isinstance(ts, list) else [ts]
+        return ("Jupiter price at " + _day(ts[-1]) + " UK") if ts else ""
+    closes = sorted({o["latest_price_date"] for o in ops if o.get("latest_price_date") and not _at_entry(o)})
+    if not closes:
+        m = (b.get("totals") or {}).get("marked_as_of") or []
+        closes = m if isinstance(m, list) else [m]
+    return ("last close " + ", ".join(_day(x) for x in closes if x)) if closes else ""
+
+# ---------- normalised activity log: the export's own "log" arrays if present, else derived from trades ----------
+def _book_log(key, tag, b):
+    out = []
+    lg = b.get("log")
+    if isinstance(lg, list) and lg:
+        for e in lg:
+            if not isinstance(e, dict): continue
+            out.append({"t": str(e.get("time_uk") or e.get("ts_uk") or "")[:16], "book": tag, "stage": e.get("stage") or e.get("agent") or "Logger",
+                        "action": e.get("action") or e.get("event") or "", "ticker": e.get("ticker") or e.get("symbol"), "reason": e.get("reason") or ""})
+        return out
+    for o in (b.get("open_positions") or []) + (b.get("closed_trades") or []):
+        if not o.get("entry_date"): continue
+        out.append({"t": str(o.get("entry_time_uk") or o["entry_date"])[:16], "book": tag, "stage": "Executor", "action": "Paper buy", "ticker": o.get("ticker"),
+                    "reason": o.get("entry_reason") or f"Opened under the {tag.lower()} book's rule: {_units(o.get('units'))} units at ${_px(o.get('entry_price'))} (cost {_usd(o.get('cost_basis'))})."})
+    for c in b.get("closed_trades") or []:
+        if not c.get("exit_date"): continue
+        out.append({"t": str(c.get("exit_time_uk") or c["exit_date"])[:16], "book": tag, "stage": "Executor", "action": "Paper sell", "ticker": c.get("ticker"),
+                    "reason": f"Closed at ${_px(c.get('exit_price'))}, P&L {_usd(c.get('pnl_usd'), True)}: " + (c.get("exit_reason") or "reason not recorded")})
+    return out
+PT_LOG = []
+for _k, _l, _tag, _ in BOOKS:
+    if _present(_k): PT_LOG += _book_log(_k, _tag, PT[_k])
+PT_LOG.sort(key=lambda e: e["t"], reverse=True)
+PT_LOG_N = 40
+
+# ---------- equity headline ----------
+def _eq_card(key, label, tag):
+    if not _present(key):
+        return (f'<div class="tm-eq tm-wait"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}</div>'
+                f'<div class="tm-v">{_usd(PT_START_DEFAULT)}</div><div class="tm-s">Starting equity · starting — first trades coming soon</div></div>')
+    b = PT[key]; t = b["totals"]; eq, basis = _equity(b); st = _num(b.get("start_cash"))
+    ch = (eq - st) if eq is not None and st is not None else None
+    chp = (ch / st * 100) if ch is not None and st else None
+    mk = _marked(key, b)
+    sub = f'{t.get("open_count", len(b.get("open_positions") or []))} open · {t.get("closed_count", len(b.get("closed_trades") or []))} closed' + (f" · {E(mk)}" if mk and basis == "market" else " · open positions at cost" if basis == "cost" and b.get("open_positions") else "")
+    return (f'<div class="tm-eq"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}</div><div class="tm-v">{_usd(eq)}</div>'
+            f'<div class="tm-c {_cls(ch)}">{_usd(ch, True)} ({_pct(chp)}) vs {_usd(st)} start</div><div class="tm-s">{sub}</div></div>')
+_eqs = [(_equity(PT[k])[0], _num(PT[k].get("start_cash"))) if _present(k) else (PT_START_DEFAULT, PT_START_DEFAULT) for k, *_ in BOOKS]
+PT_TOTAL_EQ = sum(e for e, _ in _eqs if e is not None); PT_TOTAL_START = sum(s for _, s in _eqs if s is not None)
+
+# ---------- agent panels: role is a fixed description, status is derived from the export ----------
+_meme = PT.get("meme_jup") if _present("meme_jup") else None
+_scan = (_meme or {}).get("last_scan") or (_meme or {}).get("last_run") or None
+def _cnt(stage=None, action=None):
+    return sum(1 for e in PT_LOG if (stage is None or e["stage"] == stage) and (action is None or e["action"] == action))
+def _agents():
+    a = []
+    if isinstance(_scan, dict) and _scan.get("coins_scanned") is not None:
+        s = f'Last meme scan {_day(_scan.get("time_uk"))} UK: {_scan["coins_scanned"]:,} coins checked, {_scan.get("momentum_candidates", "–")} momentum candidates.'
+    else:
+        s = "ATR and X buzz candidates come from their own signals; the meme scanner is starting, first scan results coming soon."
+    a.append(("Scanner", "Finds candidates for each book: model signals, X buzz, or Solana coins with momentum.", s))
+    if isinstance(_scan, dict) and _scan.get("rug_check_rejections") is not None:
+        s = f'Last scan: {_scan["rug_check_rejections"]} coin{"s" if _scan["rug_check_rejections"] != 1 else ""} rejected as too risky.'
+    else:
+        s = "Used by the meme book only; starting, first checks coming soon."
+    a.append(("Rug check", "Filters out risky meme coins (low liquidity, very new, concentrated holders, unrenounced mint) before any paper buy.", s))
+    sz = [f'{_usd(PT[k]["position_size"]).replace(".00", "")} ({tag.lower().replace("x buzz", "X buzz").replace("atr", "ATR")})' for k, _, tag, _ in BOOKS if _present(k) and _num(PT[k].get("position_size"))]
+    a.append(("Sizer", "Puts a fixed dollar amount into each new paper position, the same for every trade in a book.",
+              ("Fixed size per trade: " + ", ".join(sz) + ".") if sz else "Fixed size per trade."))
+    buys = sum(len(PT[k].get("open_positions") or []) + len(PT[k].get("closed_trades") or []) for k, *_ in BOOKS if _present(k))
+    sells = sum(len(PT[k].get("closed_trades") or []) for k, *_ in BOOKS if _present(k))
+    last = next((e for e in PT_LOG if e["action"] in ("Paper buy", "Paper sell")), None)
+    s = f"{buys} paper buys and {sells} paper sells recorded" + (f'; latest: {E(last["action"].lower())} {E(last["ticker"] or "")}, {_day(last["t"])}.' if last else ".")
+    a.append(("Executor", "Records paper fills at the quoted price. Fake money: no broker, no wallet, no real orders.", s))
+    a.append(("Logger", "Writes every action down with a plain-English reason, including coins it didn't buy.",
+              f"{len(PT_LOG)} actions in the log, newest {_day(PT_LOG[0]['t'])}." if PT_LOG else "No actions logged yet."))
+    s = f"Combined paper equity {_usd(PT_TOTAL_EQ)} against {_usd(PT_TOTAL_START)} of fake starting cash."
+    a.append(("Equity", "Marks open positions to the latest recorded prices and adds up cash plus positions for each book.", s))
+    return "".join(f'<div class="tm-ag"><div class="tm-agh"><span class="tm-dot" aria-hidden="true"></span>{E(n)}</div><p class="tm-role">{E(r)}</p><p class="tm-st"><span class="tm-pr" aria-hidden="true">&gt;</span> {s}</p></div>' for n, r, s in a)
+
+def _log_html():
+    if not PT_LOG: return '<p class="tm-empty">No actions logged yet.</p>'
+    li = []
+    for e in PT_LOG[:PT_LOG_N]:
+        tk = f' <b>{E(str(e["ticker"]))}</b>' if e.get("ticker") else ""
+        act = E(str(e["action"]))
+        ac = "tm-buy" if act == "Paper buy" else "tm-sell" if act == "Paper sell" else "tm-rej" if act in ("Rejected", "Skipped") else ""
+        li.append(f'<li><span class="tm-t">[{_day(e["t"])}]</span> <span class="tm-b">{E(e["book"])}</span> <span class="tm-g">{E(str(e["stage"]))}</span> <span class="{ac}">{act}</span>{tk}<span class="tm-r">{E(str(e["reason"]))}</span></li>')
+    more = f'<p class="tm-foot">Showing the latest {min(PT_LOG_N, len(PT_LOG))} of {len(PT_LOG)} actions in this export.</p>'
+    return '<ol class="tm-log" reversed>' + "".join(li) + '</ol>' + more
+
+# ---------- per-book detail ----------
+def _book(key, label, tag, desc):
+    if not _present(key):
+        return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book</h2><p>{E(desc)}</p>'
+                f'<div class="note pt-open"><strong>Starting — first trades coming soon.</strong> This book starts with {_usd(PT_START_DEFAULT)} of fake money. Its trades will appear here automatically once they are in the experiment log.</div></section>')
+    b = PT[key]; t = b["totals"]; n = t.get("closed_count", len(b.get("closed_trades") or []))
+    meme = key == "meme_jup"
+    wins = t.get("win_count")
+    win = f'{wins / n * 100:.0f}% ({wins} of {n})' if n and wins is not None else "– (no closed trades yet)"
+    eq, basis = _equity(b); mk = _marked(key, b)
+    cells = [("Starting cash", _usd(b.get("start_cash")), ""), ("Cash", _usd(b.get("cash")), ""),
+             ("Closed-trade P&amp;L", _usd(t.get("realised_pnl_usd"), True), _cls(t.get("realised_pnl_usd")))]
+    if basis == "market":
+        cells += [("Unrealised P&amp;L (open positions)", _usd(t.get("unrealised_pnl_usd"), True), _cls(t.get("unrealised_pnl_usd"))),
+                  ("Total P&amp;L, % of starting cash", _pct(t.get("total_pnl_pct")), _cls(t.get("total_pnl_pct"))),
+                  ("Equity at market" + (" (after modelled 1% exit cost)" if meme and t.get("open_positions_value_after_exit_cost_usd") is not None else ""), _usd(eq), "")]
+    else:
+        cells += [("Equity at cost (open positions not marked)", _usd(eq), "")]
+    cells += [("Open positions", str(t.get("open_count", len(b.get("open_positions") or []))), ""), ("Closed trades", str(n), ""), ("Win rate (closed trades)", win, "")]
+    tot = '<div class="pt-tot">' + "".join(f'<div{" class=pt-eq" if l.startswith("Equity") else ""}><span>{l}</span><b class="{c}">{v}</b></div>' for l, v, c in cells) + '</div>'
+    ops = b.get("open_positions") or []
+    if ops:
+        mvk = "market_value_after_exit_cost_usd" if meme and any(o.get("market_value_after_exit_cost_usd") is not None for o in ops) else "market_value_usd"
+        rows = []
+        for o in ops:
+            when = o.get("latest_price_time_uk") or o.get("latest_price_date")
+            dt = f'<span class="pt-d">{_day(when)}{" UK" if o.get("latest_price_time_uk") else ""}</span>' if when else ""
+            if _at_entry(o): dt += '<span class="pt-d">Entry price (opened since last close)</span>'
+            nm = f'<span class="pt-d">{E(o["name"])}</span>' if o.get("name") and o.get("name") != o.get("ticker") else ""
+            rows.append(f'<tr><th scope="row">{E(str(o.get("ticker")))}{nm}</th><td>{_day(o.get("entry_time_uk") or o.get("entry_date"))}</td><td>{_px(o.get("entry_price"))}</td><td>{_units(o.get("units"))}</td><td>{_usd(o.get("cost_basis"))}</td>'
+                        f'<td>{_px(o.get("latest_price"))}{dt}</td><td>{_usd(o.get(mvk))}</td><td class="{_cls(o.get("unrealised_pnl_usd"))}">{_usd(o.get("unrealised_pnl_usd"), True)}</td><td class="{_cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td></tr>')
+        mvh = "Market value after 1% exit cost ($)" if mvk != "market_value_usd" else "Market value ($)"
+        srcs = sorted({o["price_source"] for o in ops if o.get("price_source") and not _at_entry(o)})
+        openp = (f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entered</th><th>Entry price ($)</th><th>Units</th><th>Cost ($)</th><th>Current price ($)</th><th>{mvh}</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+                 f'<p class="hint">Current price = latest price recorded in the log' + (f' ({E(mk)})' if mk else '') + (f'; source: {E("; ".join(srcs))}' if srcs else '') + '. Prices in US dollars. Unrealised P&amp;L is a paper figure and changes with every price update.</p>')
     else:
         openp = '<p class="hint">No open positions in this book.</p>'
-    if mtm:
-        opennote = f'<div class="note pt-open"><strong>Marked to last close, {_marked(b)}; unrealised P&amp;L is a paper figure, not a result.</strong> Latest prices are end-of-day closing prices, not live prices. These are open positions in a fake-money experiment, recorded as a log. They are not a recommendation about any investment.</div>'
-        closednote = "Closed-trade P&amp;L is the realised result. Unrealised P&amp;L on open positions is shown separately, and both feed the total."
+    cts = b.get("closed_trades") or []
+    if cts:
+        rows = "".join(f'<tr><th scope="row">{E(str(c.get("ticker")))}</th><td>{_day(c.get("entry_time_uk") or c.get("entry_date"))}</td><td>{_px(c.get("entry_price"))}</td><td>{_day(c.get("exit_time_uk") or c.get("exit_date"))}</td><td>{_px(c.get("exit_price"))}</td><td>{_units(c.get("units"))}</td><td class="{_cls(c.get("pnl_usd"))}">{_usd(c.get("pnl_usd"), True)}</td><td class="{_cls(c.get("pnl_pct"))}">{_pct(c.get("pnl_pct"))}</td><td>{E(c.get("exit_reason") or "–")}</td></tr>'
+                       for c in sorted(cts, key=lambda c: str(c.get("exit_time_uk") or c.get("exit_date") or ""), reverse=True))
+        closed = f'<div class="table-scroll"><table class="pt pt-c"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entered</th><th>Entry price ($)</th><th>Exited</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>Why it closed</th></tr></thead><tbody>{rows}</tbody></table></div>'
     else:
-        opennote = '<div class="note pt-open"><strong>Cost basis only, not marked to market, unrealised P&amp;L not shown.</strong> These are open positions in a fake-money experiment, recorded as a log. They are not a recommendation about any investment.</div>'
-        closednote = "Closed-trade P&amp;L is the only P&amp;L counted in the totals above."
-    return f'''<section class="pt-book" id="{key}"><h2>{label}</h2><p>{blurb} Started {d(b["start_date"])} (first trade date). Amounts in US dollars of fake money.</p>
-{tot}
-<h3>Closed trades</h3><p class="hint">{closednote}</p>{closed}
-<h3>Open positions</h3>{opennote}{openp}</section>'''
+        closed = '<p class="hint">No closed trades yet in this book.</p>'
+    sd = b.get("start_date")
+    return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book</h2><p>{E(desc)}' + (f' Started {_day(sd)}.' if sd else '') + f' Fake money, in US dollars.</p>{tot}'
+            f'<h3>Open positions</h3>{openp}<h3>Closed trades</h3>{closed}</section>')
+
 _ph = '<div class="note" role="note" style="border-left-color:#b3261e"><strong>Placeholder data.</strong> The figures below are placeholders, not results from the experiment.</div>' if PT_PLACEHOLDER else ""
-PT_MARK_LINE = f" <strong>Open positions marked to last close, {PT_MARKED_TXT}.</strong>" if PT_MTM else ""
-PT_TOT_LI = ("<li><strong>Closed-trade P&amp;L, unrealised P&amp;L and equity at market are shown separately.</strong> Open positions are marked to the last daily close (official end-of-day closing prices, not live prices), so unrealised gains and losses can be days old and will change. Equity at market is cash plus open positions at that close. Start dates are the date of each book's first trade, not necessarily when it was set up.</li>" if PT_MTM else
- "<li><strong>Totals cover closed trades only.</strong> Open positions are shown at cost basis, not marked to market, so unrealised gains and losses are not in any total. Start dates are the date of each book's first trade, not necessarily when it was set up.</li>")
-pages["paper-trading.html"] = page("paper-trading.html", "Paper trading experiment – MoneyBySharma",
- ("A fake-money paper trading experiment with two books: closed trades, open positions marked to the last close with unrealised P&L, and totals. Experiment only, not advice." if PT_MTM else "A fake-money paper trading experiment with two books: closed trades, open positions at cost basis, and totals. Experiment only, not advice."),
- ph("<a href=\"tools.html\">Tools</a> › Paper trading experiment", "Paper trading experiment", "Two fake-money books, logged in public."), W(f'''
-<div class="note pt-label" role="note" style="margin-top:1.5rem;border-left-color:#b3261e;font-size:1.1rem"><strong>Experiment with fake money. Not advice, not a recommendation, not a signal. Past results don't predict future ones.</strong></div>
-<p><strong>Data as of {PT_ASOF}.</strong>{PT_MARK_LINE} {PT["disclaimer"]}</p>{_ph}
+PT_DISC = ('<div class="pt-warn" role="note"><p class="pt-warn-h">Fake money. Paper trading experiment only.</p>'
+           '<p>This is <strong>not financial advice</strong> and <strong>not a recommendation to buy or sell any coin or share</strong>. '
+           'No real money is used and no real orders are placed. <strong>Crypto and meme coins are highly risky</strong>: prices can swing wildly or fall to zero, and many coins are scams. '
+           'Past results, real or paper, don\'t predict future ones.</p></div>')
+_eqcards = "".join(_eq_card(k, l, tag) for k, l, tag, _ in BOOKS)
+pages["paper-trading.html"] = page("paper-trading.html", "Paper Trading Experiment – MoneyBySharma",
+ "Paper Trading Experiment: three fake-money books (IA-ATR signals, X buzz and Solana meme coins) each starting at $10,000, with agent status, open positions, closed trades and a log of every action. Not advice.",
+ ph("<a href=\"tools.html\">Tools</a> › Paper Trading Experiment", "Paper Trading Experiment", "Three fake-money books, each starting with $10,000, run step by step by simple software agents and logged in public."), W(f'''
+{PT_DISC}
+<p><strong>Data as of {PT_ASOF}.</strong> {E(PT.get("disclaimer") or "")}</p>{_ph}
+<section class="tm" aria-labelledby="tm-h">
+<div class="tm-bar"><span class="tm-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="tm-title" id="tm-h">Grok Bot Terminal</span><span class="tm-asof">paper mode · {PT_ASOF}</span></div>
+<div class="tm-body">
+<h2 class="tm-h">Equity by book</h2>
+<div class="tm-eqs">{_eqcards}</div>
+<p class="tm-sum">Combined paper equity <b>{_usd(PT_TOTAL_EQ)}</b> against {_usd(PT_TOTAL_START)} of fake starting cash.</p>
+<h2 class="tm-h">Agents</h2>
+<div class="tm-ags">{_agents()}</div>
+<h2 class="tm-h" id="log">Activity log <span>(newest first, with reasons)</span></h2>
+{_log_html()}
+</div></section>
 <h2>How the experiment works</h2>
 <ul>
-<li>Two separate books, each starting with $10,000 of fake money and putting $1,000 into each position it opens. No real money is used.</li>
-<li><strong>ATR book:</strong> positions opened when a chart-based model (using Average True Range, a measure of how much a price typically moves) flags them.</li>
-<li><strong>X buzz book:</strong> {html.escape(PT["x_buzz"]["description"].split(": ",1)[1] if ": " in PT["x_buzz"]["description"] else PT["x_buzz"]["description"])}</li>
-<li><strong>This is not a live record.</strong> It is a log kept by hand and by script, updated from time to time, so it may be out of date. Prices are those recorded when each entry or exit was logged, including pre-market prices, and real trades could have filled at different prices.</li>
-{PT_TOT_LI}
+<li><strong>Three separate books</strong>, each starting with $10,000 of fake money. Each puts a fixed dollar amount into every position it opens. No real money, broker or wallet is involved.</li>
+<li><strong>IA-ATR signals:</strong> {E(BOOKS[0][3])}</li>
+<li><strong>X buzz:</strong> {E(_book_desc("x_buzz", ""))}</li>
+<li><strong>Solana meme coins:</strong> {E(_meme["notes"]) if _meme and _meme.get("notes") else E(BOOKS[2][3])}</li>
+<li><strong>Prices and marks.</strong> The ATR and X buzz books are marked to the last official daily close; the meme book uses the latest Jupiter price recorded by the experiment. Unrealised gains and losses are paper figures and can be out of date.</li>
+<li><strong>This is not a live record.</strong> It is a log updated from time to time, so it may be behind. Real trades could have filled at different prices.</li>
 </ul>
-{_book("atr", "ATR book", "A fake-money book run on an ATR-based model.")}
-{_book("x_buzz", "X buzz book", "A fake-money book run on trending tickers on X.")}
-<p class="src">Source: our own experiment log (fake money), exported {PT_ASOF}. Nothing here is a prediction, and no figure is a track record of real investing. See also the <a href="disclaimer.html">disclaimer</a>. Currency: US dollars (the log is kept in dollars).</p>'''))
+{"".join(_book(k, l, tag, _book_desc(k, desc)) for k, l, tag, desc in BOOKS)}
+<p class="src">Source: our own experiment log (fake money), exported {PT_ASOF}. Nothing here is a prediction, a signal or a track record of real investing. See also the <a href="disclaimer.html">disclaimer</a>. Currency: US dollars.</p>'''))
 if PT_PREVIEW:
     pages["paper-trading.html"] = pages["paper-trading.html"].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)

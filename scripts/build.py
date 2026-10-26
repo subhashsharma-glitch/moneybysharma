@@ -55,7 +55,7 @@ NAVG = [("index.html","Home"),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("jargon.html","Jargon buster")]),
- ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper trading experiment<small class="dd-desc">Fake-money trades and totals. Experiment only</small>')],"tools.html"),
+ ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
@@ -480,7 +480,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, includ
 <div class="grid g3" style="margin-top:1.5rem">
 <div class="card"><span class="tag">Tool</span><h3>Garmin Fitness Insights</h3><p>Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded.</p>
 <p><a class="btn" href="tools/garmin-insights/">Open Garmin Fitness Insights</a></p></div>
-<div class="card"><span class="tag">Experiment</span><h3>Paper trading experiment</h3><p>A log of two fake-money trading books: trades, positions and totals. Experiment only, not advice or a recommendation.</p>
+<div class="card"><span class="tag">Experiment</span><h3>Paper Trading Experiment</h3><p>Three fake-money books (IA-ATR signals, X buzz and Solana meme coins) in a terminal-style dashboard: equity, agents, positions, trades and a log of every action. Experiment only, not advice or a recommendation.</p>
 <p><a class="btn" href="paper-trading.html">View the experiment</a></p></div></div>
 <p class="hint" style="margin-top:1rem">Garmin Fitness Insights runs entirely in your browser on this site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
 from search_index import build_search
