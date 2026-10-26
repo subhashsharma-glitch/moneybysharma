@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-26T13:27:04+00:00",
+  "as_of": "2026-10-26T14:04:48+00:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -274,7 +274,7 @@
     "start_cash": 10000.0,
     "currency": "USD",
     "position_size": 1000.0,
-    "cash": 270.15,
+    "cash": 182.51,
     "open_positions": [
       {
         "ticker": "CRM",
@@ -397,19 +397,19 @@
         "unrealised_pnl_pct": -2.93
       },
       {
-        "ticker": "RNG",
-        "entry_date": "2026-10-23",
-        "entry_price": 90.14,
-        "units": 11.093854,
+        "ticker": "XNCR",
+        "entry_date": "2026-10-26",
+        "entry_price": 32.12,
+        "units": 31.13325,
         "cost_basis": 1000.0,
-        "stop": 82.9288,
-        "target": 108.168,
-        "latest_price": 83.4,
-        "latest_price_date": "2026-10-23",
-        "price_source": "Nasdaq quote (official 4pm ET close)",
-        "market_value_usd": 925.23,
-        "unrealised_pnl_usd": -74.77,
-        "unrealised_pnl_pct": -7.48
+        "stop": 29.5504,
+        "target": 38.544,
+        "latest_price": 32.12,
+        "latest_price_date": "2026-10-26",
+        "price_source": "Entry price (opened since last close)",
+        "market_value_usd": 1000.0,
+        "unrealised_pnl_usd": 0.0,
+        "unrealised_pnl_pct": 0.0
       }
     ],
     "closed_trades": [
@@ -500,30 +500,56 @@
         "pnl_usd": -75.12,
         "pnl_pct": -7.51,
         "exit_reason": "Stop (-8%, $147.22) breached on 22 Oct: lockup-expiry and Nasdaq AI selloff took shares to a low of $143.21 (closed $144.75); premarket ~$148.00 today"
+      },
+      {
+        "ticker": "RNG",
+        "entry_date": "2026-10-23",
+        "entry_price": 90.14,
+        "exit_date": "2026-10-26",
+        "exit_price": 82.24,
+        "units": 11.093854,
+        "pnl_usd": -87.64,
+        "pnl_pct": -8.76,
+        "exit_reason": "Stop (-8%, $82.93) breached on 23 Oct: post-earnings spike to $98.14 faded to a low of $82.66 (closed $83.39); buzz fell back to ~20/day over the weekend; premarket ~$82.24 today"
       }
     ],
     "totals": {
-      "realised_pnl_usd": -729.85,
-      "realised_pnl_pct": -7.3,
-      "unrealised_pnl_usd": 9.97,
-      "unrealised_pnl_pct": 0.11,
-      "total_pnl_usd": -719.88,
-      "total_pnl_pct": -7.2,
+      "realised_pnl_usd": -817.49,
+      "realised_pnl_pct": -8.17,
+      "unrealised_pnl_usd": 84.74,
+      "unrealised_pnl_pct": 0.94,
+      "total_pnl_usd": -732.75,
+      "total_pnl_pct": -7.33,
       "open_positions_cost_basis_usd": 9000.0,
-      "open_positions_market_value_usd": 9009.97,
-      "equity_at_cost_usd": 9270.15,
-      "equity_at_market_usd": 9280.12,
+      "open_positions_market_value_usd": 9084.74,
+      "equity_at_cost_usd": 9182.51,
+      "equity_at_market_usd": 9267.25,
       "marked_as_of": [
-        "2026-10-23"
+        "2026-10-23",
+        "2026-10-26"
       ],
       "open_count": 9,
-      "closed_count": 8,
+      "closed_count": 9,
       "win_count": 0,
-      "loss_count": 8
+      "loss_count": 9
     },
-    "notes": "Open positions are marked to the last daily close as of 2026-10-23 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
+    "notes": "Open positions are marked to the last daily close as of 2026-10-23, 2026-10-26 (official end-of-day closing prices, not live prices); unrealised P&L, total P&L and equity at market use those closes. start_date is the earliest entry date in the ledger (the ledger has no explicit start-date field). Entry/exit prices are recorded as pre-market or last-trade prices at the time of logging.",
     "description": "X buzz paper strategy: top 3 bullish-trending tickers on X, $1,000 each; exit at 10 trading days, -8%, +20%, or bearish buzz turn. Fake money only.",
     "log": [
+      {
+        "time_uk": "2026-10-26 13:37",
+        "stage": "Executor",
+        "action": "Paper buy",
+        "ticker": "XNCR",
+        "reason": "Paper strategy opened a position: 31.1333 units at $32.12; trigger: ticker among the top bullish-trending names on X (top-3 buzz rule)."
+      },
+      {
+        "time_uk": "2026-10-26 13:37",
+        "stage": "Executor",
+        "action": "Paper sell",
+        "ticker": "RNG",
+        "reason": "Paper strategy closed the position at $82.24 (P&L $-87.64): Stop (-8%, $82.93) breached on 23 Oct: post-earnings spike to $98.14 faded to a low of $82.66 (closed $83.39); buzz fell back to ~20/day over the weekend; premarket ~$82.24 today"
+      },
       {
         "time_uk": "2026-10-23 13:36",
         "stage": "Executor",
