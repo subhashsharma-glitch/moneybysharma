@@ -300,3 +300,10 @@ nav.main .fb-mob a{font-weight:700;color:var(--teal)}
 @media(prefers-color-scheme:dark){.apv{background:var(--card,#1b2a2a)}}
 @media(max-width:520px){.apv{padding:.2rem .4rem}.apv table{font-size:.8rem}.apv th,.apv td{padding:.35rem .3rem!important}.apv thead th{white-space:nowrap}.apv tbody th{white-space:normal}}
 .res-brand{display:flex;align-items:center;gap:.4rem;margin:.1rem 0 .5rem;font-family:var(--serif);font-weight:700;color:var(--teal);font-size:1rem}.res-brand .by{color:var(--accent);font-style:italic;font-weight:600}
+
+/* Article figures: full column width (The power of compounding article) */
+.art-fig{margin:1.4rem 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:.75rem;box-shadow:var(--shadow)}
+.art-fig img{display:block;width:100%;height:auto;margin:0 auto}
+.art-fig.narrow img{max-width:560px}
+.art-fig figcaption{margin-top:.5rem;font-size:.92rem;color:var(--muted)}
+.pull{font-family:Georgia,serif;font-size:1.35rem;color:var(--teal);border-left:4px solid var(--accent);padding:.2rem 0 .2rem 1rem;margin:1.2rem 0}
