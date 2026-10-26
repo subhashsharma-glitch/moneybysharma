@@ -17,8 +17,8 @@ CARDS = [("American Express","https://www.americanexpress.com/en-gb/credit-cards
 CARDS.sort(key=lambda c: c[0].lower())
 _cl = "".join(f'<li><a href="{u}" rel="noopener">{n}</a></li>' for n,u in CARDS)
 BC,HS,SA,TE = "https://www.barclaycard.co.uk/personal/credit-cards","https://www.hsbc.co.uk/credit-cards/","https://www.santander.co.uk/personal/credit-cards","https://www.tescobank.com/credit-cards/"
-CCHK, CCHK_SHORT = "19 October 2026", "19 Oct 2026"  # offers below checked on providers' own pages on this date
-DEALS = [("Balance transfer","Barclaycard Platinum",BC,"0% on balance transfers for up to 36 months (transfers within 60 days); 0% on purchases for 3 months","3.15% per transfer","24.9% APR representative (variable)"),
+CCHK, CCHK_SHORT = "26 October 2026", "26 Oct 2026"  # offers below checked on providers' own pages on this date
+DEALS = [("Balance transfer","Barclaycard Platinum",BC,"0% on balance transfers for up to 35 months (transfers within 60 days); 0% on purchases for 3 months","3.15% per transfer","24.9% APR representative (variable)"),
  ("Balance transfer","HSBC UK Balance Transfer Credit Card",HS,"0% on balance transfers for up to 36 months","3.09% (minimum £5)","25.9% APR representative (variable), assumed limit £1,200"),
  ("Balance transfer","Tesco Bank Balance Transfer Credit Card",TE,"0% on balance transfers for 35 months; 0% on money transfers for 9 months","3.15% balance transfers; 3.99% money transfers","24.9% APR representative (variable), limit £1,200"),
  ("Balance transfer","Santander Everyday Long Term Balance Transfer",SA,"0% on balance transfers for 34 months; 0% on purchases for 3 months","3.15% (minimum £5)","24.9% APR representative (variable), assumed limit £1,200"),
