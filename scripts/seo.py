@@ -2,6 +2,9 @@
 import html, json
 BASE = "https://moneybysharma.co.uk/"
 IMG = BASE + "assets/og-image.png"
+# X/Twitter uses the compact "summary" card with a square logo, so link previews take less of the post.
+X_IMG = BASE + "assets/og-square.png"
+X_ALT = "MoneyBySharma logo"
 ORG = {"@context": "https://schema.org", "@type": "Organization", "@id": BASE + "#organization",
        "name": "MoneyBySharma", "url": BASE, "email": "hello@moneybysharma.co.uk",
        "logo": BASE + "assets/favicon.svg", "founder": {"@type": "Person", "name": "Subhash Sharma"}}
@@ -17,8 +20,8 @@ def seo_meta(fn, title, desc):
            f'<meta property="og:title" content="{t}"><meta property="og:description" content="{d}">'
            f'<meta property="og:url" content="{url}"><meta property="og:image" content="{IMG}">'
            f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_GB">\n'
-           f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@moneybysharma"><meta name="twitter:creator" content="@moneybysharma"><meta name="twitter:title" content="{t}">'
-           f'<meta name="twitter:description" content="{d}"><meta name="twitter:image" content="{IMG}">\n')
+           f'<meta name="twitter:card" content="summary"><meta name="twitter:site" content="@moneybysharma"><meta name="twitter:creator" content="@moneybysharma"><meta name="twitter:title" content="{t}">'
+           f'<meta name="twitter:description" content="{d}"><meta name="twitter:image" content="{X_IMG}"><meta name="twitter:image:alt" content="{X_ALT}">\n')
     if fn == "index.html":
         out += '<script type="application/ld+json">' + json.dumps([SITE, ORG], ensure_ascii=False) + '</script>\n'
     return out

@@ -55,4 +55,9 @@ s=s.replace('<link rel="stylesheet" href="css/mbs-bar.css">','<link rel="stylesh
 if '../../assets/main.js' not in s: s=s.replace('</body>','<script src="../../assets/main.js" defer></script>\n</body>')
 if '../../assets/search.js' not in s: s=s.replace('<script src="../../assets/main.js" defer></script>','<script src="../../assets/main.js" defer></script>\n<script src="../../assets/search.js" defer></script>')
 if 'twitter:site' not in s: s=s.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:site" content="@moneybysharma">\n<meta name="twitter:creator" content="@moneybysharma">',1)
+# Compact X card (summary + square logo), same as seo.py; idempotent.
+from seo import X_IMG, X_ALT
+s=s.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary">')
+s=re.sub(r'<meta name="twitter:image:alt" content="[^"]*">\n?','',s)
+s=re.sub(r'<meta name="twitter:image" content="[^"]*">',f'<meta name="twitter:image" content="{X_IMG}">\n<meta name="twitter:image:alt" content="{X_ALT}">',s,count=1)
 open(p,'w').write(s)
