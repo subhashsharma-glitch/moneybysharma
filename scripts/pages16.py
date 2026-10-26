@@ -66,7 +66,7 @@ pages["deals.html"] = page("deals.html", "Deals and savings: supermarkets, cinem
 
 <h2 id="genuine">How to spot a genuine deal</h2>
 <ul class="dl-tips">
-<li><strong>Compare unit prices, not shelf prices.</strong> GOV.UK explains that unit prices (per kilo, litre or item) let you compare different pack sizes, and that the biggest pack is not always the best value. You can usually find the unit price beneath the shelf price or beside the item online.</li>
+<li><strong>Compare unit prices, not shelf prices.</strong> GOV.UK explains that unit prices (per kilo, litre or item) let you compare different pack sizes, and that the biggest pack is not always the cheapest per unit. You can usually find the unit price beneath the shelf price or beside the item online.</li>
 <li><strong>Test the “was” price.</strong> A discount is only as real as the price it is measured against. Look at what the item cost on earlier visits or in a price-history record, and compare the final price with other shops. GOV.UK said on 9 August 2026 that a consultation will launch this autumn on whether fake “was” prices, invented discounts and misleading recommended retail prices should be banned, because they are hard to tackle under current laws.</li>
 <li><strong>Know the loyalty-price rules.</strong> Loyalty prices usually apply only if you scan or swipe each time you shop, or link your card to your online account. Sainsbury's terms say Nectar Prices can't be applied after the event, and “Your Nectar Prices” and Tesco's “Your Clubcard Prices” have to be unlocked each week before you shop. Check the shelf label for both the regular price and the member price.</li>
 <li><strong>Watch for pressure tactics.</strong> The CMA has published “red lines” on misleading price-reduction and urgency claims online, such as countdown timers and “selling fast” messages that may not be true.</li>
@@ -79,7 +79,7 @@ pages["deals.html"] = page("deals.html", "Deals and savings: supermarkets, cinem
 <p>Student plans for music and video are listed in the subscriptions table above. For other student offers, see our <a href="students.html">students guide</a>, and always check the brand's own terms.</p>
 
 <h2 id="about-data">About these entries</h2>
-<p>Each entry is taken from the retailer's own page. We summarise what it says, in our own words, and we don't copy prices from comparison or voucher sites. Time-limited offers disappear from this page after the end date they were published with. If you spot something out of date, the retailer's page is right and ours needs updating. Illustrations of how a scheme works are not a recommendation to join it, and there is no “best” scheme: what suits you depends on where you shop and what you buy.</p>
+<p>Each entry is taken from the retailer's own page. We summarise what it says, in our own words, and we don't copy prices from comparison or voucher sites. Time-limited offers disappear from this page after the end date they were published with. If you spot something out of date, the retailer's page is right and ours needs updating. Illustrations of how a scheme works are not a recommendation to join it, and no single scheme suits everyone: what suits you depends on where you shop and what you buy.</p>
 <p class="hint">Last data update: {d(DL["updated"])}. Related: <a href="budgeting-emergency-fund.html">Budgeting and emergency funds</a> · <a href="scams-fraud.html">Scams and fraud</a> · <a href="students.html">Students</a> · <a href="jargon.html">Jargon buster</a></p>
 '''))
 DEALS_COUNTS = _counts
