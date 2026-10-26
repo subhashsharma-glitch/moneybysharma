@@ -328,3 +328,17 @@ footer.site .x-follow .x-ic{flex:none;background:#d9822b;color:#fff;border-radiu
 .tm-t{color:#7fb8ad}.tm-b{color:#d9822b;font-weight:700}.tm-g{color:#b9d9d2}.tm-buy{color:#8fe0a8;font-weight:700}.tm-sell{color:#ffd08a;font-weight:700}.tm-rej{color:#ff9b8f}.tm-log b{color:#fff}.tm-r{display:block;color:#a9c9c2;padding-left:1rem}
 .tm-foot,.tm-empty{margin:.5rem 0 0;color:#8fb5ad;font-size:.8rem}
 .tm-rejs{margin-top:.8rem}.tm-rejs summary{cursor:pointer;color:#ff9b8f;font-weight:700;padding:.3rem 0}.tm-rejs[open] summary{margin-bottom:.4rem}
+/* weekly topics (weekly-topics.html + home block) */
+.wt-k{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.wt-t{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--teal);margin-top:.2rem;overflow-wrap:anywhere}
+.wt-hero{margin-top:1.5rem;border-left:5px solid var(--accent);background:var(--teal-50)}
+.wt-soon{display:inline-block;font-family:var(--font);font-size:.75rem;font-weight:700;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:999px;padding:.1rem .5rem;vertical-align:middle}
+.wt-list{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem}
+.wt-row{display:grid;grid-template-columns:5.5rem 13rem 1fr auto;gap:.3rem 1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.7rem 1rem}
+.wt-n{font-weight:700;color:var(--teal)}.wt-d{color:var(--muted);font-size:.92rem}.wt-topic{overflow-wrap:anywhere}
+.wt-badge{display:none;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;border-radius:999px;padding:.15rem .6rem;white-space:nowrap}
+.wt-row.wt-now{border:2px solid var(--accent);background:var(--accent-50)}.wt-row.wt-now .wt-badge{display:inline-block}.wt-row.wt-now .wt-topic{font-weight:700}
+.wt-row.wt-past{opacity:.7}
+.wt-home{margin:1rem 0 1.25rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1.2rem;border-left:5px solid var(--accent)}
+.wt-home .wt-t{font-size:1.15rem}.wt-all{font-weight:700;white-space:nowrap}
+@media (max-width:640px){.wt-row{grid-template-columns:1fr auto}.wt-n{grid-column:1}.wt-badge{grid-column:2;grid-row:1}.wt-d,.wt-topic{grid-column:1/-1}}
