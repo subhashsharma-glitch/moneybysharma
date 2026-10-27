@@ -3,7 +3,8 @@
 
 Books: "atr" and "x_buzz" are required and validated strictly (fields unchanged). "meme_jup" (Solana meme coins,
 Jupiter prices) is optional: until it is in the export the page shows it as "starting"; once present it is picked up
-automatically and checked for internal consistency. Optional per-book "log" arrays feed the activity log; unknown
+automatically and checked for internal consistency. Optional per-book "started" text (and per-trade "started"/"closed")
+is carried through unchanged and shown on the page; when missing the page just omits it. Optional per-book "log" arrays feed the activity log; unknown
 extra fields are ignored.
 
 Refresh command (weekdays):  python3 scripts/update_paper_trades.py --push
@@ -74,6 +75,13 @@ def validate(d):
     for k in OPTIONAL_BOOKS:
         if k in d: validate_optional(k, d[k])
     walk(d)
+    # `started` (e.g. "12 Oct 2026") is shown next to each book's name on the page. It is optional: the export is copied
+    # whole into data/paper-trades.json so the field is carried through as-is; a missing or blank one only warns
+    # (the page then shows just the book name), it never fails the refresh.
+    for k in BOOKS + OPTIONAL_BOOKS:
+        b = d.get(k)
+        if isinstance(b, dict) and not (isinstance(b.get("started"), str) and b["started"].strip()):
+            print(f"note: {k} has no 'started' text; the page will show the book name without a start date")
 def validate_optional(k, b):
     """Looser checks for the meme book (prices are tiny and P&L includes a modelled exit cost): structure and totals."""
     if not isinstance(b, dict): fail(f"{k}: not an object")

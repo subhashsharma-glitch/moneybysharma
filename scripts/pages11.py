@@ -58,6 +58,21 @@ def _book_desc(key, default):
         s = s.split(": ", 1)[1] if ": " in s else s
         return s or "Opens positions in tickers that are trending bullishly on X."
     return default
+def _since(key):
+    """The export's own `started` text for a book (e.g. '12 Oct 2026'); '' when missing, so callers show just the name."""
+    b = PT.get(key)
+    v = b.get("started") if isinstance(b, dict) else None
+    return v.strip() if isinstance(v, str) and v.strip() else ""
+def _since_html(key):
+    s = _since(key)
+    return f' <span class="tm-since" style="font-weight:400;white-space:nowrap;opacity:.8">(since {E(s)})</span>' if s else ""
+def _when(o, date_key, text_key, time_key):
+    """A trade's start/close date: the export's own text field (`started`/`closed`) if given, else the ISO date; plus the UK time when recorded."""
+    t = o.get(text_key)
+    if isinstance(t, str) and t.strip():
+        tm = str(o.get(time_key) or "")
+        return E(t.strip()) + (", " + tm[11:16] if len(tm) >= 16 and tm[13] == ":" else "")
+    return _day(o.get(time_key) or o.get(date_key))
 def _present(key):
     b = PT.get(key)
     return isinstance(b, dict) and isinstance(b.get("totals"), dict)
@@ -113,14 +128,14 @@ PT_LOG_N = 40
 # ---------- equity headline ----------
 def _eq_card(key, label, tag):
     if not _present(key):
-        return (f'<div class="tm-eq tm-wait"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}</div>'
+        return (f'<div class="tm-eq tm-wait"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}{_since_html(key)}</div>'
                 f'<div class="tm-v">{_usd(PT_START_DEFAULT)}</div><div class="tm-s">Starting equity · starting — first trades coming soon</div></div>')
     b = PT[key]; t = b["totals"]; eq, basis = _equity(b); st = _num(b.get("start_cash"))
     ch = (eq - st) if eq is not None and st is not None else None
     chp = (ch / st * 100) if ch is not None and st else None
     mk = _marked(key, b)
     sub = f'{t.get("open_count", len(b.get("open_positions") or []))} open · {t.get("closed_count", len(b.get("closed_trades") or []))} closed' + (f" · {E(mk)}" if mk and basis == "market" else " · open positions at cost" if basis == "cost" and b.get("open_positions") else "")
-    return (f'<div class="tm-eq"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}</div><div class="tm-v">{_usd(eq)}</div>'
+    return (f'<div class="tm-eq"><div class="tm-k">{E(tag)}</div><div class="tm-n">{E(label)}{_since_html(key)}</div><div class="tm-v">{_usd(eq)}</div>'
             f'<div class="tm-c {_cls(ch)}">{_usd(ch, True)} ({_pct(chp)}) vs {_usd(st)} start</div><div class="tm-s">{sub}</div></div>')
 _eqs = [(_equity(PT[k])[0], _num(PT[k].get("start_cash"))) if _present(k) else (PT_START_DEFAULT, PT_START_DEFAULT) for k, *_ in BOOKS]
 PT_TOTAL_EQ = sum(e for e, _ in _eqs if e is not None); PT_TOTAL_START = sum(s for _, s in _eqs if s is not None)
@@ -175,7 +190,7 @@ def _log_html():
 # ---------- per-book detail ----------
 def _book(key, label, tag, desc):
     if not _present(key):
-        return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book</h2><p>{E(desc)}</p>'
+        return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book{_since_html(key)}</h2><p>{E(desc)}</p>'
                 f'<div class="note pt-open"><strong>Starting — first trades coming soon.</strong> This book starts with {_usd(PT_START_DEFAULT)} of fake money. Its trades will appear here automatically once they are in the experiment log.</div></section>')
     b = PT[key]; t = b["totals"]; n = t.get("closed_count", len(b.get("closed_trades") or []))
     meme = key == "meme_jup"
@@ -201,23 +216,23 @@ def _book(key, label, tag, desc):
             dt = f'<span class="pt-d">{_day(when)}{" UK" if o.get("latest_price_time_uk") else ""}</span>' if when else ""
             if _at_entry(o): dt += '<span class="pt-d">Entry price (opened since last close)</span>'
             nm = f'<span class="pt-d">{E(o["name"])}</span>' if o.get("name") and o.get("name") != o.get("ticker") else ""
-            rows.append(f'<tr><th scope="row">{E(str(o.get("ticker")))}{nm}</th><td>{_day(o.get("entry_time_uk") or o.get("entry_date"))}</td><td>{_px(o.get("entry_price"))}</td><td>{_units(o.get("units"))}</td><td>{_usd(o.get("cost_basis"))}</td>'
+            rows.append(f'<tr><th scope="row">{E(str(o.get("ticker")))}{nm}</th><td>{_when(o, "entry_date", "started", "entry_time_uk")}</td><td>{_px(o.get("entry_price"))}</td><td>{_units(o.get("units"))}</td><td>{_usd(o.get("cost_basis"))}</td>'
                         f'<td>{_px(o.get("latest_price"))}{dt}</td><td>{_usd(o.get(mvk))}</td><td class="{_cls(o.get("unrealised_pnl_usd"))}">{_usd(o.get("unrealised_pnl_usd"), True)}</td><td class="{_cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td></tr>')
         mvh = "Market value after 1% exit cost ($)" if mvk != "market_value_usd" else "Market value ($)"
         srcs = sorted({o["price_source"] for o in ops if o.get("price_source") and not _at_entry(o)})
-        openp = (f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entered</th><th>Entry price ($)</th><th>Units</th><th>Cost ($)</th><th>Current price ($)</th><th>{mvh}</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+        openp = (f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Started</th><th>Entry price ($)</th><th>Units</th><th>Cost ($)</th><th>Current price ($)</th><th>{mvh}</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
                  f'<p class="hint">Current price = latest price recorded in the log' + (f' ({E(mk)})' if mk else '') + (f'; source: {E("; ".join(srcs))}' if srcs else '') + '. Prices in US dollars. Unrealised P&amp;L is a paper figure and changes with every price update.</p>')
     else:
         openp = '<p class="hint">No open positions in this book.</p>'
     cts = b.get("closed_trades") or []
     if cts:
-        rows = "".join(f'<tr><th scope="row">{E(str(c.get("ticker")))}</th><td>{_day(c.get("entry_time_uk") or c.get("entry_date"))}</td><td>{_px(c.get("entry_price"))}</td><td>{_day(c.get("exit_time_uk") or c.get("exit_date"))}</td><td>{_px(c.get("exit_price"))}</td><td>{_units(c.get("units"))}</td><td class="{_cls(c.get("pnl_usd"))}">{_usd(c.get("pnl_usd"), True)}</td><td class="{_cls(c.get("pnl_pct"))}">{_pct(c.get("pnl_pct"))}</td><td>{E(c.get("exit_reason") or "–")}</td></tr>'
+        rows = "".join(f'<tr><th scope="row">{E(str(c.get("ticker")))}</th><td>{_when(c, "entry_date", "started", "entry_time_uk")}</td><td>{_px(c.get("entry_price"))}</td><td>{_when(c, "exit_date", "closed", "exit_time_uk")}</td><td>{_px(c.get("exit_price"))}</td><td>{_units(c.get("units"))}</td><td class="{_cls(c.get("pnl_usd"))}">{_usd(c.get("pnl_usd"), True)}</td><td class="{_cls(c.get("pnl_pct"))}">{_pct(c.get("pnl_pct"))}</td><td>{E(c.get("exit_reason") or "–")}</td></tr>'
                        for c in sorted(cts, key=lambda c: str(c.get("exit_time_uk") or c.get("exit_date") or ""), reverse=True))
-        closed = f'<div class="table-scroll"><table class="pt pt-c"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entered</th><th>Entry price ($)</th><th>Exited</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>Why it closed</th></tr></thead><tbody>{rows}</tbody></table></div>'
+        closed = f'<div class="table-scroll"><table class="pt pt-c"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Started</th><th>Entry price ($)</th><th>Closed</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>Why it closed</th></tr></thead><tbody>{rows}</tbody></table></div>'
     else:
         closed = '<p class="hint">No closed trades yet in this book.</p>'
-    sd = b.get("start_date")
-    return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book</h2><p>{E(desc)}' + (f' Started {_day(sd)}.' if sd else '') + f' Fake money, in US dollars.</p>{tot}'
+    sd = "" if _since(key) else (_day(b["start_date"]) if b.get("start_date") else "")   # the heading already shows `started`
+    return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book{_since_html(key)}</h2><p>{E(desc)}' + (f' Started {E(sd)}.' if sd else '') + f' Fake money, in US dollars.</p>{tot}'
             f'<h3>Open positions</h3>{openp}<h3>Closed trades</h3>{closed}</section>')
 
 _ph = '<div class="note" role="note" style="border-left-color:#b3261e"><strong>Placeholder data.</strong> The figures below are placeholders, not results from the experiment.</div>' if PT_PLACEHOLDER else ""
@@ -245,9 +260,9 @@ pages["paper-trading.html"] = page("paper-trading.html", "Paper Trading Experime
 <h2>How the experiment works</h2>
 <ul>
 <li><strong>Three separate books</strong>, each starting with $10,000 of fake money. Each puts a fixed dollar amount into every position it opens. No real money, broker or wallet is involved.</li>
-<li><strong>IA-ATR signals:</strong> {E(BOOKS[0][3])}</li>
-<li><strong>X buzz:</strong> {E(_book_desc("x_buzz", ""))}</li>
-<li><strong>Solana meme coins:</strong> {E(_meme["notes"]) if _meme and _meme.get("notes") else E(BOOKS[2][3])}</li>
+<li><strong>IA-ATR signals{_since_html("atr")}:</strong> {E(BOOKS[0][3])}</li>
+<li><strong>X buzz{_since_html("x_buzz")}:</strong> {E(_book_desc("x_buzz", ""))}</li>
+<li><strong>Solana meme coins{_since_html("meme_jup")}:</strong> {E(_meme["notes"]) if _meme and _meme.get("notes") else E(BOOKS[2][3])}</li>
 <li><strong>Prices and marks.</strong> The ATR and X buzz books are marked to the last official daily close; the meme book uses the latest Jupiter price recorded by the experiment. Unrealised gains and losses are paper figures and can be out of date.</li>
 <li><strong>This is not a live record.</strong> It is a log updated from time to time, so it may be behind. Real trades could have filled at different prices.</li>
 </ul>
