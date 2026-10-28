@@ -3,7 +3,7 @@ Entry format: [url, title, page name, type, text]   type: 0 page, 1 section, 2 j
 Also gives every <h2> in <main> an id (if it has none) so sections can be linked to."""
 import html, json, re
 from html.parser import HTMLParser
-SKIP_PAGES = {"404.html", "search.html", "budget-2026.html"}  # budget-2026: preview, kept out of search
+SKIP_PAGES = {"404.html", "search.html"}
 SEC_CAP, PAGE_CAP = 600, 700
 def clean(s): return re.sub(r"\s+", " ", html.unescape(s)).strip()
 def slug(s):

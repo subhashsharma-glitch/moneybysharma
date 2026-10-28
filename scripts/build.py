@@ -535,5 +535,5 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f not in ("404.html","search.html","budget-2026.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
+write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

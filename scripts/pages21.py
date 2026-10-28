@@ -1,7 +1,6 @@
-# Budget 2026: what it means for you (PREVIEW on branch budget-2026-preview).
+# Budget 2026: what it means for you. Published 28 Oct 2026 (approved by Subhash).
 # Every figure comes from /workspace/budget-2026/report.md (Budget 28 Oct 2026), checked 28 Oct 2026.
-# Kept out of the sitemap, nav, search index and homepage banner; carries noindex while in preview.
-BUDGET_PREVIEW = True
+# In the sitemap and search index; linked from a homepage banner (not in the nav).
 def _bs(*keys):
     return '<p class="src">Sources (checked 28 October 2026): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NLY = '<span class="b26-tag">Not law yet</span>'
@@ -171,4 +170,17 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#sixty">In 60 seconds</a><a href="#workers">Workers</a><a href="#savers">Savers</a><a href="#investors">Investors</a><a href="#buyers">First-time buyers</a><a href="#pensions">Pensions</a><a href="#home">Homes and energy</a><a href="#families">Families and students</a><a href="#drivers">Drivers</a><a href="#dates">Key dates</a><a href="#notlaw">What's not law yet</a><a href="#sources">Sources</a></div></aside></div>''')
 pages["budget-2026.html"] = page("budget-2026.html", "Budget 2026: what it means for you – MoneyBySharma",
  "What the UK Budget on 28 October 2026 changes for workers, savers, investors, first-time buyers, pensioners, households and drivers, with key dates and what's not law yet. Information, not advice.",
- _b26_body).replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta name="robots" content="noindex">', 1)
+ _b26_body)
+# ---------- homepage banner ----------
+B26_BANNER = '''<style>
+.b26-banner{display:block;margin:1.2rem 0 .4rem;background:#e7f2ef;border:1px solid #b9d8d0;border-left:5px solid #d9822b;border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;color:#1d2b29}
+.b26-banner:hover{border-color:#0f4c45;border-left-color:#d9822b}
+.b26-banner .b26-k{display:block;font-size:.78rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#8a4a0f}
+.b26-banner .b26-h{display:block;font-family:Georgia,serif;font-size:1.3rem;color:#0f4c45;margin:.15rem 0 .25rem;line-height:1.25}
+.b26-banner .b26-s{display:block;line-height:1.45}
+.b26-banner .b26-go{display:inline-block;margin-top:.4rem;font-weight:700;color:#0f4c45;text-decoration:underline}
+</style><div class="wrap"><a class="b26-banner" href="budget-2026.html"><span class="b26-k">Budget 2026 · 28 October 2026</span><span class="b26-h">Budget 2026: what it means for you</span><span class="b26-s">Cash ISAs stay at £20,000, tax on savings outside ISAs is due to rise from April 2027, and other changes, in plain English.</span><span class="b26-go">Read the summary</span></a></div>
+'''
+_b26mk = '<div class="wrap"><p class="x-invite">'
+assert pages["index.html"].count(_b26mk) == 1, "home page marker for the Budget 2026 banner not found"
+pages["index.html"] = pages["index.html"].replace(_b26mk, B26_BANNER + _b26mk)
