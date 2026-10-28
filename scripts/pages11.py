@@ -188,6 +188,14 @@ def _log_html():
     return out
 
 # ---------- per-book detail ----------
+def _fold(title, n, body):
+    """Collapsible table section (native <details>, closed by default); the count comes from the data."""
+    return f'<details class="pt-fold"><summary><h3>{title} ({n})</h3></summary>{body}</details>'
+# inline so a cached old style.css can't leave the arrow unstyled
+PT_FOLD_CSS = ('<style>.pt-fold{margin-top:1.6rem}.pt-fold>summary{cursor:pointer;list-style:none;display:block;border-radius:4px}'
+               '.pt-fold>summary::-webkit-details-marker{display:none}.pt-fold>summary:focus-visible{outline:2px solid #d9822b;outline-offset:3px}'
+               '.pt-fold>summary h3{display:inline;margin:0}.pt-fold>summary::before{content:"\\25B8";display:inline-block;width:1.1em;transition:transform .15s}'
+               '.pt-fold[open]>summary::before{transform:rotate(90deg)}.pt-fold[open]>summary{margin-bottom:.6rem}</style>')
 def _book(key, label, tag, desc):
     if not _present(key):
         return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book{_since_html(key)}</h2><p>{E(desc)}</p>'
@@ -233,7 +241,7 @@ def _book(key, label, tag, desc):
         closed = '<p class="hint">No closed trades yet in this book.</p>'
     sd = "" if _since(key) else (_day(b["start_date"]) if b.get("start_date") else "")   # the heading already shows `started`
     return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book{_since_html(key)}</h2><p>{E(desc)}' + (f' Started {E(sd)}.' if sd else '') + f' Fake money, in US dollars.</p>{tot}'
-            f'<h3>Open positions</h3>{openp}<h3>Closed trades</h3>{closed}</section>')
+            f'{_fold("Open positions", len(ops), openp)}{_fold("Closed trades", len(cts), closed)}</section>')
 
 _ph = '<div class="note" role="note" style="border-left-color:#b3261e"><strong>Placeholder data.</strong> The figures below are placeholders, not results from the experiment.</div>' if PT_PLACEHOLDER else ""
 PT_DISC = ('<div class="pt-warn" role="note"><p class="pt-warn-h">Fake money. Paper trading experiment only.</p>'
@@ -244,7 +252,7 @@ _eqcards = "".join(_eq_card(k, l, tag) for k, l, tag, _ in BOOKS)
 pages["paper-trading.html"] = page("paper-trading.html", "Paper Trading Experiment – MoneyBySharma",
  "Paper Trading Experiment: three fake-money books (IA-ATR signals, X buzz and Solana meme coins) each starting at $10,000, with agent status, open positions, closed trades and a log of every action. Not advice.",
  ph("<a href=\"tools.html\">Tools</a> › Paper Trading Experiment", "Paper Trading Experiment", "Three fake-money books, each starting with $10,000, run step by step by simple software agents and logged in public."), W(f'''
-{PT_DISC}
+{PT_FOLD_CSS}{PT_DISC}
 <p><strong>Data as of {PT_ASOF}.</strong> {E(PT.get("disclaimer") or "")}</p>{_ph}
 <section class="tm" aria-labelledby="tm-h">
 <div class="tm-bar"><span class="tm-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="tm-title" id="tm-h">Grok Bot Terminal</span><span class="tm-asof">paper mode · {PT_ASOF}</span></div>
