@@ -188,6 +188,10 @@ def _log_html():
     return out
 
 # ---------- per-book detail ----------
+def _mvpl_h(mvh, meme):
+    """Open-positions market value and unrealised P&L headers; the meme table puts market value last, just before Opened."""
+    mv, pl = f'<th>{mvh}</th>', '<th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th>'
+    return pl + mv if meme else mv + pl
 def _fold(title, n, body):
     """Collapsible table section (native <details>, closed by default); the count comes from the data."""
     return f'<details class="pt-fold"><summary><h3>{title} ({n})</h3></summary>{body}</details>'
@@ -196,8 +200,8 @@ PT_FOLD_CSS = ('<style>.pt-fold{margin-top:1.6rem}.pt-fold>summary{cursor:pointe
                '.pt-fold>summary::-webkit-details-marker{display:none}.pt-fold>summary:focus-visible{outline:2px solid #d9822b;outline-offset:3px}'
                '.pt-fold>summary h3{display:inline;margin:0}.pt-fold>summary::before{content:"\\25B8";display:inline-block;width:1.1em;transition:transform .15s}'
                '.pt-fold[open]>summary::before{transform:rotate(90deg)}.pt-fold[open]>summary{margin-bottom:.6rem}'
-               # Opened is the last column: keep "Why it closed" wrapping as before and the date on one line
-               'table.pt.pt-c td.pt-why{white-space:normal;min-width:11rem}table.pt.pt-c td:last-child{white-space:nowrap;min-width:0}</style>')
+               # Opened and Closed are the last columns: keep "Why it closed" wrapping as before and the dates on one line
+               'table.pt.pt-c td.pt-why{white-space:normal;min-width:11rem}table.pt.pt-c td:last-child,table.pt.pt-c td:nth-last-child(2){white-space:nowrap;min-width:0}</style>')
 def _book(key, label, tag, desc):
     if not _present(key):
         return (f'<section class="pt-book" id="{key}"><h2>{E(label)} book{_since_html(key)}</h2><p>{E(desc)}</p>'
@@ -226,19 +230,21 @@ def _book(key, label, tag, desc):
             dt = f'<span class="pt-d">{_day(when)}{" UK" if o.get("latest_price_time_uk") else ""}</span>' if when else ""
             if _at_entry(o): dt += '<span class="pt-d">Entry price (opened since last close)</span>'
             nm = f'<span class="pt-d">{E(o["name"])}</span>' if o.get("name") and o.get("name") != o.get("ticker") else ""
+            mv = f'<td>{_usd(o.get(mvk))}</td>'
+            pl = f'<td class="{_cls(o.get("unrealised_pnl_usd"))}">{_usd(o.get("unrealised_pnl_usd"), True)}</td><td class="{_cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td>'
             rows.append(f'<tr><th scope="row">{E(str(o.get("ticker")))}{nm}</th><td>{_px(o.get("entry_price"))}</td><td>{_units(o.get("units"))}</td><td>{_usd(o.get("cost_basis"))}</td>'
-                        f'<td>{_px(o.get("latest_price"))}{dt}</td><td>{_usd(o.get(mvk))}</td><td class="{_cls(o.get("unrealised_pnl_usd"))}">{_usd(o.get("unrealised_pnl_usd"), True)}</td><td class="{_cls(o.get("unrealised_pnl_pct"))}">{_pct(o.get("unrealised_pnl_pct"))}</td><td>{_when(o, "entry_date", "started", "entry_time_uk")}</td></tr>')
+                        f'<td>{_px(o.get("latest_price"))}{dt}</td>' + (pl + mv if meme else mv + pl) + f'<td>{_when(o, "entry_date", "started", "entry_time_uk")}</td></tr>')
         mvh = "Market value after 1% exit cost ($)" if mvk != "market_value_usd" else "Market value ($)"
         srcs = sorted({o["price_source"] for o in ops if o.get("price_source") and not _at_entry(o)})
-        openp = (f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entry price ($)</th><th>Units</th><th>Cost ($)</th><th>Current price ($)</th><th>{mvh}</th><th>Unrealised P&amp;L ($)</th><th>Unrealised P&amp;L (%)</th><th>Opened</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+        openp = (f'<div class="table-scroll"><table class="pt pt-o"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entry price ($)</th><th>Units</th><th>Cost ($)</th><th>Current price ($)</th>{_mvpl_h(mvh, meme)}<th>Opened</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
                  f'<p class="hint">Current price = latest price recorded in the log' + (f' ({E(mk)})' if mk else '') + (f'; source: {E("; ".join(srcs))}' if srcs else '') + '. Prices in US dollars. Unrealised P&amp;L is a paper figure and changes with every price update.</p>')
     else:
         openp = '<p class="hint">No open positions in this book.</p>'
     cts = b.get("closed_trades") or []
     if cts:
-        rows = "".join(f'<tr><th scope="row">{E(str(c.get("ticker")))}</th><td>{_px(c.get("entry_price"))}</td><td>{_when(c, "exit_date", "closed", "exit_time_uk")}</td><td>{_px(c.get("exit_price"))}</td><td>{_units(c.get("units"))}</td><td class="{_cls(c.get("pnl_usd"))}">{_usd(c.get("pnl_usd"), True)}</td><td class="{_cls(c.get("pnl_pct"))}">{_pct(c.get("pnl_pct"))}</td><td class="pt-why">{E(c.get("exit_reason") or "–")}</td><td>{_when(c, "entry_date", "started", "entry_time_uk")}</td></tr>'
+        rows = "".join(f'<tr><th scope="row">{E(str(c.get("ticker")))}</th><td>{_px(c.get("entry_price"))}</td><td>{_px(c.get("exit_price"))}</td><td>{_units(c.get("units"))}</td><td class="{_cls(c.get("pnl_usd"))}">{_usd(c.get("pnl_usd"), True)}</td><td class="{_cls(c.get("pnl_pct"))}">{_pct(c.get("pnl_pct"))}</td><td class="pt-why">{E(c.get("exit_reason") or "–")}</td><td>{_when(c, "entry_date", "started", "entry_time_uk")}</td><td>{_when(c, "exit_date", "closed", "exit_time_uk")}</td></tr>'
                        for c in sorted(cts, key=lambda c: str(c.get("exit_time_uk") or c.get("exit_date") or ""), reverse=True))
-        closed = f'<div class="table-scroll"><table class="pt pt-c"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entry price ($)</th><th>Closed</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>Why it closed</th><th>Opened</th></tr></thead><tbody>{rows}</tbody></table></div>'
+        closed = f'<div class="table-scroll"><table class="pt pt-c"><thead><tr><th>{"Coin" if meme else "Ticker"}</th><th>Entry price ($)</th><th>Exit price ($)</th><th>Units</th><th>P&amp;L ($)</th><th>P&amp;L (%)</th><th>Why it closed</th><th>Opened</th><th>Closed</th></tr></thead><tbody>{rows}</tbody></table></div>'
     else:
         closed = '<p class="hint">No closed trades yet in this book.</p>'
     sd = "" if _since(key) else (_day(b["start_date"]) if b.get("start_date") else "")   # the heading already shows `started`
