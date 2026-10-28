@@ -72,6 +72,78 @@
    "monday": "2027-01-11",
    "topic": "Credit scores and debt help",
    "page": "/credit-scores-debt-help"
+  },
+  {
+   "week": 13,
+   "monday": "2027-01-18",
+   "topic": "Opportunity cost",
+   "page": "/opportunity-cost"
+  },
+  {
+   "week": 14,
+   "monday": "2027-01-25",
+   "topic": "Inflation: why cash on its own slowly shrinks",
+   "page": "/inflation"
+  },
+  {
+   "week": 15,
+   "monday": "2027-02-01",
+   "topic": "Small cuts, big difference",
+   "page": "/cutting-costs"
+  },
+  {
+   "week": 16,
+   "monday": "2027-02-08",
+   "topic": "Keep money you can get at",
+   "page": "/easy-access-money"
+  },
+  {
+   "week": 17,
+   "monday": "2027-02-15",
+   "topic": "More than one income",
+   "page": "/income-streams"
+  },
+  {
+   "week": 18,
+   "monday": "2027-02-22",
+   "topic": "Make a money plan and stick to it",
+   "page": "/money-plan"
+  },
+  {
+   "week": 19,
+   "monday": "2027-03-01",
+   "topic": "Time in the market beats timing it",
+   "page": "/time-in-the-market"
+  },
+  {
+   "week": 20,
+   "monday": "2027-03-08",
+   "topic": "Don't put all your eggs in one basket",
+   "page": "/asset-allocation"
+  },
+  {
+   "week": 21,
+   "monday": "2027-03-15",
+   "topic": "Fees eat returns",
+   "page": "/investment-fees"
+  },
+  {
+   "week": 22,
+   "monday": "2027-03-22",
+   "topic": "Why big losses hurt, and borrowing to invest",
+   "page": "/avoiding-big-losses"
+  },
+  {
+   "week": 23,
+   "monday": "2027-03-29",
+   "topic": "Money and emotions",
+   "page": "/money-and-emotions"
+  },
+  {
+   "week": 24,
+   "monday": "2027-04-05",
+   "topic": "Get rich slowly and pay your future self",
+   "page": "/get-rich-slowly"
   }
  ]
 }
