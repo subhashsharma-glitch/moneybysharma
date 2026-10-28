@@ -499,6 +499,7 @@ exec(open("scripts/pages17.py").read())
 exec(open("scripts/pages18.py").read())
 exec(open("scripts/pages19.py").read())
 exec(open("scripts/pages20.py").read())
+exec(open("scripts/pages21.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
  ph("Tools","Tools",""), W('''
 <div class="grid g3" style="margin-top:1.5rem">
@@ -534,5 +535,5 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
+write_sitemap([f for f in pages if f not in ("404.html","search.html","budget-2026.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])
