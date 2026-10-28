@@ -64,9 +64,9 @@
      "<a href=\"https://www.gov.uk/individual-savings-accounts\">GOV.UK</a>, as at 2026/27 (6 Apr 2026 – 5 Apr 2027)"
     ],
     [
-     "Cash ISA change",
-     "From 6 April 2027, under-65s can put at most £12,000 of the £20,000 in cash ISAs",
-     "<a href=\"https://www.gov.uk/government/publications/reduction-in-the-cash-individual-savings-account-isa-limit/cash-individual-savings-account-isa-limit-reduction\">GOV.UK/HMRC</a>, as at Nov 2025 announcement"
+     "Cash ISA limit",
+     "£20,000 for all savers 18+; planned April 2027 cut scrapped (Budget 2026)",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
     ],
     [
      "Lifetime ISA",
@@ -77,6 +77,11 @@
      "Lifetime ISA withdrawals",
      "First home costing £450,000 or less, bought 12+ months after your first payment, or from age 60; other withdrawals face a 25% charge",
      "<a href=\"https://www.gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa\">GOV.UK</a>, as at 17 Oct 2026"
+    ],
+    [
+     "LISA, home over £450,000",
+     "20% charge (not 25%) from 29 Oct 2026",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
     ],
     [
      "Junior ISA",
@@ -299,6 +304,36 @@
      "<a href=\"https://www.currentaccountswitch.co.uk/the-switching-process-personal/\">Current Account Switch Service</a>, as at 12 Oct 2026"
     ]
    ]
+  },
+  {
+   "title": "Announced for 2027/28",
+   "rows": [
+    [
+     "Trading allowance",
+     "£3,000 from 6 Apr 2027 (was £1,000); Self Assessment threshold for side income also £3,000. Not law yet (Finance Bill 2026-27)",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
+    ],
+    [
+     "Minimum wage (from 1 Apr 2027)",
+     "£13.21 aged 21+ · £11.27 aged 18–20 · £8.31 aged 16–17 and apprentices",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-document/budget-2026-html\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
+    ],
+    [
+     "Full new State Pension",
+     "£13,036.40 a year from April 2027 (up 3.9%)",
+     "<a href=\"https://www.gov.uk/government/publications/pension-tax-allowance-explainer/pension-tax-allowance-explainer\">GOV.UK</a>, as at 28 Oct 2026"
+    ],
+    [
+     "Savings income tax",
+     "24% basic · 44% higher · 49% additional from 6 Apr 2027. Not law yet (Finance Bill 2026-27)",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
+    ],
+    [
+     "Electricity VAT",
+     "0% on domestic electricity extended to 30 Jun 2027 (regulations due early 2027)",
+     "<a href=\"https://www.gov.uk/government/publications/budget-2026-overview-of-tax-legislation-and-rates-ootlar/budget-2026-overview-of-tax-legislation-and-rates-ootlar\">GOV.UK/HM Treasury</a>, as at 28 Oct 2026"
+    ]
+   ]
   }
  ],
  "basics": [
@@ -308,7 +343,7 @@
   "<strong>Use your ISAs</strong> – interest, dividends and gains inside an ISA are tax-free.",
   "<strong>Give it time</strong> – investing is for five years or more; staying invested through ups and downs matters more than timing the market."
  ],
- "foot": "<p class=\"cs-foot\"><strong>Information only – not financial advice.</strong> MoneyBySharma isn't authorised or regulated by the FCA. Figures were checked between 12 and 26 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>",
+ "foot": "<p class=\"cs-foot\"><strong>Information only – not financial advice.</strong> MoneyBySharma isn't authorised or regulated by the FCA. Figures were checked between 12 and 28 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>",
  "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.",
- "checked": "12–26 October 2026"
+ "checked": "12–28 October 2026"
 }

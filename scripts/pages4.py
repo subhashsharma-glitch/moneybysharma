@@ -23,6 +23,7 @@ pages["energy-providers.html"] = page("energy-providers.html","Energy providers 
 <div class="cols"><div>
 <div class="note" style="margin-top:1.5rem"><strong>Information only – not advice.</strong> MoneyBySharma has no affiliation with, and receives no payment or commission from, any energy supplier or comparison site. Nothing here is a recommendation. Tariffs and prices change often, so always check the current terms with the supplier before you switch.</div>
 <h2 id="cap">The price cap right now: 1 October to 31 December 2026</h2>
+<p class="note">Budget 2026 (28 October 2026) announced a £100 Household Energy Payment for council tax bands A to D in England, extended 0% VAT on electricity to 30 June 2027 and asked Ofgem to work towards removing gas standing charges. See <a href="energy.html#budget2026">Energy bills: Budget 2026</a>.</p>
 <p>Ofgem's price cap limits the unit rates and standing charges on standard variable (default) tariffs. For this period the typical dual-fuel household paying by Direct Debit pays <strong>£1,723 a year</strong>. Average Direct Debit rates are 26.32p per kWh and 54.83p a day for electricity, and 7.97p per kWh and 29.68p a day for gas. Your own rates depend on region and payment method. See our <a href="energy.html#cap">energy guide</a> for more detail.</p>
 {src("cap","capnews")}
 <h2 id="suppliers">Household energy suppliers</h2>

@@ -133,14 +133,17 @@ pages["pay-tax-payslip.html"] = page("pay-tax-payslip.html", "Pay, tax and your 
 <p><strong>National Insurance (NI)</strong> is separate from Income Tax. It is how you build up entitlement to the State Pension and some benefits (see <a href="pensions.html">Pensions</a>). For most employees in 2026/27 (category letter A):</p>
 <table class="wrap-th"><caption class="sr">Employee National Insurance 2026/27</caption><thead><tr><th scope="col">Your pay</th><th scope="col">Rate</th></tr></thead><tbody>
 <tr><td>Up to £242 a week (£1,048 a month)</td><td>0%</td></tr><tr><td>£242.01 to £967 a week (£1,048.01 to £4,189 a month)</td><td>8%</td></tr><tr><td>Over £967 a week (over £4,189 a month)</td><td>2%</td></tr></tbody></table>
-<p>Employers pay NI too, at <strong>15%</strong> on pay above £96 a week (£417 a month) for most employees. Some categories (for example, apprentices under 25, under-21s and veterans) have different employer thresholds. <strong>Self-employed people</strong> pay Class 4 NI of 6% on profits between £12,570 and £50,270 and 2% above that. They don't have to pay Class 2 if profits are £7,105 or more (it's treated as paid); below that they can choose to pay voluntary Class 2 at £3.65 a week.</p>
+<p>Employers pay NI too, at <strong>15%</strong> on pay above £96 a week (£417 a month) for most employees. Some categories (for example, apprentices under 25, under-21s and veterans) have different employer thresholds. <strong>Self-employed people</strong> pay Class 4 NI of 6% on profits between £12,570 and £50,270 and 2% above that. They don't have to pay Class 2 if profits are £7,105 or more (it's treated as paid); below that they can choose to pay voluntary Class 2 at £3.65 a week. For 2027/28, Budget 2026 set the small profits threshold at <strong>£7,355</strong> and voluntary Class 2 at <strong>£3.80 a week</strong>.</p>
 {sg("ni","nirates","niemp","nise")}
+{src26("b26o","b26a")}
 
 <h2 id="minwage">Minimum wage</h2>
 <p>From <strong>1 April 2026</strong> the legal minimum hourly rates are:</p>
 <table class="wrap-th"><caption class="sr">Minimum wage rates from April 2026</caption><thead><tr><th scope="col">Age</th><th scope="col">Hourly rate</th></tr></thead><tbody><tr><td>21 and over (National Living Wage)</td><td>£12.71</td></tr><tr><td>18 to 20</td><td>£10.85</td></tr><tr><td>Under 18</td><td>£8.00</td></tr><tr><td>Apprentice (aged under 19, or 19 and over in the first year of the apprenticeship)</td><td>£8.00</td></tr></tbody></table>
+<p><strong>From 1 April 2027</strong> (announced at Budget 2026): <strong>£13.21</strong> for 21 and over (up 3.9%), <strong>£11.27</strong> for 18 to 20, and <strong>£8.31</strong> for 16 to 17 and apprentices.</p>
 <p class="hint">The rates change each April. Apprentices aged 19 or over who have finished their first year get the minimum wage for their age.</p>
 {sg("nmw")}
+{src26("b26b")}
 
 <h2 id="deductions">Pension and student loan on your payslip</h2>
 <h3>Workplace pension</h3>
@@ -177,6 +180,8 @@ pages["pay-tax-payslip.html"] = page("pay-tax-payslip.html", "Pay, tax and your 
 <h2 id="side">Side income and Self Assessment</h2>
 <p>If you earn money outside your payslip, such as freelance work, you may not pay tax on small amounts thanks to the <strong>trading allowance</strong>: <strong>£1,000</strong> of gross income a tax year from self-employment, casual services (for example babysitting or gardening) or hiring out personal equipment. It's one £1,000 allowance across all of your side income, not £1,000 per activity, and it's measured on income before expenses, not profit.</p>
 <ul><li>If your gross trading income is £1,000 or less you generally don't need to tell HMRC.</li><li>If it's more than £1,000 you must register for <strong>Self Assessment</strong> by 5 October following the end of the tax year, and file a tax return. You can then either deduct the £1,000 allowance or deduct your actual expenses – not both.</li><li>Class 2 and Class 4 NI for the self-employed are usually paid through Self Assessment (see <a href="#ni">National Insurance</a>). Student loan repayments on self-employed income are worked out from your return, too.</li></ul>
-<p class="hint">GOV.UK says a new online reporting tool is planned for people with side income between £1,000 and £3,000, but until it's live you still need to use Self Assessment. Check GOV.UK for the current position.</p>
+<div class="flag"><strong>From 6 April 2027 (subject to Finance Bill):</strong> Budget 2026 announced that the trading allowance rises from £1,000 to <strong>£3,000</strong>, and the Self Assessment reporting threshold for side income becomes £3,000 too. It's being legislated in Finance Bill 2026-27, so it isn't law yet. For 2026/27 the £1,000 rules above still apply.</div>
+<p class="hint">Before the Budget, GOV.UK said a new online reporting tool was planned for people with side income between £1,000 and £3,000. Until anything changes you still need to use Self Assessment. Check GOV.UK for the current position.</p>
 {sg("trading","sa","slrepay")}
+{src26("b26o")}
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#payslip">Reading your payslip</a><a href="#code">Tax codes</a><a href="#tax">Income Tax</a><a href="#ni">National Insurance</a><a href="#minwage">Minimum wage</a><a href="#deductions">Pension and student loan</a><a href="#calc">Take-home pay</a><a href="#forms">P45 and P60</a><a href="#side">Side income</a><p class="hint" style="margin:.8rem 0 .2rem">Related</p><a href="students.html">Students</a><a href="pensions.html">Pensions</a><a href="resources.html">Cheat sheet</a></div></aside></div>''', ), scripts=("calc-ui7.js",))

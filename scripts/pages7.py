@@ -22,9 +22,10 @@ CS = (
   ("CPI inflation",f'{lm["rate"]}% in the year to {cpim}',f'<a href="{CPI_BULLETIN}">ONS</a>, published {CPI_PUB}, checked {CPI_CHK}; next release {CPI_NEXT}')]) +
  _sec("ISAs", [
   ("ISA allowance","£20,000 a year across all ISAs",_s("isa",TY)),
-  ("Cash ISA change","From 6 April 2027, under-65s can put at most £12,000 of the £20,000 in cash ISAs",_s("cashisa","Nov 2025 announcement")),
+  ("Cash ISA limit","£20,000 for all savers 18+; planned April 2027 cut scrapped (Budget 2026)",_s("b26o","28 Oct 2026")),
   ("Lifetime ISA","Open aged 18–39; up to £4,000 a year (within the £20,000) with a 25% government bonus",_s("lisa",TY)),
   ("Lifetime ISA withdrawals","First home costing £450,000 or less, bought 12+ months after your first payment, or from age 60; other withdrawals face a 25% charge",_s("lisa2","17 Oct 2026")),
+  ("LISA, home over £450,000","20% charge (not 25%) from 29 Oct 2026",_s("b26o","28 Oct 2026")),
   ("Junior ISA","£9,000 a year for under-18s",_s("isa",TY))]) +
  _sec("Pensions", [
   ("Annual allowance","£60,000 for most people (all contributions, including employer)",_s("aa",TY)),
@@ -68,7 +69,13 @@ CS = (
   ("Direct Debit Guarantee","Full and immediate refund if the organisation or your bank makes an error",_s("ddg","17 Oct 2026")),
   ("Chargeback (debit cards)","A voluntary card-scheme process, not a legal right: claim within 120 days",_s("mh75","17 Oct 2026")),
   ("Section 75","Card provider jointly liable for purchases over £100 and up to £30,000 paid at least partly by credit card",_s("s75","12 Oct 2026")),
-  ("Current Account Switch Service","Switch in 7 working days; payments redirected; refunds if the switch goes wrong",_s("cass","12 Oct 2026"))])
+  ("Current Account Switch Service","Switch in 7 working days; payments redirected; refunds if the switch goes wrong",_s("cass","12 Oct 2026"))]) +
+ _sec("Announced for 2027/28", [
+  ("Trading allowance","£3,000 from 6 Apr 2027 (was £1,000); Self Assessment threshold for side income also £3,000. Not law yet (Finance Bill 2026-27)",_s("b26o","28 Oct 2026")),
+  ("Minimum wage (from 1 Apr 2027)","£13.21 aged 21+ · £11.27 aged 18–20 · £8.31 aged 16–17 and apprentices",_s("b26b","28 Oct 2026")),
+  ("Full new State Pension","£13,036.40 a year from April 2027 (up 3.9%)",_s("b26pta","28 Oct 2026")),
+  ("Savings income tax","24% basic · 44% higher · 49% additional from 6 Apr 2027. Not law yet (Finance Bill 2026-27)",_s("b26o","28 Oct 2026")),
+  ("Electricity VAT","0% on domestic electricity extended to 30 Jun 2027 (regulations due early 2027)",_s("b26o","28 Oct 2026"))])
 )
 BASICS = '''<section class="cs-sec cs-basics"><h2>Money basics checklist</h2><ul class="cs-check">
 <li><strong>Emergency fund</strong> – easy-access cash for unexpected bills, built up before investing.</li>
@@ -76,13 +83,13 @@ BASICS = '''<section class="cs-sec cs-basics"><h2>Money basics checklist</h2><ul
 <li><strong>Get your employer's pension match</strong> – contributing enough to get the full employer contribution adds money you'd otherwise miss out on.</li>
 <li><strong>Use your ISAs</strong> – interest, dividends and gains inside an ISA are tax-free.</li>
 <li><strong>Give it time</strong> – investing is for five years or more; staying invested through ups and downs matters more than timing the market.</li></ul></section>'''
-CSFOOT = f'<p class="cs-foot"><strong>Information only – not financial advice.</strong> MoneyBySharma isn\'t authorised or regulated by the FCA. Figures were checked between 12 and 26 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>'
+CSFOOT = f'<p class="cs-foot"><strong>Information only – not financial advice.</strong> MoneyBySharma isn\'t authorised or regulated by the FCA. Figures were checked between 12 and 28 October 2026 against the sources shown and can change; rules differ in Scotland. Investments can fall as well as rise. moneybysharma.co.uk</p>'
 pages["money-matters-cheat-sheet.html"] = page("money-matters-cheat-sheet.html","Money Matters cheat sheet 2026/27 – MoneyBySharma",
  "The key UK personal finance figures for 2026/27 in one place: tax bands, National Insurance, minimum wage, savings and ISA allowances, pensions, FSCS, scam reporting numbers, Bank Rate, CPI and more, each with its source.",
- ph('<a href="resources.html">Resources</a> › Money Matters cheat sheet',"Money Matters cheat sheet 2026/27","UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date."), W(f'''
-<p class="cs-actions"><a class="btn" href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the PDF (635 KB, 8 pages)</a> <a href="resources.html">Back to Resources</a></p>
+ ph('<a href="resources.html">Resources</a> › Money Matters cheat sheet',"Money Matters cheat sheet 2026/27","UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date. Includes figures announced at Budget 2026 for 2027/28."), W(f'''
+<p class="cs-actions"><a class="btn" href="assets/money-matters-cheat-sheet-2026-27.pdf" download>Download the PDF (693 KB, 9 pages)</a> <a href="resources.html">Back to Resources</a></p>
 <div class="cs-grid">{CS}{BASICS}</div>{CSFOOT}'''))
 
 import re as _re
-json.dump({"sections": CSD, "basics": _re.findall(r"<li>(.*?)</li>", BASICS), "foot": CSFOOT, "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.", "checked": "12–26 October 2026"},
+json.dump({"sections": CSD, "basics": _re.findall(r"<li>(.*?)</li>", BASICS), "foot": CSFOOT, "lead": "UK personal finance at a glance. Every figure links to its official source, with an \"as at\" date.", "checked": "12–28 October 2026"},
           open("data/cheat-sheet.json","w"), ensure_ascii=False, indent=1)

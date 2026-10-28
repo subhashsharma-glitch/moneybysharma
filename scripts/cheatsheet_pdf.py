@@ -18,7 +18,8 @@ TITLE = "Money Matters cheat sheet"
 SEC = {s["title"]: s for s in D["sections"]}
 SICON = {"Income tax (England, Wales &amp; NI)": "percent", "Savings": "jar", "ISAs": "lock", "Investing": "growth",
          "Pensions": "hourglass", "Money habits and insurance": "umbrella", "Work and pay": "payslip",
-         "Borrowing and debt": "scale", "Bills and consumer rights": "home", "Scams and fraud": "shield", "BASICS": "check"}
+         "Borrowing and debt": "scale", "Bills and consumer rights": "home", "Scams and fraud": "shield", "BASICS": "check",
+         "Announced for 2027/28": "calendar"}
 PAGES = [  # (kicker, title, subtitle, header icon, [section titles])
  ("Tax &amp; savings", "Income tax and savings", "Bands, allowances and protection", "percent", ["Income tax (England, Wales &amp; NI)", "Savings"]),
  ("ISAs &amp; investing", "ISAs and investing", "Allowances, tax and protection", "lock", ["ISAs", "Investing"]),
@@ -26,6 +27,7 @@ PAGES = [  # (kicker, title, subtitle, header icon, [section titles])
  ("Work &amp; pay", "Work and pay", "National Insurance, minimum wage and deductions", "payslip", ["Work and pay"]),
  ("Borrowing &amp; debt", "Borrowing and debt", "Caps, protections and who to call", "scale", ["Borrowing and debt"]),
  ("Bills &amp; rights", "Bills and your rights", "Prices, refunds and protections", "home", ["Bills and consumer rights"]),
+ ("Budget 2026", "Announced for 2027/28", "From the Budget on 28 Oct 2026; some not law yet", "calendar", ["Announced for 2027/28"]),
  ("Scams &amp; basics", "Scams and money basics", "Where to report, and a simple checklist", "shield", ["Scams and fraud", "BASICS"]),
 ]
 TOTAL = 1 + len(PAGES)
