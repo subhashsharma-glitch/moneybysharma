@@ -67,7 +67,7 @@ NAVG = [("index.html","Home"),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("cash-isas.html","Cash ISAs"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
- ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
+ ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("cash-vs-inflation.html","Cash vs inflation"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),
  ("resources.html","Resources"),("about.html","About")]
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
@@ -500,6 +500,7 @@ exec(open("scripts/pages18.py").read())
 exec(open("scripts/pages19.py").read())
 exec(open("scripts/pages20.py").read())
 exec(open("scripts/pages21.py").read())
+exec(open("scripts/pages22.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
  ph("Tools","Tools",""), W('''
 <div class="grid g3" style="margin-top:1.5rem">
