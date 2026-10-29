@@ -1,6 +1,6 @@
 {
  "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
- "updated": "2026-10-26",
+ "updated": "2026-10-29",
  "groups": [
   {
    "id": "supermarkets",
@@ -33,7 +33,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/your-clubcard-prices",
@@ -64,7 +64,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
@@ -95,7 +95,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.asda.com/rewards/",
@@ -121,7 +121,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.morrisons.com/more",
@@ -147,7 +147,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
@@ -173,7 +173,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.coop.co.uk/membership",
@@ -210,7 +210,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.aldi.co.uk/save",
@@ -239,7 +239,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/groceries/en-GB/zone/aldi-price-match/",
@@ -272,7 +272,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.toogoodtogo.com/how-does-the-app-work",
@@ -298,7 +298,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.waitrose.com/ecom/help-information/customer-service/my-waitrose-card-and-money-off-vouchers/mywaitrose-vouchers",
@@ -337,7 +337,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.cineworld.co.uk/unlimited/",
@@ -364,7 +364,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless",
@@ -389,7 +389,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.picturehouses.com/membership",
@@ -417,7 +417,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
@@ -444,7 +444,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/vue-members",
@@ -473,7 +473,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/meerkat-movies",
@@ -498,7 +498,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.showcasecinemas.co.uk/offers-competitions/",
@@ -529,7 +529,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://help.netflix.com/en/node/24926/gb",
@@ -580,7 +580,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.spotify.com/uk/premium/",
@@ -627,7 +627,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.amazon.co.uk/amazonprime",
@@ -666,7 +666,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.disneyplus.com/en-gb",
@@ -704,7 +704,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-music/",
@@ -743,7 +743,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-tv/",
@@ -777,7 +777,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.nowtv.com/",
@@ -811,7 +811,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.youtube.com/premium",
@@ -846,7 +846,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
@@ -871,7 +871,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.diy.com/bandqclub",
@@ -895,7 +895,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "auto",
       "url": "https://www.pret.co.uk/en-GB/club-pret",
@@ -943,7 +943,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.superdrug.com/beautycard/about-card",
@@ -971,7 +971,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://help.argos.co.uk/help/nectar",
@@ -1002,7 +1002,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.myunidays.com/GB/en-GB",
@@ -1022,7 +1022,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-26",
+     "checked": "2026-10-29",
      "check": {
       "mode": "manual",
       "url": "https://www.studentbeans.com/uk",
