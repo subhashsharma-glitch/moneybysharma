@@ -36,7 +36,7 @@ SEO_META = {
  "about.html": ("About MoneyBySharma | Subhash Sharma", "Why Subhash Sharma started MoneyBySharma, and how every figure is checked against official sources such as GOV.UK, with the date checked."),
  "tools.html": ("Tools: Garmin Insights & Paper Trading | MoneyBySharma", "Garmin Fitness Insights (your activity trends, processed in your browser) and a fake-money Paper Trading Experiment. Experiment only, not advice."),
  "paper-trading.html": (None, "Three fake-money trading books, their agents and a full trade log. An experiment only, not advice or a recommendation."),
- "cash-vs-inflation.html": ("Cash vs Inflation: Why Idle Savings Lose Value (UK)", "How inflation shrinks the buying power of cash, a 100-year UK chart, a worked example and the usual order to grow money long term. Information only."),
+ "cash-vs-inflation.html": ("Cash vs Inflation: Why Idle Savings Lose Value (UK)", "How inflation eats the buying power of cash, a 100-year UK picture, a worked example and a sensible order for growing money long term."),
 }
 
 GUIDES = ["budget-2026.html","savings.html","gilts.html","investments.html","pensions.html","annuities.html","mortgages.html","pay-tax-payslip.html",
