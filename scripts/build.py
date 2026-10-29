@@ -508,6 +508,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, includ
 <div class="card"><span class="tag">Experiment</span><h3>Paper Trading Experiment</h3><p>Three fake-money books (IA-ATR signals, X buzz and Solana meme coins) in a terminal-style dashboard: equity, agents, positions, trades and a log of every action. Experiment only, not advice or a recommendation.</p>
 <p><a class="btn" href="paper-trading.html">View the experiment</a></p></div></div>
 <p class="hint" style="margin-top:1rem">Garmin Fitness Insights runs entirely in your browser on this site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
+exec(open("scripts/pages23.py").read())
 from search_index import build_search
 SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0, "Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded."),
  ("assets/downloads/ai-team-guide.pdf", "Grok Bot: How to Build Your First AI Team — and How to Manage It (PDF)", "Resources", 3, "A 15-page plain-English guide to setting up and managing a small team of AI assistants in Grok Bot: roles, connectors, memory, routines, approvals, safety and privacy, with a worksheet and cheat sheet."),
