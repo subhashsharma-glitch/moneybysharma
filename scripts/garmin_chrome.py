@@ -60,4 +60,8 @@ from seo import X_IMG, X_ALT
 s=s.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary">')
 s=re.sub(r'<meta name="twitter:image:alt" content="[^"]*">\n?','',s)
 s=re.sub(r'<meta name="twitter:image" content="[^"]*">',f'<meta name="twitter:image" content="{X_IMG}">\n<meta name="twitter:image:alt" content="{X_ALT}">',s,count=1)
+# PWA head tags (same as every built page, from scripts/pages25.py); idempotent
+if 'rel="manifest"' not in s:
+    _PW=re.search(r"PWA_HEAD = \((.*?)\)\n",open(f'{R}/scripts/pages25.py').read(),re.S).group(1)
+    s=s.replace('<link rel="icon"',eval('('+_PW+')')+'\n<link rel="icon"',1)
 open(p,'w').write(s)

@@ -114,7 +114,9 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
          # deals & savings (preview until approved; only matters once these exist on origin/main)
          "deals.html", "data/deals.json", "scripts/pages16.py", "scripts/update_deals.py",
          "feedback.html", "assets/feedback.js", "scripts/pages17.py",
-         "assets/weekly.js"]
+         "assets/weekly.js",
+         # PWA: sw.js only changes if the precached shell changes (its cache name is a hash), listed so a refresh never trips on it
+         "sw.js", "offline.html", "manifest.webmanifest"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS + OPTIONAL_BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
