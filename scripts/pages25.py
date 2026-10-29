@@ -9,7 +9,7 @@ PWA_HEAD = ('<link rel="manifest" href="/manifest.webmanifest">'
   '<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">'
   '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">'
   '<meta name="apple-mobile-web-app-title" content="MoneyBySharma">'
-  '<script>if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})</script>')
+  '<script src="/assets/pwa.js" defer></script>')
 pages["offline.html"] = page("offline.html", "You're offline – MoneyBySharma", "You're offline. Pages you've opened before still work.",
   ph("Offline", "You're offline", "") + W('''
 <div class="card" style="margin-top:1.5rem"><p>This page isn't saved on your device yet, and there's no internet connection right now.</p>
@@ -27,7 +27,7 @@ MANIFEST = {"name": "MoneyBySharma", "short_name": "MoneyBySharma", "description
             {"src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
             {"src": "/assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
 open("manifest.webmanifest", "w").write(_js.dumps(MANIFEST, indent=1, ensure_ascii=False) + "\n")
-SHELL = ["/offline.html", "/assets/style.css", "/assets/main.js", "/assets/search.js", "/assets/favicon.svg",
+SHELL = ["/offline.html", "/assets/style.css", "/assets/main.js", "/assets/search.js", "/assets/pwa.js", "/assets/favicon.svg",
          "/assets/icons/icon-192.png", "/assets/icons/apple-touch-icon.png", "/manifest.webmanifest"]
 _h = _hl.sha256(pages["offline.html"].encode() + PWA_HEAD.encode())
 for _p in SHELL[1:]: _h.update(open(_p.lstrip("/"), "rb").read())
