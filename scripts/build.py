@@ -516,6 +516,7 @@ SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0
  ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, National Insurance, ISA and pension allowances, FSCS, scam reporting numbers, Bank Rate, CPI and more.")]
 SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
+exec(open("scripts/pages24.py").read())  # preview pages: built after the search index so they stay out of it
 from seo import ext_links
 EXT = 0
 import re as _re
@@ -536,5 +537,5 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW)] + ["tools/garmin-insights/"], CHECKED_ISO)
+write_sitemap([f for f in pages if f not in ("404.html","search.html") and not (f=="paper-trading.html" and PT_PREVIEW) and f not in PREVIEW_PAGES] + ["tools/garmin-insights/"], CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])
