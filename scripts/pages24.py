@@ -1,6 +1,6 @@
-# pages24.py – PREVIEW ONLY (branch cash-isa-preview, not for main yet): "Cash ISAs explained".
-# noindex; kept out of the search index, sitemap and menus. Figures re-checked on official pages 29 Oct 2026.
-PREVIEW_PAGES = {"cash-isas.html"}
+# pages24.py – "Cash ISAs explained" (published 29 Oct 2026, approved by Subhash). Figures re-checked on official pages 29 Oct 2026.
+# Put a file in PREVIEW_PAGES to keep it out of the sitemap (and add noindex) while it is a draft.
+PREVIEW_PAGES = set()
 _S = lambda u, t: f'<a href="{u}">{t}</a>'
 _ISA = "https://www.gov.uk/individual-savings-accounts"
 _JISA = "https://www.gov.uk/junior-individual-savings-accounts"
@@ -12,9 +12,6 @@ _CHK = "Checked 29 October 2026"
 pages["cash-isas.html"] = page("cash-isas.html", "Cash ISAs Explained: 2026/27 Limit, Tax & Protection (UK)",
   "How cash ISAs work in 2026/27: the £20,000 allowance, why the cash ISA limit stays £20,000 from April 2027, tax, transfers and FSCS protection.",
   ph("Cash ISAs", "Cash ISAs, explained", "What a cash ISA is, how much you can put in, how transfers work and how your money is protected. Every figure links to its official source. Information, not financial advice.") + W(f'''
-<div class="card" style="margin-top:1.5rem"><span class="tag">Preview</span>
-<p><strong>Draft page for review.</strong> It isn't linked from the menus or search, and search engines are asked not to index it.</p></div>
-
 <h2 id="key">Key figures (2026/27)</h2>
 <table><thead><tr><th>What</th><th>Figure</th><th>Official source</th></tr></thead><tbody>
 <tr><td>Total you can save in ISAs this tax year</td><td>£20,000</td><td>{_S(_ISA, "GOV.UK – Individual Savings Accounts")} ({_CHK})</td></tr>
@@ -39,4 +36,4 @@ pages["cash-isas.html"] = page("cash-isas.html", "Cash ISAs Explained: 2026/27 L
 <p>Cash ISAs with UK-authorised banks and building societies count towards the FSCS limit of £120,000 per person, per authorised firm. Brands that share one banking licence count as one firm. See {_S("savings.html#fscs", "FSCS protection")}.</p>
 
 <p class="hint" style="margin-top:1.5rem">Information, not financial advice. Rates and rules change, so check the official pages linked above before you decide.</p>'''))
-pages["cash-isas.html"] = pages["cash-isas.html"].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)
+for _pf in PREVIEW_PAGES: pages[_pf] = pages[_pf].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)

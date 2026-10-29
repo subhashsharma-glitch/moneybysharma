@@ -39,7 +39,7 @@ SEO_META = {
  "cash-vs-inflation.html": ("Cash vs Inflation: Why Idle Savings Lose Value (UK)", "How inflation shrinks the buying power of cash, a 100-year UK chart, a worked example and the usual order to grow money long term. Information only."),
 }
 
-GUIDES = ["budget-2026.html","savings.html","gilts.html","investments.html","pensions.html","annuities.html","mortgages.html","pay-tax-payslip.html",
+GUIDES = ["budget-2026.html","savings.html","cash-isas.html","gilts.html","investments.html","pensions.html","annuities.html","mortgages.html","pay-tax-payslip.html",
  "power-of-compounding.html","how-money-works.html","budgeting-emergency-fund.html","bank-accounts.html","credit-cards.html","credit-scores-debt-help.html",
  "energy.html","energy-providers.html","electric-cars.html","broadband-phones.html","insurance-basics.html","scams-fraud.html","students.html","deals.html",
  "money-matters-cheat-sheet.html","explained-simply-money-matters.html","cash-vs-inflation.html"]
@@ -84,7 +84,7 @@ def _article(fn, h):
 # ---- FAQs: every answer is shown on the page and uses only figures already on the site ----
 FAQS = {
  "budget-2026.html": [
-  ("Is the cash ISA limit changing after Budget 2026?", 'No. The planned cut to £12,000 a year for under-65s from April 2027 has been scrapped. The cash ISA limit stays at £20,000 for everyone aged 18 or over, and transfers from stocks and shares ISAs to cash ISAs are still allowed. This is due to be done by regulations laid in November 2026. See <a href="savings.html#types">Savings and cash ISAs</a>.'),
+  ("Is the cash ISA limit changing after Budget 2026?", 'No. The planned cut to £12,000 a year for under-65s from April 2027 has been scrapped. The cash ISA limit stays at £20,000 for everyone aged 18 or over, and transfers from stocks and shares ISAs to cash ISAs are still allowed. This is due to be done by regulations laid in November 2026. See <a href="cash-isas.html">Cash ISAs explained</a>.'),
   ("How much tax will I pay on savings interest from April 2027?", 'Budget 2026 announced savings income tax rates of 24% (basic rate), 44% (higher rate) and 49% (additional rate) from 6 April 2027. They are in Finance Bill 2026-27, so they are not law yet. The Personal Savings Allowance (£1,000 / £500 / £0) and the £5,000 starting rate for savings don\'t change. See <a href="savings.html#tax">how savings interest is taxed</a>.'),
   ("Is interest in a cash ISA taxed?", 'No. Interest inside an ISA isn\'t taxed, so the higher savings rates don\'t apply to money held in one.'),
   ("Does the savings tax rise affect gilts?", 'Gilt coupons are savings income, so they would be taxed at the new rates. Gains on gilts stay free of Capital Gains Tax. The <a href="gilts.html#calc">gilt vs savings calculator</a> includes the 2027/28 rates.'),
@@ -114,11 +114,12 @@ FAQS = {
 }
 
 RELATED = {
- "budget-2026.html": [("savings.html","Savings and cash ISAs"),("gilts.html","Gilts explained"),("pensions.html","Pensions explained"),("investments.html","Investing basics"),("money-matters-cheat-sheet.html","2026/27 key figures")],
- "savings.html": [("budget-2026.html","Budget 2026"),("gilts.html","Gilts explained"),("bank-accounts.html","Bank accounts and FSCS"),("budgeting-emergency-fund.html","Emergency funds")],
+ "cash-isas.html": [("savings.html","Savings and cash ISAs"),("budget-2026.html","Budget 2026"),("investments.html","Investing basics"),("bank-accounts.html","Bank accounts and FSCS")],
+ "budget-2026.html": [("cash-isas.html","Cash ISAs explained"),("savings.html","Savings and cash ISAs"),("gilts.html","Gilts explained"),("pensions.html","Pensions explained"),("investments.html","Investing basics"),("money-matters-cheat-sheet.html","2026/27 key figures")],
+ "savings.html": [("cash-isas.html","Cash ISAs explained"),("budget-2026.html","Budget 2026"),("gilts.html","Gilts explained"),("bank-accounts.html","Bank accounts and FSCS"),("budgeting-emergency-fund.html","Emergency funds")],
  "gilts.html": [("savings.html","Savings and cash ISAs"),("budget-2026.html","Budget 2026"),("investments.html","Investing basics")],
  "pensions.html": [("budget-2026.html","Budget 2026"),("investments.html","SIPPs and ISAs"),("annuities.html","Annuities")],
- "investments.html": [("savings.html","Savings and cash ISAs"),("pensions.html","Pensions explained"),("budget-2026.html","Budget 2026"),("power-of-compounding.html","The power of compounding")],
+ "investments.html": [("cash-isas.html","Cash ISAs explained"),("savings.html","Savings and cash ISAs"),("pensions.html","Pensions explained"),("budget-2026.html","Budget 2026"),("power-of-compounding.html","The power of compounding")],
 }
 
 def _faq_html(items):

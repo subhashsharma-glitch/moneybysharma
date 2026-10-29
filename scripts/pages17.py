@@ -15,7 +15,7 @@ _AREAS = [("home", "Home page"),
           ("deals", "Deals & savings"),
           ("other", "Whole site / something else")]
 _MAP = {"index.html": "home", "search.html": "home", "404.html": "home",
-        "savings.html": "savings", "bank-accounts.html": "savings",
+        "savings.html": "savings", "cash-isas.html": "savings", "bank-accounts.html": "savings",
         "investments.html": "invest", "pensions.html": "invest", "gilts.html": "invest",
         "credit-cards.html": "credit", "credit-scores-debt-help.html": "credit", "mortgages.html": "credit",
         "pay-tax-payslip.html": "guides", "budgeting-emergency-fund.html": "guides", "students.html": "guides", "insurance-basics.html": "guides",

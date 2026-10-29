@@ -65,7 +65,7 @@ NAV = [("index.html","Home"),("savings.html","Savings"),("investments.html","Inv
 NAVG = [("index.html","Home"),
  ("Guides",[("group","Everyday money",[("pay-tax-payslip.html","Pay, tax &amp; your payslip"),("budgeting-emergency-fund.html","Budgeting &amp; emergency funds"),("deals.html","Deals &amp; savings"),("bank-accounts.html","Bank accounts"),("students.html","Students")]),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
-  ("group","Saving &amp; investing",[("savings.html","Savings"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
+  ("group","Saving &amp; investing",[("savings.html","Savings"),("cash-isas.html","Cash ISAs"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),
@@ -508,6 +508,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, includ
 <div class="card"><span class="tag">Experiment</span><h3>Paper Trading Experiment</h3><p>Three fake-money books (IA-ATR signals, X buzz and Solana meme coins) in a terminal-style dashboard: equity, agents, positions, trades and a log of every action. Experiment only, not advice or a recommendation.</p>
 <p><a class="btn" href="paper-trading.html">View the experiment</a></p></div></div>
 <p class="hint" style="margin-top:1rem">Garmin Fitness Insights runs entirely in your browser on this site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
+exec(open("scripts/pages24.py").read())  # Cash ISAs page (before pages23 so it gets SEO/Article schema and joins search)
 exec(open("scripts/pages23.py").read())
 from search_index import build_search
 SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0, "Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded."),
@@ -516,7 +517,6 @@ SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0
  ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, National Insurance, ISA and pension allowances, FSCS, scam reporting numbers, Bank Rate, CPI and more.")]
 SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
-exec(open("scripts/pages24.py").read())  # preview pages: built after the search index so they stay out of it
 from seo import ext_links
 EXT = 0
 import re as _re
