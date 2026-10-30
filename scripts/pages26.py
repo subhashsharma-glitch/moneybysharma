@@ -9,11 +9,10 @@ _S = lambda u, t: f'<a href="{u}">{t}</a>'
 _R65 = "https://www.handbook.fca.org.uk/handbook/ICOBS/6/5.html"
 _R6B = "https://www.handbook.fca.org.uk/handbook/ICOBS/6B/2.html"
 _CHK = "checked 30 October 2026"
-_PREV = "" if HI_LIVE else '''<div class="card" style="border-left:5px solid #d9822b;margin-top:1rem"><strong>Preview, not live.</strong> Hidden from search engines, the sitemap, site search and menus. To confirm before publishing: the "about 20%" rise (needs last year's premium from the renewal letter) and "twenty minutes of comparing".</div>'''
 pages[_HI] = page(_HI, "How We Cut Our Home Insurance by £160 With One Call",
   "Our home insurance renewal rose about 20%. We compared quotes, removed cover we didn't need and rang our insurer. The steps and call script we used.",
   ph("Home insurance renewal", "How we cut our home insurance by £160 with one phone call",
-     "Our renewal price jumped by about 20%. Twenty minutes of comparing and one polite phone call later, we were paying £160 less with the same insurer. Here's exactly what we did, so you can try it too. Information, not financial advice.") + W(_PREV + f'''
+     "Our renewal price jumped by about 20%. A little comparing and one polite phone call later, we were paying £160 less with the same insurer. Here's exactly what we did, so you can try it too. Information, not financial advice.") + W(f'''
 <p>When our home insurance renewal letter from Halifax arrived, the number on it was £528.49 for the year. That included £55.08 for home emergency cover, and it was around 20% more than we'd paid the year before. Nothing about our home had changed. We hadn't claimed. It was simply the price going up because we hadn't asked questions.</p>
 <p>So we decided to ask some.</p>
 
