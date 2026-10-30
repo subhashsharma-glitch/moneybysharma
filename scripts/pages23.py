@@ -42,7 +42,7 @@ SEO_META = {
 GUIDES = ["budget-2026.html","savings.html","cash-isas.html","gilts.html","investments.html","pensions.html","annuities.html","mortgages.html","pay-tax-payslip.html",
  "power-of-compounding.html","how-money-works.html","budgeting-emergency-fund.html","bank-accounts.html","credit-cards.html","credit-scores-debt-help.html",
  "energy.html","energy-providers.html","electric-cars.html","broadband-phones.html","insurance-basics.html","scams-fraud.html","students.html","deals.html",
- "money-matters-cheat-sheet.html","explained-simply-money-matters.html","cash-vs-inflation.html"]
+ "money-matters-cheat-sheet.html","explained-simply-money-matters.html","cash-vs-inflation.html"] + (["home-insurance-renewal.html"] if globals().get("HI_LIVE") else [])
 
 _BASE = "https://moneybysharma.co.uk/"
 _MON = {m:i for i,m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"],1)}
