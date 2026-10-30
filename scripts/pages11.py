@@ -180,8 +180,11 @@ def _log_html():
     """Main log: every action except rug-check rejections, which can flood it; those go in a collapsible list."""
     if not PT_LOG: return '<p class="tm-empty">No actions logged yet.</p>'
     main = [e for e in PT_LOG if e["action"] != "Rejected"]; rej = [e for e in PT_LOG if e["action"] == "Rejected"]
-    out = ('<ol class="tm-log">' + "".join(_log_li(e) for e in main[:PT_LOG_N]) + '</ol>') if main else '<p class="tm-empty">No actions other than rejections logged yet.</p>'
-    out += f'<p class="tm-foot">Showing the latest {min(PT_LOG_N, len(main))} of {len(main)} actions (excluding rejections) in this export.</p>'
+    if main:  # collapsed by default, same pattern/styling as the rug-check rejections list
+        out = (f'<details class="tm-rejs"><summary>Activity log ({len(main)} entries)</summary>'
+               '<ol class="tm-log">' + "".join(_log_li(e) for e in main[:PT_LOG_N]) + '</ol>'
+               f'<p class="tm-foot">Showing the latest {min(PT_LOG_N, len(main))} of {len(main)} actions (excluding rejections) in this export.</p></details>')
+    else: out = '<p class="tm-empty">No actions other than rejections logged yet.</p>'
     if rej:
         out += (f'<details class="tm-rejs"><summary>Coins rejected by the rug check ({len(rej)} in this export)</summary>'
                 '<ol class="tm-log">' + "".join(_log_li(e) for e in rej) + '</ol></details>')
