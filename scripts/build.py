@@ -78,10 +78,15 @@ DISC = ("<strong>Information only – not financial advice.</strong> MoneyByShar
  "and is not authorised or regulated by the Financial Conduct Authority (FCA). Do your own research or speak to an FCA-authorised adviser before making decisions. "
  "With investments your capital is at risk and you may get back less than you put in. Tax treatment depends on your individual circumstances and may change in future.")
 FBICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.6A8 8 0 1 1 21 12z"/></svg>'
-FBBAR = f'<a class="fb-bar" href="feedback.html">{FBICON}<span><strong>Feedback</strong> – tell me what to fix or cover</span></a>'
+# Feedback page/links: taken down 30 Oct 2026 at Subhash's request ("we will rethink in the future").
+# Set True and rebuild to restore everything (page, header bar/button, menu, footer, home CTA, privacy section). Backup: /workspace/backups/feedback/
+FEEDBACK_ENABLED = False
+FBBAR = '' if not FEEDBACK_ENABLED else f'<a class="fb-bar" href="feedback.html">{FBICON}<span><strong>Feedback</strong> – tell me what to fix or cover</span></a>'
 def page(fn, title, desc, body, head="", scripts=()):
     def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if h==fn else ""}>{t}</a></li>'
-    nav = f'<li class="fb-mob"><a href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>Send feedback</a></li>'
+    nav = f'<li class="fb-mob"><a href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>Send feedback</a></li>' if FEEDBACK_ENABLED else ''
+    fbbtn = f'<a class="fb-btn" href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>{FBICON}<span>Feedback</span></a>\n' if FEEDBACK_ENABLED else ''
+    fbfoot = '<li><a href="feedback.html">Feedback</a></li>' if FEEDBACK_ENABLED else ''
     for item in NAVG:
         if isinstance(item[1], list):
             flat = [x for e in item[1] for x in (e[2] if e[0]=="group" else [e])]
@@ -103,11 +108,10 @@ def page(fn, title, desc, body, head="", scripts=()):
 <a class="hs-toggle" href="search.html" aria-label="Search the site" aria-controls="hs" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="main" id="nav" aria-label="Main"><ul>{nav}</ul></nav>
-<a class="fb-btn" href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>{FBICON}<span>Feedback</span></a>
-<form class="hs" id="hs" role="search" action="search.html" method="get"><div class="hs-row"><label class="sr" for="hs-q">Search MoneyBySharma</label><svg width="16" height="16" class="hs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hs-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the site"><kbd aria-hidden="true">/</kbd><button class="hs-go" type="submit">Search</button></div></form></div></header>
+{fbbtn}<form class="hs" id="hs" role="search" action="search.html" method="get"><div class="hs-row"><label class="sr" for="hs-q">Search MoneyBySharma</label><svg width="16" height="16" class="hs-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="hs-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search the site"><kbd aria-hidden="true">/</kbd><button class="hs-go" type="submit">Search</button></div></form></div></header>
 <main id="main">{body}{head}</main>
 <footer class="site"><div class="wrap"><div class="disc"><p style="margin:0">{DISC}</p></div>
-<ul><li><a href="about.html">About</a></li><li><a href="feedback.html">Feedback</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li><li><a class="x-follow" href="https://x.com/moneybysharma" target="_blank" rel="noopener"><svg class="x-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow on X <span class="x-h">@moneybysharma</span></span></a></li></ul>
+<ul><li><a href="about.html">About</a></li>{fbfoot}<li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy (no cookies)</a></li><li><a href="jargon.html">Jargon buster</a></li><li><a href="resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li><li><a class="x-follow" href="https://x.com/moneybysharma" target="_blank" rel="noopener"><svg class="x-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow on X <span class="x-h">@moneybysharma</span></span></a></li></ul>
 <p style="margin:1rem 0 0">© 2026 MoneyBySharma · Plain-English UK money information · Figures checked {CHECKED} for tax year 2026/27; Budget 2026 changes checked 28 October 2026.</p></div></footer>
 </body></html>'''
 def ph(crumb, h1, lead): return f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › {crumb}</div><h1>{h1}</h1>{f"<p>{lead}</p>" if lead else ""}</div></div>'
@@ -164,7 +168,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <p class="hint" id="wk-note">Only your email address is collected. It is sent to Buttondown, a third-party newsletter service, which emails you a confirmation link first. Every email has an unsubscribe link. It is never sold. See our <a href="privacy.html#s-weekly-money-update-email-sign-up">privacy page</a>.</p></div>
 </div>
 </div>
-<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>''', scripts=("weekly.js",))
+''' + ('' if not FEEDBACK_ENABLED else '''<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>'''), scripts=("weekly.js",))
 # ---------- SAVINGS ----------
 SR = json.load(open("data/savings-rates.json"))
 _SRT = {"easy-access":"Easy access","notice":"Notice","fixed":"Fixed bond","cash-isa":"Cash ISA","regular-saver":"Regular saver"}
@@ -474,14 +478,20 @@ pages["disclaimer.html"] = page("disclaimer.html", "Disclaimer – MoneyBySharma
 <h2>Tax</h2><p>Tax treatment depends on your individual circumstances and may change in future. Figures are for the 2026/27 tax year unless stated. Scottish income tax bands differ for non-savings income.</p>
 <h2>Accuracy and calculators</h2><p>We work hard to keep figures accurate and sourced, but we can't guarantee that everything is complete or up to date. Calculators give illustrations based on stated assumptions, not forecasts or quotes. Any example rates in the comparison table are clearly marked as placeholders and aren't real.</p>
 <h2>Links</h2><p>We link to external sites, such as GOV.UK and the FSCS, for convenience. We aren't responsible for their content.</p></div>'''))
-pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", "MoneyBySharma sets no cookies and uses no analytics. Feedback messages and the optional email sign-up are sent to third-party services only if you press Send or Subscribe.", ph("Privacy","Privacy","Short version: this site sets no cookies and doesn't track you. The only things it sends anywhere are a feedback message or an email sign-up, and only if you press Send or Subscribe."), W('''
+def _PRIV_FB(h):
+    """Without the feedback page, drop the privacy section about it and the 'feedback form' wording."""
+    if FEEDBACK_ENABLED: return h
+    h = _re_fb.sub(r"<h2>Feedback</h2><p>.*?</p>\n", "", h, flags=_re_fb.S)
+    return h.replace("The exceptions are the optional feedback form and email sign-up, described below.", "The exception is the optional email sign-up, described below.")
+import re as _re_fb
+pages["privacy.html"] = page("privacy.html", "Privacy – MoneyBySharma", ("MoneyBySharma sets no cookies and uses no analytics. Feedback messages and the optional email sign-up are sent to third-party services only if you press Send or Subscribe." if FEEDBACK_ENABLED else "MoneyBySharma sets no cookies and uses no analytics. The optional email sign-up is sent to a third-party service only if you press Subscribe."), ph("Privacy","Privacy",("Short version: this site sets no cookies and doesn't track you. The only things it sends anywhere are a feedback message or an email sign-up, and only if you press Send or Subscribe." if FEEDBACK_ENABLED else "Short version: this site sets no cookies and doesn't track you. The only thing it sends anywhere is an email sign-up, and only if you press Subscribe.")), W(_PRIV_FB('''
 <div style="max-width:760px"><h2>No cookies, no analytics</h2><p>This site sets no cookies and uses no analytics, advertising or tracking scripts. All fonts, scripts and data are served from this site itself – there are no third-party embeds. The exceptions are the optional feedback form and email sign-up, described below.</p>
 <h2>Calculators</h2><p>Calculator inputs stay in your browser and are never sent anywhere.</p>
 <h2>Weekly money update (email sign-up)</h2><p>If you sign up on the <a href="index.html#weekly">home page</a>, the only personal data collected is your email address. The form sends it to Buttondown (buttondown.com), a third-party newsletter service that stores your address and sends the email for us. Buttondown first emails you a confirmation link, and you only join the list when you click it. We use your address only to send the weekly update, which is a short Monday email about what changed on this site that week. Every email has an unsubscribe link, and you can also ask us to remove you at <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. Your address is never sold or used for anything else. Buttondown has its own <a href="https://buttondown.com/legal/privacy">privacy policy</a>, and its pages may set cookies. Nothing is sent unless you tick the box and press Subscribe.</p>
 <h2>Feedback</h2><p>If you use the <a href="feedback.html">feedback page</a>, what you type is sent through FormSubmit (formsubmit.co), a third-party form service, which emails it to the site owner at <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. What is sent is your message, the type of feedback, the part of the site you chose, and your email address only if you give one. It is used to improve the site, and your email address only to reply to you. It is never sold. Your browser sends it to FormSubmit directly, and FormSubmit has its own <a href="https://formsubmit.co/privacy.pdf">privacy policy</a>, which says it may use cookies. Nothing is sent unless you press Send. If you'd rather not use the form, you can email the address above instead.</p>
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages. Like any web host, GitHub may process technical data such as IP addresses to deliver and secure the site – see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</p>
 <h2>Contacting us</h2><p>You can email <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a>. If you do, your email address and message are used only to reply to you. They aren't added to any mailing list or shared.</p>
-<h2>External links</h2><p>Links to other sites (for example GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>'''))
+<h2>External links</h2><p>Links to other sites (for example GOV.UK or the FSCS) are covered by those sites' own privacy policies.</p></div>''')))
 pages["404.html"] = page("404.html", "Page not found – MoneyBySharma", "Page not found.", ph("Not found","Page not found","Sorry, that page doesn't exist."), W('<p style="margin-top:1.5rem"><a class="btn" href="index.html">Go to the home page</a></p>'))
 exec(open("scripts/pages2.py").read())
 exec(open("scripts/pages3.py").read())
@@ -498,7 +508,11 @@ exec(open("scripts/pages13.py").read())
 exec(open("scripts/pages14.py").read())
 exec(open("scripts/pages15.py").read())
 exec(open("scripts/pages16.py").read())
-exec(open("scripts/pages17.py").read())
+if FEEDBACK_ENABLED: exec(open("scripts/pages17.py").read())  # Feedback page
+else:  # taken down: feedback.html is a noindex stub redirecting home (not in pages, so not in sitemap/search), so old links still land somewhere
+    open("feedback.html", "w").write('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="robots" content="noindex">'
+        '<title>MoneyBySharma</title><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="https://moneybysharma.co.uk/">'
+        '</head><body><p>This page has moved. <a href="index.html">Go to the MoneyBySharma home page</a>.</p></body></html>\n')
 exec(open("scripts/pages18.py").read())
 exec(open("scripts/pages19.py").read())
 exec(open("scripts/pages20.py").read())

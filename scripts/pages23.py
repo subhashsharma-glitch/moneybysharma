@@ -32,7 +32,7 @@ SEO_META = {
  "jargon.html": ("UK Money Jargon Buster: A to Z Finance Glossary", "A searchable A to Z of UK personal finance terms, from APR and AER to tax codes and gilts, each explained in one plain-English line."),
  "explained-simply-money-matters.html": ("Illustrated UK Money Guide (PDF) | MoneyBySharma", "A 15-page illustrated guide to UK money: payslips, tax, budgeting, savings, borrowing, student loans, pensions and scams."),
  "resources.html": ("UK Money PDFs & Cheat Sheets | MoneyBySharma", "Downloadable guides: the 2026/27 Money Matters cheat sheet, an illustrated UK money guide and a guide to the power of compounding."),
- "privacy.html": (None, "MoneyBySharma sets no cookies and uses no analytics. Feedback and the optional email sign-up go to third-party services only if you press Send or Subscribe."),
+ "privacy.html": (None, "MoneyBySharma sets no cookies and uses no analytics. Feedback and the optional email sign-up go to third-party services only if you press Send or Subscribe." if FEEDBACK_ENABLED else "MoneyBySharma sets no cookies and uses no analytics. The optional email sign-up goes to a third-party service only if you press Subscribe."),
  "about.html": ("About MoneyBySharma | Subhash Sharma", "Why Subhash Sharma started MoneyBySharma, and how every figure is checked against official sources such as GOV.UK, with the date checked."),
  "tools.html": ("Tools: Garmin Insights & Paper Trading | MoneyBySharma", "Garmin Fitness Insights (your activity trends, processed in your browser) and a fake-money Paper Trading Experiment. Experiment only, not advice."),
  "paper-trading.html": (None, "Three fake-money trading books, their agents and a full trade log. An experiment only, not advice or a recommendation."),
