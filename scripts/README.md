@@ -51,7 +51,7 @@ Agent panel status lines are derived from these fields; nothing is estimated.
 
 ## Weekly topics (weekly-topics.html + home-page block)
 The @moneybysharma weekly topic calendar is data-driven:
-- **Data:** `data/weekly-topics.json` → `{"weeks": [{"week": 13, "monday": "2027-01-18", "topic": "…", "page": "/isa-guide"}]}`. `monday` is the ISO date the week starts (UK time); `page` is the site path (with or without `.html`).
+- **Data:** `data/weekly-topics.json` → `{"weeks": [{"week": 13, "start": "2027-01-24", "topic": "…", "page": "/isa-guide"}]}`. `start` is the ISO date the week starts, a Sunday (UK time); `page` is the site path (with or without `.html`).
 - **Builder:** `scripts/pages20.py` (exec'd by `scripts/build.py`) generates `weekly-topics.html` (linked from the Learn menu) and inserts the compact "This week's topic" block on the home page, just above "Today's key numbers".
 - **To add weeks:** append entries to `weeks` in the JSON (keep `week` numbers in order), then run `python3 scripts/build.py && python3 scripts/garmin_chrome.py`, check the page, commit and push. The sitemap and search index update automatically.
 - **Missing pages:** if `page` is empty or doesn't match a page in the build, the topic shows "Page coming soon" with no link (never a 404). The build prints the weeks that are "coming soon". When the guide exists, just rebuild.

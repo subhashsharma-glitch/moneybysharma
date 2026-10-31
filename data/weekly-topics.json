@@ -1,147 +1,147 @@
 {
- "about": "@moneybysharma weekly topic calendar. Each week starts on the Monday listed (Europe/London). 'page' is the site path; leave it empty or point it at a page that doesn't exist yet and the topic shows as 'Page coming soon'. Add new weeks to the end and run python3 scripts/build.py.",
+ "about": "@moneybysharma weekly topic calendar. Each week starts on the Sunday listed (Europe/London). 'page' is the site path; leave it empty or point it at a page that doesn't exist yet and the topic shows as 'Page coming soon'. Add new weeks to the end and run python3 scripts/build.py.",
  "weeks": [
   {
    "week": 1,
-   "monday": "2026-10-26",
+   "start": "2026-11-01",
    "topic": "Understanding money",
    "page": "/how-money-works"
   },
   {
    "week": 2,
-   "monday": "2026-11-02",
+   "start": "2026-11-08",
    "topic": "Budgeting and an emergency fund",
    "page": "/budgeting-emergency-fund"
   },
   {
    "week": 3,
-   "monday": "2026-11-09",
+   "start": "2026-11-15",
    "topic": "Why saving matters",
    "page": "/savings"
   },
   {
    "week": 4,
-   "monday": "2026-11-16",
+   "start": "2026-11-22",
    "topic": "Scams and fraud, the week before Black Friday",
    "page": "/scams-fraud"
   },
   {
    "week": 5,
-   "monday": "2026-11-23",
+   "start": "2026-11-29",
    "topic": "Why compounding matters",
    "page": "/power-of-compounding"
   },
   {
    "week": 6,
-   "monday": "2026-11-30",
+   "start": "2026-12-06",
    "topic": "Why investing matters",
    "page": "/investments"
   },
   {
    "week": 7,
-   "monday": "2026-12-07",
+   "start": "2026-12-13",
    "topic": "Credit cards before Christmas",
    "page": "/credit-cards"
   },
   {
    "week": 8,
-   "monday": "2026-12-14",
+   "start": "2026-12-20",
    "topic": "Money words, decoded",
    "page": "/jargon"
   },
   {
    "week": 9,
-   "monday": "2026-12-21",
+   "start": "2026-12-27",
    "topic": "Energy bills in winter",
    "page": "/energy"
   },
   {
    "week": 10,
-   "monday": "2026-12-28",
+   "start": "2027-01-03",
    "topic": "Pay, tax and your payslip",
    "page": "/pay-tax-payslip"
   },
   {
    "week": 11,
-   "monday": "2027-01-04",
+   "start": "2027-01-10",
    "topic": "Pensions: start early",
    "page": "/pensions"
   },
   {
    "week": 12,
-   "monday": "2027-01-11",
+   "start": "2027-01-17",
    "topic": "Credit scores and debt help",
    "page": "/credit-scores-debt-help"
   },
   {
    "week": 13,
-   "monday": "2027-01-18",
+   "start": "2027-01-24",
    "topic": "Opportunity cost",
    "page": "/opportunity-cost"
   },
   {
    "week": 14,
-   "monday": "2027-01-25",
+   "start": "2027-01-31",
    "topic": "Inflation: why cash on its own slowly shrinks",
    "page": "/inflation"
   },
   {
    "week": 15,
-   "monday": "2027-02-01",
+   "start": "2027-02-07",
    "topic": "Small cuts, big difference",
    "page": "/cutting-costs"
   },
   {
    "week": 16,
-   "monday": "2027-02-08",
+   "start": "2027-02-14",
    "topic": "Keep money you can get at",
    "page": "/easy-access-money"
   },
   {
    "week": 17,
-   "monday": "2027-02-15",
+   "start": "2027-02-21",
    "topic": "More than one income",
    "page": "/income-streams"
   },
   {
    "week": 18,
-   "monday": "2027-02-22",
+   "start": "2027-02-28",
    "topic": "Make a money plan and stick to it",
    "page": "/money-plan"
   },
   {
    "week": 19,
-   "monday": "2027-03-01",
+   "start": "2027-03-07",
    "topic": "Time in the market beats timing it",
    "page": "/time-in-the-market"
   },
   {
    "week": 20,
-   "monday": "2027-03-08",
+   "start": "2027-03-14",
    "topic": "Don't put all your eggs in one basket",
    "page": "/asset-allocation"
   },
   {
    "week": 21,
-   "monday": "2027-03-15",
+   "start": "2027-03-21",
    "topic": "Fees eat returns",
    "page": "/investment-fees"
   },
   {
    "week": 22,
-   "monday": "2027-03-22",
+   "start": "2027-03-28",
    "topic": "Why big losses hurt, and borrowing to invest",
    "page": "/avoiding-big-losses"
   },
   {
    "week": 23,
-   "monday": "2027-03-29",
+   "start": "2027-04-04",
    "topic": "Money and emotions",
    "page": "/money-and-emotions"
   },
   {
    "week": 24,
-   "monday": "2027-04-05",
+   "start": "2027-04-11",
    "topic": "Get rich slowly and pay your future self",
    "page": "/get-rich-slowly"
   }
