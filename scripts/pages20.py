@@ -59,7 +59,7 @@ pages["weekly-topics.html"] = page("weekly-topics.html", "Weekly topics – Mone
 <p class="hint">Each week starts on the Sunday shown (UK time). The current week is highlighted. Topics marked "Page coming soon" don't have a guide on this site yet.</p>
 <ol class="wt-list">{_rows}</ol>
 <h2 id="about-weekly-topics">About the weekly topics</h2>
-<p>The topics follow a simple order: how money works, then budgeting, saving, compounding and investing, with seasonal topics where they fit (scams the week before Black Friday, credit cards before Christmas, energy bills in winter). New weeks are added to this calendar as they are planned.</p>
+<p>The topics follow a simple order: how money works, then budgeting, saving, compounding and investing, with seasonal topics where they fit (scams in Black Friday week, credit cards before Christmas, energy bills in winter). New weeks are added to this calendar as they are planned.</p>
 <p>Everything here is general information, not financial advice, and not a recommendation to buy any product. Figures on each guide link to their official sources and show when they were checked.</p>''') + WT_SCRIPT)
 # ---------- compact block on the home page ----------
 _home_now = (f'<span class="wt-k">This week\'s topic · Week {WT_CUR["week"]}</span><b class="wt-t">{_wt_link(WT_CUR)}</b>' if WT_CUR
