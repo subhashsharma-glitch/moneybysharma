@@ -518,6 +518,7 @@ exec(open("scripts/pages19.py").read())
 exec(open("scripts/pages20.py").read())
 exec(open("scripts/pages27.py").read())  # key dates box + festive banner (home page)
 exec(open("scripts/pages21.py").read())
+exec(open("scripts/pages28.py").read())  # home: key numbers before the Budget 2026 banner
 exec(open("scripts/pages22.py").read())
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
  ph("Tools","Tools",""), W('''
