@@ -520,6 +520,7 @@ exec(open("scripts/pages27.py").read())  # key dates box + festive banner (home 
 exec(open("scripts/pages21.py").read())
 exec(open("scripts/pages28.py").read())  # home: key numbers before the Budget 2026 banner
 exec(open("scripts/pages22.py").read())
+exec(open("scripts/pages29.py").read())  # PREVIEW: broadband postcode checker (before the SEO pass)
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
  ph("Tools","Tools",""), W('''
 <div class="grid g3" style="margin-top:1.5rem">
