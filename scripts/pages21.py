@@ -179,8 +179,13 @@ B26_BANNER = '''<style>
 .b26-banner .b26-h{display:block;font-family:Georgia,serif;font-size:1.3rem;color:#0f4c45;margin:.15rem 0 .25rem;line-height:1.25}
 .b26-banner .b26-s{display:block;line-height:1.45}
 .b26-banner .b26-go{display:inline-block;margin-top:.4rem;font-weight:700;color:#0f4c45;text-decoration:underline}
-</style><div class="wrap"><a class="b26-banner" href="budget-2026.html"><span class="b26-k">Budget 2026 · 28 October 2026</span><span class="b26-h">Budget 2026: what it means for you</span><span class="b26-s">Cash ISAs stay at £20,000, tax on savings outside ISAs is due to rise from April 2027, and other changes, in plain English.</span><span class="b26-go">Read the summary</span></a></div>
+.b26-wrap[hidden]{display:none}
+</style><div class="wrap b26-wrap" id="b26" data-e="2026-11-30"__B26HID__><a class="b26-banner" href="budget-2026.html"><span class="b26-k">Budget 2026 · 28 October 2026</span><span class="b26-h">Budget 2026: what it means for you</span><span class="b26-s">Cash ISAs stay at £20,000, tax on savings outside ISAs is due to rise from April 2027, and other changes, in plain English.</span><span class="b26-go">Read the summary</span></a></div><script>(function(){var q=(location.search.match(/[?&]date=(\\d{4}-\\d\\d-\\d\\d)/)||[])[1],t;if(q)t=q;else{try{t=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/London",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}catch(e){t=new Date().toISOString().slice(0,10)}}var b=document.getElementById("b26");if(b)b.hidden=t>b.getAttribute("data-e")})();</script>
 '''
+# Budget 2026 home banner shows until 30 Nov 2026 inclusive (build-time check here, plus the inline client-side check above).
+import datetime as _b26dt
+from zoneinfo import ZoneInfo as _b26zi
+B26_BANNER = B26_BANNER.replace("__B26HID__", "" if _b26dt.datetime.now(_b26zi("Europe/London")).date().isoformat() <= "2026-11-30" else " hidden")
 _b26mk = '<div class="wrap"><p class="x-invite">'
 assert pages["index.html"].count(_b26mk) == 1, "home page marker for the Budget 2026 banner not found"
 pages["index.html"] = pages["index.html"].replace(_b26mk, B26_BANNER + _b26mk)

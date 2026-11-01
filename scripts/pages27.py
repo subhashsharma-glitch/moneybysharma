@@ -1,4 +1,4 @@
-# PREVIEW (not live): homepage "This month in money" key-dates box + seasonal festive banner, exec'd from build.py after pages20.
+# homepage "This month in money" key-dates box + seasonal festive banner, exec'd from build.py after pages20.
 # Data: data/key-dates.json (items with date/start/end/source/checked) and data/festive.json (festivals with start/end).
 # Both are filtered at build time (no-JS fallback) and again synchronously in the browser by Europe/London date, by an inline
 # script placed straight after the markup, so nothing below moves after first paint (no layout shift).
