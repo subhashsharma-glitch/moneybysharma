@@ -117,6 +117,10 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
          "assets/weekly.js",
          # PWA: sw.js only changes if the precached shell changes (its cache name is a hash), listed so a refresh never trips on it
          "sw.js", "offline.html", "manifest.webmanifest"]
+# Date-driven outputs: the weekly-topics calendar rolls over each Sunday (scripts/pages20.py), so a rebuild of an
+# unchanged origin/main can legitimately change these. They are only allowed if a rebuild BEFORE the new export is
+# copied in (a "rollover pre-build") already changes them, and that pre-build changes nothing outside this list.
+ROLLOVER = ["index.html", "weekly-topics.html", "assets/search-index.json", "sw.js"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS + OPTIONAL_BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
@@ -171,10 +175,14 @@ def check_links(wt, changed, base_files):
             if ids is None: ids = ids_cache[path] = set(IDS.findall(open(fp, encoding="utf-8", errors="replace").read()))
             if frag not in ids: bad.append(f"{f} -> {ref} (no such anchor)")
     return sorted(set(bad))
-def check_changes(wt, base_files):
-    st = git("status", "--porcelain", "--untracked-files=all", cwd=wt).stdout.splitlines()
-    changed = [l[3:].strip().strip('"') for l in st]
-    outside = [c for c in changed if c not in STAGE]
+def changed_files(wt):
+    return [l[3:].strip().strip('"') for l in git("status", "--porcelain", "--untracked-files=all", cwd=wt).stdout.splitlines()]
+def build(wt):
+    for cmd in ("build.py", "garmin_chrome.py"):
+        if subprocess.run([sys.executable, f"scripts/{cmd}"], cwd=wt).returncode != 0: fail(f"scripts/{cmd} failed in the clean checkout; nothing committed")
+def check_changes(wt, base_files, rollover=()):
+    changed = changed_files(wt)
+    outside = [c for c in changed if c not in STAGE and c not in rollover]
     if outside: fail("the rebuild changed files outside the allowed list (nothing committed): " + ", ".join(outside[:12]))
     new = [c for c in changed if c not in base_files]
     if new: fail("the rebuild created files that are not on origin/main (nothing committed): " + ", ".join(new[:12]))
@@ -202,10 +210,15 @@ def main():
             if datetime.datetime.fromisoformat(d["as_of"]) < datetime.datetime.fromisoformat(o["as_of"]):
                 print(f"skip: export ({d['as_of']}) is older than the published data ({o['as_of']})"); return
             if o == d: print("skip: export is unchanged"); return
+        # Rollover pre-build: rebuild origin/main as-is to see what the date alone changes.
+        build(wt)
+        rollover = changed_files(wt)
+        bad_ro = [c for c in rollover if c not in ROLLOVER]
+        if bad_ro: fail("rebuilding origin/main without the new export changed files outside the date-rollover list (nothing committed): " + ", ".join(bad_ro[:12]))
+        if rollover: print("date rollover detected; also committing:", ", ".join(rollover))
         shutil.copyfile(a.src, dest)
-        for cmd in ("build.py", "garmin_chrome.py"):
-            if subprocess.run([sys.executable, f"scripts/{cmd}"], cwd=wt).returncode != 0: fail(f"scripts/{cmd} failed in the clean checkout; nothing committed")
-        changed = check_changes(wt, base_files)
+        build(wt)
+        changed = check_changes(wt, base_files, rollover)
         print("checks passed. files changed:", ", ".join(changed) or "none")
         if a.no_commit: print("built and checked in a clean checkout; not committed"); return
         git("add", "--", *changed, cwd=wt, check=True)
