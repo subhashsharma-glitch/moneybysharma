@@ -1,8 +1,36 @@
 {
   "_how_to_add_a_post": "Add an object to the child's 'posts' list (newest first is not required; posts are sorted by date). Fields: date (YYYY-MM-DD), title, kind (Drawing | Story | Mini lesson | Thoughts), summary (1-2 sentences), body_html (optional, simple HTML), pdf (optional filename placed in kids-corner/<id>/printables/), pdf_label (optional). Then run: python3 scripts/build.py && python3 scripts/garmin_chrome.py, commit and push.",
   "kids": [
-    {"id": "saachi", "name": "Saachi", "age": 11, "emoji": "🎨", "posts": []},
-    {"id": "vedaant", "name": "Vedaant", "age": 9, "emoji": "📚", "posts": []},
-    {"id": "arjun", "name": "Arjun", "age": 7, "emoji": "✏️", "posts": []}
+    {
+      "id": "saachi",
+      "name": "Saachi",
+      "age": 11,
+      "emoji": "🎨",
+      "posts": []
+    },
+    {
+      "id": "vedaant",
+      "name": "Vedaant",
+      "age": 9,
+      "emoji": "📚",
+      "posts": [
+        {
+          "date": "2026-11-02",
+          "title": "The Battle of Planet Junglor",
+          "kind": "Story",
+          "summary": "Aliens called the Zorbs try to take over a ginormous jungle planet, but King Rexo the T-Rex and his dinosaur friends have other ideas!",
+          "body_html": "<p><img src=\"kids-corner/vedaant/images/planet-junglor.jpg\" alt=\"Vedaant&#x27;s illustration for The Battle of Planet Junglor: dinosaurs led by King Rexo the T-Rex facing the Zorb aliens on a jungle planet\" width=\"1200\" height=\"675\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:10px\"></p><p class=\"kc-meta\"><em>Idea by Vedaant, age 9</em></p><p>Far, far away, past the purple moons of Zentar, there was a planet so covered in jungle that you couldn&#x27;t see a single patch of ground. The trees were taller than skyscrapers, the vines were as thick as buses, and the flowers were so big you could sleep inside one. This was Planet Junglor, and it belonged to the dinosaurs.</p><p>One morning a fleet of shiny silver spaceships came zooming down through the clouds. Out stepped the Zorbs, green aliens with three eyes, six wiggly arms and laser blasters that went ZAP-ZAP-ZOOM! Their leader, Captain Blip, stood on a giant mushroom and shouted, &quot;This planet is ours now!&quot;</p><p>The ground began to shake. BOOM. BOOM. BOOM. Out of the trees stomped King Rexo, the biggest T-Rex anyone had ever seen, with teeth like swords and a roar so loud it knocked the Zorbs&#x27; helmets off. Behind him came the Triceratops Tank Squad, the speedy Raptor Racers, and Ptero-Pilots swooping through the sky.</p><p>&quot;ROOOAAARRR!&quot; said King Rexo, which in dinosaur language means, &quot;Not today, aliens!&quot;</p><p>The battle was HUGE. The Zorbs fired lasers that bounced off the Triceratops&#x27; shields. The Raptors zipped between the trees so fast the aliens got dizzy. The Pterodactyls snatched the blasters right out of the Zorbs&#x27; hands and dropped them into a swamp full of bubbling mud. Captain Blip jumped into a giant robot suit, but King Rexo grabbed it with his jaws and spun it round and round like a spinning top until it flew off into space.</p><p>At last the Zorbs waved a white flag. Captain Blip climbed out of a bush, covered in mud, and said, &quot;Okay, okay, you win! Your planet is way too awesome to steal.&quot;</p><p>King Rexo thought for a moment. Then he did something nobody expected. He smiled. &quot;You can stay,&quot; he rumbled, &quot;but only if you share.&quot;</p><p>So the Zorbs fixed the dinosaurs&#x27; broken trees with their alien gadgets, and the dinosaurs gave the Zorbs rides through the jungle. And every year after that, Planet Junglor held the Great Jungle Games, where aliens and dinosaurs raced, wrestled and roared together.</p><p>But deep in the jungle something was watching... something even BIGGER.</p><p>The End?</p>",
+          "pdf": "the-battle-of-planet-junglor.pdf",
+          "pdf_label": "Download the printable story (PDF)"
+        }
+      ]
+    },
+    {
+      "id": "arjun",
+      "name": "Arjun",
+      "age": 7,
+      "emoji": "✏️",
+      "posts": []
+    }
   ]
 }
