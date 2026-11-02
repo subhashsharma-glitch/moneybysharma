@@ -21,7 +21,82 @@
           "summary": "Aliens called the Zorbs try to take over a ginormous jungle planet, but King Rexo the T-Rex and his dinosaur friends have other ideas!",
           "body_html": "<p><img src=\"kids-corner/vedaant/images/planet-junglor.jpg\" alt=\"Vedaant&#x27;s illustration for The Battle of Planet Junglor: dinosaurs led by King Rexo the T-Rex facing the Zorb aliens on a jungle planet\" width=\"1200\" height=\"675\" loading=\"lazy\" style=\"width:100%;height:auto;border-radius:10px\"></p><p class=\"kc-meta\"><em>Idea by Vedaant, age 9</em></p><p>Far, far away, past the purple moons of Zentar, there was a planet so covered in jungle that you couldn&#x27;t see a single patch of ground. The trees were taller than skyscrapers, the vines were as thick as buses, and the flowers were so big you could sleep inside one. This was Planet Junglor, and it belonged to the dinosaurs.</p><p>One morning a fleet of shiny silver spaceships came zooming down through the clouds. Out stepped the Zorbs, green aliens with three eyes, six wiggly arms and laser blasters that went ZAP-ZAP-ZOOM! Their leader, Captain Blip, stood on a giant mushroom and shouted, &quot;This planet is ours now!&quot;</p><p>The ground began to shake. BOOM. BOOM. BOOM. Out of the trees stomped King Rexo, the biggest T-Rex anyone had ever seen, with teeth like swords and a roar so loud it knocked the Zorbs&#x27; helmets off. Behind him came the Triceratops Tank Squad, the speedy Raptor Racers, and Ptero-Pilots swooping through the sky.</p><p>&quot;ROOOAAARRR!&quot; said King Rexo, which in dinosaur language means, &quot;Not today, aliens!&quot;</p><p>The battle was HUGE. The Zorbs fired lasers that bounced off the Triceratops&#x27; shields. The Raptors zipped between the trees so fast the aliens got dizzy. The Pterodactyls snatched the blasters right out of the Zorbs&#x27; hands and dropped them into a swamp full of bubbling mud. Captain Blip jumped into a giant robot suit, but King Rexo grabbed it with his jaws and spun it round and round like a spinning top until it flew off into space.</p><p>At last the Zorbs waved a white flag. Captain Blip climbed out of a bush, covered in mud, and said, &quot;Okay, okay, you win! Your planet is way too awesome to steal.&quot;</p><p>King Rexo thought for a moment. Then he did something nobody expected. He smiled. &quot;You can stay,&quot; he rumbled, &quot;but only if you share.&quot;</p><p>So the Zorbs fixed the dinosaurs&#x27; broken trees with their alien gadgets, and the dinosaurs gave the Zorbs rides through the jungle. And every year after that, Planet Junglor held the Great Jungle Games, where aliens and dinosaurs raced, wrestled and roared together.</p><p>But deep in the jungle something was watching... something even BIGGER.</p><p>The End?</p>",
           "pdf": "the-battle-of-planet-junglor.pdf",
-          "pdf_label": "Download the printable story (PDF)"
+          "pdf_label": "Download the printable story (PDF)",
+          "book": {
+            "slug": "planet-junglor",
+            "cover": "images/planet-junglor.jpg",
+            "cover_alt": "Vedaant's illustration: King Rexo the T-Rex and his dinosaur friends facing the Zorb aliens on Planet Junglor",
+            "credit": "Idea by Vedaant, age 9",
+            "end": "The End?",
+            "pages": [
+              {
+                "img": "images/junglor-p1.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "Far, far away, past the purple moons of Zentar, there was a planet so covered in jungle that you couldn't see a single patch of ground. The trees were taller than skyscrapers, the vines were as thick as buses, and the flowers were so big you could sleep inside one. This was Planet Junglor, and it belonged to the dinosaurs."
+                ],
+                "alt": "Planet Junglor: a giant jungle planet with towering trees and huge flowers, home of the dinosaurs"
+              },
+              {
+                "img": "images/junglor-p2.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "One morning a fleet of shiny silver spaceships came zooming down through the clouds. Out stepped the Zorbs, green aliens with three eyes, six wiggly arms and laser blasters that went ZAP-ZAP-ZOOM! Their leader, Captain Blip, stood on a giant mushroom and shouted, \"This planet is ours now!\""
+                ],
+                "alt": "Silver Zorb spaceships land and Captain Blip shouts from a giant mushroom"
+              },
+              {
+                "img": "images/junglor-p3.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "The ground began to shake. BOOM. BOOM. BOOM. Out of the trees stomped King Rexo, the biggest T-Rex anyone had ever seen, with teeth like swords and a roar so loud it knocked the Zorbs' helmets off. Behind him came the Triceratops Tank Squad, the speedy Raptor Racers, and Ptero-Pilots swooping through the sky.",
+                  "\"ROOOAAARRR!\" said King Rexo, which in dinosaur language means, \"Not today, aliens!\""
+                ],
+                "alt": "King Rexo the T-Rex stomps out of the trees and roars at the Zorbs"
+              },
+              {
+                "img": "images/junglor-p4.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "The battle was HUGE. The Zorbs fired lasers that bounced off the Triceratops' shields. The Raptors zipped between the trees so fast the aliens got dizzy. The Pterodactyls snatched the blasters right out of the Zorbs' hands and dropped them into a swamp full of bubbling mud."
+                ],
+                "alt": "Dinosaurs battle the Zorbs: lasers bounce off Triceratops shields and Raptors race through the trees"
+              },
+              {
+                "img": "images/junglor-p5.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "Captain Blip jumped into a giant robot suit, but King Rexo grabbed it with his jaws and spun it round and round like a spinning top until it flew off into space."
+                ],
+                "alt": "King Rexo spins Captain Blip's robot suit off into space"
+              },
+              {
+                "img": "images/junglor-p6.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "At last the Zorbs waved a white flag. Captain Blip climbed out of a bush, covered in mud, and said, \"Okay, okay, you win! Your planet is way too awesome to steal.\"",
+                  "King Rexo thought for a moment. Then he did something nobody expected. He smiled. \"You can stay,\" he rumbled, \"but only if you share.\""
+                ],
+                "alt": "The Zorbs wave a white flag and King Rexo smiles"
+              },
+              {
+                "img": "images/junglor-p7.jpg",
+                "w": 1200,
+                "h": 675,
+                "text": [
+                  "So the Zorbs fixed the dinosaurs' broken trees with their alien gadgets, and the dinosaurs gave the Zorbs rides through the jungle. And every year after that, Planet Junglor held the Great Jungle Games, where aliens and dinosaurs raced, wrestled and roared together.",
+                  "But deep in the jungle something was watching... something even BIGGER."
+                ],
+                "alt": "Aliens and dinosaurs play together at the Great Jungle Games while something bigger watches"
+              }
+            ]
+          }
         }
       ]
     },
