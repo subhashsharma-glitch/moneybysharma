@@ -69,7 +69,7 @@ NAVG = [("index.html","Home"),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("cash-vs-inflation.html","Cash vs inflation"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
  ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),
- ("resources.html","Resources"),("about.html","About")]
+ ("kids-corner/","Kids Corner"),("resources.html","Resources"),("about.html","About")]
 # Home insurance article (pages26.py): False = preview (noindex, no menu/sitemap/search/Article schema). Set True to go live.
 HI_LIVE = True
 if HI_LIVE: NAVG[1][1][1][2].append(("home-insurance-renewal.html","Home insurance renewal"))
@@ -540,6 +540,7 @@ SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0
 SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
+exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages25.py").read())  # PWA: manifest, sw.js, offline.html (after search so offline.html stays out of it)
 from seo import ext_links
 EXT = 0
@@ -561,5 +562,5 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f not in ("404.html","search.html","offline.html") and not (f=="paper-trading.html" and PT_PREVIEW) and f not in PREVIEW_PAGES] + ["tools/garmin-insights/"], CHECKED_ISO)
+write_sitemap([f for f in pages if f not in ("404.html","search.html","offline.html") and not (f=="paper-trading.html" and PT_PREVIEW) and f not in PREVIEW_PAGES] + ["tools/garmin-insights/"] + KC_URLS, CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

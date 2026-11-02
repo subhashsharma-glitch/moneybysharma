@@ -1,0 +1,8 @@
+{
+  "_how_to_add_a_post": "Add an object to the child's 'posts' list (newest first is not required; posts are sorted by date). Fields: date (YYYY-MM-DD), title, kind (Drawing | Story | Mini lesson | Thoughts), summary (1-2 sentences), body_html (optional, simple HTML), pdf (optional filename placed in kids-corner/<id>/printables/), pdf_label (optional). Then run: python3 scripts/build.py && python3 scripts/garmin_chrome.py, commit and push.",
+  "kids": [
+    {"id": "saachi", "name": "Saachi", "age": 11, "emoji": "🎨", "posts": []},
+    {"id": "vedaant", "name": "Vedaant", "age": 9, "emoji": "📚", "posts": []},
+    {"id": "arjun", "name": "Arjun", "age": 7, "emoji": "✏️", "posts": []}
+  ]
+}
