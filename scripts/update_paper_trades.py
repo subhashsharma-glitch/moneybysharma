@@ -117,10 +117,12 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
          "assets/weekly.js",
          # PWA: sw.js only changes if the precached shell changes (its cache name is a hash), listed so a refresh never trips on it
          "sw.js", "offline.html", "manifest.webmanifest"]
-# Date-driven outputs: the weekly-topics calendar rolls over each Sunday (scripts/pages20.py), so a rebuild of an
+# Date-driven outputs: the weekly-topics calendar rolls over each Sunday (scripts/pages20.py), and deals expire (pages16), so a rebuild of an
 # unchanged origin/main can legitimately change these. They are only allowed if a rebuild BEFORE the new export is
 # copied in (a "rollover pre-build") already changes them, and that pre-build changes nothing outside this list.
-ROLLOVER = ["index.html", "weekly-topics.html", "assets/search-index.json", "sw.js"]
+# deals.html: scripts/pages16.py drops deals and time-limited points once their "expires"/"until" date has passed
+# (expired items are not search-indexed separately; any search-index change is already covered above).
+ROLLOVER = ["index.html", "weekly-topics.html", "deals.html", "assets/search-index.json", "sw.js"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS + OPTIONAL_BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))
