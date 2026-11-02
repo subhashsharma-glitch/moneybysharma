@@ -1,6 +1,6 @@
 {
  "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
- "updated": "2026-10-29",
+ "updated": "2026-11-02",
  "groups": [
   {
    "id": "supermarkets",
@@ -33,7 +33,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/help/pages/clubcard-faqs/clubcard-prices/your-clubcard-prices",
@@ -64,7 +64,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
@@ -95,7 +95,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.asda.com/rewards/",
@@ -121,7 +121,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.morrisons.com/more",
@@ -147,7 +147,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
@@ -173,7 +173,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.coop.co.uk/membership",
@@ -189,11 +189,7 @@
      "tag": "Everyday low prices",
      "summary": "Aldi says it compares its prices with competitors' equivalent products every week. Its Price Check page lists dated “Weekly Price Check” comparisons; when we checked on 26 October 2026, the latest one listed was dated 24 August 2026.",
      "points": [
-      "Aldi says it regularly monitors competitor prices across the market. Its “Save” page lists Price Drops, Super 6 and Specialbuy Steals.",
-      {
-       "t": "Time-limited guarantee (Aldi's own terms): it says it will match the lowest UK supermarket price on pumpkins and squash (excluding multi-buys and promotional prices) between 10 September and 1 November 2026, if you can show proof of a lower price for an equivalent size on the date you buy.",
-       "until": "2026-11-01"
-      }
+      "Aldi says it regularly monitors competitor prices across the market. Its “Save” page lists Price Drops, Super 6 and Specialbuy Steals."
      ],
      "links": [
       [
@@ -210,7 +206,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.aldi.co.uk/save",
@@ -239,7 +235,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.tesco.com/groceries/en-GB/zone/aldi-price-match/",
@@ -298,7 +294,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.waitrose.com/ecom/help-information/customer-service/my-waitrose-card-and-money-off-vouchers/mywaitrose-vouchers",
@@ -337,7 +333,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.cineworld.co.uk/unlimited/",
@@ -364,7 +360,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://help.odeon.co.uk/hc/en-gb/sections/39740886979346-Limitless",
@@ -389,7 +385,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.picturehouses.com/membership",
@@ -417,7 +413,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
@@ -444,7 +440,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/vue-members",
@@ -473,40 +469,12 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/meerkat-movies",
       "expect": []
      }
-    },
-    {
-     "id": "showcase-offers",
-     "name": "Showcase offers",
-     "tag": "Ticket offer",
-     "summary": "Showcase publishes its current offers on one page.",
-     "points": [
-      {
-       "t": "Showcase says that until Friday 30 October 2026 you can buy 5 tickets for £25 to use at any Showcase cinema, for any film showing until that date. Terms and exclusions apply, and voucher codes aren't valid for Event Cinema titles.",
-       "until": "2026-10-30"
-      }
-     ],
-     "links": [
-      [
-       "Showcase – offers and competitions",
-       "https://www.showcasecinemas.co.uk/offers-competitions/"
-      ]
-     ],
-     "status": "ok",
-     "checked": "2026-10-29",
-     "check": {
-      "mode": "auto",
-      "url": "https://www.showcasecinemas.co.uk/offers-competitions/",
-      "expect": [
-       "5 tickets for just £25"
-      ]
-     },
-     "expires": "2026-10-30"
     }
    ]
   },
@@ -529,7 +497,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://help.netflix.com/en/node/24926/gb",
@@ -580,7 +548,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.spotify.com/uk/premium/",
@@ -608,10 +576,7 @@
      ],
      "note": "Spotify says the Student plan switches to Individual (£12.99 a month) when you stop being eligible.",
      "offers": [
-      {
-       "t": "Spotify's page says new Premium users get 2 months for £0 on Individual, then £12.99 a month. The offer ends 30 October 2026.",
-       "until": "2026-10-30"
-      }
+      "Spotify's page says new Premium Individual users can try 1 month for £0, then £12.99 a month. It's only for people who haven't tried Premium before, and terms apply. Students get 1 month for £0, then £5.99 a month."
      ]
     },
     {
@@ -627,7 +592,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.amazon.co.uk/amazonprime",
@@ -666,7 +631,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.disneyplus.com/en-gb",
@@ -704,7 +669,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-music/",
@@ -743,7 +708,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-tv/",
@@ -777,7 +742,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.nowtv.com/",
@@ -811,7 +776,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.youtube.com/premium",
@@ -846,7 +811,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
@@ -871,7 +836,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.diy.com/bandqclub",
@@ -895,7 +860,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "auto",
       "url": "https://www.pret.co.uk/en-GB/club-pret",
@@ -917,13 +882,14 @@
        "https://www.boots.com/terms-conditions/advantage-card-terms-and-conditions"
       ]
      ],
-     "status": "link-only",
+     "status": "review",
      "checked": "2026-10-17",
      "check": {
       "mode": "manual",
       "url": "https://www.boots.com/terms-conditions/advantage-card-terms-and-conditions",
       "expect": []
-     }
+     },
+     "reviewNote": "Boots' terms page blocks automated reads (Incapsula); not verified since 17 Oct 2026. Re-check in a real browser."
     },
     {
      "id": "superdrug",
@@ -943,7 +909,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.superdrug.com/beautycard/about-card",
@@ -971,7 +937,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://help.argos.co.uk/help/nectar",
@@ -1002,7 +968,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.myunidays.com/GB/en-GB",
@@ -1022,7 +988,7 @@
       ]
      ],
      "status": "link-only",
-     "checked": "2026-10-29",
+     "checked": "2026-11-02",
      "check": {
       "mode": "manual",
       "url": "https://www.studentbeans.com/uk",
