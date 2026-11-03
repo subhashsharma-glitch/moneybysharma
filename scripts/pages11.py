@@ -278,7 +278,7 @@ pages["paper-trading.html"] = page("paper-trading.html", "Paper Trading Experime
 </div></section>
 <h2>How the experiment works</h2>
 <ul>
-<li><strong>Three separate books</strong>, each starting with $10,000 of fake money. Each puts a fixed dollar amount into every position it opens. No real money, broker or wallet is involved.</li>
+<li><strong>Three separate books.</strong> The ATR book started with $10,000 of fake money and had a $1,000 fake top-up on 1 Nov 2026 ($11,000 total); X buzz and the meme-coin book each start with $10,000. Each book puts a fixed dollar amount into every position it opens. No real money, broker or wallet is involved.</li>
 <li><strong>IA-ATR signals{_since_html("atr")}:</strong> {E(BOOKS[0][3])}</li>
 <li><strong>X buzz{_since_html("x_buzz")}:</strong> {E(_book_desc("x_buzz", ""))}</li>
 <li><strong>Solana meme coins{_since_html("meme_jup")}:</strong> {E(_meme["notes"]) if _meme and _meme.get("notes") else E(BOOKS[2][3])}</li>
