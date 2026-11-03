@@ -19,7 +19,7 @@ def _kc_post(p, kid):
         pdf = (f'<p><a class="btn" href="kids-corner/{kid["id"]}/{p["book"]["slug"]}/">📖 Read the picture book</a></p>'
                + (f'<p class="kc-meta"><a href="kids-corner/{kid["id"]}/printables/{p["pdf"]}" download>{p.get("pdf_label","Download the printable (PDF)")}</a></p>' if p.get("pdf") else ""))
     return (f'<article class="card kc-post" id="{p["date"]}-{_kc_re.sub(r"[^a-z0-9]+","-",p["title"].lower()).strip("-")}"><span class="tag">{html.escape(p.get("kind","Post"))}</span>'
-            f'<h3>{html.escape(p["title"])}</h3><p class="kc-meta">{d(p["date"])}</p><p>{html.escape(p.get("summary",""))}</p>{"" if p.get("book") else p.get("body_html","")}{pdf}</article>')
+            f'<h3>{html.escape(p["title"])}</h3><p class="kc-meta">{d(p["date"])}</p>{"<p>"+html.escape(p["summary"])+"</p>" if p.get("summary") else ""}{"" if p.get("book") else p.get("body_html","")}{pdf}</article>')
 KC_SOON = '<div class="card kc-soon"><span class="tag soon">Coming soon</span><h3>{n}’s first post is on its way</h3><p>Check back soon for a drawing, a story or a mini lesson from {n}.</p></div>'
 def _kc_write(fn, title, desc, body, depth):
     h = page(fn, title, desc, body, head=KC_CSS)
