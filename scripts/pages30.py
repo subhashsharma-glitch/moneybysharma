@@ -8,6 +8,7 @@ KC_CSS = '''<style>
 .kc-kid h3{margin:.6rem 0 .2rem}.kc-posts{display:grid;gap:1rem;margin:1rem 0 2rem}
 .kc-post .kc-meta{font-size:.85rem;color:var(--muted)}.kc-soon{border:2px dashed var(--accent);background:var(--accent-50);text-align:center}
 .kc-soon h3{color:var(--teal)}
+@media(min-width:960px){.kc-gal{grid-template-columns:1fr 1fr}.kc-gal>:only-child{grid-column:1/-1}}
 </style>'''
 def _kc_fix(h, depth):
     pre = "../" * depth
@@ -25,7 +26,7 @@ def _kc_write(fn, title, desc, body, depth):
     h = _kc_fix(h, depth)
     _kc_os.makedirs(_kc_os.path.dirname(fn), exist_ok=True)
     open(fn + "index.html", "w").write(h)
-kids_cards = "".join(f'<a class="card kc-kid" href="kids-corner/{k["id"]}/"><span class="kc-av" aria-hidden="true">{k["name"][0]}</span><h3>{k["name"]}</h3><p>Age {k["age"]} · {len(k["posts"])} post{"s" if len(k["posts"])!=1 else ""}</p><span class="btn">Visit {k["name"]}’s page</span></a>' for k in KC["kids"])
+kids_cards = "".join(f'<a class="card kc-kid" href="kids-corner/{k["id"]}/"><span class="kc-av" aria-hidden="true">{k["name"][0]}</span><h3>{k["name"]}</h3><p>Age {k["age"]} · {len(k["posts"])} {("drawing" if k.get("gallery") else "post")}{"s" if len(k["posts"])!=1 else ""}</p><span class="btn">{"Visit " + k["name"] + "’s Gallery" if k.get("gallery") else "Visit " + k["name"] + "’s page"}</span></a>' for k in KC["kids"])
 _kc_write("kids-corner/", "Kids Corner – MoneyBySharma",
  "Kids Corner: a space where the Sharma kids share what's on their mind – a drawing, a story or a mini lesson to read and download.",
  ph("Kids Corner", "Kids Corner", "A space where the Sharma kids share what’s on their mind.") + W(f'''
@@ -35,10 +36,14 @@ _kc_write("kids-corner/", "Kids Corner – MoneyBySharma",
 for k in KC["kids"]:
     posts = sorted(k["posts"], key=lambda p: p["date"], reverse=True)
     lst = "".join(_kc_post(p, k) for p in posts) or KC_SOON.format(n=k["name"])
-    _kc_write(f'kids-corner/{k["id"]}/', f'{k["name"]}’s page – Kids Corner – MoneyBySharma',
-     f"{k['name']}'s page in Kids Corner on MoneyBySharma: drawings, stories and mini lessons, with printables to download.",
-     f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › <a href="kids-corner/">Kids Corner</a> › {k["name"]}</div><h1>{k["name"]}’s page</h1><p>Age {k["age"]} · Drawings, stories and mini lessons from {k["name"]}.</p></div></div>'
-     + W(f'<h2>Latest posts</h2><div class="kc-posts">{lst}</div><p style="margin-bottom:2rem"><a href="kids-corner/">← Back to Kids Corner</a></p>'), 2)
+    gal = k.get("gallery")
+    ttl = f'{k["name"]}’s Gallery' if gal else f'{k["name"]}’s page'
+    lead = f'Age {k["age"]} · Drawings by {k["name"]}. Tap a drawing to see it full size.' if gal else f'Age {k["age"]} · Drawings, stories and mini lessons from {k["name"]}.'
+    inner = f'<h2>Drawings</h2><div class="kc-posts kc-gal">{lst}</div>' if gal else f'<h2>Latest posts</h2><div class="kc-posts">{lst}</div>'
+    _kc_write(f'kids-corner/{k["id"]}/', f'{ttl} – Kids Corner – MoneyBySharma',
+     f"{ttl} in Kids Corner on MoneyBySharma: drawings by {k['name']}." if gal else f"{k['name']}'s page in Kids Corner on MoneyBySharma: drawings, stories and mini lessons, with printables to download.",
+     f'<div class="page-head"><div class="wrap"><div class="crumb"><a href="index.html">Home</a> › <a href="kids-corner/">Kids Corner</a> › {ttl}</div><h1>{ttl}</h1><p>{lead}</p></div></div>'
+     + W(f'{inner}<p style="margin-bottom:2rem"><a href="kids-corner/">← Back to Kids Corner</a></p>'), 2)
 KC_URLS = ["kids-corner/"] + [f'kids-corner/{k["id"]}/' for k in KC["kids"]]
 
 # ---------- Picture-book readers (post["book"]) ----------

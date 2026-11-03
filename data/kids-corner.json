@@ -111,11 +111,10 @@
           "title": "Battleship",
           "kind": "Drawing",
           "summary": "Arjun just let his pen go wild with random lines, and a battleship appeared! Can you spot the little ghost hiding inside?",
-          "body_html": "<p style=\"margin:.6rem 0\"><a href=\"kids-corner/arjun/images/battleship.jpg\" title=\"Open the drawing full size\"><img src=\"kids-corner/arjun/images/battleship.jpg\" alt=\"Arjun&#x27;s black pen drawing of a battleship made from swirly random lines, with a little ghost hidden inside and his signature in the corner\" width=\"1600\" height=\"1484\" style=\"display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px\"></a></p><p class=\"kc-meta\" style=\"text-align:center\"><em>Drawn by Arjun, age 7</em> · <a href=\"kids-corner/arjun/images/battleship.jpg\">Open full size</a></p>",
-          "pdf": "battleship-colour-me-in.pdf",
-          "pdf_label": "🖍️ Download the colouring page (PDF)"
+          "body_html": "<p style=\"margin:.6rem 0\"><a href=\"kids-corner/arjun/images/battleship.jpg\" title=\"Open the drawing full size\"><img src=\"kids-corner/arjun/images/battleship.jpg\" alt=\"Arjun&#x27;s black pen drawing of a battleship made from swirly random lines, with a little ghost hidden inside and his signature in the corner\" width=\"1600\" height=\"1484\" style=\"display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px\"></a></p><p class=\"kc-meta\" style=\"text-align:center\"><em>Drawn by Arjun, age 7</em> · <a href=\"kids-corner/arjun/images/battleship.jpg\">Open full size</a></p>"
         }
-      ]
+      ],
+      "gallery": true
     }
   ]
 }
