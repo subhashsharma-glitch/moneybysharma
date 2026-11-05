@@ -6,7 +6,27 @@
       "name": "Saachi",
       "age": 11,
       "emoji": "🎨",
-      "posts": []
+      "posts": [
+        {
+          "date": "2026-11-05",
+          "title": "Leafy Giraffe",
+          "kind": "Drawing",
+          "summary": "Saachi drew a giraffe with leafy patterns instead of spots, and long eyelashes that make it look like it's posing for a portrait. Can you spot all the little leaf shapes?",
+          "body_html": "<p style=\"margin:.6rem 0\"><a href=\"kids-corner/saachi/images/leafy-giraffe.jpg\" title=\"Open the drawing full size\"><img src=\"kids-corner/saachi/images/leafy-giraffe.jpg\" alt=\"Leafy Giraffe: a pencil drawing by Saachi, age 11\" width=\"1084\" height=\"1600\" loading=\"lazy\" style=\"display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px\"></a></p><p class=\"kc-meta\" style=\"text-align:center\"><em>Drawn by Saachi, age 11</em> · <a href=\"kids-corner/saachi/images/leafy-giraffe.jpg\">Open full size</a></p>",
+          "pdf": "colour-in-leafy-giraffe.pdf",
+          "pdf_label": "🖍 Colour it in (PDF)"
+        },
+        {
+          "date": "2026-11-05",
+          "title": "Ballet Shoes",
+          "kind": "Drawing",
+          "summary": "Saachi sketched a pair of pointe shoes with ribbons wrapped neatly up the ankles. Ready for centre stage!",
+          "body_html": "<p style=\"margin:.6rem 0\"><a href=\"kids-corner/saachi/images/ballet-shoes.jpg\" title=\"Open the drawing full size\"><img src=\"kids-corner/saachi/images/ballet-shoes.jpg\" alt=\"Ballet Shoes: a pencil drawing by Saachi, age 11\" width=\"1200\" height=\"1600\" loading=\"lazy\" style=\"display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px\"></a></p><p class=\"kc-meta\" style=\"text-align:center\"><em>Drawn by Saachi, age 11</em> · <a href=\"kids-corner/saachi/images/ballet-shoes.jpg\">Open full size</a></p>",
+          "pdf": "colour-in-ballet-shoes.pdf",
+          "pdf_label": "🖍 Colour it in (PDF)"
+        }
+      ],
+      "gallery": true
     },
     {
       "id": "vedaant",
