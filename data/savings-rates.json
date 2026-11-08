@@ -1,7 +1,7 @@
 {
   "status": "live",
   "statusMessage": "",
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-11-08",
   "note": "Every rate was read on the provider's own website on the checked date. Rates change often; providers can withdraw products at any time. minDeposit null = not stated on the page we checked.",
   "rates": [
     {
@@ -14,7 +14,7 @@
       "fscs": true,
       "conditions": "Variable rate. Up to 3 withdrawals in 12 months. Online only. Annual or monthly interest. One account per issue.",
       "sourceUrl": "https://www.kentreliance.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Kent Reliance",
@@ -26,7 +26,7 @@
       "fscs": true,
       "conditions": "Variable rate. 60 days' notice to withdraw. Opened in branch only.",
       "sourceUrl": "https://www.kentreliance.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Kent Reliance",
@@ -38,7 +38,7 @@
       "fscs": true,
       "conditions": "Variable rate. Save up to £500 a month. Interest paid annually. Opened in branch only.",
       "sourceUrl": "https://www.kentreliance.co.uk/savings/",
-      "checked": "2026-10-19",
+      "checked": "2026-11-08",
       "termLabel": "Not stated"
     },
     {
@@ -51,7 +51,7 @@
       "fscs": true,
       "conditions": "Variable rate. Includes a 2.13% AER fixed bonus for the first 12 months. New customers only. Unlimited withdrawals and deposits.",
       "sourceUrl": "https://www.shawbrook.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Marcus by Goldman Sachs",
@@ -63,7 +63,7 @@
       "fscs": true,
       "conditions": "Variable rate. Includes a 0.49% gross bonus fixed for the first 12 months; 3.24% AER without the bonus. Interest paid monthly.",
       "sourceUrl": "https://www.marcus.co.uk/uk/en/savings/online-savings-account",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Atom bank",
@@ -75,7 +75,7 @@
       "fscs": true,
       "conditions": "Variable reward rate. No withdrawal limit, but in a monthly interest period when you withdraw, the 2.00% AER withdrawal rate applies. Monthly interest.",
       "sourceUrl": "https://www.atombank.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Nationwide Building Society",
@@ -87,19 +87,19 @@
       "fscs": true,
       "conditions": "Variable rate. Nationwide current account holders aged 16+ only, online only. Save up to £200 a month for 12 months. More than 3 withdrawals in the year: rate falls to 1.05% AER.",
       "sourceUrl": "https://www.nationwide.co.uk/savings/flex-regular-saver/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Nationwide Building Society",
       "product": "1 Year Fixed Rate Cash ISA",
       "type": "cash-isa",
-      "aer": 4.5,
+      "aer": 4.75,
       "termMonths": 12,
       "minDeposit": null,
       "fscs": true,
       "conditions": "Fixed, tax-free. If you withdraw money, the ISA closes and an early access charge applies. UK residents aged 18+.",
       "sourceUrl": "https://www.nationwide.co.uk/savings/cash-isas/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Skipton Building Society",
@@ -111,19 +111,19 @@
       "fscs": true,
       "conditions": "Fixed, tax-free. No withdrawals. Early closure subject to 90 days' interest penalty.",
       "sourceUrl": "https://www.skipton.co.uk/savings",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Barclays",
       "product": "Single Access 1-Year Flexible Cash ISA",
       "type": "cash-isa",
-      "aer": 4.4,
+      "aer": 4.55,
       "termMonths": 12,
       "minDeposit": null,
       "fscs": true,
       "conditions": "Fixed, tax-free. Open to everyone. Limited withdrawals (single access).",
       "sourceUrl": "https://www.barclays.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Barclays",
@@ -135,7 +135,7 @@
       "fscs": true,
       "conditions": "Variable rate. Barclays Blue and Premier customers only. 3.96% AER on the first £5,000, 0.70% AER on amounts over £5,000. Unlimited withdrawals.",
       "sourceUrl": "https://www.barclays.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "NatWest",
@@ -147,7 +147,7 @@
       "fscs": true,
       "conditions": "Variable rate. Current account customers aged 16+ only. Save £1–£150 a month. 5.25% AER on balances up to £5,000, 1.00% AER above. Instant access. Interest paid monthly.",
       "sourceUrl": "https://www.natwest.com/savings.html",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "NatWest",
@@ -159,7 +159,7 @@
       "fscs": true,
       "conditions": "Fixed, tax-free. Aged 18+ and UK resident. Early closure charges may apply. Interest paid annually.",
       "sourceUrl": "https://www.natwest.com/savings.html",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "NatWest",
@@ -171,7 +171,7 @@
       "fscs": true,
       "conditions": "Fixed rate on £1–£99,999 (4.20% AER from £100,000). Early closure charges may apply.",
       "sourceUrl": "https://www.natwest.com/savings.html",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "HSBC UK",
@@ -183,7 +183,7 @@
       "fscs": true,
       "conditions": "Fixed rate. HSBC current or savings account customers only. £2,000 to £1 million. No instant access.",
       "sourceUrl": "https://www.hsbc.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "HSBC UK",
@@ -195,7 +195,7 @@
       "fscs": true,
       "conditions": "Fixed rate. HSBC current or savings account customers only. £2,000 to £1 million. No instant access.",
       "sourceUrl": "https://www.hsbc.co.uk/savings/",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "HSBC UK",
@@ -207,7 +207,7 @@
       "fscs": true,
       "conditions": "Fixed, tax-free, for up to 13 months. HSBC current account customers only. Withdrawal restrictions and an early withdrawal fee may apply.",
       "sourceUrl": "https://www.hsbc.co.uk/savings/",
-      "checked": "2026-10-19",
+      "checked": "2026-11-08",
       "termLabel": "Up to 13 months"
     },
     {
@@ -220,21 +220,8 @@
       "fscs": true,
       "conditions": "Fixed until 31 Dec 2027. No withdrawals or closure after the 14-day cooling-off period. Interest paid annually.",
       "sourceUrl": "https://www.coventrybuildingsociety.co.uk/member/savings.html",
-      "checked": "2026-10-19",
+      "checked": "2026-11-08",
       "termLabel": "To 31 Dec 2027"
-    },
-    {
-      "provider": "Coventry Building Society",
-      "product": "Fixed Rate ISA (340)",
-      "type": "cash-isa",
-      "aer": 4.1,
-      "termMonths": null,
-      "minDeposit": null,
-      "fscs": true,
-      "conditions": "Fixed, tax-free, until 31 Dec 2028. Partial withdrawals not allowed; closing costs 180 days' interest.",
-      "sourceUrl": "https://www.coventrybuildingsociety.co.uk/member/savings.html",
-      "checked": "2026-10-19",
-      "termLabel": "To 31 Dec 2028"
     },
     {
       "provider": "Coventry Building Society",
@@ -246,7 +233,7 @@
       "fscs": true,
       "conditions": "Variable rate. Up to 5 withdrawals a year free; from the 6th (including closure) a charge of 50 days' interest on the amount withdrawn.",
       "sourceUrl": "https://www.coventrybuildingsociety.co.uk/member/savings.html",
-      "checked": "2026-10-19"
+      "checked": "2026-11-08"
     },
     {
       "provider": "Yorkshire Building Society",

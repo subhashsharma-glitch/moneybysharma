@@ -186,7 +186,8 @@ def _srrow(r):
 SR_ROWS = "".join(_srrow(r) for r in sorted(SR["rates"], key=lambda r: -r["aer"]))
 SR_LIVE = SR.get("status") == "live"
 SR_BANNER = '<div class="banner" id="rates-banner" role="status" hidden></div>' if SR_LIVE else '<div class="banner" id="rates-banner" role="status">Example data – live rates coming soon</div>'
-SR_DATE = f" (all checked {_srday(SR['lastUpdated'])})" if SR_LIVE and SR.get("lastUpdated") else ""
+_srds = sorted({r.get("checked") for r in SR.get("rates", []) if r.get("checked")})
+SR_DATE = ((f" (all checked {_srday(_srds[0])})" if len(_srds) == 1 else f" (checked between {_srday(_srds[0])} and {_srday(_srds[-1])})") if _srds else f" (all checked {_srday(SR['lastUpdated'])})") if SR_LIVE and SR.get("lastUpdated") else ""
 pages["savings.html"] = page("savings.html", "Savings guide and rate table – MoneyBySharma", "UK savings explained: easy access, fixed bonds, cash ISAs, regular savers, FSCS £120,000 protection, the Personal Savings Allowance and starting rate.",
  ph("Savings","Savings, explained","How the main UK savings accounts work, how your money is protected, and how savings interest is taxed in 2026/27."), W(f'''
 <h2 id="table">Savings rates comparison</h2>
