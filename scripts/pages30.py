@@ -9,6 +9,11 @@ KC_CSS = '''<style>
 .kc-post .kc-meta{font-size:.85rem;color:var(--muted)}.kc-soon{border:2px dashed var(--accent);background:var(--accent-50);text-align:center}
 .kc-soon h3{color:var(--teal)}
 @media(min-width:960px){.kc-gal{grid-template-columns:1fr 1fr}.kc-gal>:only-child{grid-column:1/-1}}
+.kc-daily{margin:1.4rem 0 0;border-top:4px solid var(--accent);overflow-wrap:anywhere}
+.kc-daily h2{margin:.45rem 0 .4rem;font-family:var(--serif);color:var(--teal)}
+.kc-daily-text{font-size:1.15rem;margin:.3rem 0 .8rem}
+.kc-daily-answer{margin:.8rem 0 0;padding:.8rem 1rem;border-radius:8px;background:var(--teal-50);border-left:4px solid var(--teal);color:var(--teal)}
+.kc-daily .btn{margin-top:.2rem}
 </style>'''
 def _kc_fix(h, depth):
     pre = "../" * depth
@@ -21,18 +26,42 @@ def _kc_post(p, kid):
     return (f'<article class="card kc-post" id="{p["date"]}-{_kc_re.sub(r"[^a-z0-9]+","-",p["title"].lower()).strip("-")}"><span class="tag">{html.escape(p.get("kind","Post"))}</span>'
             f'<h3>{html.escape(p["title"])}</h3><p class="kc-meta">{d(p["date"])}</p>{"<p>"+html.escape(p["summary"])+"</p>" if p.get("summary") else ""}{"" if p.get("book") else p.get("body_html","")}{pdf}</article>')
 KC_SOON = '<div class="card kc-soon"><span class="tag soon">Coming soon</span><h3>{n}’s first post is on its way</h3><p>Check back soon for a drawing, a story or a mini lesson from {n}.</p></div>'
-def _kc_write(fn, title, desc, body, depth):
-    h = page(fn, title, desc, body, head=KC_CSS)
+def _kc_write(fn, title, desc, body, depth, scripts=()):
+    h = page(fn, title, desc, body, head=KC_CSS, scripts=scripts)
     h = _kc_fix(h, depth)
     _kc_os.makedirs(_kc_os.path.dirname(fn), exist_ok=True)
     open(fn + "index.html", "w").write(h)
+# Challenge of the day (data/challenge-of-the-day.json). UK day-of-year mod 30.
+import json as _kc_j
+from zoneinfo import ZoneInfo as _kc_ZI
+from datetime import datetime as _kc_dt
+_KC_CH = _kc_j.load(open("data/challenge-of-the-day.json"))
+assert len(_KC_CH) == 30, "need 30 daily challenges"
+_kc_raw = _kc_j.dumps(_KC_CH, ensure_ascii=False, separators=(",", ":"))
+if "</script" in _kc_raw.lower():
+    raise SystemExit("challenge-of-the-day.json contains </script")
+_kc_today = _kc_dt.now(_kc_ZI("Europe/London")).date()
+_kc_item = _KC_CH[(_kc_today.timetuple().tm_yday % 30)]
+_kc_kind = "Today's riddle" if _kc_item["type"] == "riddle" else "Today's challenge"
+KC_DAILY = (
+    '<section class="card kc-daily" id="kc-daily" aria-labelledby="kc-daily-h">'
+    '<noscript><span class="tag">Challenge of the day</span>'
+    f'<h2 id="kc-daily-h">{html.escape(_kc_kind)}</h2>'
+    f'<p class="kc-daily-text">{html.escape(_kc_item["text"])}</p>'
+    '<p class="hint">Turn on JavaScript to reveal riddle answers.</p></noscript>'
+    f'<script type="application/json" id="kc-daily-data">{_kc_raw}</script>'
+    "</section>"
+)
+print("kids challenge of the day:", _kc_kind, "item", _kc_today.timetuple().tm_yday % 30)
+
 kids_cards = "".join(f'<a class="card kc-kid" href="kids-corner/{k["id"]}/"><span class="kc-av" aria-hidden="true">{k["name"][0]}</span><h3>{k["name"]}</h3><p>Age {k["age"]} · {len(k["posts"])} {("drawing" if k.get("gallery") else "post")}{"s" if len(k["posts"])!=1 else ""}</p><span class="btn">{"Visit " + k["name"] + "’s Gallery" if k.get("gallery") else "Visit " + k["name"] + "’s page"}</span></a>' for k in KC["kids"])
 _kc_write("kids-corner/", "Kids Corner – MoneyBySharma",
  "Kids Corner: a space where the Sharma kids share what's on their mind – a drawing, a story or a mini lesson to read and download.",
  ph("Kids Corner", "Kids Corner", "A space where the Sharma kids share what’s on their mind.") + W(f'''
 <div class="kc-hero"><p style="margin:0">Welcome to Kids Corner! This is where Saachi, Vedaant and Arjun share whatever is on their mind. It might be a drawing, a story or a mini lesson about something they have learned. You can read every post here, and some come with a printable PDF you can download and keep.</p></div>
+{KC_DAILY}
 <h2>Meet the kids</h2><div class="grid g3">{kids_cards}</div>
-<p class="hint" style="margin:1.5rem 0 2rem">Posts are written by the kids with a grown-up’s help. Printables are free to download for personal and classroom use.</p>'''), 1)
+<p class="hint" style="margin:1.5rem 0 2rem">Posts are written by the kids with a grown-up’s help. Printables are free to download for personal and classroom use.</p>'''), 1, scripts=("kc-challenge.js",))
 for k in KC["kids"]:
     posts = sorted(k["posts"], key=lambda p: p["date"], reverse=True)
     lst = "".join(_kc_post(p, k) for p in posts) or KC_SOON.format(n=k["name"])
