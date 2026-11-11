@@ -186,6 +186,7 @@ B26_BANNER = '''<style>
 import datetime as _b26dt
 from zoneinfo import ZoneInfo as _b26zi
 B26_BANNER = B26_BANNER.replace("__B26HID__", "" if _b26dt.datetime.now(_b26zi("Europe/London")).date().isoformat() <= "2026-11-30" else " hidden")
-_b26mk = '<div class="wrap"><p class="x-invite">'
+# Budget banner is inserted before this hook. It used to be the home-page Follow/X invite (removed 11 Nov 2026; see scripts/home-x-invite.removed.html).
+_b26mk = '<!-- home-banner-hook -->'
 assert pages["index.html"].count(_b26mk) == 1, "home page marker for the Budget 2026 banner not found"
 pages["index.html"] = pages["index.html"].replace(_b26mk, B26_BANNER + _b26mk)

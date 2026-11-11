@@ -128,7 +128,8 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <h1>Money, explained in plain English.</h1>
 <p>MoneyBySharma is a UK personal-finance information site. Clear guides to savings, ISAs, pensions, mortgages and gilts – with simple calculators and every figure linked to its official source.</p>
 <div class="cta"><a class="btn" href="savings.html">Start with savings</a><a class="btn ghost" href="#calculators">Try the calculators</a></div></div></section>
-<div class="wrap"><p class="x-invite"><svg class="x-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow <a href="https://x.com/moneybysharma" target="_blank" rel="noopener">@moneybysharma on X</a> for a weekly plain-English money topic.</span></p></div>
+<!-- Home-page Follow/X invite removed 11 Nov 2026 (see scripts/home-x-invite.removed.html). -->
+<!-- home-banner-hook -->
 <section class="numbers" aria-labelledby="kn"><div class="wrap"><h2 id="kn">Today's key numbers</h2>
 <div class="kn"><b>{BR["rate"]:.2f}%</b><small>Bank of England Bank Rate, since {d(BR["since"])}. <a href="{BR["sourceUrl"]}" rel="noopener">BoE</a> data as at {d(BR["asAt"])}.</small></div>
 <div class="kn"><b>£20,000</b><small>ISA allowance 2026/27. <a href="{S["rates"][1]}" rel="noopener">GOV.UK</a></small></div>
