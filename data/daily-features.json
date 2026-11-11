@@ -1,5 +1,6 @@
 {
   "preview": false,
+  "heading": "Today's money bite",
   "disclaimer": "Information, not financial advice.",
   "notes": "Edit these banks, then run python3 scripts/build.py. Bank Rate and CPI were re-checked against official sources on 11 November 2026 and were unchanged.",
   "tips": [

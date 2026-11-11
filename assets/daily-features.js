@@ -75,7 +75,7 @@
       previewBar +
       '<div class="wrap">' +
       '<p class="daily-kicker"><span class="tag">Today</span> ' + esc(fmt(date)) + "</p>" +
-      ' <h2 id="daily-h">Today on MoneyBySharma</h2>' +
+      ' <h2 id="daily-h">' + esc(DATA.heading || "Today's money bite") + '</h2>' +
       '<p class="daily-lead">A short tip, a one-question quiz and a myth-or-fact card, rotating each UK day. ' + esc(DATA.disclaimer || "Information, not financial advice.") + "</p>" +
       '<article class="card daily-tip" aria-labelledby="daily-tip-h">' +
         '<span class="tag">Money tip of the day</span>' +
