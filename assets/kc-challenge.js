@@ -29,24 +29,64 @@
   var item = items[((dayOfYear(todayUK()) % items.length) + items.length) % items.length];
   var isRiddle = item.type === "riddle";
   var title = isRiddle ? "Today's riddle" : "Today's challenge";
-  root.innerHTML =
+  var choices = (isRiddle && item.choices && item.choices.length) ? item.choices : null;
+  var html =
     '<span class="tag">Challenge of the day</span>' +
     '<h2 id="kc-daily-h">' + title + "</h2>" +
-    '<p class="kc-daily-text">' + esc(item.text) + "</p>" +
-    (isRiddle
-      ? '<button type="button" class="btn kc-daily-show" aria-expanded="false" aria-controls="kc-daily-answer">Show answer</button>' +
-        '<p class="kc-daily-answer" id="kc-daily-answer" hidden></p>'
-      : "");
-
-  var btn = root.querySelector(".kc-daily-show");
-  if (btn) {
-    btn.addEventListener("click", function () {
-      var ans = document.getElementById("kc-daily-answer");
-      var on = ans.hidden;
-      ans.hidden = !on;
-      if (on) ans.textContent = item.answer || "";
-      btn.setAttribute("aria-expanded", on ? "true" : "false");
-      btn.textContent = on ? "Hide answer" : "Show answer";
-    });
+    '<p class="kc-daily-text" id="kc-daily-q">' + esc(item.text) + "</p>";
+  if (choices) {
+    html += '<div class="kc-daily-choices" role="group" aria-labelledby="kc-daily-q">';
+    for (var i = 0; i < choices.length; i++) {
+      html += '<button type="button" class="kc-daily-choice" data-i="' + i + '">' + esc(choices[i]) + "</button>";
+    }
+    html += "</div>" +
+      '<div class="kc-daily-fb" id="kc-daily-fb" role="status" aria-live="polite" hidden></div>';
   }
+  root.innerHTML = html;
+
+  var fb = document.getElementById("kc-daily-fb");
+  var btns = root.querySelectorAll(".kc-daily-choice");
+  if (!btns.length) return;
+
+  function showFb(kind, inner) {
+    fb.hidden = false;
+    fb.className = "kc-daily-fb is-" + kind;
+    fb.innerHTML = inner;
+  }
+
+  root.addEventListener("click", function (e) {
+    var btn = e.target.closest(".kc-daily-choice");
+    if (!btn || btn.disabled) return;
+    var choice = choices[Number(btn.getAttribute("data-i"))];
+    if (choice === item.answer) {
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].disabled = true;
+        if (btns[i] === btn) btns[i].classList.add("is-right");
+      }
+      showFb(
+        "right",
+        "<p>" + esc(item.feedback_right || "Well done!") + "</p>" +
+          '<p class="kc-daily-answer-line">The answer is ' + esc(item.answer) + "</p>"
+      );
+    } else {
+      btn.classList.add("is-wrong");
+      btn.disabled = true;
+      showFb("wrong", "<p>" + esc(item.feedback_wrong || "Not quite! Try again.") + "</p>");
+    }
+  });
+
+  root.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp" && e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    var list = [];
+    for (var i = 0; i < btns.length; i++) if (!btns[i].disabled) list.push(btns[i]);
+    if (!list.length) return;
+    var idx = list.indexOf(document.activeElement);
+    if (idx < 0) idx = e.key === "ArrowUp" || e.key === "ArrowLeft" ? 0 : -1;
+    var dir = (e.key === "ArrowDown" || e.key === "ArrowRight") ? 1 : -1;
+    var next = list[(idx + dir + list.length) % list.length];
+    if (next) {
+      e.preventDefault();
+      next.focus();
+    }
+  });
 })();

@@ -1,32 +1,242 @@
 [
-{"type":"challenge","text":"Find 3 things at home you could reuse instead of buying new."},
-{"type":"riddle","text":"I have a head and a tail but no body. What am I?","answer":"A coin!"},
-{"type":"challenge","text":"Put one coin in your piggy bank today, even a small one."},
-{"type":"riddle","text":"You have 50p and buy a sweet for 30p. How much change do you get?","answer":"20p"},
-{"type":"challenge","text":"Before asking for something, wait one whole day. Do you still want it?"},
-{"type":"riddle","text":"What gets bigger the more you save it?","answer":"Your savings pot!"},
-{"type":"challenge","text":"Draw a picture of something you are saving up for."},
-{"type":"riddle","text":"Which is worth more: three 10p coins or one 20p coin?","answer":"Three 10p coins (30p)"},
-{"type":"challenge","text":"Switch off lights in empty rooms today to save energy."},
-{"type":"riddle","text":"I'm made of paper, I'm worth more than a coin, and the King is on me. What am I?","answer":"A banknote"},
-{"type":"challenge","text":"Make a 'need or want' list of 5 things. Which are needs?"},
-{"type":"riddle","text":"If you save 10p every day for a week, how much will you have?","answer":"70p"},
-{"type":"challenge","text":"Play shop with a grown-up and practise giving change."},
-{"type":"riddle","text":"What has many pennies but can't buy anything?","answer":"A piggy bank... until you open it!"},
-{"type":"challenge","text":"Share something today: a snack, a toy or some of your time."},
-{"type":"riddle","text":"A comic costs £2. You have £1.20. How much more do you need?","answer":"80p"},
-{"type":"challenge","text":"Make a savings jar label with your goal written on it."},
-{"type":"riddle","text":"Which two UK coins have 7 sides?","answer":"The 20p and the 50p"},
-{"type":"challenge","text":"Fix or tidy something instead of throwing it away."},
-{"type":"riddle","text":"You split £1 equally with a friend. How much do you each get?","answer":"50p each"},
-{"type":"challenge","text":"Count all the coins in your piggy bank. How much is there?"},
-{"type":"riddle","text":"What do you call money you keep for later?","answer":"Savings"},
-{"type":"challenge","text":"Compare the price of two snacks at the shop. Which is better value?"},
-{"type":"riddle","text":"How many 5p coins make £1?","answer":"20"},
-{"type":"challenge","text":"Have a no-spend day: enjoy free fun like the park or drawing."},
-{"type":"riddle","text":"I'm round, I'm gold and silver, and I'm worth £2. What am I?","answer":"A £2 coin"},
-{"type":"challenge","text":"Think of one way you could help at home to earn a sticker or treat."},
-{"type":"riddle","text":"A toy costs £5. You save £1 a week. How many weeks until you can buy it?","answer":"5 weeks"},
-{"type":"challenge","text":"Write a thank-you note for something someone gave you."},
-{"type":"riddle","text":"What's the difference between a need and a want?","answer":"A need is something you must have, like food. A want is nice to have, like a new toy."}
+{
+"type": "challenge",
+"text": "Find 3 things at home you could reuse instead of buying new."
+},
+{
+"type": "riddle",
+"text": "I have a head and a tail but no body. What am I?",
+"answer": "A coin!",
+"choices": [
+"A snake",
+"A coin!",
+"A kite"
+],
+"feedback_wrong": "Not quite! Think of something in your pocket that jingles.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Put one coin in your piggy bank today, even a small one."
+},
+{
+"type": "riddle",
+"text": "You have 50p and buy a sweet for 30p. How much change do you get?",
+"answer": "20p",
+"choices": [
+"10p",
+"20p",
+"30p"
+],
+"feedback_wrong": "Not quite! Take 30 away from 50 and try again.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Before asking for something, wait one whole day. Do you still want it?"
+},
+{
+"type": "riddle",
+"text": "What gets bigger the more you save it?",
+"answer": "Your savings pot!",
+"choices": [
+"Your savings pot!",
+"A sandwich",
+"A sock"
+],
+"feedback_wrong": "Not quite! Think about what grows when you add coins to it.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Draw a picture of something you are saving up for."
+},
+{
+"type": "riddle",
+"text": "Which is worth more: three 10p coins or one 20p coin?",
+"answer": "Three 10p coins (30p)",
+"choices": [
+"One 20p coin",
+"They're the same",
+"Three 10p coins (30p)"
+],
+"feedback_wrong": "Not quite! Add up the three 10p coins and compare.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Switch off lights in empty rooms today to save energy."
+},
+{
+"type": "riddle",
+"text": "I'm made of paper, I'm worth more than a coin, and the King is on me. What am I?",
+"answer": "A banknote",
+"choices": [
+"A coin",
+"A banknote",
+"A bus ticket"
+],
+"feedback_wrong": "Not quite! Coins are metal. What money is made of paper?",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Make a 'need or want' list of 5 things. Which are needs?"
+},
+{
+"type": "riddle",
+"text": "If you save 10p every day for a week, how much will you have?",
+"answer": "70p",
+"choices": [
+"7p",
+"70p",
+"£7"
+],
+"feedback_wrong": "Not quite! There are 7 days in a week. Count 10p seven times.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Play shop with a grown-up and practise giving change."
+},
+{
+"type": "riddle",
+"text": "What has many pennies but can't buy anything?",
+"answer": "A piggy bank... until you open it!",
+"choices": [
+"A shop",
+"A wallet",
+"A piggy bank... until you open it!"
+],
+"feedback_wrong": "Not quite! Think of something that holds pennies but never goes shopping.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Share something today: a snack, a toy or some of your time."
+},
+{
+"type": "riddle",
+"text": "A comic costs £2. You have £1.20. How much more do you need?",
+"answer": "80p",
+"choices": [
+"80p",
+"£1",
+"20p"
+],
+"feedback_wrong": "Not quite! Count up from £1.20 to £2.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Make a savings jar label with your goal written on it."
+},
+{
+"type": "riddle",
+"text": "Which two UK coins have 7 sides?",
+"answer": "The 20p and the 50p",
+"choices": [
+"The 1p and the 2p",
+"The 20p and the 50p",
+"The £1 and the £2"
+],
+"feedback_wrong": "Not quite! Have a look at the coins with flat edges.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Fix or tidy something instead of throwing it away."
+},
+{
+"type": "riddle",
+"text": "You split £1 equally with a friend. How much do you each get?",
+"answer": "50p each",
+"choices": [
+"25p each",
+"£1 each",
+"50p each"
+],
+"feedback_wrong": "Not quite! Half of 100p is…?",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Count all the coins in your piggy bank. How much is there?"
+},
+{
+"type": "riddle",
+"text": "What do you call money you keep for later?",
+"answer": "Savings",
+"choices": [
+"Savings",
+"Pocket change",
+"Prizes"
+],
+"feedback_wrong": "Not quite! It's what goes in your piggy bank for later.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Compare the price of two snacks at the shop. Which is better value?"
+},
+{
+"type": "riddle",
+"text": "How many 5p coins make £1?",
+"answer": "20",
+"choices": [
+"10",
+"20",
+"50"
+],
+"feedback_wrong": "Not quite! Try counting in 5s up to 100.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Have a no-spend day: enjoy free fun like the park or drawing."
+},
+{
+"type": "riddle",
+"text": "I'm round, I'm gold and silver, and I'm worth £2. What am I?",
+"answer": "A £2 coin",
+"choices": [
+"A £2 coin",
+"A 50p coin",
+"A £5 note"
+],
+"feedback_wrong": "Not quite! Look for the coin with two colours.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Think of one way you could help at home to earn a sticker or treat."
+},
+{
+"type": "riddle",
+"text": "A toy costs £5. You save £1 a week. How many weeks until you can buy it?",
+"answer": "5 weeks",
+"choices": [
+"2 weeks",
+"10 weeks",
+"5 weeks"
+],
+"feedback_wrong": "Not quite! Add £1 each week until you reach £5.",
+"feedback_right": "Well done! 🎉"
+},
+{
+"type": "challenge",
+"text": "Write a thank-you note for something someone gave you."
+},
+{
+"type": "riddle",
+"text": "What's the difference between a need and a want?",
+"answer": "A need is something you must have; a want is nice to have",
+"choices": [
+"A need is something you must have; a want is nice to have",
+"There's no difference",
+"A want is always more expensive"
+],
+"feedback_wrong": "Not quite! Think about food (a need) and a new toy (a want).",
+"feedback_right": "Well done! 🎉"
+}
 ]

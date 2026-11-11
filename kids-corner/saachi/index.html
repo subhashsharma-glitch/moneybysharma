@@ -18,11 +18,21 @@
 .kc-post .kc-meta{font-size:.85rem;color:var(--muted)}.kc-soon{border:2px dashed var(--accent);background:var(--accent-50);text-align:center}
 .kc-soon h3{color:var(--teal)}
 @media(min-width:960px){.kc-gal{grid-template-columns:1fr 1fr}.kc-gal>:only-child{grid-column:1/-1}}
-.kc-daily{margin:1.4rem 0 0;border-top:4px solid var(--accent);overflow-wrap:anywhere}
+.kc-daily{margin:1.4rem 0 0;border-top:4px solid var(--accent);overflow-wrap:anywhere;overflow-x:hidden}
 .kc-daily h2{margin:.45rem 0 .4rem;font-family:var(--serif);color:var(--teal)}
 .kc-daily-text{font-size:1.15rem;margin:.3rem 0 .8rem}
-.kc-daily-answer{margin:.8rem 0 0;padding:.8rem 1rem;border-radius:8px;background:var(--teal-50);border-left:4px solid var(--teal);color:var(--teal)}
-.kc-daily .btn{margin-top:.2rem}
+.kc-daily-choices{display:flex;flex-direction:column;gap:.65rem;margin:0;padding:0;max-width:36rem}
+.kc-daily-choice{display:block;width:100%;box-sizing:border-box;min-height:3rem;padding:.85rem 1rem;border-radius:12px;border:2px solid var(--teal);background:#fff;color:var(--teal);font:inherit;font-weight:700;text-align:left;cursor:pointer;overflow-wrap:anywhere;white-space:normal}
+.kc-daily-choice:hover:not(:disabled){background:var(--teal-50)}
+.kc-daily-choice:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.kc-daily-choice:disabled{cursor:default}
+.kc-daily-choice.is-wrong{border-color:#9aa8a4;background:#f3f5f4;color:#4a5a57}
+.kc-daily-choice.is-right{border-color:var(--teal);background:var(--teal);color:#fff}
+.kc-daily-fb{margin:.8rem 0 0;padding:.8rem 1rem;border-radius:8px;overflow-wrap:anywhere;max-width:36rem;box-sizing:border-box}
+.kc-daily-fb p{margin:0}
+.kc-daily-fb.is-wrong{background:#fff4e8;border-left:4px solid var(--accent);color:#1e1206}
+.kc-daily-fb.is-right{background:var(--teal-50);border-left:4px solid var(--teal);color:var(--teal)}
+.kc-daily-answer-line{margin:.45rem 0 0;font-weight:700}
 </style></main>
 <footer class="site"><div class="wrap"><div class="disc"><p style="margin:0"><strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, and is not authorised or regulated by the Financial Conduct Authority (FCA). Do your own research or speak to an FCA-authorised adviser before making decisions. With investments your capital is at risk and you may get back less than you put in. Tax treatment depends on your individual circumstances and may change in future.</p></div>
 <ul><li><a href="../../about.html">About</a></li><li><a href="../../disclaimer.html">Disclaimer</a></li><li><a href="../../privacy.html">Privacy (no cookies)</a></li><li><a href="../../jargon.html">Jargon buster</a></li><li><a href="../../resources.html">Resources</a></li><li>Contact: <a href="mailto:hello@moneybysharma.co.uk">hello@moneybysharma.co.uk</a></li><li><a class="x-follow" href="https://x.com/moneybysharma" target="_blank" rel="noopener"><svg class="x-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow on X <span class="x-h">@moneybysharma</span></span></a></li></ul>

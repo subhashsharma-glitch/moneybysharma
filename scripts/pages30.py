@@ -9,11 +9,21 @@ KC_CSS = '''<style>
 .kc-post .kc-meta{font-size:.85rem;color:var(--muted)}.kc-soon{border:2px dashed var(--accent);background:var(--accent-50);text-align:center}
 .kc-soon h3{color:var(--teal)}
 @media(min-width:960px){.kc-gal{grid-template-columns:1fr 1fr}.kc-gal>:only-child{grid-column:1/-1}}
-.kc-daily{margin:1.4rem 0 0;border-top:4px solid var(--accent);overflow-wrap:anywhere}
+.kc-daily{margin:1.4rem 0 0;border-top:4px solid var(--accent);overflow-wrap:anywhere;overflow-x:hidden}
 .kc-daily h2{margin:.45rem 0 .4rem;font-family:var(--serif);color:var(--teal)}
 .kc-daily-text{font-size:1.15rem;margin:.3rem 0 .8rem}
-.kc-daily-answer{margin:.8rem 0 0;padding:.8rem 1rem;border-radius:8px;background:var(--teal-50);border-left:4px solid var(--teal);color:var(--teal)}
-.kc-daily .btn{margin-top:.2rem}
+.kc-daily-choices{display:flex;flex-direction:column;gap:.65rem;margin:0;padding:0;max-width:36rem}
+.kc-daily-choice{display:block;width:100%;box-sizing:border-box;min-height:3rem;padding:.85rem 1rem;border-radius:12px;border:2px solid var(--teal);background:#fff;color:var(--teal);font:inherit;font-weight:700;text-align:left;cursor:pointer;overflow-wrap:anywhere;white-space:normal}
+.kc-daily-choice:hover:not(:disabled){background:var(--teal-50)}
+.kc-daily-choice:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.kc-daily-choice:disabled{cursor:default}
+.kc-daily-choice.is-wrong{border-color:#9aa8a4;background:#f3f5f4;color:#4a5a57}
+.kc-daily-choice.is-right{border-color:var(--teal);background:var(--teal);color:#fff}
+.kc-daily-fb{margin:.8rem 0 0;padding:.8rem 1rem;border-radius:8px;overflow-wrap:anywhere;max-width:36rem;box-sizing:border-box}
+.kc-daily-fb p{margin:0}
+.kc-daily-fb.is-wrong{background:#fff4e8;border-left:4px solid var(--accent);color:#1e1206}
+.kc-daily-fb.is-right{background:var(--teal-50);border-left:4px solid var(--teal);color:var(--teal)}
+.kc-daily-answer-line{margin:.45rem 0 0;font-weight:700}
 </style>'''
 def _kc_fix(h, depth):
     pre = "../" * depth
@@ -37,6 +47,13 @@ from zoneinfo import ZoneInfo as _kc_ZI
 from datetime import datetime as _kc_dt
 _KC_CH = _kc_j.load(open("data/challenge-of-the-day.json"))
 assert len(_KC_CH) == 30, "need 30 daily challenges"
+for _kc_it in _KC_CH:
+    if _kc_it.get("type") != "riddle":
+        continue
+    _kc_ch = _kc_it.get("choices") or []
+    assert len(_kc_ch) == 3, "each riddle needs 3 choices"
+    assert sum(c == _kc_it.get("answer") for c in _kc_ch) == 1, "exactly one choice must match the answer"
+    assert _kc_it.get("feedback_right") and _kc_it.get("feedback_wrong"), "each riddle needs feedback"
 _kc_raw = _kc_j.dumps(_KC_CH, ensure_ascii=False, separators=(",", ":"))
 if "</script" in _kc_raw.lower():
     raise SystemExit("challenge-of-the-day.json contains </script")
@@ -48,7 +65,7 @@ KC_DAILY = (
     '<noscript><span class="tag">Challenge of the day</span>'
     f'<h2 id="kc-daily-h">{html.escape(_kc_kind)}</h2>'
     f'<p class="kc-daily-text">{html.escape(_kc_item["text"])}</p>'
-    '<p class="hint">Turn on JavaScript to reveal riddle answers.</p></noscript>'
+    '<p class="hint">Turn on JavaScript to pick an answer or see today’s challenge.</p></noscript>'
     f'<script type="application/json" id="kc-daily-data">{_kc_raw}</script>'
     "</section>"
 )
