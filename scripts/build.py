@@ -168,7 +168,7 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <p class="hint" id="wk-note">Only your email address is collected. It is sent to Buttondown, a third-party newsletter service, which emails you a confirmation link first. Every email has an unsubscribe link. It is never sold. See our <a href="privacy.html#s-weekly-money-update-email-sign-up">privacy page</a>.</p></div>
 </div>
 </div>
-''' + ('' if not FEEDBACK_ENABLED else '''<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>'''), scripts=("weekly.js",))
+''' + ('' if not FEEDBACK_ENABLED else '''<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>'''), scripts=("weekly.js","daily-features.js",))
 # ---------- SAVINGS ----------
 SR = json.load(open("data/savings-rates.json"))
 _SRT = {"easy-access":"Easy access","notice":"Notice","fixed":"Fixed bond","cash-isa":"Cash ISA","regular-saver":"Regular saver"}
@@ -520,6 +520,7 @@ exec(open("scripts/pages20.py").read())
 exec(open("scripts/pages27.py").read())  # key dates box + festive banner (home page)
 exec(open("scripts/pages21.py").read())
 exec(open("scripts/pages28.py").read())  # home: key numbers before the Budget 2026 banner
+exec(open("scripts/pages31.py").read())  # PREVIEW: daily tip, quiz and myth-or-fact on the home page
 exec(open("scripts/pages22.py").read())
 exec(open("scripts/pages29.py").read())  # PREVIEW: broadband postcode checker (before the SEO pass)
 pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, including Garmin Fitness Insights.",
