@@ -1,7 +1,7 @@
 {
-  "preview": true,
+  "preview": false,
   "disclaimer": "Information, not financial advice.",
-  "notes": "Edit these banks, then run python3 scripts/build.py. Figures are copied from MoneyBySharma's already-checked sources (cheat sheet and guides), not newly verified for this preview. Set preview to false before any live publish.",
+  "notes": "Edit these banks, then run python3 scripts/build.py. Bank Rate and CPI were re-checked against official sources on 11 November 2026 and were unchanged.",
   "tips": [
     {
       "id": "isa-allowance",
@@ -69,7 +69,7 @@
       "body": "The Bank of England raised Bank Rate from 3.75% to 4.00% on 5 November 2026. It influences what banks may pay on savings and charge on some mortgages, but your own rate is set by your provider. It is worth checking whether that rate beats inflation after tax.",
       "source": "Bank of England – Bank Rate",
       "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate",
-      "checked": "5 November 2026",
+      "checked": "11 November 2026",
       "page": "how-money-works.html",
       "pageLabel": "How money works"
     },
@@ -273,7 +273,7 @@
       "body": "The Bank of England's inflation target is 2%. Consumer Prices Index inflation was 3.5% in the year to September 2026 (ONS, published 21 October 2026; next release 18 November 2026). If your savings rate is below inflation after any tax, your money buys a little less over time even if the balance rises.",
       "source": "ONS – Consumer price inflation, September 2026; Bank of England inflation target",
       "sourceUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026",
-      "checked": "CPI checked 26 October 2026; Bank Rate 5 November 2026",
+      "checked": "11 November 2026 (CPI still year to September 2026; next ONS release 18 November 2026)",
       "page": "cash-vs-inflation.html",
       "pageLabel": "Cash vs inflation"
     },
@@ -357,7 +357,7 @@
       "explain": "Bank Rate was raised to 4.00% on 5 November 2026, from 3.75%. 2% is the Bank's inflation target, not Bank Rate.",
       "source": "Bank of England – Bank Rate",
       "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate",
-      "checked": "5 November 2026"
+      "checked": "11 November 2026"
     },
     {
       "id": "q-psa-basic",
@@ -716,7 +716,7 @@
       "explain": "The Bank of England raised Bank Rate from 3.75% to 4.00% on 5 November 2026. Your own savings or mortgage rate is set by your provider and may not match Bank Rate exactly.",
       "source": "Bank of England – Bank Rate",
       "sourceUrl": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate",
-      "checked": "5 November 2026"
+      "checked": "11 November 2026"
     },
     {
       "id": "m-interest-taxfree",
@@ -779,7 +779,7 @@
       "explain": "If prices rise faster than the interest you earn after tax, each pound buys less. CPI inflation was 3.5% in the year to September 2026, while the Bank of England's target is 2%. Cash is still important for emergencies and short-term needs.",
       "source": "ONS – Consumer price inflation, September 2026; Bank of England inflation target",
       "sourceUrl": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026",
-      "checked": "CPI checked 26 October 2026"
+      "checked": "11 November 2026 (CPI still year to September 2026; next ONS release 18 November 2026)"
     }
   ]
 }
