@@ -68,7 +68,7 @@ NAVG = [("index.html","Home"),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("cash-isas.html","Cash ISAs"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("cash-vs-inflation.html","Cash vs inflation"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
- ("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),
+ # Tools dropdown hidden 13 Nov 2026 (Subhash: hide from menu and noindex). To restore, see scripts/nav-tools.removed.txt.
  ("kids-corner/","Kids Corner"),("resources.html","Resources"),("about.html","About")]
 # Home insurance article (pages26.py): False = preview (noindex, no menu/sitemap/search/Article schema). Set True to go live.
 HI_LIVE = True
@@ -536,7 +536,8 @@ exec(open("scripts/pages24.py").read())  # Cash ISAs page (before pages23 so it 
 if HI_LIVE: exec(open("scripts/pages26.py").read())  # live: before the SEO pass so it gets Article schema and joins search
 exec(open("scripts/pages23.py").read())
 from search_index import build_search
-SEARCH_EXTRA = [("tools/garmin-insights/", "Garmin Fitness Insights", "Tools", 0, "Upload your Garmin export and see your activity trends. Everything is processed in your browser, and nothing is uploaded."),
+# tools.html, paper-trading.html and tools/garmin-insights/ are noindex and omitted from search and the sitemap.
+SEARCH_EXTRA = [
  ("assets/downloads/ai-team-guide.pdf", "Grok Bot: How to Build Your First AI Team — and How to Manage It (PDF)", "Resources", 3, "A 15-page plain-English guide to setting up and managing a small team of AI assistants in Grok Bot: roles, connectors, memory, routines, approvals, safety and privacy, with a worksheet and cheat sheet."),
  ("assets/explained-simply-money-matters.pdf", "Explained Simply: Money Matters (PDF)", "Resources", 3, "A 15-page plain-English guide to UK money: payslips, tax, savings, borrowing, student loans, pensions, insurance, investing and scams."),
  ("assets/money-matters-cheat-sheet-2026-27.pdf", "Money Matters cheat sheet 2026/27 (PDF)", "Resources", 3, "The key UK personal finance figures for 2026/27 with sources: tax bands, National Insurance, ISA and pension allowances, FSCS, scam reporting numbers, Bank Rate, CPI and more.")]
@@ -545,6 +546,10 @@ print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages25.py").read())  # PWA: manifest, sw.js, offline.html (after search so offline.html stays out of it)
+# Hidden tools: keep the pages live at their URLs, but noindex them.
+for _hf in ("tools.html", "paper-trading.html"):
+    if _hf in pages and 'name="robots"' not in pages[_hf]:
+        pages[_hf] = pages[_hf].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)
 from seo import ext_links
 EXT = 0
 import re as _re
@@ -565,5 +570,6 @@ for fn, h in pages.items():
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
-write_sitemap([f for f in pages if f not in ("404.html","search.html","offline.html") and not (f=="paper-trading.html" and PT_PREVIEW) and f not in PREVIEW_PAGES] + ["tools/garmin-insights/"] + KC_URLS, CHECKED_ISO)
+# tools.html, paper-trading.html and tools/garmin-insights/ stay online but are noindex and off the sitemap.
+write_sitemap([f for f in pages if f not in ("404.html","search.html","offline.html","tools.html","paper-trading.html") and f not in PREVIEW_PAGES] + KC_URLS, CHECKED_ISO)
 print("built", len(pages), "pages; low-coupon example:", lowc["name"])

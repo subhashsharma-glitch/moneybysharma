@@ -63,4 +63,10 @@ s=re.sub(r'<meta name="twitter:image" content="[^"]*">',f'<meta name="twitter:im
 # PWA: no manifest/SW tags here – this page's strict CSP (default-src 'none') would block the manifest. It is still covered by
 # the service worker once any other page has registered it. Remove tags left by an earlier build (idempotent).
 s=re.sub(r'<link rel="manifest".*?(?:</script>|defer></script>)\n?','',s,flags=re.S)
+# Hidden from the menu (13 Nov 2026): keep the page live but noindex it. Idempotent for paper-trades refreshes.
+if 'name="robots"' not in s:
+    if '<meta name="viewport"' in s:
+        s=s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">','<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">',1)
+    else:
+        s=s.replace('<link rel="icon"','<meta name="robots" content="noindex"><link rel="icon"',1)
 open(p,'w').write(s)

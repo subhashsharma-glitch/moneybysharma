@@ -1,0 +1,10 @@
+# Tools dropdown, removed from NAVG in scripts/build.py on 13 Nov 2026
+# (Subhash: "Hide them from the menu and noindex them").
+#
+# To restore: insert this entry in NAVG after the Learn item, then rebuild
+# (and run scripts/garmin_chrome.py so tools/garmin-insights/index.html picks up the nav).
+# Also restore the sitemap and search-index exclusions, and drop the noindex
+# meta on tools.html, paper-trading.html and tools/garmin-insights/index.html
+# if those pages should be public again.
+
+("Tools",[("tools.html","All tools"),("tools/garmin-insights/",'Garmin Fitness Insights<small class="dd-desc">Your Garmin activity trends, processed in your browser</small>'),("paper-trading.html",'Paper Trading Experiment<small class="dd-desc">Three fake-money books, agents and a trade log. Experiment only</small>')],"tools.html"),

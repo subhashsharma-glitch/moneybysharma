@@ -287,5 +287,6 @@ pages["paper-trading.html"] = page("paper-trading.html", "Paper Trading Experime
 </ul>
 {"".join(_book(k, l, tag, _book_desc(k, desc)) for k, l, tag, desc in BOOKS)}
 <p class="src">Source: our own experiment log (fake money), exported {PT_ASOF}. Nothing here is a prediction, a signal or a track record of real investing. See also the <a href="disclaimer.html">disclaimer</a>. Currency: US dollars.</p>'''))
-if PT_PREVIEW:
+# Always noindex: hidden from the menu (13 Nov 2026). PT_PREVIEW also used to do this when the page was a preview.
+if 'name="robots"' not in pages["paper-trading.html"]:
     pages["paper-trading.html"] = pages["paper-trading.html"].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)
