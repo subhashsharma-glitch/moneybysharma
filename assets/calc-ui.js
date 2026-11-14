@@ -25,7 +25,7 @@
   });window.addEventListener('resize',function(){last&&draw(last)});
   // Gilts
   var gsel=document.getElementById('gilt-pick');
-  if(gsel){fetch('data/gilts.json').then(function(r){return r.json()}).then(function(j){var now=new Date().toISOString().slice(0,10);
+  if(gsel){fetch('/data/gilts.json').then(function(r){return r.json()}).then(function(j){var now=new Date().toISOString().slice(0,10);
     j.gilts.filter(function(g){return g.maturity>now}).forEach(function(g){var o=document.createElement('option');o.value=g.coupon+'|'+g.maturity;o.textContent=g.name+' (matures '+g.maturity+')';gsel.appendChild(o)});
     document.getElementById('gilt-src').textContent='Gilt list: '+j.source+', close of business '+j.closeOfBusiness+' (fetched '+j.fetched+').'});
     gsel.addEventListener('change',function(){if(!gsel.value)return;var p=gsel.value.split('|');document.getElementById('gilt-coupon').value=p[0];document.getElementById('gilt-mat').value=p[1];gfn()})}

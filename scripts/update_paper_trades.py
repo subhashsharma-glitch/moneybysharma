@@ -123,7 +123,9 @@ STAGE = ["data/paper-trades.json", "assets/search-index.json", "paper-trading.ht
 # deals.html: scripts/pages16.py drops deals and time-limited points once their "expires"/"until" date has passed
 # (expired items are not search-indexed separately; any search-index change is already covered above).
 # kids-corner/index.html: the Challenge of the day noscript text rotates by UK day of year.
-ROLLOVER = ["index.html", "weekly-topics.html", "deals.html", "assets/search-index.json", "sw.js", "kids-corner/index.html"]
+ROLLOVER = ["index.html", "weekly-topics.html", "deals.html", "assets/search-index.json", "sw.js", "kids-corner/index.html",
+         # gilt-vs-savings bakes the same today()+365 low-coupon default as gilts.html; only committed if a date-only rebuild already changes it
+         "calculators/gilt-vs-savings.html"]
 def placeholder(d):
     if d.get("placeholder"): return True
     txt = " ".join(str(d.get(k, "")) for k in ("disclaimer", "note", "notes")) + " " + " ".join(str(d[b].get(k, "")) for b in BOOKS + OPTIONAL_BOOKS if isinstance(d.get(b), dict) for k in ("name", "notes", "description"))

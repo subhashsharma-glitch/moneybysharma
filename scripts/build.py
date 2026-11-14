@@ -535,6 +535,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, includ
 exec(open("scripts/pages24.py").read())  # Cash ISAs page (before pages23 so it gets SEO/Article schema and joins search)
 if HI_LIVE: exec(open("scripts/pages26.py").read())  # live: before the SEO pass so it gets Article schema and joins search
 exec(open("scripts/pages23.py").read())
+exec(open("scripts/pages32.py").read())  # standalone calculator pages + /calculators/ index (before search so they join it)
 from search_index import build_search
 # tools.html, paper-trading.html and tools/garmin-insights/ are noindex and omitted from search and the sitemap.
 SEARCH_EXTRA = [
@@ -545,7 +546,6 @@ SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
-exec(open("scripts/pages32.py").read())  # PREVIEW: standalone compound interest calculator
 exec(open("scripts/pages25.py").read())  # PWA: manifest, sw.js, offline.html (after search so offline.html stays out of it)
 # Hidden tools: keep the pages live at their URLs, but noindex them.
 for _hf in ("tools.html", "paper-trading.html"):

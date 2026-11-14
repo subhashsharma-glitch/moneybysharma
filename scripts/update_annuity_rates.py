@@ -9,6 +9,7 @@ Usage (from the repo root):
 Never invents values. If the page can't be fetched, the table/date can't be found, any of the six rows is missing,
 the age columns differ, or any figure is outside a sane range, it prints why, exits 1 and changes NOTHING.
 It does not commit or push; review `git diff` and commit as usual.
+The rebuild also refreshes calculators/annuity-income.html from the same JSON.
 """
 import html, json, re, subprocess, sys, datetime, urllib.request, os
 URL = "https://www.hl.co.uk/retirement/annuities/best-buy-rates"
