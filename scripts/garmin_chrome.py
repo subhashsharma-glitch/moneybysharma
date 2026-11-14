@@ -54,12 +54,24 @@ s=s.replace('</footer>\n','</footer>\n'+ft+'\n',1)
 s=s.replace('<link rel="stylesheet" href="css/mbs-bar.css">','<link rel="stylesheet" href="css/mbs-chrome.css">\n<link rel="stylesheet" href="css/mbs-theme.css">')
 if '../../assets/main.js' not in s: s=s.replace('</body>','<script src="../../assets/main.js" defer></script>\n</body>')
 if '../../assets/search.js' not in s: s=s.replace('<script src="../../assets/main.js" defer></script>','<script src="../../assets/main.js" defer></script>\n<script src="../../assets/search.js" defer></script>')
-if 'twitter:site' not in s: s=s.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:site" content="@moneybysharma">\n<meta name="twitter:creator" content="@moneybysharma">',1)
-# Compact X card (summary + square logo), same as seo.py; idempotent.
-from seo import X_IMG, X_ALT
-s=s.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary">')
-s=re.sub(r'<meta name="twitter:image:alt" content="[^"]*">\n?','',s)
-s=re.sub(r'<meta name="twitter:image" content="[^"]*">',f'<meta name="twitter:image" content="{X_IMG}">\n<meta name="twitter:image:alt" content="{X_ALT}">',s,count=1)
+# Large X card. Prefer this page's og:image (already 1200x630); else the site default. Idempotent.
+from seo import IMG, X_ALT
+s=re.sub(r'<meta name="twitter:card" content="[^"]*">','<meta name="twitter:card" content="summary_large_image">',s,count=1)
+if 'twitter:site' not in s:
+    s=s.replace('<meta name="twitter:card" content="summary_large_image">',
+                '<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:site" content="@moneybysharma">\n<meta name="twitter:creator" content="@moneybysharma">',1)
+_og=re.search(r'<meta property="og:image" content="([^"]+)">',s)
+_tw_img=_og.group(1) if _og else IMG
+if re.search(r'<meta name="twitter:image" content="',s):
+    s=re.sub(r'<meta name="twitter:image" content="[^"]*">',f'<meta name="twitter:image" content="{_tw_img}">',s,count=1)
+else:
+    s=s.replace('<meta name="twitter:card" content="summary_large_image">',
+                f'<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="{_tw_img}">',1)
+if re.search(r'<meta name="twitter:image:alt"',s):
+    s=re.sub(r'<meta name="twitter:image:alt" content="[^"]*">',f'<meta name="twitter:image:alt" content="{X_ALT}">',s,count=1)
+else:
+    s=re.sub(r'(<meta name="twitter:image" content="[^"]+">)',
+             r'\1\n<meta name="twitter:image:alt" content="'+X_ALT+'">',s,count=1)
 # PWA: no manifest/SW tags here – this page's strict CSP (default-src 'none') would block the manifest. It is still covered by
 # the service worker once any other page has registered it. Remove tags left by an earlier build (idempotent).
 s=re.sub(r'<link rel="manifest".*?(?:</script>|defer></script>)\n?','',s,flags=re.S)
