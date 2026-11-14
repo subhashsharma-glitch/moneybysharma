@@ -264,7 +264,7 @@ for _c in _C32:
     _C32_INDEX_ITEMS.append((_c["fn"],) + _c["index"])
 
 _c32_lis = "\n".join(
-    f'<li><a href="{fn.rsplit("/",1)[-1]}"><strong>{name}</strong></a> — {blurb}</li>'
+    f'<li><a href="/calculators/{fn.rsplit("/",1)[-1]}"><strong>{name}</strong></a> — {blurb}</li>'
     for fn, name, blurb in _C32_INDEX_ITEMS
 )
 _C32_INDEX = "calculators/index.html"
