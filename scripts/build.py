@@ -127,6 +127,17 @@ pages = {}
 BUTTONDOWN_USERNAME = "moneybysharma"   # Buttondown newsletter username (the only setting needed for the weekly email sign-up)
 BD_ACTION = "https://buttondown.com/api/emails/embed-subscribe/" + BUTTONDOWN_USERNAME
 BD_PAGE = "https://buttondown.com/" + BUTTONDOWN_USERNAME
+WK_H2 = "Get the Money Matters guide, and a weekly update"
+WK_INTRO = "Get the Explained Simply: Money Matters guide (PDF) and a short email each Monday with what changed on this site that week. Information only – no rankings and no advice."
+WK_CONSENT = "Yes, please email me the weekly money update and, after I confirm, a link to the guide. I understand Buttondown will first send a confirmation email, and I can unsubscribe at any time."
+WK_FORM = f"""<form id="wk-form" class="wk-form" action="{BD_ACTION}" method="post" target="_blank" rel="noopener" novalidate data-page="{BD_PAGE}">
+<input type="hidden" name="embed" value="1">
+<div class="hp-field" aria-hidden="true"><label for="wk-hp">Leave this field empty</label><input type="text" id="wk-hp" tabindex="-1" autocomplete="off"></div>
+<div class="wk-row"><div class="wk-f"><label for="wk-email">Email address</label><input id="wk-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="200" placeholder="you@example.com" required aria-describedby="wk-email-err"><p class="fb-err" id="wk-email-err" hidden>Please enter a valid email address.</p></div><button class="btn" type="submit" id="wk-send">Subscribe</button></div>
+<label class="wk-check"><input type="checkbox" id="wk-consent" required aria-describedby="wk-consent-err"><span>{WK_CONSENT}</span></label><p class="fb-err" id="wk-consent-err" hidden>Please tick the box to say you'd like the email.</p>
+</form>
+<div id="wk-done" class="note fb-after fb-ok" role="status" tabindex="-1" hidden><p><strong>Almost done – please confirm by email.</strong></p><p>A Buttondown page should have opened in a new tab. Buttondown will email you a confirmation link; you only join the list, and get the guide, once you click it. Check your spam folder if it doesn't arrive.</p><p>No new tab? Your browser may have blocked it – <a href="{BD_PAGE}">subscribe on Buttondown's own page</a> instead.</p></div>
+<p class="hint" id="wk-note">Only your email address is collected. It is sent to Buttondown, a third-party newsletter service, which emails you a confirmation link first. After you confirm, you can download the guide. Every email has an unsubscribe link. It is never sold. See our <a href="privacy.html#s-weekly-money-update-email-sign-up">privacy page</a>.</p>"""
 now = datetime.date.today().isoformat()
 lowc = sorted([g for g in GI["gilts"] if g["maturity"] > (datetime.date.today()+datetime.timedelta(days=365)).isoformat()], key=lambda g: (g["coupon"], g["maturity"]))[0]
 pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK money information", "Clear, neutral UK personal-finance information: savings, ISAs, pensions, mortgages and gilts, with simple calculators.", f'''
@@ -164,15 +175,8 @@ pages["index.html"] = page("index.html", "MoneyBySharma – plain-English UK mon
 <a class="card" href="pensions.html#calc"><h3>Start age vs pot at 67</h3><p>See how the age you start saving changes your pension pot, after fees and inflation.</p></a>
 <a class="card" href="energy.html#calc"><h3>Home battery payback</h3><p>Charge cheap overnight, use at peak: annual saving and payback.</p></a>
 <a class="card" href="electric-cars.html#calc"><h3>EV charging cost</h3><p>Home vs public charging cost per mile and per year.</p></a></div>
-<h2 id="weekly">Get the Money Matters guide, and a weekly update</h2><div class="card wk" id="wk-card"><p>Get the Explained Simply: Money Matters guide (PDF) and a short email each Monday with what changed on this site that week. Information only – no rankings and no advice.</p>
-<form id="wk-form" class="wk-form" action="{BD_ACTION}" method="post" target="_blank" rel="noopener" novalidate data-page="{BD_PAGE}">
-<input type="hidden" name="embed" value="1">
-<div class="hp-field" aria-hidden="true"><label for="wk-hp">Leave this field empty</label><input type="text" id="wk-hp" tabindex="-1" autocomplete="off"></div>
-<div class="wk-row"><div class="wk-f"><label for="wk-email">Email address</label><input id="wk-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="200" placeholder="you@example.com" required aria-describedby="wk-email-err"><p class="fb-err" id="wk-email-err" hidden>Please enter a valid email address.</p></div><button class="btn" type="submit" id="wk-send">Subscribe</button></div>
-<label class="wk-check"><input type="checkbox" id="wk-consent" required aria-describedby="wk-consent-err"><span>Yes, please email me the weekly money update and, after I confirm, a link to the guide. I understand Buttondown will first send a confirmation email, and I can unsubscribe at any time.</span></label><p class="fb-err" id="wk-consent-err" hidden>Please tick the box to say you'd like the email.</p>
-</form>
-<div id="wk-done" class="note fb-after fb-ok" role="status" tabindex="-1" hidden><p><strong>Almost done – please confirm by email.</strong></p><p>A Buttondown page should have opened in a new tab. Buttondown will email you a confirmation link; you only join the list, and get the guide, once you click it. Check your spam folder if it doesn't arrive.</p><p>No new tab? Your browser may have blocked it – <a href="{BD_PAGE}">subscribe on Buttondown's own page</a> instead.</p></div>
-<p class="hint" id="wk-note">Only your email address is collected. It is sent to Buttondown, a third-party newsletter service, which emails you a confirmation link first. After you confirm, you can download the guide. Every email has an unsubscribe link. It is never sold. See our <a href="privacy.html#s-weekly-money-update-email-sign-up">privacy page</a>.</p></div>
+<h2 id="weekly">{WK_H2}</h2><div class="card wk" id="wk-card"><p>{WK_INTRO}</p>
+{WK_FORM}</div>
 </div>
 </div>
 ''' + ('' if not FEEDBACK_ENABLED else '''<section class="fb-cta" aria-labelledby="fb-cta-h"><div class="wrap"><div><h2 id="fb-cta-h">Help shape MoneyBySharma</h2><p>Tell me what you don't like, what you'd like covered, or how this site could be better.</p></div><a class="btn" href="feedback.html">Give feedback</a></div></section>'''), scripts=("weekly.js","daily-features.js",))
@@ -552,7 +556,17 @@ SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
-exec(open("scripts/pages33.py").read())  # PREVIEW: email-confirmed thank-you page (after search so it stays out of it)
+exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
+# Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.
+WK_GUIDE_CARD = f'<div class="wrap"><aside class="card wk" id="wk-card" aria-labelledby="weekly"><h2 id="weekly">{WK_H2}</h2><p>{WK_INTRO}</p>\n{WK_FORM}</aside></div>\n'
+for _fn in GUIDES:
+    if _fn not in pages or 'id="wk-form"' in pages[_fn]:
+        continue
+    if "</main>" not in pages[_fn]:
+        print("WARN: no </main> in", _fn); continue
+    pages[_fn] = pages[_fn].replace("</main>", WK_GUIDE_CARD + "</main>", 1)
+    if "assets/weekly.js" not in pages[_fn]:
+        pages[_fn] = pages[_fn].replace("</head>", '<script src="assets/weekly.js" defer></script>\n</head>', 1)
 exec(open("scripts/pages25.py").read())  # PWA: manifest, sw.js, offline.html (after search so offline.html stays out of it)
 # Hidden tools: keep the pages live at their URLs, but noindex them.
 for _hf in ("tools.html", "paper-trading.html"):

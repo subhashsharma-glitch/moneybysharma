@@ -17,7 +17,7 @@ pages["explained-simply-money-matters.html"] = page("explained-simply-money-matt
  "Explained Simply: Money Matters is a 15-page illustrated guide to UK money by MoneyBySharma, covering payslips, tax, budgeting, savings, borrowing, student loans, pensions and scams. Read it here or download the PDF.",
  ph('<a href="resources.html">Resources</a> › Explained Simply: Money Matters', "Explained Simply: Money Matters", "An illustrated guide to UK money by MoneyBySharma. Read it on this page, or download the PDF."), W(f'''
 <p class="cs-actions"><a class="btn" href="assets/explained-simply-money-matters.pdf" download>Download the PDF (1.7 MB)</a> <a href="#page-1">Start reading</a> <a href="resources.html">Back to Resources</a></p>
-<div style="max-width:760px"><p>Explained Simply: Money Matters is a 15-page illustrated guide, by MoneyBySharma, to the basics of UK money: payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, insurance, investing and scams. Figures were checked in October 2026 for the 2026/27 tax year (England).</p>
+<div style="max-width:760px"><p>Explained Simply: Money Matters is a 15-page illustrated guide, by MoneyBySharma, to the basics of UK money: payslips and tax, budgeting, bank accounts, saving and ISAs, borrowing, student loans, pensions, insurance, investing and scams. Figures were checked on 14 November 2026 for the 2026/27 tax year (England).</p>
 <p class="hint">Information only, not financial advice. The pages below are images of the PDF so they look the same on every device. For the full text, selectable and with its links, download the PDF.</p>
 <h2 id="inside">What's inside</h2><ol class="es-toc">{_toc}</ol></div>
 <h2 id="read">Read the guide</h2>
