@@ -545,6 +545,7 @@ SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
+exec(open("scripts/pages32.py").read())  # PREVIEW: standalone compound interest calculator
 exec(open("scripts/pages25.py").read())  # PWA: manifest, sw.js, offline.html (after search so offline.html stays out of it)
 # Hidden tools: keep the pages live at their URLs, but noindex them.
 for _hf in ("tools.html", "paper-trading.html"):
@@ -564,9 +565,12 @@ def wrap_tables(h):
         pos = m.end()
     out.append(h[pos:]); return "".join(out), n
 WRAPPED = 0
+import os as _os
 for fn, h in pages.items():
     h, w = wrap_tables(h); WRAPPED += w
     h, c = ext_links(h); EXT += c
+    _d = _os.path.dirname(fn)
+    if _d: _os.makedirs(_d, exist_ok=True)
     open(fn, "w").write(h)
 print("external links set to open in a new tab:", EXT, "| tables given a scroll wrapper:", WRAPPED)
 from seo import write_sitemap
