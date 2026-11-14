@@ -67,6 +67,7 @@ NAVG = [("index.html","Home"),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("cash-isas.html","Cash ISAs"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
+ ("calculators/index.html","Calculators"),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("cash-vs-inflation.html","Cash vs inflation"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
  # Tools dropdown hidden 13 Nov 2026 (Subhash: hide from menu and noindex). To restore, see scripts/nav-tools.removed.txt.
  ("kids-corner/","Kids Corner"),("resources.html","Resources"),("about.html","About")]
@@ -83,7 +84,12 @@ FBICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="cu
 FEEDBACK_ENABLED = False
 FBBAR = '' if not FEEDBACK_ENABLED else f'<a class="fb-bar" href="feedback.html">{FBICON}<span><strong>Feedback</strong> – tell me what to fix or cover</span></a>'
 def page(fn, title, desc, body, head="", scripts=()):
-    def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if h==fn else ""}>{t}</a></li>'
+    def _current(h):
+        if h == fn: return True
+        # Calculators stays current on every /calculators/ page, not only the index
+        if h == "calculators/index.html" and fn.startswith("calculators/"): return True
+        return False
+    def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if _current(h) else ""}>{t}</a></li>'
     nav = f'<li class="fb-mob"><a href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>Send feedback</a></li>' if FEEDBACK_ENABLED else ''
     fbbtn = f'<a class="fb-btn" href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>{FBICON}<span>Feedback</span></a>\n' if FEEDBACK_ENABLED else ''
     fbfoot = '<li><a href="feedback.html">Feedback</a></li>' if FEEDBACK_ENABLED else ''
