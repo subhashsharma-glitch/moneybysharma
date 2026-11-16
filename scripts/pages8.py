@@ -1,5 +1,5 @@
 # Broadband & phones page (exec'd from build.py)
-DCHK = "9 November 2026"  # deals table on this page checked on this date
+DCHK = "16 November 2026"  # deals table on this page checked on this date
 LCHK = "13 October 2026"  # provider and network A–Z links checked on this date
 S.update({
  "ofchk": ("Ofcom – Broadband and mobile coverage checker", "https://checker.ofcom.org.uk/"),
@@ -29,8 +29,8 @@ NETS = [("EE","https://ee.co.uk/mobile","Network"),("O2","https://www.o2.co.uk/"
  ("Talkmobile","https://talkmobile.co.uk/","MVNO"),("Tesco Mobile","https://www.tescomobile.com/","MVNO"),("VOXI","https://www.voxi.co.uk/","MVNO")]
 _bb = "".join(f'<li><a href="{u}">{n}</a></li>' for n,u in BB)
 _nt = "".join(f'<tr><td><a href="{u}">{n}</a></td><td>{k}</td></tr>' for n,u,k in NETS)
-BBDEALS = [("BT","Full Fibre 300","https://www.bt.com/broadband","£32.99 a month, £36.99 from 31 March 2027, £40.99 from 31 March 2028; 24-month contract; £0 activation fee (online)"),
- ("Plusnet","Full Fibre","https://www.plus.net/broadband/","From £21.99 a month, £25.99 from 31 March 2027, £29.99 from 31 March 2028; 24-month contract; no activation fee; up to £75 Reward Card"),
+BBDEALS = [("BT","Full Fibre 300","https://www.bt.com/broadband","£27.99 a month, £31.99 from 31 March 2027, £35.99 from 31 March 2028; 24-month contract; free activation"),
+ ("Plusnet","Full Fibre","https://www.plus.net/broadband/","From £21.99 a month, £25.99 from 31 March 2027, £29.99 from 31 March 2028; 24-month contract; no activation fee; up to £75 Reward Card (Reward Card offers end 19 November 2026)"),
  ("YouFibre","You 1000","https://www.youfibre.com/","£24 a month (limited-time deal, prices available until 30 Nov 2026); average 900 Mbps wired upload and download; no in-contract price rises"),
  ("VOXI (mobile)","75GB SIM only","https://www.voxi.co.uk/","£12 a month, plus unlimited data for social media, music and video; offer ends 26 Nov 2026")]
 _dl = "".join(f'<tr><td><a href="{u}">{n}</a></td><td>{p}</td><td>{x}</td></tr>' for n,p,u,x in BBDEALS)
