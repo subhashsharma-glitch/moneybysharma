@@ -1,6 +1,6 @@
 {
  "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
- "updated": "2026-11-19",
+ "updated": "2026-11-23",
  "groups": [
   {
    "id": "supermarkets",
@@ -32,7 +32,7 @@
        "https://www.tesco.com/help/pages/online-grocery-faqs/clubcard-prices-vouchers-and-ecoupons/clubcard-prices-not-showing-in-my-basket-at-checkout"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -41,7 +41,8 @@
        "valid for 7 days",
        "every Wednesday"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "sainsburys-nectar",
@@ -64,7 +65,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
@@ -94,7 +95,7 @@
        "https://apps.apple.com/gb/app/asda-rewards/id1578902078"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -103,7 +104,8 @@
        "Cashpot",
        "Excludes George.com"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "morrisons-more",
@@ -121,7 +123,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.morrisons.com/more",
@@ -147,7 +149,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
@@ -173,7 +175,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.coop.co.uk/membership",
@@ -205,7 +207,7 @@
        "https://www.aldi.co.uk/corporate/terms-and-conditions/swap"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -213,7 +215,8 @@
       "expect": [
        "Weekly Price Check"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "aldi-price-match",
@@ -234,7 +237,7 @@
        "https://help.sainsburys.co.uk/help/terms-and-conditions/aldipm-t-cs"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -242,7 +245,8 @@
       "expect": [
        "twice weekly"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "tgtg",
@@ -267,7 +271,7 @@
        "https://www.toogoodtogo.com/en-gb/terms-and-conditions"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -275,7 +279,8 @@
       "expect": [
        "half of the price or less"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "waitrose-mywaitrose",
@@ -297,7 +302,7 @@
        "https://www.waitrose.com/ecom/help-information/customer-service/mywaitrose-little-treats"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -306,7 +311,8 @@
        "Little Treats",
        "Personalised Offers"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     }
    ]
   },
@@ -337,7 +343,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.cineworld.co.uk/unlimited/",
@@ -389,7 +395,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.picturehouses.com/membership",
@@ -417,7 +423,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
@@ -443,7 +449,7 @@
        "https://www.myvue.com/offers/vue-members"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -451,7 +457,8 @@
       "expect": [
        "collected 10"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "meerkat-movies",
@@ -472,13 +479,14 @@
        "https://www.showcasecinemas.co.uk/meerkat-movies/"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
       "url": "https://www.myvue.com/offers/meerkat-movies",
       "expect": []
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     }
    ]
   },
@@ -501,7 +509,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://help.netflix.com/en/node/24926/gb",
@@ -552,7 +560,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.spotify.com/uk/premium/",
@@ -596,7 +604,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.amazon.co.uk/amazonprime",
@@ -635,7 +643,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.disneyplus.com/en-gb",
@@ -673,7 +681,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-music/",
@@ -711,7 +719,7 @@
        "https://www.apple.com/uk/apple-tv/"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-19",
      "check": {
       "mode": "auto",
@@ -731,7 +739,8 @@
        "from £18.95 / month"
       ]
      ],
-     "note": "Apple says Apple TV is free for three months if you buy a new Apple device and redeem the offer within 90 days."
+     "note": "Apple says Apple TV is free for three months if you buy a new Apple device and redeem the offer within 90 days.",
+     "reviewNote": "Page no longer contains: £9.99 per month after a free 7-day trial"
     },
     {
      "id": "now",
@@ -746,7 +755,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.nowtv.com/",
@@ -815,7 +824,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
@@ -840,7 +849,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.diy.com/bandqclub",
@@ -864,7 +873,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-19",
+     "checked": "2026-11-23",
      "check": {
       "mode": "auto",
       "url": "https://www.pret.co.uk/en-GB/club-pret",
@@ -912,7 +921,7 @@
        "https://www.superdrug.com/beautycard/about-card"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -921,7 +930,8 @@
        "1 point for every £1 you spend",
        "100 points = £1"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     },
     {
      "id": "argos-nectar",
@@ -940,7 +950,7 @@
        "https://help.argos.co.uk/help/nectar"
       ]
      ],
-     "status": "ok",
+     "status": "review",
      "checked": "2026-11-05",
      "check": {
       "mode": "manual",
@@ -949,7 +959,8 @@
        "1 point per £1 you spend at Argos",
        "500 points are worth £2.50"
       ]
-     }
+     },
+     "reviewNote": "Not re-verified in the last 14 days; see the retailer link."
     }
    ]
   },
