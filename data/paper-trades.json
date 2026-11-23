@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-23T05:00:40+00:00",
+  "as_of": "2026-11-23T09:51:54+00:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -1620,13 +1620,13 @@
         "entry_mid_price": 0.006901402474289173,
         "units": 71731.72507976125,
         "cost_basis": 500.0,
-        "latest_price": 0.006106237288530657,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.006062163199188347,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 438.01,
-        "market_value_after_exit_cost_usd": 433.63,
-        "unrealised_pnl_usd": -66.37,
-        "unrealised_pnl_pct": -13.27,
+        "market_value_usd": 434.85,
+        "market_value_after_exit_cost_usd": 430.5,
+        "unrealised_pnl_usd": -69.5,
+        "unrealised_pnl_pct": -13.9,
         "take_profit_price": 0.01035210371143376,
         "stop_price": 0.00517605185571688,
         "time_stop_uk": "2026-11-24 12:59",
@@ -1642,13 +1642,13 @@
         "entry_mid_price": 0.018097290243413524,
         "units": 27354.89668850658,
         "cost_basis": 500.0,
-        "latest_price": 0.019227857517213655,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.019034805024330383,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 525.98,
-        "market_value_after_exit_cost_usd": 520.72,
-        "unrealised_pnl_usd": 20.72,
-        "unrealised_pnl_pct": 4.14,
+        "market_value_usd": 520.7,
+        "market_value_after_exit_cost_usd": 515.49,
+        "unrealised_pnl_usd": 15.49,
+        "unrealised_pnl_pct": 3.1,
         "take_profit_price": 0.027145935365120284,
         "stop_price": 0.013572967682560142,
         "time_stop_uk": "2026-11-24 16:57",
@@ -1664,13 +1664,13 @@
         "entry_mid_price": 0.011191326360832232,
         "units": 44235.105740735555,
         "cost_basis": 500.0,
-        "latest_price": 0.010267664850456801,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.010592622953414012,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 454.19,
-        "market_value_after_exit_cost_usd": 449.65,
-        "unrealised_pnl_usd": -50.35,
-        "unrealised_pnl_pct": -10.07,
+        "market_value_usd": 468.57,
+        "market_value_after_exit_cost_usd": 463.88,
+        "unrealised_pnl_usd": -36.12,
+        "unrealised_pnl_pct": -7.22,
         "take_profit_price": 0.016786989541248347,
         "stop_price": 0.008393494770624173,
         "time_stop_uk": "2026-11-24 21:00",
@@ -1686,13 +1686,13 @@
         "entry_mid_price": 0.009659883165108742,
         "units": 51247.980590345185,
         "cost_basis": 500.0,
-        "latest_price": 0.00876856815824366,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.008780464182054255,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 449.37,
-        "market_value_after_exit_cost_usd": 444.88,
-        "unrealised_pnl_usd": -55.12,
-        "unrealised_pnl_pct": -11.02,
+        "market_value_usd": 449.98,
+        "market_value_after_exit_cost_usd": 445.48,
+        "unrealised_pnl_usd": -54.52,
+        "unrealised_pnl_pct": -10.9,
         "take_profit_price": 0.014489824747663114,
         "stop_price": 0.007244912373831557,
         "time_stop_uk": "2026-11-24 21:00",
@@ -1708,13 +1708,13 @@
         "entry_mid_price": 0.025158633100236687,
         "units": 19677.12248030827,
         "cost_basis": 500.0,
-        "latest_price": 0.02393201066513851,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.024497839425451053,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 470.91,
-        "market_value_after_exit_cost_usd": 466.2,
-        "unrealised_pnl_usd": -33.8,
-        "unrealised_pnl_pct": -6.76,
+        "market_value_usd": 482.05,
+        "market_value_after_exit_cost_usd": 477.23,
+        "unrealised_pnl_usd": -22.77,
+        "unrealised_pnl_pct": -4.55,
         "take_profit_price": 0.03773794965035503,
         "stop_price": 0.018868974825177513,
         "time_stop_uk": "2026-11-24 21:00",
@@ -1730,13 +1730,13 @@
         "entry_mid_price": 0.018567714545389063,
         "units": 26661.843800987943,
         "cost_basis": 500.0,
-        "latest_price": 0.01929810856649263,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.020238397409479532,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 514.52,
-        "market_value_after_exit_cost_usd": 509.38,
-        "unrealised_pnl_usd": 9.38,
-        "unrealised_pnl_pct": 1.88,
+        "market_value_usd": 539.59,
+        "market_value_after_exit_cost_usd": 534.2,
+        "unrealised_pnl_usd": 34.2,
+        "unrealised_pnl_pct": 6.84,
         "take_profit_price": 0.027851571818083593,
         "stop_price": 0.013925785909041796,
         "time_stop_uk": "2026-11-25 01:00",
@@ -1752,13 +1752,13 @@
         "entry_mid_price": 0.004053970940177733,
         "units": 122114.71474652237,
         "cost_basis": 500.0,
-        "latest_price": 0.003655252431270157,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.0038360140937520096,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 446.36,
-        "market_value_after_exit_cost_usd": 441.9,
-        "unrealised_pnl_usd": -58.1,
-        "unrealised_pnl_pct": -11.62,
+        "market_value_usd": 468.43,
+        "market_value_after_exit_cost_usd": 463.75,
+        "unrealised_pnl_usd": -36.25,
+        "unrealised_pnl_pct": -7.25,
         "take_profit_price": 0.0060809564102665995,
         "stop_price": 0.0030404782051332998,
         "time_stop_uk": "2026-11-25 20:56",
@@ -1774,13 +1774,13 @@
         "entry_mid_price": 0.006597682274553839,
         "units": 75033.85042650788,
         "cost_basis": 500.0,
-        "latest_price": 0.006597682274553839,
-        "latest_price_time_uk": "2026-11-23 05:00",
+        "latest_price": 0.008115907900375795,
+        "latest_price_time_uk": "2026-11-23 08:58",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 495.05,
-        "market_value_after_exit_cost_usd": 490.1,
-        "unrealised_pnl_usd": -9.9,
-        "unrealised_pnl_pct": -1.98,
+        "market_value_usd": 608.97,
+        "market_value_after_exit_cost_usd": 602.88,
+        "unrealised_pnl_usd": 102.88,
+        "unrealised_pnl_pct": 20.58,
         "take_profit_price": 0.00989652341183076,
         "stop_price": 0.00494826170591538,
         "time_stop_uk": "2026-11-26 05:00",
@@ -2640,17 +2640,17 @@
     "totals": {
       "realised_pnl_usd": -3454.09,
       "realised_pnl_pct": -34.54,
-      "unrealised_pnl_usd": -243.55,
-      "unrealised_pnl_pct": -6.09,
-      "total_pnl_usd": -3697.64,
-      "total_pnl_pct": -36.98,
+      "unrealised_pnl_usd": -66.6,
+      "unrealised_pnl_pct": -1.66,
+      "total_pnl_usd": -3520.69,
+      "total_pnl_pct": -35.21,
       "open_positions_cost_basis_usd": 4000.0,
-      "open_positions_market_value_usd": 3794.4,
-      "open_positions_value_after_exit_cost_usd": 3756.45,
+      "open_positions_market_value_usd": 3973.13,
+      "open_positions_value_after_exit_cost_usd": 3933.4,
       "equity_at_cost_usd": 6545.94,
-      "equity_at_market_usd": 6302.39,
+      "equity_at_market_usd": 6479.34,
       "marked_as_of": [
-        "2026-11-23 05:00"
+        "2026-11-23 08:58"
       ],
       "open_count": 8,
       "closed_count": 53,
@@ -2658,223 +2658,223 @@
       "loss_count": 46
     },
     "last_scan": {
-      "time_uk": "2026-11-23 05:00",
-      "coins_scanned": 269,
-      "momentum_candidates": 18,
-      "rug_check_rejections": 17,
-      "paper_buys": 1
+      "time_uk": "2026-11-23 08:58",
+      "coins_scanned": 264,
+      "momentum_candidates": 22,
+      "rug_check_rejections": 22,
+      "paper_buys": 0
     },
     "notes": "Fake-money paper strategy on Solana meme coins using public Jupiter prices; no wallet and no real orders. Each run the scanner reads Jupiter's trending, most-traded and top organic-score lists and keeps coins up at least 10% in 24h, not falling over the last hour, with at least $250k of 24h volume (stablecoins, stock-tracking coins and large-cap majors excluded). A rug check then requires Jupiter verification, an organic score of at least 70, at least $100k liquidity, a trading pair at least 24 hours old, mint and freeze authority renounced, top holders at or below 35%, any dev wallet at or below 10%, a 24h rise no larger than 300% and at least 1,000 holders. Coins that pass get a $500 paper position (maximum 10 open, at most 3 new per run). Fills use the Jupiter USD price plus a modelled 1% slippage and fee on entry and minus 1% on exit. A position is closed at +50% (take profit), -25% (stop), after 72 hours, or if it later fails the rug check (for example liquidity collapsing below $100k). Open positions are marked to the Jupiter price at the latest run; market value is shown before and after the modelled 1% exit cost, and unrealised P&L and equity use the after-cost value. Times are UK time.",
     "log": [
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Marked to market",
         "ticker": null,
-        "reason": "cash $2545.94 + open $3756.45 (after exit haircut) = equity $6302.39; realised $-3454.09, unrealised $-243.55, 8 open"
+        "reason": "cash $2545.94 + open $3933.40 (after exit haircut) = equity $6479.34; realised $-3454.09, unrealised $-66.60, 8 open"
       },
       {
-        "time_uk": "2026-11-23 05:00",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "CUNTS",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $9,157 < $100k (Jupiter); not Jupiter-verified; organic score 62.0 < 70; only 462 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "WW",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $83,944 < $100k (Jupiter); not Jupiter-verified; organic score 67.0 < 70; only 809 holders (< 1000)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $91,826 < $100k (Jupiter); not Jupiter-verified; organic score 66.0 < 70; only 810 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "PUMPCADE",
+        "reason": "Not bought by the paper strategy; failed rug check: organic score 61.0 < 70"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "P",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $6,859 < $100k (Jupiter); not Jupiter-verified; organic score 54.0 < 70; pair only 4.3h old (< 24h); absurd pump: +768% in 24h (> 300%); only 269 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "CHOO",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $55,336 < $100k (Jupiter); not Jupiter-verified; organic score 39.0 < 70"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $52,766 < $100k (Jupiter); not Jupiter-verified; organic score 40.0 < 70"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "shiit",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $43,092 < $100k (Jupiter); not Jupiter-verified; organic score 61.0 < 70"
+        "ticker": "dreams",
+        "reason": "Not bought by the paper strategy; failed rug check: organic score 66.0 < 70"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "QI",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $36,886 < $100k (Jupiter); not Jupiter-verified; organic score 59.0 < 70"
+        "ticker": "LEONIDA",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $13,642 < $100k (Jupiter); not Jupiter-verified; organic score 61.0 < 70; only 821 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "earball",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $8,368 < $100k (Jupiter); not Jupiter-verified; organic score 62.0 < 70; pair only 17.2h old (< 24h); absurd pump: +2864% in 24h (> 300%); only 479 holders (< 1000)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $7,840 < $100k (Jupiter); not Jupiter-verified; organic score 62.0 < 70; pair only 21.1h old (< 24h); absurd pump: +577% in 24h (> 300%); only 522 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "hCAT",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $12,186 < $100k (Jupiter); not Jupiter-verified; organic score 55.0 < 70; pair only 2.1h old (< 24h); absurd pump: +5041% in 24h (> 300%); only 513 holders (< 1000)"
+        "ticker": "BUTTHOLE",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $19,463 < $100k (Jupiter); not Jupiter-verified; organic score 59.0 < 70; only 742 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "casual",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $6,316 < $100k (Jupiter); not Jupiter-verified; organic score 61.0 < 70; pair only 21.8h old (< 24h); absurd pump: +1166% in 24h (> 300%); only 540 holders (< 1000)"
+        "ticker": "PRIVI",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $6,903 < $100k (Jupiter); not Jupiter-verified; organic score 57.0 < 70; pair only 9.9h old (< 24h); absurd pump: +1689% in 24h (> 300%); only 445 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "攀豹豹",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $13,697 < $100k (Jupiter); not Jupiter-verified; organic score 62.0 < 70; only 633 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "chego",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $22,366 < $100k (Jupiter); not Jupiter-verified; organic score 60.0 < 70; absurd pump: +609% in 24h (> 300%); only 724 holders (< 1000)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $21,173 < $100k (Jupiter); not Jupiter-verified; organic score 61.0 < 70; absurd pump: +419% in 24h (> 300%); only 708 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "GIFTER",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $10,339 < $100k (Jupiter); not Jupiter-verified; organic score 67.0 < 70; pair only 20.2h old (< 24h)"
+        "ticker": "MASK",
+        "reason": "Not bought by the paper strategy; failed rug check: top holders own 57.2% (> 35%); dev wallet holds 40.5% (> 10%)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "RECEIPTS",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $5,254 < $100k (Jupiter); not Jupiter-verified; organic score 54.0 < 70; pair only 5.0h old (< 24h); only 241 holders (< 1000)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $5,276 < $100k (Jupiter); not Jupiter-verified; organic score 54.0 < 70; pair only 9.0h old (< 24h); only 219 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "SI",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $5,801 < $100k (Jupiter); not Jupiter-verified; organic score 59.0 < 70; pair only 9.6h old (< 24h); absurd pump: +490% in 24h (> 300%); only 411 holders (< 1000)"
+        "ticker": "ORE",
+        "reason": "Not bought by the paper strategy; failed rug check: mint authority not renounced (unknown)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
-        "stage": "Executor",
-        "action": "Paper buy",
-        "ticker": "SI",
-        "reason": "Paper strategy paper-bought 75033.9 @ $0.0066636591 (mid $0.0065976823 +1% haircut) for $500: momentum +64.9% 24h / +9.0% 1h on $838,282 24h volume; passed rug check (verified, organic 76, liquidity $329,105, top holders 17.3%, mint+freeze renounced)"
-      },
-      {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "ZOL",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $14,610 < $100k (Jupiter); not Jupiter-verified; organic score 65.0 < 70; only 880 holders (< 1000)"
+        "ticker": "AVA",
+        "reason": "Not bought by the paper strategy; failed rug check: organic score 0.0 < 70; top holders own 71.1% (> 35%)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "Fly",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $23,864 < $100k (Jupiter); not Jupiter-verified; pair only 1.9h old (< 24h); absurd pump: +6933% in 24h (> 300%)"
+        "ticker": "Rings",
+        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "ZOL",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $14,701 < $100k (Jupiter); not Jupiter-verified; organic score 68.0 < 70; pair only 6.5h old (< 24h); absurd pump: +6542% in 24h (> 300%)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $14,787 < $100k (Jupiter); not Jupiter-verified; organic score 65.0 < 70; only 962 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
-        "ticker": "snowball",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $26,874 < $100k (Jupiter); not Jupiter-verified"
+        "ticker": "FOAM",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $8,379 < $100k (Jupiter); not Jupiter-verified; pair only 16.1h old (< 24h); absurd pump: +674% in 24h (> 300%); only 967 holders (< 1000)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "ZOL",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $13,925 < $100k (Jupiter); not Jupiter-verified; organic score 68.0 < 70; pair only 10.4h old (< 24h); absurd pump: +5770% in 24h (> 300%)"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "MCAT",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $66,833 < $100k (Jupiter); not Jupiter-verified; pair only 15.7h old (< 24h); absurd pump: +1889% in 24h (> 300%)"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
         "stage": "Rug check",
         "action": "Rejected",
         "ticker": "OpenIndex",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $37,024 < $100k (Jupiter); not Jupiter-verified; pair only 11.5h old (< 24h); absurd pump: +8704% in 24h (> 300%)"
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $41,893 < $100k (Jupiter); not Jupiter-verified; pair only 15.5h old (< 24h); absurd pump: +12011% in 24h (> 300%)"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "MINELIUS",
+        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified; organic score 51.0 < 70; pair only 11.5h old (< 24h); absurd pump: +7717% in 24h (> 300%)"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
+        "stage": "Equity",
+        "action": "Held",
+        "ticker": "SI",
+        "reason": "held 4h, +23.0% vs entry mid; no exit rule hit"
+      },
+      {
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "FLOAT",
-        "reason": "held 8h, -9.8% vs entry mid; no exit rule hit"
+        "reason": "held 12h, -5.4% vs entry mid; no exit rule hit"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "ZCAT",
-        "reason": "held 28h, +3.9% vs entry mid; no exit rule hit"
+        "reason": "held 32h, +9.0% vs entry mid; no exit rule hit"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "neet",
-        "reason": "held 32h, -4.9% vs entry mid; no exit rule hit"
+        "reason": "held 36h, -2.6% vs entry mid; no exit rule hit"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "VINE",
-        "reason": "held 32h, -9.2% vs entry mid; no exit rule hit"
+        "reason": "held 36h, -9.1% vs entry mid; no exit rule hit"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "CLAUDIA",
-        "reason": "held 32h, -8.3% vs entry mid; no exit rule hit"
+        "reason": "held 36h, -5.3% vs entry mid; no exit rule hit"
       },
       {
-        "time_uk": "2026-11-23 05:00",
+        "time_uk": "2026-11-23 08:58",
         "stage": "Equity",
         "action": "Held",
         "ticker": "CATE",
-        "reason": "held 36h, +6.2% vs entry mid; no exit rule hit"
-      },
-      {
-        "time_uk": "2026-11-23 05:00",
-        "stage": "Equity",
-        "action": "Held",
-        "ticker": "Buttcoin",
-        "reason": "held 40h, -11.5% vs entry mid; no exit rule hit"
-      },
-      {
-        "time_uk": "2026-11-23 05:00",
-        "stage": "Scanner",
-        "action": "Scanned",
-        "ticker": null,
-        "reason": "scanned 269 coins from Jupiter lists; 18 with momentum (24h >= +10%, 1h >= 0, 24h vol >= $250k), 251 filtered out"
-      },
-      {
-        "time_uk": "2026-11-23 00:57",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": null,
-        "reason": "cash $3045.94 + open $3252.83 (after exit haircut) = equity $6298.76; realised $-3454.09, unrealised $-247.17, 7 open"
-      },
-      {
-        "time_uk": "2026-11-23 00:57",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "chego",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $17,720 < $100k (Jupiter); not Jupiter-verified; organic score 58.0 < 70; only 395 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-23 00:57",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Singularity",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $13,729 < $100k (Jupiter); not Jupiter-verified; organic score 52.0 < 70; only 333 holders (< 1000)"
+        "reason": "held 40h, +5.2% vs entry mid; no exit rule hit"
       }
     ]
   },
@@ -2894,17 +2894,17 @@
         "entry_date": "2026-11-10",
         "started": "10 Nov 2026",
         "cost_basis": 3000.0,
-        "market_value_usd": 3016.75,
-        "market_value_after_exit_cost_usd": 3016.75,
-        "unrealised_pnl_usd": 16.75,
-        "unrealised_pnl_pct": 0.56,
-        "latest_price_time_uk": "2026-11-22 09:45",
+        "market_value_usd": 3017.69,
+        "market_value_after_exit_cost_usd": 3017.69,
+        "unrealised_pnl_usd": 17.69,
+        "unrealised_pnl_pct": 0.59,
+        "latest_price_time_uk": "2026-11-23 09:51",
         "entry_price": 1.0212494702755777,
-        "latest_price": 1.0269507308594137,
+        "latest_price": 1.0272706416971888,
         "units": 2937.5780231156145,
         "target_net_apy_pct": 6.0,
         "target_apy_basis": "curator target, not measured",
-        "shadow_value_at_target_usd": 3005.69,
+        "shadow_value_at_target_usd": 3006.19,
         "withdrawal": "cooldown; modelled lock-up 1 days (published)"
       },
       {
@@ -2914,17 +2914,17 @@
         "entry_date": "2026-11-10",
         "started": "10 Nov 2026",
         "cost_basis": 3000.0,
-        "market_value_usd": 3014.21,
-        "market_value_after_exit_cost_usd": 3014.21,
-        "unrealised_pnl_usd": 14.21,
-        "unrealised_pnl_pct": 0.47,
-        "latest_price_time_uk": "2026-11-22 09:45",
+        "market_value_usd": 3015.29,
+        "market_value_after_exit_cost_usd": 3015.29,
+        "unrealised_pnl_usd": 15.29,
+        "unrealised_pnl_pct": 0.51,
+        "latest_price_time_uk": "2026-11-23 09:51",
         "entry_price": 1.003652133609419,
-        "latest_price": 1.0084065343416162,
+        "latest_price": 1.0087661662674534,
         "units": 2989.0834678058673,
         "target_net_apy_pct": 7.0,
         "target_apy_basis": "curator target, not measured",
-        "shadow_value_at_target_usd": 3006.64,
+        "shadow_value_at_target_usd": 3007.22,
         "withdrawal": "queued; modelled lock-up 30 days (assumed)"
       },
       {
@@ -2934,17 +2934,17 @@
         "entry_date": "2026-11-10",
         "started": "10 Nov 2026",
         "cost_basis": 1000.0,
-        "market_value_usd": 1009.33,
-        "market_value_after_exit_cost_usd": 1009.33,
-        "unrealised_pnl_usd": 9.33,
-        "unrealised_pnl_pct": 0.93,
-        "latest_price_time_uk": "2026-11-22 09:45",
+        "market_value_usd": 1000.95,
+        "market_value_after_exit_cost_usd": 1000.95,
+        "unrealised_pnl_usd": 0.95,
+        "unrealised_pnl_pct": 0.1,
+        "latest_price_time_uk": "2026-11-23 09:51",
         "entry_price": 1.000967462401218,
-        "latest_price": 1.0103060127505892,
+        "latest_price": 1.0019199980303604,
         "units": 999.0334726776263,
         "target_net_apy_pct": 12.0,
         "target_apy_basis": "curator target, not measured",
-        "shadow_value_at_target_usd": 1003.8,
+        "shadow_value_at_target_usd": 1004.13,
         "withdrawal": "queued; modelled lock-up 30 days (assumed)"
       },
       {
@@ -2954,53 +2954,53 @@
         "entry_date": "2026-11-10",
         "started": "10 Nov 2026",
         "cost_basis": 3000.0,
-        "market_value_usd": 2464.74,
-        "market_value_after_exit_cost_usd": 2456.11,
-        "unrealised_pnl_usd": -543.89,
-        "unrealised_pnl_pct": -18.13,
-        "latest_price_time_uk": "2026-11-22 09:45",
+        "market_value_usd": 2516.09,
+        "market_value_after_exit_cost_usd": 2507.28,
+        "unrealised_pnl_usd": -492.72,
+        "unrealised_pnl_pct": -16.42,
+        "latest_price_time_uk": "2026-11-23 09:51",
         "holdings": [
           {
             "coin": "cbBTC",
             "weight_pct": 78.64,
             "units": 0.032035862200521924,
             "entry_price": 73568.90044322764,
-            "latest_price": 60123.42707337519
+            "latest_price": 61326.99686344374
           },
           {
             "coin": "ETH",
             "weight_pct": 13.31,
             "units": 0.19463084716189277,
             "entry_price": 2049.526602375087,
-            "latest_price": 1691.9539564126615
+            "latest_price": 1719.5030184905165
           },
           {
             "coin": "wXRP",
             "weight_pct": 3.59,
             "units": 101.86297302707072,
             "entry_price": 1.056246488739478,
-            "latest_price": 0.9723880666386383
+            "latest_price": 1.0149593774052614
           },
           {
             "coin": "SOL",
             "weight_pct": 2.6,
             "units": 0.9372031070870196,
             "entry_price": 83.14321338975549,
-            "latest_price": 69.80974848215462
+            "latest_price": 72.16677125021158
           },
           {
             "coin": "ZEC",
             "weight_pct": 0.94,
             "units": 0.02697404680493163,
             "entry_price": 1044.404956199511,
-            "latest_price": 792.3498240080888
+            "latest_price": 794.0125814107153
           },
           {
             "coin": "HYPE",
             "weight_pct": 0.92,
             "units": 0.382638816526442,
             "entry_price": 72.05862652076806,
-            "latest_price": 61.35777018232813
+            "latest_price": 63.55613028377103
           }
         ],
         "next_review": "1 Jan 2027"
@@ -3010,16 +3010,16 @@
     "totals": {
       "realised_pnl_usd": 0.0,
       "realised_pnl_pct": 0.0,
-      "unrealised_pnl_usd": -503.6,
-      "unrealised_pnl_pct": -5.04,
-      "total_pnl_usd": -503.6,
-      "total_pnl_pct": -5.04,
+      "unrealised_pnl_usd": -458.79,
+      "unrealised_pnl_pct": -4.59,
+      "total_pnl_usd": -458.79,
+      "total_pnl_pct": -4.59,
       "open_positions_cost_basis_usd": 10000.0,
-      "open_positions_market_value_usd": 9496.4,
+      "open_positions_market_value_usd": 9541.21,
       "equity_at_cost_usd": 10000.0,
-      "equity_at_market_usd": 9496.4,
+      "equity_at_market_usd": 9541.21,
       "marked_as_of": [
-        "2026-11-22 09:45"
+        "2026-11-23 09:51"
       ],
       "open_count": 4,
       "closed_count": 0,
@@ -3029,13 +3029,55 @@
     "control": {
       "name": "Jupiter Lend Earn USDC (control)",
       "start_cash": 10000.0,
-      "equity_usd": 10013.61,
-      "return_pct": 0.14,
+      "equity_usd": 10014.72,
+      "return_pct": 0.15,
       "pool_apy_pct": 4.02,
-      "book_vs_control_usd": -517.21
+      "book_vs_control_usd": -473.51
     },
     "notes": "Fake-money paper test of Jupiter's November 2026 products: no wallet, no real deposits and no orders. $10,000 split 60% into two stablecoin lending vaults (Bitwise JupLend Optimizer and Bitwise sUSDai Yield, $3,000 each), 30% into the Crypto 6 basket and 10% into a leveraged looping vault (Bitwise sUSDai Multiply). A separate $10,000 control sits in plain Jupiter Lend Earn USDC and is not part of the book's equity. Vaults are marked to the share price shown on the public vault pages; the basket is marked to Jupiter prices of its six coins; both are shown after modelled exit costs where they apply. Modelled costs are assumptions: 0.10% entry cost on vaults and 0.10% price impact on the basket each way, plus the published 0.25% basket fee on exit. Target APYs are curator targets, not measured returns. A vault is exited if its share price falls 2% or more in a day, USDC trades under $0.99, or the vault is delisted; curator pauses and incident reports are checked by hand. Times are UK time.",
     "log": [
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": null,
+        "reason": "equity $9541.21 = cash $0.00 + stable vaults $6032.97 + basket $2507.28 (after exit cost) + looping $1000.95 + withdrawing $0.00; control (Lend Earn USDC) $10014.72; vs control $-473.51"
+      },
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Risk",
+        "action": "Note",
+        "ticker": null,
+        "reason": "manual check each day: curator pauses and incident reports are NOT readable from the public pages (page shows Closed/Paused/Full badges that could not be resolved to a state)"
+      },
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": "Crypto 6 basket",
+        "reason": "value $2516.09 (-16.13% vs $3000.00 cost); cbBTC $61326.9969, ETH $1719.503, wXRP $1.015, SOL $72.1668, ZEC $794.0126, HYPE $63.5561"
+      },
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": "Bitwise sUSDai Multiply Vault",
+        "reason": "share price 1.001920 (+0.20% vs entry mark), value $1000.95; target net APY 12.0% (target, not measured)"
+      },
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": "Bitwise sUSDai Yield Vault",
+        "reason": "share price 1.008766 (+0.61% vs entry mark), value $3015.29; target net APY 7.0% (target, not measured)"
+      },
+      {
+        "time_uk": "2026-11-23 09:51",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": "Bitwise JupLend Optimizer Vault",
+        "reason": "share price 1.027271 (+0.69% vs entry mark), value $3017.69; target net APY 6.0% (target, not measured)"
+      },
       {
         "time_uk": "2026-11-22 09:45",
         "stage": "Equity",
@@ -3203,48 +3245,6 @@
         "action": "Marked to market",
         "ticker": "Bitwise JupLend Optimizer Vault",
         "reason": "share price 1.025674 (+0.53% vs entry mark), value $3013.00; target net APY 6.0% (target, not measured)"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": null,
-        "reason": "equity $9648.04 = cash $0.00 + stable vaults $6022.25 + basket $2619.93 (after exit cost) + looping $1005.86 + withdrawing $0.00; control (Lend Earn USDC) $10007.60; vs control $-359.56"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Risk",
-        "action": "Note",
-        "ticker": null,
-        "reason": "manual check each day: curator pauses and incident reports are NOT readable from the public pages (page shows Closed/Paused/Full badges that could not be resolved to a state)"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": "Crypto 6 basket",
-        "reason": "value $2629.13 (-12.36% vs $3000.00 cost); cbBTC $64300.1142, ETH $1812.8924, wXRP $0.9577, SOL $72.432, ZEC $915.0906, HYPE $68.6269"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": "Bitwise sUSDai Multiply Vault",
-        "reason": "share price 1.006830 (+0.69% vs entry mark), value $1005.86; target net APY 12.0% (target, not measured)"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": "Bitwise sUSDai Yield Vault",
-        "reason": "share price 1.007077 (+0.44% vs entry mark), value $3010.24; target net APY 7.0% (target, not measured)"
-      },
-      {
-        "time_uk": "2026-11-17 09:47",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": "Bitwise JupLend Optimizer Vault",
-        "reason": "share price 1.025340 (+0.50% vs entry mark), value $3012.02; target net APY 6.0% (target, not measured)"
       }
     ]
   }
