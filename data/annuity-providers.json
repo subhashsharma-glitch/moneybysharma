@@ -1,8 +1,8 @@
 {
  "source": "Which? annuity rates article (figures from the MoneyHelper annuity comparison tool)",
  "source_url": "https://www.which.co.uk/money/pensions-and-retirement/accessing-your-pensions/annuities/annuity-rates-aQGfH6W5n2rm",
- "quotes_dated": "2026-11-09",
- "checked": "2026-11-16",
+ "quotes_dated": "2026-11-16",
+ "checked": "2026-11-23",
  "purchase_price": 100000,
  "basis": "Healthy person, £100,000 purchase, CB23 postcode, paid annually in arrears; joint life partner is the same age and receives 50%. Which? says the figures are a guide only.",
  "scenarios": {
@@ -11,24 +11,24 @@
     "Aviva": 8018,
     "Canada Life": 8151,
     "Just": 6703,
-    "Legal & General": 7815,
-    "Scottish Widows": 8198,
+    "Legal & General": 7860,
+    "Scottish Widows": 8151,
     "Standard Life": 8094
    },
    "Joint life (50%), level": {
     "Aviva": 7384,
     "Canada Life": 7775,
     "Just": 6530,
-    "Legal & General": 7443,
-    "Scottish Widows": 7752,
+    "Legal & General": 7445,
+    "Scottish Widows": 7710,
     "Standard Life": 7673
    },
    "Joint life (50%), rising 3% a year": {
     "Aviva": 5255,
     "Canada Life": 5669,
     "Just": 4739,
-    "Legal & General": 5467,
-    "Scottish Widows": 5721,
+    "Legal & General": 5488,
+    "Scottish Widows": 5693,
     "Standard Life": 5563
    }
   },
@@ -37,24 +37,24 @@
     "Aviva": 8843,
     "Canada Life": 8863,
     "Just": 7515,
-    "Legal & General": 8559,
-    "Scottish Widows": 9086,
+    "Legal & General": 8607,
+    "Scottish Widows": 9043,
     "Standard Life": 8833
    },
    "Joint life (50%), level": {
     "Aviva": 8070,
     "Canada Life": 8487,
     "Just": 7080,
-    "Legal & General": 8144,
-    "Scottish Widows": 8594,
+    "Legal & General": 8146,
+    "Scottish Widows": 8557,
     "Standard Life": 8282
    },
    "Joint life (50%), rising 3% a year": {
     "Aviva": 6013,
     "Canada Life": 6449,
     "Just": 5375,
-    "Legal & General": 6246,
-    "Scottish Widows": 6560,
+    "Legal & General": 6270,
+    "Scottish Widows": 6530,
     "Standard Life": 6241
    }
   }

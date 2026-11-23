@@ -1,8 +1,8 @@
 {
  "source": "Hargreaves Lansdown, annuity rate table (annual income from a £100,000 pension used to buy an annuity)",
  "source_url": "https://www.hl.co.uk/retirement/annuities/best-buy-rates",
- "quotes_dated": "2026-11-05",
- "checked": "2026-11-16",
+ "quotes_dated": "2026-11-19",
+ "checked": "2026-11-23",
  "purchase_price": 100000,
  "basis": "Highest quote found by HL's online quote tool across the providers it compares, on 15 October 2026. Average postcode, paid monthly in advance, standard (not enhanced) rates. Joint life: 50% of the income continues to the partner, who is assumed to be 3 years younger.",
  "ages": [
@@ -14,52 +14,52 @@
  ],
  "rates": {
   "single|level|0": [
-   7057,
-   7414,
-   8209,
-   8996,
-   10208
+   7022,
+   7402,
+   8167,
+   8948,
+   10166
   ],
   "single|level|5": [
-   7036,
-   7386,
-   8145,
-   8881,
-   9948
+   7002,
+   7384,
+   8103,
+   8834,
+   9908
   ],
   "single|rpi|5": [
    4485,
    4921,
-   5641,
-   6446,
-   7648
+   5631,
+   6432,
+   7638
   ],
   "single|3pc|5": [
-   4955,
-   5336,
-   6093,
-   6913,
-   8094
+   4931,
+   5326,
+   6062,
+   6885,
+   8060
   ],
   "joint|level|0": [
-   6695,
-   7081,
-   7624,
-   8331,
-   9143
+   6661,
+   7061,
+   7586,
+   8266,
+   9106
   ],
   "joint|3pc|0": [
-   4593,
-   5033,
-   5607,
-   6309,
-   7262
+   4570,
+   5008,
+   5579,
+   6283,
+   7250
   ]
  },
  "smoker_example": {
   "age": 65,
   "type": "single|level|0",
-  "standard": 8209,
+  "standard": 8167,
   "smoker": 8753,
   "profile": "smoked 10 cigarettes a day for the last 20 years and drinks 15 units of alcohol a week"
  }
