@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-25T22:26:00+00:00",
+  "as_of": "2026-11-26T01:02:28+00:00",
   "disclaimer": "Paper-trading experiment with fake money. Not financial advice.",
   "atr": {
     "name": "ATR model paper book",
@@ -584,7 +584,7 @@
       "equity_at_cost_usd": 10032.79,
       "equity_at_market_usd": 10032.79,
       "marked_as_of": [
-        "2026-11-25"
+        "2026-11-26"
       ],
       "open_count": 0,
       "closed_count": 40,
@@ -1833,30 +1833,8 @@
     "start_cash": 10000.0,
     "currency": "USD",
     "position_size": 500.0,
-    "cash": 3948.19,
+    "cash": 3805.88,
     "open_positions": [
-      {
-        "ticker": "FLOAT",
-        "name": "FLOAT",
-        "entry_date": "2026-11-24",
-        "started": "24 Nov 2026",
-        "entry_time_uk": "2026-11-24 21:06",
-        "entry_price": 0.0032305983927574194,
-        "entry_mid_price": 0.003198612270056851,
-        "units": 154770.08876155416,
-        "cost_basis": 500.0,
-        "latest_price": 0.002686190327679257,
-        "latest_price_time_uk": "2026-11-25 21:01",
-        "price_source": "Jupiter Price API v3",
-        "market_value_usd": 415.74,
-        "market_value_after_exit_cost_usd": 411.58,
-        "unrealised_pnl_usd": -88.42,
-        "unrealised_pnl_pct": -17.68,
-        "take_profit_price": 0.004797918405085276,
-        "stop_price": 0.002398959202542638,
-        "time_stop_uk": "2026-11-27 21:06",
-        "entry_reason": "Paper strategy bought on momentum +20.7% 24h / +1.7% 1h on $1,135,700 24h volume; passed rug check (verified, organic 71, liquidity $297,644, top holders 24.8%, mint+freeze renounced)"
-      },
       {
         "ticker": "VINE",
         "name": "Vine Coin",
@@ -1867,13 +1845,13 @@
         "entry_mid_price": 0.009360341888604268,
         "units": 52887.97255933485,
         "cost_basis": 500.0,
-        "latest_price": 0.009384029228254433,
-        "latest_price_time_uk": "2026-11-25 21:01",
+        "latest_price": 0.00944129565587196,
+        "latest_price_time_uk": "2026-11-26 01:02",
         "price_source": "Jupiter Price API v3",
-        "market_value_usd": 496.3,
-        "market_value_after_exit_cost_usd": 491.34,
-        "unrealised_pnl_usd": -8.66,
-        "unrealised_pnl_pct": -1.73,
+        "market_value_usd": 499.33,
+        "market_value_after_exit_cost_usd": 494.34,
+        "unrealised_pnl_usd": -5.66,
+        "unrealised_pnl_pct": -1.13,
         "take_profit_price": 0.014040512832906402,
         "stop_price": 0.007020256416453201,
         "time_stop_uk": "2026-11-28 13:02",
@@ -1889,17 +1867,39 @@
         "entry_mid_price": 0.018071941774004747,
         "units": 27393.2658228564,
         "cost_basis": 500.0,
-        "latest_price": 0.018071941774004747,
-        "latest_price_time_uk": "2026-11-25 21:01",
+        "latest_price": 0.01796014767312066,
+        "latest_price_time_uk": "2026-11-26 01:02",
+        "price_source": "Jupiter Price API v3",
+        "market_value_usd": 491.99,
+        "market_value_after_exit_cost_usd": 487.07,
+        "unrealised_pnl_usd": -12.93,
+        "unrealised_pnl_pct": -2.59,
+        "take_profit_price": 0.027107912661007122,
+        "stop_price": 0.013553956330503561,
+        "time_stop_uk": "2026-11-28 21:01",
+        "entry_reason": "Paper strategy bought on momentum +24.3% 24h / +6.1% 1h on $327,864 24h volume; passed rug check (verified, organic 77, liquidity $196,327, top holders 17.1%, mint+freeze renounced)"
+      },
+      {
+        "ticker": "TROLL",
+        "name": "TROLL",
+        "entry_date": "2026-11-26",
+        "started": "26 Nov 2026",
+        "entry_time_uk": "2026-11-26 01:02",
+        "entry_price": 0.021950304988128215,
+        "entry_mid_price": 0.02173297523577051,
+        "units": 22778.726777164335,
+        "cost_basis": 500.0,
+        "latest_price": 0.02173297523577051,
+        "latest_price_time_uk": "2026-11-26 01:02",
         "price_source": "Jupiter Price API v3",
         "market_value_usd": 495.05,
         "market_value_after_exit_cost_usd": 490.1,
         "unrealised_pnl_usd": -9.9,
         "unrealised_pnl_pct": -1.98,
-        "take_profit_price": 0.027107912661007122,
-        "stop_price": 0.013553956330503561,
-        "time_stop_uk": "2026-11-28 21:01",
-        "entry_reason": "Paper strategy bought on momentum +24.3% 24h / +6.1% 1h on $327,864 24h volume; passed rug check (verified, organic 77, liquidity $196,327, top holders 17.1%, mint+freeze renounced)"
+        "take_profit_price": 0.03259946285365577,
+        "stop_price": 0.016299731426827883,
+        "time_stop_uk": "2026-11-29 01:02",
+        "entry_reason": "Paper strategy bought on momentum +15.2% 24h / +1.8% 1h on $510,091 24h volume; passed rug check (verified, organic 75, liquidity $980,493, top holders 27.5%, mint+freeze renounced)"
       }
     ],
     "closed_trades": [
@@ -2894,37 +2894,200 @@
         "pnl_usd": -110.7,
         "pnl_pct": -22.14,
         "exit_reason": "failed hold-time rug check: liquidity $91,913 < $100k (DexScreener pools)"
+      },
+      {
+        "ticker": "FLOAT",
+        "entry_date": "2026-11-24",
+        "started": "24 Nov 2026",
+        "entry_time_uk": "2026-11-24 21:06",
+        "entry_price": 0.0032305983927574194,
+        "exit_date": "2026-11-26",
+        "closed": "26 Nov 2026",
+        "exit_time_uk": "2026-11-26 01:02",
+        "exit_price": 0.002311072877720517,
+        "units": 154770.08876155416,
+        "cost_basis": 500.0,
+        "pnl_usd": -142.32,
+        "pnl_pct": -28.46,
+        "exit_reason": "stop loss: -27.0% vs entry (<= -25%)"
       }
     ],
     "totals": {
-      "realised_pnl_usd": -4551.84,
-      "realised_pnl_pct": -45.52,
-      "unrealised_pnl_usd": -106.98,
-      "unrealised_pnl_pct": -7.13,
-      "total_pnl_usd": -4658.82,
-      "total_pnl_pct": -46.59,
+      "realised_pnl_usd": -4694.16,
+      "realised_pnl_pct": -46.94,
+      "unrealised_pnl_usd": -28.5,
+      "unrealised_pnl_pct": -1.9,
+      "total_pnl_usd": -4722.66,
+      "total_pnl_pct": -47.23,
       "open_positions_cost_basis_usd": 1500.0,
-      "open_positions_market_value_usd": 1407.09,
-      "open_positions_value_after_exit_cost_usd": 1393.02,
-      "equity_at_cost_usd": 5448.19,
-      "equity_at_market_usd": 5341.22,
+      "open_positions_market_value_usd": 1486.37,
+      "open_positions_value_after_exit_cost_usd": 1471.5,
+      "equity_at_cost_usd": 5305.88,
+      "equity_at_market_usd": 5277.38,
       "marked_as_of": [
-        "2026-11-25 21:01"
+        "2026-11-26 01:02"
       ],
       "open_count": 3,
-      "closed_count": 62,
+      "closed_count": 63,
       "win_count": 7,
-      "loss_count": 55
+      "loss_count": 56
     },
     "last_scan": {
-      "time_uk": "2026-11-25 21:01",
-      "coins_scanned": 272,
-      "momentum_candidates": 15,
-      "rug_check_rejections": 14,
+      "time_uk": "2026-11-26 01:02",
+      "coins_scanned": 260,
+      "momentum_candidates": 16,
+      "rug_check_rejections": 15,
       "paper_buys": 1
     },
     "notes": "Fake-money paper strategy on Solana meme coins using public Jupiter prices; no wallet and no real orders. Each run the scanner reads Jupiter's trending, most-traded and top organic-score lists and keeps coins up at least 10% in 24h, not falling over the last hour, with at least $250k of 24h volume (stablecoins, stock-tracking coins and large-cap majors excluded). A rug check then requires Jupiter verification, an organic score of at least 70, at least $100k liquidity, a trading pair at least 24 hours old, mint and freeze authority renounced, top holders at or below 35%, any dev wallet at or below 10%, a 24h rise no larger than 300% and at least 1,000 holders. Coins that pass get a $500 paper position (maximum 10 open, at most 3 new per run). Fills use the Jupiter USD price plus a modelled 1% slippage and fee on entry and minus 1% on exit. A position is closed at +50% (take profit), -25% (stop), after 72 hours, or if it later fails the rug check (for example liquidity collapsing below $100k). Open positions are marked to the Jupiter price at the latest run; market value is shown before and after the modelled 1% exit cost, and unrealised P&L and equity use the after-cost value. Times are UK time.",
     "log": [
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Equity",
+        "action": "Marked to market",
+        "ticker": null,
+        "reason": "cash $3805.88 + open $1471.50 (after exit haircut) = equity $5277.38; realised $-4694.16, unrealised $-28.50, 3 open"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "SOLACE",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $10,219 < $100k (Jupiter); not Jupiter-verified; organic score 44.0 < 70; pair only 0.8h old (< 24h); top holders own 74.2% (> 35%); only 181 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "PLAZA",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $9,470 < $100k (Jupiter); not Jupiter-verified; organic score 57.0 < 70; pair only 2.2h old (< 24h); absurd pump: +2528% in 24h (> 300%); only 510 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "CBUCKS",
+        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "Slingoor",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $31,417 < $100k (Jupiter); not Jupiter-verified; organic score 60.0 < 70"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "CRIME",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $6,673 < $100k (Jupiter); not Jupiter-verified; organic score 58.0 < 70; pair only 6.2h old (< 24h); absurd pump: +887% in 24h (> 300%); only 348 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Executor",
+        "action": "Paper buy",
+        "ticker": "TROLL",
+        "reason": "Paper strategy paper-bought 22778.7 @ $0.021950305 (mid $0.021732975 +1% haircut) for $500: momentum +15.2% 24h / +1.8% 1h on $510,091 24h volume; passed rug check (verified, organic 75, liquidity $980,493, top holders 27.5%, mint+freeze renounced)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "3sat",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $5,155 < $100k (Jupiter); not Jupiter-verified; organic score 60.0 < 70; pair only 10.9h old (< 24h); only 336 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "Investor",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $10,832 < $100k (Jupiter); not Jupiter-verified; organic score 66.0 < 70; pair only 7.9h old (< 24h); absurd pump: +2458% in 24h (> 300%); only 743 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "DIGS",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $30,423 < $100k (Jupiter); organic score 39.0 < 70"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "Zero",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $32,852 < $100k (Jupiter); not Jupiter-verified; organic score 60.0 < 70; pair only 0.8h old (< 24h); absurd pump: +5831% in 24h (> 300%)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "LENDR",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $31,846 < $100k (Jupiter); not Jupiter-verified; organic score 63.0 < 70; pair only 7.6h old (< 24h); dev wallet holds 20.2% (> 10%); absurd pump: +415% in 24h (> 300%); only 605 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "NATIX",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $78,074 < $100k (Jupiter); top holders own 58.4% (> 35%)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "MONEY",
+        "reason": "Not bought by the paper strategy; failed rug check: liquidity $11,112 < $100k (Jupiter); not Jupiter-verified; organic score 67.0 < 70; pair only 8.8h old (< 24h); absurd pump: +551% in 24h (> 300%); only 936 holders (< 1000)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "VVV",
+        "reason": "Not bought by the paper strategy; failed rug check: mint authority not renounced (unknown); organic score 69.0 < 70; top holders own 42.0% (> 35%)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "ATX",
+        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified; organic score 0.0 < 70; pair only 16.7h old (< 24h)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Rug check",
+        "action": "Rejected",
+        "ticker": "MOODENG",
+        "reason": "Not bought by the paper strategy; failed rug check: top holders own 46.9% (> 35%)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Equity",
+        "action": "Held",
+        "ticker": "ZCAT",
+        "reason": "held 4h, -0.6% vs entry mid; no exit rule hit"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Equity",
+        "action": "Held",
+        "ticker": "VINE",
+        "reason": "held 12h, +0.9% vs entry mid; no exit rule hit"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Executor",
+        "action": "Paper sell",
+        "ticker": "FLOAT",
+        "reason": "Paper strategy closed the position: stop loss: -27.0% vs entry (<= -25%); sold 154770 @ $0.0023110729 (mid $0.002334417, -1% haircut), P&L $-142.32 (-28.5%)"
+      },
+      {
+        "time_uk": "2026-11-26 01:02",
+        "stage": "Scanner",
+        "action": "Scanned",
+        "ticker": null,
+        "reason": "scanned 260 coins from Jupiter lists; 16 with momentum (24h >= +10%, 1h >= 0, 24h vol >= $250k), 244 filtered out"
+      },
       {
         "time_uk": "2026-11-25 21:01",
         "stage": "Equity",
@@ -2987,153 +3150,6 @@
         "action": "Rejected",
         "ticker": "hacked",
         "reason": "Not bought by the paper strategy; failed rug check: liquidity $6,954 < $100k (Jupiter); not Jupiter-verified; organic score 58.0 < 70; pair only 7.0h old (< 24h); absurd pump: +657% in 24h (> 300%); only 588 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Pnut",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $9,832 < $100k (Jupiter); not Jupiter-verified; organic score 55.0 < 70; pair only 0.5h old (< 24h); absurd pump: +816% in 24h (> 300%); only 648 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Rings",
-        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified; organic score 70.0 < 70"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "DIGS",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $30,051 < $100k (Jupiter); organic score 36.0 < 70"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "ORE",
-        "reason": "Not bought by the paper strategy; failed rug check: mint authority not renounced (unknown)"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Huss",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $78,113 < $100k (DexScreener pools); not Jupiter-verified"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "ATX",
-        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified; organic score 0.0 < 70; pair only 12.6h old (< 24h)"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "SOL2",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $14,550 < $100k (Jupiter); not Jupiter-verified; organic score 49.0 < 70; pair only 2.4h old (< 24h)"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Equity",
-        "action": "Held",
-        "ticker": "VINE",
-        "reason": "held 8h, +0.3% vs entry mid; no exit rule hit"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Equity",
-        "action": "Held",
-        "ticker": "FLOAT",
-        "reason": "held 24h, -16.0% vs entry mid; no exit rule hit"
-      },
-      {
-        "time_uk": "2026-11-25 21:01",
-        "stage": "Scanner",
-        "action": "Scanned",
-        "ticker": null,
-        "reason": "scanned 272 coins from Jupiter lists; 15 with momentum (24h >= +10%, 1h >= 0, 24h vol >= $250k), 257 filtered out"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Equity",
-        "action": "Marked to market",
-        "ticker": null,
-        "reason": "cash $4448.19 + open $885.32 (after exit haircut) = equity $5333.51; realised $-4551.84, unrealised $-114.68, 2 open"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "ZOL",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $14,447 < $100k (Jupiter); not Jupiter-verified; organic score 53.0 < 70; absurd pump: +554% in 24h (> 300%); only 992 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "P",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $16,693 < $100k (Jupiter); not Jupiter-verified; organic score 68.0 < 70; only 637 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "CBUCKS",
-        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "3sat",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $5,810 < $100k (Jupiter); not Jupiter-verified; organic score 59.0 < 70; pair only 2.9h old (< 24h); absurd pump: +310% in 24h (> 300%); only 436 holders (< 1000)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "CI",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $40,649 < $100k (Jupiter); not Jupiter-verified; organic score 0.0 < 70; pair only 0.3h old (< 24h); absurd pump: +4195% in 24h (> 300%)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Rings",
-        "reason": "Not bought by the paper strategy; failed rug check: not Jupiter-verified; organic score 70.0 < 70"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "BIAO",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $17,938 < $100k (Jupiter); not Jupiter-verified; organic score 54.0 < 70; pair only 1.9h old (< 24h)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "DIGS",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $28,882 < $100k (Jupiter); organic score 37.0 < 70"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "MONEY",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $22,459 < $100k (Jupiter); not Jupiter-verified; organic score 63.0 < 70; pair only 0.8h old (< 24h); absurd pump: +3697% in 24h (> 300%)"
-      },
-      {
-        "time_uk": "2026-11-25 16:59",
-        "stage": "Rug check",
-        "action": "Rejected",
-        "ticker": "Huss",
-        "reason": "Not bought by the paper strategy; failed rug check: liquidity $71,844 < $100k (DexScreener pools); not Jupiter-verified"
       }
     ]
   },
