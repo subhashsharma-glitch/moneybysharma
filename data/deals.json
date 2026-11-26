@@ -1,6 +1,6 @@
 {
  "description": "Data for deals.html. Every entry must be taken from the retailer's own official page and carry a checked date. status 'link-only' shows a link with no figures. Refreshed by scripts/update_deals.py (see its docstring). Entries may carry an 'expires' date; the page build hides expired entries and expired points/offers.",
- "updated": "2026-11-23",
+ "updated": "2026-11-26",
  "groups": [
   {
    "id": "supermarkets",
@@ -65,7 +65,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://help.sainsburys.co.uk/help/products/nectarprices",
@@ -123,7 +123,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.morrisons.com/more",
@@ -149,7 +149,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.lidl.co.uk/c/lidl-plus/s10023095",
@@ -175,7 +175,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.coop.co.uk/membership",
@@ -343,7 +343,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.cineworld.co.uk/unlimited/",
@@ -395,7 +395,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.picturehouses.com/membership",
@@ -423,7 +423,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.everymancinema.com/membership-terms-and-conditions/",
@@ -509,7 +509,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://help.netflix.com/en/node/24926/gb",
@@ -560,7 +560,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.spotify.com/uk/premium/",
@@ -604,7 +604,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.amazon.co.uk/amazonprime",
@@ -643,7 +643,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.disneyplus.com/en-gb",
@@ -681,7 +681,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-music/",
@@ -719,19 +719,19 @@
        "https://www.apple.com/uk/apple-tv/"
       ]
      ],
-     "status": "review",
-     "checked": "2026-11-19",
+     "status": "ok",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.apple.com/uk/apple-tv/",
       "expect": [
-       "£9.99 per month after a free 7-day trial",
+       "A monthly subscription is just £9.99 per month",
        "from £18.95 per month"
       ]
      },
      "plans": [
       [
-       "Monthly (after a free 7-day trial)",
+       "Monthly",
        "£9.99 / month"
       ],
       [
@@ -739,8 +739,7 @@
        "from £18.95 / month"
       ]
      ],
-     "note": "Apple says Apple TV is free for three months if you buy a new Apple device and redeem the offer within 90 days.",
-     "reviewNote": "Page no longer contains: £9.99 per month after a free 7-day trial"
+     "note": "Apple says Apple TV is free for three months if you buy a new Apple device and redeem the offer within 90 days. Apple says other new subscribers may receive a 7-day free trial."
     },
     {
      "id": "now",
@@ -755,7 +754,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.nowtv.com/",
@@ -824,7 +823,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.marksandspencer.com/help-and-support/loyalty-and-rewards",
@@ -849,7 +848,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.diy.com/bandqclub",
@@ -873,7 +872,7 @@
       ]
      ],
      "status": "ok",
-     "checked": "2026-11-23",
+     "checked": "2026-11-26",
      "check": {
       "mode": "auto",
       "url": "https://www.pret.co.uk/en-GB/club-pret",
