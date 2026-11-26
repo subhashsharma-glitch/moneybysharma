@@ -1,7 +1,6 @@
-# pages36.py - Gilts hub (PREVIEW: branch gilts-hub-preview only).
-# Exec'd after the search index so the hub stays out of search. Added to PREVIEW_PAGES:
-# noindex and off the sitemap. Not in GUIDES, so no sign-up form.
-# The new top-nav "Gilts" link is added in scripts/build.py (NAVG) and only exists on this branch.
+# pages36.py - Gilts hub (published).
+# Exec'd before the search index so the hub joins search and the sitemap.
+# Not in GUIDES, so no sign-up form. Top-nav "Gilts" link is in scripts/build.py (NAVG).
 _GH = "gilts-hub.html"
 pages[_GH] = page(
     _GH,
@@ -21,5 +20,3 @@ pages[_GH] = page(
 </div>
 """),
 )
-PREVIEW_PAGES.add(_GH)
-pages[_GH] = pages[_GH].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)

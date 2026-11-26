@@ -554,6 +554,7 @@ if HI_LIVE: exec(open("scripts/pages26.py").read())  # live: before the SEO pass
 exec(open("scripts/pages23.py").read())
 exec(open("scripts/pages32.py").read())  # standalone calculator pages + /calculators/ index (before search so they join it)
 exec(open("scripts/pages34.py").read())  # four gilt articles (before search so they join it; not in GUIDES, so no sign-up form)
+exec(open("scripts/pages36.py").read())  # Gilts hub (before search so it joins search and the sitemap; not in GUIDES, so no sign-up form)
 if ENERGY_LIVE: exec(open("scripts/pages35.py").read())  # live: eight energy articles (before search so they join it and the sitemap; not in GUIDES, same as the gilt articles)
 from search_index import build_search
 # tools.html, paper-trading.html and tools/garmin-insights/ are noindex and omitted from search and the sitemap.
@@ -567,7 +568,6 @@ if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search
 if not ENERGY_LIVE: exec(open("scripts/pages35.py").read())  # preview: energy articles, after search so they stay out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
-exec(open("scripts/pages36.py").read())  # PREVIEW: gilts hub (after search so it stays out of it; noindex, off sitemap)
 # Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.
 WK_GUIDE_CARD = f'<div class="wrap"><aside class="card wk" id="wk-card" aria-labelledby="weekly"><h2 id="weekly">{WK_H2}</h2><p>{WK_INTRO}</p>\n{WK_FORM}</aside></div>\n'
 for _fn in GUIDES:
