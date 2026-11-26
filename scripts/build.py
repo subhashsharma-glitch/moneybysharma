@@ -53,6 +53,8 @@ S.update({
  "b26bbc": ("BBC News – Budget 2026 key points (28 Oct 2026)", "https://www.bbc.com/news/articles/c6x2zrjl7kjno"),
  "b26mse": ("MoneySavingExpert – Cash ISA limit cut cancelled (Oct 2026)", "https://www.moneysavingexpert.com/news/2026/10/cash-isa-limit-cut-cancelled/"),
  "b26w": ("Which? – Stocks and shares ISA cash interest tax cancelled in Autumn Budget 2026", "https://www.which.co.uk/news/article/stocks-and-shares-isa-cash-interest-tax-cancelled-in-autumn-budget-2026-aebwl6S8X9u6"),
+ "b26hep": ("GOV.UK – Household Energy Payment 2027: factsheet for households (24 Nov 2026)", "https://www.gov.uk/government/publications/household-energy-payment-2027-factsheet-for-households/household-energy-payment-2027-factsheet-for-households"),
+ "b26hepf": ("GOV.UK/HM Treasury, DESNZ and MHCLG – £100 Household Energy Payment factsheet (25 Nov 2026)", "https://www.gov.uk/government/news/100-household-energy-payment-factsheet"),
 })
 B26 = "28 October 2026"
 def src26(*keys):
@@ -374,7 +376,7 @@ G = [("AER","Annual Equivalent Rate – the interest you'd earn over a year if i
 ("Lifetime ISA (LISA)","An ISA for 18–39s to open, with a 25% government bonus on up to £4,000 a year, for a first home or retirement from 60. From 29 October 2026 the withdrawal charge is 20% (not 25%) if you buy a first home costing over £450,000. It's due to be replaced for new savers by the First Time Buyer ISA from April 2029."),
 ("First Time Buyer ISA","A new ISA announced at Budget 2026, planned for April 2029 to replace the Lifetime ISA for new savers: up to £4,000 a year with a 25% government bonus on the final balance, for a first home costing up to £450,000. Not law yet."),
 ("Pension Tax Allowance","Announced for 6 April 2027 to 5 April 2030: people over State Pension age with total income up to £13,037 pay no income tax, tapering away up to £13,319. Being legislated in Finance Bill 2026-27, so not law yet."),
-("Household Energy Payment","A £100 payment announced at Budget 2026 for households in council tax bands A to D in England, from January 2027."),
+("Household Energy Payment","A one-off £100 payment announced at Budget 2026 for households in England living in their main home in council tax bands A to D, paid by councils from 4 January 2027."),
 ("Loan-to-value (LTV)","The size of a mortgage as a percentage of the property's value."),
 ("Lump Sum Allowance","The cap on tax-free cash you can take from pensions – £268,275 for most people."),
 ("Maturity","The date a bond or fixed account ends and your money is repaid."),

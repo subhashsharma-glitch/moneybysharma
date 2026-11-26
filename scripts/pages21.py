@@ -2,7 +2,7 @@
 # Every figure comes from /workspace/budget-2026/report.md (Budget 28 Oct 2026), checked 28 Oct 2026.
 # In the sitemap and search index; linked from a homepage banner (not in the nav).
 def _bs(*keys):
-    return '<p class="src">Sources (checked 28 October 2026): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
+    return '<p class="src">Sources (checked 26 November 2026): ' + "; ".join(f'<a href="{S[k][1]}" rel="noopener">{S[k][0]}</a>' for k in keys) + ".</p>"
 NLY = '<span class="b26-tag">Not law yet</span>'
 PLAN = '<span class="b26-tag b26-plan">A plan</span>'
 B26_CSS = '''<style>
@@ -23,7 +23,7 @@ main h2[id]{scroll-margin-top:90px}
 _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
  "What the Budget on 28 October 2026 changes for workers, savers, investors, first-time buyers, pensioners, households and drivers, and what stays the same. Information, not financial advice.") + W(f'''{B26_CSS}
 <div class="cols"><div>
-<p class="hint">Budget delivered on Wednesday 28 October 2026. Every figure on this page links to its source and was checked on 28 October 2026. Many measures still need to be passed by Parliament: we mark those <span class="b26-tag">Not law yet</span>, and aims or plans without firm rules <span class="b26-tag b26-plan">A plan</span>.</p>
+<p class="hint">Budget delivered on Wednesday 28 October 2026. Every figure on this page links to its source and was checked on 26 November 2026. Many measures still need to be passed by Parliament: we mark those <span class="b26-tag">Not law yet</span>, and aims or plans without firm rules <span class="b26-tag b26-plan">A plan</span>.</p>
 
 <h2 id="sixty">In 60 seconds</h2>
 <div class="b26-60"><ul>
@@ -32,7 +32,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <li><strong>Minimum wage rises to £13.21 an hour</strong> (age 21+) from 1 April 2027.</li>
 <li><strong>The trading allowance triples to £3,000</strong> from 6 April 2027. {NLY}</li>
 <li><strong>Full new State Pension: £13,036.40 a year</strong> from April 2027, plus a new Pension Tax Allowance. {NLY}</li>
-<li><strong>£100 Household Energy Payment</strong> for council tax bands A–D in England from January 2027, and 0% VAT on household electricity extended to 30 June 2027.</li>
+<li><strong>One-off £100 Household Energy Payment</strong> for main homes in council tax bands A–D in England from 4 January 2027, and 0% VAT on household electricity extended to 30 June 2027.</li>
 <li><strong>First-time buyers:</strong> a lower 20% Lifetime ISA charge on homes over £450,000 from 29 October 2026, and a new First Time Buyer ISA planned for April 2029.</li>
 <li><strong>Income tax and the main National Insurance thresholds stay frozen, and the rates don't change.</strong> Two smaller NI limits rise from 2027-28: the lower earnings limit to £133 a week and the small profits threshold to £7,355.</li>
 </ul><p style="margin:.6rem 0 0"><strong>Information, not financial advice.</strong> How this affects you depends on your own circumstances.</p></div>
@@ -46,7 +46,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <tr><th scope="row">Investing</th><td>Business asset disposal relief limit £1m to £500,000 from 6 April 2027; new 10% CGT founders' relief (both not law yet)</td><td>CGT 18% / 24%, £3,000 annual exempt amount; dividend tax 10.75% / 35.75% / 39.35%, £500 allowance</td></tr>
 <tr><th scope="row">Pensions</th><td>State Pension £13,036.40 a year from April 2027; Pension Tax Allowance (not law yet); triple lock changes from April 2030 (a plan)</td><td>Annual allowance £60,000; MPAA £10,000; lump sum allowance £268,275</td></tr>
 <tr><th scope="row">Pay</th><td>Minimum wage £13.21 / £11.27 / £8.31 from 1 April 2027; trading allowance £3,000 from 6 April 2027 (not law yet)</td><td>Salary sacrifice £2,000 NI cap from April 2029, as announced in 2025</td></tr>
-<tr><th scope="row">Home and energy</th><td>£100 energy payment (England, bands A–D); 0% electricity VAT to 30 June 2027; gas standing charges to go (a plan)</td><td>Stamp duty residential rates; the £1,723 price cap for October to December 2026</td></tr>
+<tr><th scope="row">Home and energy</th><td>one-off £100 energy payment (England, main homes in bands A–D); 0% electricity VAT to 30 June 2027; gas standing charges to go (a plan)</td><td>Stamp duty residential rates; the £1,723 price cap for October to December 2026</td></tr>
 <tr><th scope="row">Inheritance tax</th><td>Only technical tweaks</td><td>£325,000 nil-rate band; £175,000 residence nil-rate band; pensions still come into IHT from April 2027</td></tr>
 </tbody></table>
 {_bs("b26a","b26o","b26b")}
@@ -109,7 +109,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 
 <h2 id="home">Homeowners and energy</h2>
 <ul>
-<li><strong>£100 Household Energy Payment:</strong> for households in council tax bands A–D in England, paid into bank accounts from January 2027. The devolved governments get funding to do the same.</li>
+<li><strong>£100 Household Energy Payment:</strong> a one-off £100 payment for households in England living in their main home in council tax bands A to D, paid by their council from 4 January 2027. If the council already has verified Direct Debit details it is paid automatically into a bank account; otherwise the council will ask for bank details, and if those are not provided by 1 March 2027 it can be credited to the council tax account instead. The UK scheme is for England only. The devolved governments received Barnett funding; the Scottish and Welsh governments have said they will introduce equivalent or similar schemes, with the details still to be set out.</li>
 <li><strong>0% VAT on household electricity</strong> extended to 30 June 2027 (it was due to end on 31 March 2027). HM Treasury expects this to take about £50 off the April 2027 price cap. The regulations are due in early 2027.</li>
 <li><strong>Gas standing charges:</strong> Ofgem has been asked to abolish them and move the cost to unit rates, aiming for the end of 2027. The average gas standing charge is £108 a year. {PLAN}</li>
 <li><strong>Hydrogen levy</strong> on gas bills scrapped.</li>
@@ -118,7 +118,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <li><strong>Unchanged:</strong> stamp duty residential rates; the £1,723 price cap for a typical household for October to December 2026.</li>
 </ul>
 <p>See <a href="energy.html#budget2026">Energy: Budget 2026 changes</a>.</p>
-{_bs("b26p","b26b","b26o","b26a")}
+{_bs("b26p","b26b","b26o","b26a","b26hep","b26hepf")}
 
 <h2 id="families">Families and students</h2>
 <ul>
@@ -141,7 +141,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <ol class="b26-tl">
 <li><b>29 October 2026</b>Lifetime ISA charge 20% on first homes over £450,000.</li>
 <li><b>November 2026</b>Regulations due to keep the £20,000 cash ISA limit for everyone.</li>
-<li><b>January 2027</b>£100 Household Energy Payment starts (England, bands A–D).</li>
+<li><b>4 January 2027</b>One-off £100 Household Energy Payment starts (England, main homes in bands A–D).</li>
 <li><b>1 April 2027</b>Minimum wage £13.21 / £11.27 / £8.31. VAT on energy-saving materials back to 5%, with heat batteries added.</li>
 <li><b>April 2027</b>Full new State Pension £13,036.40 a year. Pensions come into inheritance tax (already planned; unchanged by the Budget).</li>
 <li><b>6 April 2027</b>Savings tax 24% / 44% / 49%, trading allowance £3,000, Pension Tax Allowance, 35p mileage rate above 10,000 miles, business asset disposal relief limit £500,000 (Finance Bill items not law yet).</li>
@@ -164,8 +164,8 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 </ul>
 
 <h2 id="sources">Sources</h2>
-<p>All checked on 28 October 2026.</p>
-<ul>{"".join(f'<li><a href="{S[k][1]}" rel="noopener">{S[k][0]}</a></li>' for k in ("b26o","b26a","b26b","b26p","b26pta","b26bbc","b26mse","b26w"))}</ul>
+<p>All checked on 26 November 2026.</p>
+<ul>{"".join(f'<li><a href="{S[k][1]}" rel="noopener">{S[k][0]}</a></li>' for k in ("b26o","b26a","b26b","b26p","b26hep","b26hepf","b26pta","b26bbc","b26mse","b26w"))}</ul>
 <p class="hint">Figures for the current tax year are on our <a href="money-matters-cheat-sheet.html">Money Matters cheat sheet</a>. Terms explained in the <a href="jargon.html">jargon buster</a>. This page is general information, not financial advice.</p>
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#sixty">In 60 seconds</a><a href="#workers">Workers</a><a href="#savers">Savers</a><a href="#investors">Investors</a><a href="#buyers">First-time buyers</a><a href="#pensions">Pensions</a><a href="#home">Homes and energy</a><a href="#families">Families and students</a><a href="#drivers">Drivers</a><a href="#dates">Key dates</a><a href="#notlaw">What's not law yet</a><a href="#sources">Sources</a></div></aside></div>''')
 pages["budget-2026.html"] = page("budget-2026.html", "Budget 2026: what it means for you – MoneyBySharma",
