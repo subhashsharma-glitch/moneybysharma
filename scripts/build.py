@@ -67,6 +67,7 @@ NAVG = [("index.html","Home"),
   ("group","Borrowing &amp; protection",[("credit-cards.html","Credit cards"),("credit-scores-debt-help.html","Credit scores &amp; debt help"),("insurance-basics.html","Insurance basics"),("scams-fraud.html","Scams &amp; fraud")]),
   ("group","Saving &amp; investing",[("savings.html","Savings"),("cash-isas.html","Cash ISAs"),("investments.html","Investments"),("pensions.html","Pensions"),("annuities.html","Annuities"),("gilts.html","Gilts")]),
   ("group","Home &amp; household",[("mortgages.html","Mortgages"),("energy.html","Energy"),("energy-providers.html","Energy providers"),("broadband-phones.html","Broadband &amp; phones"),("electric-cars.html","Electric cars")])]),
+ ("gilts-hub.html","Gilts"),
  ("calculators/index.html","Calculators"),
  ("Learn",[("how-money-works.html","How money works"),("power-of-compounding.html","The power of compounding"),("cash-vs-inflation.html","Cash vs inflation"),("jargon.html","Jargon buster"),("weekly-topics.html","Weekly topics")]),
  # Tools dropdown hidden 13 Nov 2026 (Subhash: hide from menu and noindex). To restore, see scripts/nav-tools.removed.txt.
@@ -90,6 +91,9 @@ def page(fn, title, desc, body, head="", scripts=()):
         if h == fn: return True
         # Calculators stays current on every /calculators/ page, not only the index
         if h == "calculators/index.html" and fn.startswith("calculators/"): return True
+        # Gilts top-level link stays current on the hub, the main guide and the four gilt articles (not the calculator)
+        if h == "gilts-hub.html" and fn in ("gilts-hub.html", "gilts.html", "what-is-a-gilt.html", "gilts-cgt-and-coupon-tax.html", "gilts-vs-fixed-rate-bonds-and-savings.html", "how-to-buy-gilts.html"):
+            return True
         return False
     def _li(h,t): return f'<li><a href="{h}"{" aria-current=page" if _current(h) else ""}>{t}</a></li>'
     nav = f'<li class="fb-mob"><a href="feedback.html"{" aria-current=page" if fn=="feedback.html" else ""}>Send feedback</a></li>' if FEEDBACK_ENABLED else ''
@@ -563,6 +567,7 @@ if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search
 if not ENERGY_LIVE: exec(open("scripts/pages35.py").read())  # preview: energy articles, after search so they stay out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
+exec(open("scripts/pages36.py").read())  # PREVIEW: gilts hub (after search so it stays out of it; noindex, off sitemap)
 # Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.
 WK_GUIDE_CARD = f'<div class="wrap"><aside class="card wk" id="wk-card" aria-labelledby="weekly"><h2 id="weekly">{WK_H2}</h2><p>{WK_INTRO}</p>\n{WK_FORM}</aside></div>\n'
 for _fn in GUIDES:
