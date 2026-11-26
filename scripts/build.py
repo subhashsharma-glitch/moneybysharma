@@ -73,6 +73,8 @@ NAVG = [("index.html","Home"),
  ("kids-corner/","Kids Corner"),("resources.html","Resources"),("about.html","About")]
 # Home insurance article (pages26.py): False = preview (noindex, no menu/sitemap/search/Article schema). Set True to go live.
 HI_LIVE = True
+# Energy supporting articles (pages34.py): False = preview (noindex, no sitemap/search/Article schema, draft notice). Set True to publish.
+ENERGY_LIVE = False
 if HI_LIVE: NAVG[1][1][1][2].append(("home-insurance-renewal.html","Home insurance renewal"))
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
@@ -544,6 +546,7 @@ pages["tools.html"] = page("tools.html","Tools – MoneyBySharma","Tools, includ
 <p class="hint" style="margin-top:1rem">Garmin Fitness Insights runs entirely in your browser on this site. It isn't affiliated with or endorsed by Garmin. Looking for money calculators? They're in the <a href="savings.html">Guides</a>, for example the <a href="pensions.html#calc">pension</a>, <a href="credit-cards.html#calc">balance transfer</a> and <a href="mortgages.html#calc">mortgage</a> calculators.</p>'''))
 exec(open("scripts/pages24.py").read())  # Cash ISAs page (before pages23 so it gets SEO/Article schema and joins search)
 if HI_LIVE: exec(open("scripts/pages26.py").read())  # live: before the SEO pass so it gets Article schema and joins search
+if ENERGY_LIVE: exec(open("scripts/pages34.py").read())  # live: before the SEO pass so the articles get Article schema and join search
 exec(open("scripts/pages23.py").read())
 exec(open("scripts/pages32.py").read())  # standalone calculator pages + /calculators/ index (before search so they join it)
 from search_index import build_search
@@ -555,6 +558,7 @@ SEARCH_EXTRA = [
 SEARCH_ENTRIES, SEARCH_BYTES = build_search(pages, SEARCH_EXTRA)
 print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
+if not ENERGY_LIVE: exec(open("scripts/pages34.py").read())  # preview: energy articles, after search so they stay out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
 # Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.

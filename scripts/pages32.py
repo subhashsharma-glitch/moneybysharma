@@ -29,7 +29,7 @@ def _c32_link(guide, block, href):
         1,
     )
 
-def _c32_page(fn, title, desc, h1, lead, intro, calc, scripts, related):
+def _c32_page(fn, title, desc, h1, lead, intro, calc, scripts, related, articles=""):
     body = ph(
         f'<a href="calculators/index.html">Calculators</a> › {h1}',
         h1,
@@ -37,6 +37,7 @@ def _c32_page(fn, title, desc, h1, lead, intro, calc, scripts, related):
     ) + W(
         intro
         + calc
+        + articles
         + '''
 <p class="hint">Information only, not financial advice. The figures are an illustration. This is not a quote, a forecast or a recommendation.</p>
 <p class="related" style="margin:1.5rem 0 2rem"><strong>Related:</strong> '''
@@ -196,6 +197,11 @@ _C32 = [
 <p>This is the same calculator as on our <a href="electric-cars.html#calc">Electric cars guide</a>.</p>
 """,
         "related": '<a href="electric-cars.html#calc">EV charging calculator on the guide</a> · <a href="electric-cars.html">Electric cars</a> · <a href="energy.html">Energy</a>',
+        "articles": '''<aside class="card" style="margin:1.5rem 0" aria-labelledby="ev-arts"><h2 id="ev-arts" style="margin-top:0">EV charging explainers</h2><p>Four plain-English articles that go with this calculator:</p><ul>
+<li><a href="../ev-charging-cost-per-mile-explained.html">EV charging cost per mile, explained</a></li>
+<li><a href="../ev-home-vs-public-charging-cost.html">Home vs public charging: cost per mile</a></li>
+<li><a href="../ev-tariffs-off-peak-charging.html">EV tariffs and off-peak charging</a></li>
+<li><a href="../ev-charging-calculator-limits.html">What the charging calculator leaves out</a></li></ul></aside>''',
         "index": ("EV charging cost", "Estimate home and public charging costs, and the yearly total, from your mileage and rates."),
     },
     {
@@ -212,6 +218,11 @@ _C32 = [
 <p>This is the same calculator as on our <a href="energy.html#calc">Energy guide</a>.</p>
 """,
         "related": '<a href="energy.html#calc">Home battery calculator on the guide</a> · <a href="energy.html">Energy bills, solar and batteries</a>',
+        "articles": '''<aside class="card" style="margin:1.5rem 0" aria-labelledby="bat-arts"><h2 id="bat-arts" style="margin-top:0">Home battery explainers</h2><p>Four plain-English articles that go with this calculator:</p><ul>
+<li><a href="../home-battery-payback-explained.html">How home battery payback is worked out</a></li>
+<li><a href="../home-battery-time-of-use-tariffs.html">Time-of-use tariffs and home batteries</a></li>
+<li><a href="../home-battery-smart-export-guarantee.html">The Smart Export Guarantee and home batteries</a></li>
+<li><a href="../home-battery-cost-vat-quotes.html">Home battery costs, VAT and quotes</a></li></ul></aside>''',
         "index": ("Home battery payback", "Estimate first-year saving, payback and net gain for a home battery on a cheap-rate tariff."),
     },
     {
@@ -259,7 +270,7 @@ _C32_INDEX_ITEMS = []
 for _c in _C32:
     _block = _c32_extract(_c["guide"], _c["pat"])
     _calc = _c.get("prep", lambda h: h)(_block)
-    _c32_page(_c["fn"], _c["title"], _c["desc"], _c["h1"], _c["lead"], _c["intro"], _calc, _c["scripts"], _c["related"])
+    _c32_page(_c["fn"], _c["title"], _c["desc"], _c["h1"], _c["lead"], _c["intro"], _calc, _c["scripts"], _c["related"], _c.get("articles", ""))
     _c32_link(_c["guide"], _block, _c["fn"])
     _C32_INDEX_ITEMS.append((_c["fn"],) + _c["index"])
 
