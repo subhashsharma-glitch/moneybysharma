@@ -305,6 +305,7 @@ pages["gilts.html"] = page("gilts.html", "Gilts explained and gilt vs savings ca
 <p>A low-coupon gilt trading below £100 delivers most of its return as a tax-free gain at maturity rather than as taxable interest. For a higher- or additional-rate taxpayer, that can mean a better after-tax return than a savings account paying a similar headline rate. The calculator below shows the effect. Inside an ISA or SIPP, the tax difference doesn't apply.</p>
 <div class="flag"><strong>From 6 April 2027 (subject to Finance Bill):</strong> Budget 2026 announced savings income tax rates of <strong>24% / 44% / 49%</strong> for 2027/28, up from 20% / 40% / 45% in 2026/27. Gilt coupons are savings income, so they'd be taxed at the new rates; gains on gilts stay free of Capital Gains Tax. These rates aren't law until Finance Bill 2026-27 passes.</div>
 <p>Example of a real low-coupon gilt in issue: <strong>{html.escape(lowc["name"])}</strong> – {lowc["coupon"]}% coupon, maturing {d(lowc["maturity"])} (DMO data, close of business {d(GI["closeOfBusiness"])}). This is shown to illustrate the idea, not as a recommendation to buy.</p>
+<p><strong>More on gilts:</strong> <a href="what-is-a-gilt.html">What is a gilt? How low-coupon gilts work</a> · <a href="gilts-cgt-and-coupon-tax.html">Why the gain is free of CGT but the coupon is taxed</a> · <a href="gilts-vs-fixed-rate-bonds-and-savings.html">Gilts vs fixed-rate bonds and easy-access savings</a> · <a href="how-to-buy-gilts.html">How to buy gilts through an ISA, a SIPP or a general account</a>.</p>
 <section class="calc" id="calc" aria-labelledby="g-h"><h3 id="g-h" style="margin-top:0">Gilt vs savings after tax</h3>
 <form id="gilt-form" class="fields">
 <div style="grid-column:1/-1"><label for="gilt-pick">Pick a gilt in issue (optional)</label><select id="gilt-pick"><option value="">– Enter details manually –</option></select><p class="hint" id="gilt-src"></p></div>
@@ -546,6 +547,7 @@ exec(open("scripts/pages24.py").read())  # Cash ISAs page (before pages23 so it 
 if HI_LIVE: exec(open("scripts/pages26.py").read())  # live: before the SEO pass so it gets Article schema and joins search
 exec(open("scripts/pages23.py").read())
 exec(open("scripts/pages32.py").read())  # standalone calculator pages + /calculators/ index (before search so they join it)
+exec(open("scripts/pages34.py").read())  # four gilt articles (before search so they join it; not in GUIDES, so no sign-up form)
 from search_index import build_search
 # tools.html, paper-trading.html and tools/garmin-insights/ are noindex and omitted from search and the sitemap.
 SEARCH_EXTRA = [
@@ -557,7 +559,6 @@ print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
-exec(open("scripts/pages34.py").read())  # PREVIEW: four gilt articles (branch gilt-articles-preview only; noindex, off nav/sitemap/search)
 # Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.
 WK_GUIDE_CARD = f'<div class="wrap"><aside class="card wk" id="wk-card" aria-labelledby="weekly"><h2 id="weekly">{WK_H2}</h2><p>{WK_INTRO}</p>\n{WK_FORM}</aside></div>\n'
 for _fn in GUIDES:

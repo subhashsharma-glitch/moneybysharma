@@ -117,7 +117,7 @@ RELATED = {
  "cash-isas.html": [("savings.html","Savings and cash ISAs"),("budget-2026.html","Budget 2026"),("investments.html","Investing basics"),("bank-accounts.html","Bank accounts and FSCS")],
  "budget-2026.html": [("cash-isas.html","Cash ISAs explained"),("savings.html","Savings and cash ISAs"),("gilts.html","Gilts explained"),("pensions.html","Pensions explained"),("investments.html","Investing basics"),("money-matters-cheat-sheet.html","2026/27 key figures")],
  "savings.html": [("cash-isas.html","Cash ISAs explained"),("budget-2026.html","Budget 2026"),("gilts.html","Gilts explained"),("bank-accounts.html","Bank accounts and FSCS"),("budgeting-emergency-fund.html","Emergency funds")],
- "gilts.html": [("savings.html","Savings and cash ISAs"),("budget-2026.html","Budget 2026"),("investments.html","Investing basics")],
+ "gilts.html": [("what-is-a-gilt.html","What is a gilt? How low-coupon gilts work"),("gilts-cgt-and-coupon-tax.html","Why the gain is free of CGT but the coupon is taxed"),("gilts-vs-fixed-rate-bonds-and-savings.html","Gilts vs fixed-rate bonds and easy-access savings"),("how-to-buy-gilts.html","How to buy gilts through an ISA, a SIPP or a general account"),("savings.html","Savings and cash ISAs"),("budget-2026.html","Budget 2026"),("investments.html","Investing basics")],
  "pensions.html": [("budget-2026.html","Budget 2026"),("investments.html","SIPPs and ISAs"),("annuities.html","Annuities")],
  "investments.html": [("cash-isas.html","Cash ISAs explained"),("savings.html","Savings and cash ISAs"),("pensions.html","Pensions explained"),("budget-2026.html","Budget 2026"),("power-of-compounding.html","The power of compounding")],
 }

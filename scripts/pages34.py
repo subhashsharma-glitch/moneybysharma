@@ -1,5 +1,6 @@
-# pages34.py - four supporting articles around the gilt-vs-savings calculator (PREVIEW: branch gilt-articles-preview only).
-# Exec'd from build.py after the search index, so these pages stay out of search; they are also noindex, off the sitemap and off the nav.
+# pages34.py – four supporting articles around the gilt-vs-savings calculator.
+# Exec'd from build.py before the search index so they join search and the sitemap.
+# Not in GUIDES, so they do not get the weekly sign-up form. Not in the main nav.
 # Every tax fact below was checked against GOV.UK / HMRC / legislation.gov.uk (and the DMO, see _DMO_NOTE) on 26 November 2026.
 # Worked examples use stated hypothetical assumptions only; no rates or prices are quoted for real products.
 _G_CHK = "checked 26 November 2026"
@@ -60,8 +61,6 @@ def _g_page(key, title, desc, crumb, h1, lead, body, sources):
         ph(f'<a href="gilts.html">Gilts</a> › {crumb}', h1, lead) + W(
             _g_cta() + body + _g_cta("Compare a gilt with savings") + _G_DISC + _g_next(key) +
             f'<h2 id="sources">Sources</h2>{_gsrc(sources)}'))
-    PREVIEW_PAGES.add(fn)
-    pages[fn] = pages[fn].replace('<link rel="icon"', '<meta name="robots" content="noindex"><link rel="icon"', 1)
 
 # ---------- 1. What a gilt is ----------
 _g_page("what",
