@@ -52,20 +52,20 @@ pages["pensions.html"] = page("pensions.html","Pensions: State Pension, workplac
 {src26("b26pta","b26a","b26b","b26bbc")}
 </div><aside><div class="card toc"><h3>On this page</h3><a href="#state">State Pension</a><a href="#workplace">Workplace pensions</a><a href="#example">£158 a month example</a><a href="#tracing">Lost pensions</a><a href="#sipp">SIPPs &amp; tax relief</a><a href="#young">Starting young</a><a href="#calc">Calculator</a><a href="#timing">Time in the market</a></div></aside></div>'''), scripts=("calc.js","calc-ui2.js"))
 
-pages["energy.html"] = page("energy.html","Energy bills, solar panels and home batteries – MoneyBySharma","The Ofgem price cap for October–December 2026, fixed vs variable deals, time-of-use tariffs, solar panels, the Smart Export Guarantee and a home battery calculator.",
+pages["energy.html"] = page("energy.html","Energy bills, solar panels and home batteries – MoneyBySharma","The Ofgem price cap for January–March 2027, fixed vs variable deals, time-of-use tariffs, solar panels, the Smart Export Guarantee and a home battery calculator.",
  ph("Energy","Energy bills, solar and batteries","How the price cap works, what to compare in a deal, and the numbers behind solar panels and home batteries. We don't recommend suppliers."), W(f'''
 <div class="cols"><div>
-<h2 id="cap">The Ofgem price cap: 1 October to 31 December 2026</h2>
+<h2 id="cap">The Ofgem price cap: 1 January to 31 March 2027</h2>
 <p>The cap limits the <strong>unit rates and standing charges</strong> on standard variable (default) tariffs. It doesn't cap your total bill: use more energy and you pay more.</p>
 <div class="table-scroll"><table><caption class="sr">Price cap rates</caption><thead><tr><th scope="col">Direct Debit, average across England, Scotland and Wales</th><th scope="col">Unit rate</th><th scope="col">Standing charge</th></tr></thead><tbody>
-<tr><td>Electricity</td><td>26.32p per kWh</td><td>54.83p per day</td></tr><tr><td>Gas</td><td>7.97p per kWh</td><td>29.68p per day</td></tr></tbody></table></div>
-<p>For a typical dual-fuel household on Direct Debit (2,500 kWh of electricity and 9,500 kWh of gas a year), that works out at <strong>£1,723 a year</strong>, up 4% from £1,663 in July to September 2026. Ofgem says its electricity figures for this period include no VAT, because none is charged on domestic electricity from 1 October 2026. Budget 2026 extended that 0% rate to <strong>30 June 2027</strong> (see below). The gas figures include 5% VAT. Your rates depend on your region and how you pay.</p>
+<tr><td>Electricity</td><td>32.69p per kWh</td><td>54.77p per day</td></tr><tr><td>Gas</td><td>10.96p per kWh</td><td>29.65p per day</td></tr></tbody></table></div>
+<p>For a typical dual-fuel household on Direct Debit (2,500 kWh of electricity and 9,500 kWh of gas a year), that works out at <strong>£2,166 a year</strong> if that level were sustained for a year (Ofgem's annualised figure), up 26% from £1,723 for 1 October to 31 December 2026. Ofgem says its electricity figures include no VAT, because none is charged on domestic electricity from 1 October 2026, so costs can't be compared directly with periods before that. Ofgem says it will publish the cap for 1 April to 30 June 2027 by 23 February 2027, and may publish earlier. Budget 2026 extended that 0% rate to <strong>30 June 2027</strong> (see below). The gas figures include 5% VAT. Your rates depend on your region and how you pay.</p>
 <h2 id="budget2026">Budget 2026: energy bill changes</h2><ul>
 <li><strong>£100 Household Energy Payment:</strong> households in council tax bands A to D in England are due to get £100 from January 2027, paid into bank accounts. The devolved governments get funding to provide similar support.</li>
 <li><strong>0% VAT on electricity extended:</strong> the zero rate on domestic electricity now runs to <strong>30 June 2027</strong>. HM Treasury expects this to take around £50 off the annual price cap in April 2027. The regulations are due to be laid in early 2027.</li>
 <li><strong>Gas standing charges (a plan, not a firm date):</strong> the government has asked Ofgem to abolish gas standing charges, aiming for the end of 2027. The average gas standing charge is about £108 a year. Reform of electricity standing charges is due to follow next year.</li>
 <li><strong>Hydrogen levy scrapped:</strong> the planned hydrogen levy won't go ahead.</li>
-<li>The price cap for 1 October to 31 December 2026 (£1,723 a year for a typical household) is unchanged.</li></ul>
+<li>The Budget did not change the price cap itself. Ofgem sets it every three months (see above).</li></ul>
 {src26("b26p","b26b","b26o")}
 <div class="note"><strong>Looking for suppliers and deals?</strong> See <a href="energy-providers.html">Energy providers and deals</a>: the main suppliers, types of tariff, how switching works and accredited comparison sites.</div>
 <h2 id="deals">Fixed vs variable deals</h2><ul>
@@ -81,12 +81,12 @@ pages["energy.html"] = page("energy.html","Energy bills, solar panels and home b
 <li>Solar panels on houses are usually "permitted development", but check if you're in a listed building, conservation area or national park.</li></ul>
 <h2 id="battery">A battery without solar</h2><p>A home battery can be charged on a cheap overnight time-of-use rate and then power your home at peak times, when you'd otherwise pay the full rate. Whether that pays back depends on the gap between the two rates, how many full cycles you use, the battery's efficiency, and its price and lifespan.</p>
 <section class="calc" id="calc" aria-labelledby="bat-h"><h3 id="bat-h" style="margin-top:0">Home battery saving and payback</h3>
-<p class="hint">Defaults: the peak rate is the October–December 2026 price-cap average unit rate (26.32p). The battery cost (£4,600) is the Energy Saving Trust's figure for a 5 kWh battery system, which is why the capacity starts at 5 kWh (<a href="https://energysavingtrust.org.uk/advice/battery-storage/" rel="noopener">Energy Saving Trust – Battery storage</a>, checked 26 November 2026). Its page says costs range from £1,500 to £10,000, so use your own quote. The cheap rate (7p), efficiency and capacity loss are <strong>example figures only</strong>, not real prices. Replace them with your own quote and tariff.</p>
+<p class="hint">Defaults: the peak rate is the January–March 2027 price-cap average unit rate (32.69p). The battery cost (£4,600) is the Energy Saving Trust's figure for a 5 kWh battery system, which is why the capacity starts at 5 kWh (<a href="https://energysavingtrust.org.uk/advice/battery-storage/" rel="noopener">Energy Saving Trust – Battery storage</a>, checked 26 November 2026). Its page says costs range from £1,500 to £10,000, so use your own quote. The cheap rate (7p), efficiency and capacity loss are <strong>example figures only</strong>, not real prices. Replace them with your own quote and tariff.</p>
 <form id="bat-form" class="fields">
 <div><label for="bat-kwh">Usable battery capacity (kWh)</label><input id="bat-kwh" type="number" min="0" step="0.5" value="5"></div>
 <div><label for="bat-eff">Round-trip efficiency (%)</label><input id="bat-eff" type="number" min="1" max="100" value="90"></div>
 <div><label for="bat-cheap">Cheap rate (p/kWh) <span class="hint">example</span></label><input id="bat-cheap" type="number" step="0.01" min="0" value="7"></div>
-<div><label for="bat-peak">Peak rate you avoid (p/kWh)</label><input id="bat-peak" type="number" step="0.01" min="0" value="26.32"></div>
+<div><label for="bat-peak">Peak rate you avoid (p/kWh)</label><input id="bat-peak" type="number" step="0.01" min="0" value="32.69"></div>
 <div><label for="bat-cycles">Full cycles per year</label><input id="bat-cycles" type="number" min="0" max="730" value="300"></div>
 <div><label for="bat-cost">Installed cost (£) <span class="hint">Energy Saving Trust, 5 kWh</span></label><input id="bat-cost" type="number" min="0" step="100" value="4600"></div>
 <div><label for="bat-life">Lifespan (years)</label><input id="bat-life" type="number" min="1" max="30" value="12"></div>
@@ -118,7 +118,7 @@ pages["electric-cars.html"] = page("electric-cars.html","Electric cars: running 
 <div class="cols"><div>
 <h2 id="costs">Running costs: home vs public charging</h2><p>Cost per mile = electricity price per kWh ÷ miles per kWh. Charging at home on a cheap overnight time-of-use rate is usually far cheaper per mile than public rapid charging. Prices vary widely, so the calculator uses <strong>example rates</strong> you should replace with your own.</p>
 <section class="calc" id="calc" aria-labelledby="ev-h"><h3 id="ev-h" style="margin-top:0">EV charging cost calculator</h3>
-<p class="hint">Example defaults: a 7p/kWh overnight rate and 79p/kWh public rapid charging are <strong>illustrations, not real tariffs</strong>. For reference, the price-cap average electricity unit rate for October–December 2026 is 26.32p/kWh.</p>
+<p class="hint">Example defaults: a 7p/kWh overnight rate and 79p/kWh public rapid charging are <strong>illustrations, not real tariffs</strong>. For reference, the price-cap average electricity unit rate for January–March 2027 is 32.69p/kWh.</p>
 <form id="ev-form" class="fields">
 <div><label for="ev-miles">Miles per year</label><input id="ev-miles" type="number" min="0" step="500" value="8000"></div>
 <div><label for="ev-eff">Efficiency (miles per kWh)</label><input id="ev-eff" type="number" min="0.5" step="0.1" value="3.5"></div>

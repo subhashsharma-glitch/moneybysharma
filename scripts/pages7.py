@@ -63,7 +63,7 @@ CS = (
   ("Motor insurance","Third party is the legal minimum to drive on UK roads",_s("vehins","17 Oct 2026")),
   ("FSCS insurance protection","100% for compulsory cover such as third-party motor; 90% for home, travel, first-party motor and others",_s("fscsins","17 Oct 2026"))]) +
  _sec("Bills and consumer rights", [
-  ("Energy price cap","£1,723 a year for a typical dual-fuel household on Direct Debit",_s("cap","1 Oct – 31 Dec 2026")),
+  ("Energy price cap","£2,166 a year for a typical dual-fuel household on Direct Debit",_s("cap","1 Jan – 31 Mar 2027")),
   ("Faulty goods","Short-term right to reject within 30 days, for a refund",_s("cra22","17 Oct 2026")),
   ("Online, phone and mail orders","Cancel within 14 days of receiving the item, no reason needed; a further 14 days to return it",_s("govret","17 Oct 2026")),
   ("Direct Debit Guarantee","Full and immediate refund if the organisation or your bank makes an error",_s("ddg","17 Oct 2026")),

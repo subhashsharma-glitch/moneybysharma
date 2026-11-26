@@ -46,7 +46,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <tr><th scope="row">Investing</th><td>Business asset disposal relief limit £1m to £500,000 from 6 April 2027; new 10% CGT founders' relief (both not law yet)</td><td>CGT 18% / 24%, £3,000 annual exempt amount; dividend tax 10.75% / 35.75% / 39.35%, £500 allowance</td></tr>
 <tr><th scope="row">Pensions</th><td>State Pension £13,036.40 a year from April 2027; Pension Tax Allowance (not law yet); triple lock changes from April 2030 (a plan)</td><td>Annual allowance £60,000; MPAA £10,000; lump sum allowance £268,275</td></tr>
 <tr><th scope="row">Pay</th><td>Minimum wage £13.21 / £11.27 / £8.31 from 1 April 2027; trading allowance £3,000 from 6 April 2027 (not law yet)</td><td>Salary sacrifice £2,000 NI cap from April 2029, as announced in 2025</td></tr>
-<tr><th scope="row">Home and energy</th><td>£100 energy payment (England, bands A–D); 0% electricity VAT to 30 June 2027; gas standing charges to go (a plan)</td><td>Stamp duty residential rates; the £1,723 price cap for October to December 2026</td></tr>
+<tr><th scope="row">Home and energy</th><td>£100 energy payment (England, bands A–D); 0% electricity VAT to 30 June 2027; gas standing charges to go (a plan)</td><td>Stamp duty residential rates; the Ofgem price cap (set by Ofgem every three months)</td></tr>
 <tr><th scope="row">Inheritance tax</th><td>Only technical tweaks</td><td>£325,000 nil-rate band; £175,000 residence nil-rate band; pensions still come into IHT from April 2027</td></tr>
 </tbody></table>
 {_bs("b26a","b26o","b26b")}
@@ -115,7 +115,7 @@ _b26_body = ph("Budget 2026", "Budget 2026: what it means for you",
 <li><strong>Hydrogen levy</strong> on gas bills scrapped.</li>
 <li><strong>Energy-saving materials:</strong> VAT relief returns to 5% from 1 April 2027 as planned, and heat batteries are added to the relief.</li>
 <li><strong>High Value Council Tax Surcharge</strong> on homes worth £2 million or more, from April 2028. {NLY}</li>
-<li><strong>Unchanged:</strong> stamp duty residential rates; the £1,723 price cap for a typical household for October to December 2026.</li>
+<li><strong>Unchanged:</strong> stamp duty residential rates. The Budget did not change the Ofgem price cap, which Ofgem sets every three months.</li>
 </ul>
 <p>See <a href="energy.html#budget2026">Energy: Budget 2026 changes</a>.</p>
 {_bs("b26p","b26b","b26o","b26a")}

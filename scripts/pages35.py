@@ -111,35 +111,35 @@ _ea_page("bat", "home-battery-payback-explained.html",
 </ol>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> 5 kWh usable battery. 90% round-trip efficiency. Cheap rate 7p/kWh (made up). Rate avoided 26.32p/kWh (Ofgem’s average electricity unit rate for 1 October to 31 December 2026, Direct Debit). 300 full cycles a year. Cost £4,600 (the Energy Saving Trust’s figure for a 5 kWh battery system; a real quote will differ). 12-year lifespan. Capacity falls 2% a year (made up). These are the calculator’s starting values.</p></div>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> 5 kWh usable battery. 90% round-trip efficiency. Cheap rate 7p/kWh (made up). Rate avoided 32.69p/kWh (Ofgem’s average electricity unit rate for 1 January to 31 March 2027, Direct Debit). 300 full cycles a year. Cost £4,600 (the Energy Saving Trust’s figure for a 5 kWh battery system; a real quote will differ). 12-year lifespan. Capacity falls 2% a year (made up). These are the calculator’s starting values.</p></div>
 <ul>
 <li>Energy bought: 5 ÷ 0.90 = 5.56 kWh. Cost: 5.56 × 7p = about 39p.</li>
-<li>Value when used: 5 × 26.32p = about £1.32.</li>
-<li>Saving per cycle: £1.32 − £0.39 = about <strong>£0.93</strong>.</li>
-<li>First-year saving: £0.93 × 300 = about <strong>£278</strong>.</li>
-<li>Simple payback ignoring fading capacity: £4,600 ÷ £278 = about <strong>16.5 years</strong>. With 2% a year capacity loss, it does <strong>not pay back within 12 years</strong>.</li>
-<li>Total saving over 12 years after fading: about £2,994, so a net result of about <strong>−£1,606</strong> after the £4,600 cost.</li>
+<li>Value when used: 5 × 32.69p = about £1.63.</li>
+<li>Saving per cycle: £1.63 − £0.39 = about <strong>£1.25</strong>.</li>
+<li>First-year saving: £1.25 × 300 = about <strong>£374</strong>.</li>
+<li>Simple payback ignoring fading capacity: £4,600 ÷ £374 = about <strong>12.3 years</strong>. With 2% a year capacity loss, it does <strong>not pay back within 12 years</strong>.</li>
+<li>Total saving over 12 years after fading: about £4,022, so a net result of about <strong>−£578</strong> after the £4,600 cost.</li>
 </ul>
 <p>On these assumptions the battery does not pay for itself within its life. That is not a verdict on any particular battery. The next table shows what would change the answer.</p>
 
 <h2 id="moves">What moves the answer most</h2>
 <p>Here is the same example with one input changed at a time, then two together. Everything else stays as above. The figures come from the calculator’s own formulas.</p>
 <div class="table-scroll"><table><caption class="sr">One change at a time, then two together, hypothetical home battery example</caption><thead><tr><th scope="col">Change</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Payback with fading capacity</th><th scope="col">Net result over 12 years</th></tr></thead><tbody>
-<tr><td>Example as above</td><td>£278</td><td>16.5 years</td><td>Not within 12 years</td><td>−£1,606</td></tr>
-<tr><td>365 cycles a year, not 300</td><td>£338</td><td>13.6 years</td><td>Not within 12 years</td><td>−£957</td></tr>
-<tr><td>Cheap rate 12p, not 7p</td><td>£195</td><td>23.6 years</td><td>Not within 12 years</td><td>−£2,503</td></tr>
-<tr><td>Efficiency 80%, not 90%</td><td>£264</td><td>17.5 years</td><td>Not within 12 years</td><td>−£1,763</td></tr>
-<tr><td>Cost £3,500 (made up), not £4,600</td><td>£278</td><td>12.6 years</td><td>Not within 12 years</td><td>−£506</td></tr>
-<tr><td>Rate avoided 32.69p, not 26.32p</td><td>£374</td><td>12.3 years</td><td>Not within 12 years</td><td>−£578</td></tr>
-<tr><td>Both of the last two together</td><td>£374</td><td>9.4 years</td><td>10.3 years</td><td>+£522</td></tr>
+<tr><td>Example as above</td><td>£374</td><td>12.3 years</td><td>Not within 12 years</td><td>−£578</td></tr>
+<tr><td>365 cycles a year, not 300</td><td>£455</td><td>10.1 years</td><td>11.2 years</td><td>+£294</td></tr>
+<tr><td>Cheap rate 12p, not 7p</td><td>£290</td><td>15.8 years</td><td>Not within 12 years</td><td>−£1,475</td></tr>
+<tr><td>Efficiency 80%, not 90%</td><td>£359</td><td>12.8 years</td><td>Not within 12 years</td><td>−£735</td></tr>
+<tr><td>Cost £3,500 (made up), not £4,600</td><td>£374</td><td>9.4 years</td><td>10.3 years</td><td>+£522</td></tr>
+<tr><td>Rate avoided 26.32p, not 32.69p (the previous quarter’s average)</td><td>£278</td><td>16.5 years</td><td>Not within 12 years</td><td>−£1,606</td></tr>
+<tr><td>Both of the 365-cycle and £3,500 changes together</td><td>£455</td><td>7.7 years</td><td>8.3 years</td><td>+£1,394</td></tr>
 </tbody></table></div>
-<p class="hint">The 32.69p rows use Ofgem’s average electricity unit rate for 1 January to 31 March 2027 (announced 25 November 2026). They only show how sensitive the answer is. The price cap changes every three months, and the rate you actually avoid is your own tariff’s peak or day rate, which may be higher or lower than the cap.</p>
+<p class="hint">The 26.32p row uses Ofgem’s average electricity unit rate for 1 October to 31 December 2026, the quarter before. The example’s 32.69p is the average for 1 January to 31 March 2027 (announced 25 November 2026). The price cap changes every three months, and the rate you actually avoid is your own tariff’s peak or day rate, which may be higher or lower than the cap.</p>
 <p>Two lessons stand out. The <strong>gap between the cheap rate and the rate you avoid</strong> matters most. And you only gain from cycles you actually use, so a battery that sits part-empty because your evening demand is low saves less than the formula suggests.</p>
 
 <h2 id="leaves">What the sums leave out</h2>
 <ul>
 <li><strong>Standing charges.</strong> A tariff with a cheap night rate may have a different daily standing charge from your current one. The calculator ignores this.</li>
-<li><strong>Changing prices.</strong> The sums assume tariffs stay the same for the battery’s whole life. Ofgem’s average electricity unit rate alone moves from 26.32p to 32.69p per kWh between two consecutive quarters.</li>
+<li><strong>Changing prices.</strong> The sums assume tariffs stay the same for the battery’s whole life. Ofgem’s average electricity unit rate alone moved from 26.32p to 32.69p per kWh between two consecutive quarters (1 October to 31 December 2026, then 1 January to 31 March 2027).</li>
 <li><strong>Usable vs headline capacity.</strong> The Energy Saving Trust says a system stops taking electricity out of the battery at a set level, maybe around 20% of total capacity. Use the <em>usable</em> figure from the datasheet or quote.</li>
 <li><strong>Lifespan and replacement.</strong> The Energy Saving Trust gives a typical battery lifespan of about 10 to 12 years and says to ask about warranties. The calculator ignores maintenance and inverter replacement.</li>
 <li><strong>The time value of money.</strong> £556 saved in year 10 is worth less to you than £556 today.</li>
@@ -195,21 +195,21 @@ _ea_page("bat", "home-battery-time-of-use-tariffs.html",
 </ol>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> The same battery as in the <a href="home-battery-payback-explained.html">payback article</a>: 5 kWh usable, 90% round-trip efficiency, 300 full cycles a year, £4,600 cost (the Energy Saving Trust’s figure for a 5 kWh system), 12-year life, capacity falls 2% a year. The rate avoided is 26.32p/kWh. Only the cheap rate changes, and the four cheap rates (5p, 7p, 12p, 20p) are made up for illustration.</p></div>
-<div class="table-scroll"><table><caption class="sr">Effect of the cheap rate on a hypothetical home battery</caption><thead><tr><th scope="col">Cheap rate</th><th scope="col">Gap to 26.32p</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Net result over 12 years</th></tr></thead><tbody>
-<tr><td>5p</td><td>21.32p</td><td>£311</td><td>14.8 years</td><td>−£1,247</td></tr>
-<tr><td>7p</td><td>19.32p</td><td>£278</td><td>16.5 years</td><td>−£1,606</td></tr>
-<tr><td>12p</td><td>14.32p</td><td>£195</td><td>23.6 years</td><td>−£2,503</td></tr>
-<tr><td>20p</td><td>6.32p</td><td>£61</td><td>74.8 years</td><td>−£3,938</td></tr>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> The same battery as in the <a href="home-battery-payback-explained.html">payback article</a>: 5 kWh usable, 90% round-trip efficiency, 300 full cycles a year, £4,600 cost (the Energy Saving Trust’s figure for a 5 kWh system), 12-year life, capacity falls 2% a year. The rate avoided is 32.69p/kWh (Ofgem’s average electricity unit rate for 1 January to 31 March 2027). Only the cheap rate changes, and the four cheap rates (5p, 7p, 12p, 20p) are made up for illustration.</p></div>
+<div class="table-scroll"><table><caption class="sr">Effect of the cheap rate on a hypothetical home battery</caption><thead><tr><th scope="col">Cheap rate</th><th scope="col">Gap to 32.69p</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Net result over 12 years</th></tr></thead><tbody>
+<tr><td>5p</td><td>27.69p</td><td>£407</td><td>11.3 years</td><td>−£219</td></tr>
+<tr><td>7p</td><td>25.69p</td><td>£374</td><td>12.3 years</td><td>−£578</td></tr>
+<tr><td>12p</td><td>20.69p</td><td>£290</td><td>15.8 years</td><td>−£1,475</td></tr>
+<tr><td>20p</td><td>12.69p</td><td>£157</td><td>29.3 years</td><td>−£2,910</td></tr>
 </tbody></table></div>
 <p class="hint">Simple payback ignores fading capacity. With fading capacity, none of these pays back within 12 years on these assumptions.</p>
-<p>The gap shrinks by about two-thirds between the 7p and 20p rows, but the saving falls by nearly four-fifths. That is because the energy lost in the battery is bought at the cheap rate too, so a narrow gap leaves very little margin.</p>
+<p>The gap shrinks by about half between the 7p and 20p rows, but the saving falls by well over half, from about £374 to about £157. That is because the energy lost in the battery is bought at the cheap rate too, so a narrow gap leaves very little margin.</p>
 <p>The Energy Saving Trust’s August 2026 research modelled over a million combinations of technology and tariff. It found tariff choice mattered a great deal, and that batteries did better paired with a heat pump on a suitable tariff than with solar panels alone. Its figures are scenario-based, so your results will differ.</p>
 
 <h2 id="contract">Contracts and the price cap</h2>
 <ul>
 <li><strong>Fixed tariffs</strong> keep your rates for the contract. Citizens Advice says that with 49 days or less left you can switch without an exit fee, but with 50 days or more you might have to pay one.</li>
-<li><strong>The price cap</strong> limits unit rates and standing charges on default tariffs, and does not limit your total bill. Ofgem’s average electricity unit rate rises from 26.32p/kWh (1 October to 31 December 2026) to 32.69p/kWh (1 January to 31 March 2027). These are national Direct Debit averages, and your own rate depends on your region and how you pay.</li>
+<li><strong>The price cap</strong> limits unit rates and standing charges on default tariffs, and does not limit your total bill. Ofgem’s average electricity unit rate is 32.69p/kWh for 1 January to 31 March 2027, up from 26.32p/kWh for 1 October to 31 December 2026. These are national Direct Debit averages, and your own rate depends on your region and how you pay.</li>
 </ul>
 
 <h2 id="ask">Questions to ask about a tariff</h2>
@@ -257,13 +257,13 @@ _ea_page("bat", "home-battery-smart-export-guarantee.html",
 <p>So the idea of buying cheap electricity overnight and exporting it for a payment is not something a supplier has to pay for under the SEG. Some suppliers may offer separate schemes with their own terms. That is a supplier’s commercial choice, so treat any such income as uncertain until it is confirmed in writing. This is why the calculator’s battery saving comes from using the stored energy in your own home, not from exporting it.</p>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A home with solar panels and a battery. Spare solar is either exported at an example SEG rate of 15p/kWh (made up) or stored and used later. Stored energy is used in the evening instead of buying electricity at 26.32p/kWh (Ofgem’s average unit rate for 1 October to 31 December 2026). Round-trip battery efficiency 90%.</p></div>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A home with solar panels and a battery. Spare solar is either exported at an example SEG rate of 15p/kWh (made up) or stored and used later. Stored energy is used in the evening instead of buying electricity at 32.69p/kWh (Ofgem’s average unit rate for 1 January to 31 March 2027). Round-trip battery efficiency 90%.</p></div>
 <ul>
 <li>Export 1 kWh: 15p.</li>
-<li>Store 1 kWh: you get back 0.90 kWh, which avoids buying 0.90 kWh at 26.32p, so about 23.7p.</li>
-<li>Difference: about 8.7p per kWh stored, or about £87 for every 1,000 kWh moved into the battery.</li>
+<li>Store 1 kWh: you get back 0.90 kWh, which avoids buying 0.90 kWh at 32.69p, so about 29.4p.</li>
+<li>Difference: about 14.4p per kWh stored, or about £144 for every 1,000 kWh moved into the battery.</li>
 </ul>
-<p>On these made-up numbers the advantage is real but modest. It shrinks as the export rate rises. If the example export rate were 25p/kWh, storing would give about 23.7p against 25p exported, a small loss of about 1.3p per kWh. It also depends on how many kWh you actually shift in a year, which depends on your solar output and your evening use.</p>
+<p>On these made-up numbers the advantage is real but modest. It shrinks as the export rate rises. If the example export rate were 30p/kWh, storing would give about 29.4p against 30p exported, a small loss of about 0.6p per kWh. It also depends on how many kWh you actually shift in a year, which depends on your solar output and your evening use.</p>
 
 <h2 id="ask">Questions to ask a supplier or installer</h2>
 <ol>
@@ -307,8 +307,8 @@ _ea_page("bat", "home-battery-cost-vat-quotes.html",
 
 <h2 id="example">Worked example (hypothetical)</h2>
 <div class="card"><p><strong>Assumptions – an example, not a quote.</strong> Suppose an installer quotes £4,600 for a 5 kWh battery with no VAT charged, because the zero rate applies. If the same work were supplied on or after 1 April 2027 at 5% VAT, it would add 5% of £4,600, which is £230, making £4,830.</p></div>
-<p>Put those into the <a href="calculators/home-battery.html">calculator</a> with its other starting values (5 kWh, 90% efficiency, 7p cheap rate, 26.32p rate avoided, 300 cycles, 12 years, 2% capacity loss). The first-year saving stays at about £278, but simple payback moves from about 16.5 years to about 17.4 years, and the net result over 12 years from about −£1,606 to about −£1,836. This only illustrates how a price change moves the result.</p>
-<p>Capacity for the money matters too. Suppose, purely as a made-up illustration, that £4,600 bought a 10 kWh battery instead. With the other starting values unchanged, the calculator gives a first-year saving of about £556 and a payback with fading capacity of about 8.9 years. The Energy Saving Trust describes a typical home system as around 10 kWh but says prices run from £1,500 to £10,000, so ask each installer for the usable capacity and the total price, then work out the cost per kWh.</p>
+<p>Put those into the <a href="calculators/home-battery.html">calculator</a> with its other starting values (5 kWh, 90% efficiency, 7p cheap rate, 32.69p rate avoided, 300 cycles, 12 years, 2% capacity loss). The first-year saving stays at about £374, but simple payback moves from about 12.3 years to about 12.9 years, and the net result over 12 years from about −£578 to about −£808. This only illustrates how a price change moves the result.</p>
+<p>Capacity for the money matters too. Suppose, purely as a made-up illustration, that £4,600 bought a 10 kWh battery instead. With the other starting values unchanged, the calculator gives a first-year saving of about £747 and a payback with fading capacity of about 6.5 years. The Energy Saving Trust describes a typical home system as around 10 kWh but says prices run from £1,500 to £10,000, so ask each installer for the usable capacity and the total price, then work out the cost per kWh.</p>
 
 <h2 id="quote">Checking a quote</h2>
 <p>Quotes can look similar and differ a lot. These are questions to ask, not a ranking of any product or installer:</p>
@@ -350,11 +350,11 @@ _ea_page("ev", "ev-charging-cost-per-mile-explained.html",
 <p>That is the formula in the <a href="calculators/ev-charging.html">EV charging cost calculator</a>. It uses separate prices for home and public charging, because they can be very different (see <a href="ev-home-vs-public-charging-cost.html">home vs public charging</a>), and a share of charging done at home to blend them.</p>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A car that does 3.5 miles per kWh (the calculator’s example value). Prices per kWh: 7p (a made-up overnight rate), 26.32p (Ofgem’s average electricity unit rate for 1 October to 31 December 2026, Direct Debit), 32.69p (Ofgem’s average for 1 January to 31 March 2027), and 54p and 82p (Zapmap’s October 2026 average pay-as-you-go prices at public chargers, 3 to 49kW and 50kW and above).</p></div>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A car that does 3.5 miles per kWh (the calculator’s example value). Prices per kWh: 7p (a made-up overnight rate), 32.69p (Ofgem’s average electricity unit rate for 1 January to 31 March 2027, Direct Debit), 26.32p (Ofgem’s average for the previous quarter, 1 October to 31 December 2026), and 54p and 82p (Zapmap’s October 2026 average pay-as-you-go prices at public chargers, 3 to 49kW and 50kW and above).</p></div>
 <div class="table-scroll"><table><caption class="sr">Cost per mile at different prices per kWh, at 3.5 miles per kWh</caption><thead><tr><th scope="col">Price per kWh</th><th scope="col">What it stands for</th><th scope="col">Cost per mile</th></tr></thead><tbody>
 <tr><td>7p</td><td>Example cheap overnight rate (made up)</td><td>2.0p</td></tr>
-<tr><td>26.32p</td><td>Ofgem average, Oct–Dec 2026</td><td>7.5p</td></tr>
 <tr><td>32.69p</td><td>Ofgem average, Jan–Mar 2027</td><td>9.3p</td></tr>
+<tr><td>26.32p</td><td>Ofgem average, previous quarter (Oct–Dec 2026)</td><td>7.5p</td></tr>
 <tr><td>54p</td><td>Zapmap average, public 3–49kW, Oct 2026</td><td>15.4p</td></tr>
 <tr><td>82p</td><td>Zapmap average, public 50kW and above, Oct 2026</td><td>23.4p</td></tr>
 </tbody></table></div>
@@ -362,13 +362,13 @@ _ea_page("ev", "ev-charging-cost-per-mile-explained.html",
 
 <h2 id="losses">Charging losses</h2>
 <p>You are billed for the electricity that passes through the meter, but not all of it ends up in the battery. E.ON Next’s guide says energy is lost as heat in the car’s on-board charger and in cables, and in warming the battery. It says you might lose 10% on a warm day with a high-quality wallbox but 25% on a chilly night with a 3-pin plug. It also says the car’s display usually shows only the energy stored in the battery, so a smart meter or charger app will show a higher figure. This is one supplier’s guide, so treat the range as indicative.</p>
-<div class="card"><p><strong>Example with an assumed 10% loss (hypothetical).</strong> If the car does 3.5 miles per kWh stored in the battery, but 10% of the electricity from the meter is lost on the way, you get 3.5 × 0.90 = 3.15 miles per kWh drawn from the meter. At 26.32p that is about 8.4p per mile instead of 7.5p, and at 7p it is about 2.2p instead of 2.0p. The calculator ignores losses, so real home charging costs are a little higher than it shows.</p></div>
+<div class="card"><p><strong>Example with an assumed 10% loss (hypothetical).</strong> If the car does 3.5 miles per kWh stored in the battery, but 10% of the electricity from the meter is lost on the way, you get 3.5 × 0.90 = 3.15 miles per kWh drawn from the meter. At 32.69p that is about 10.4p per mile instead of 9.3p, and at 7p it is about 2.2p instead of 2.0p. The calculator ignores losses, so real home charging costs are a little higher than it shows.</p></div>
 
 <h2 id="real">Real-world efficiency</h2>
 <p>Miles per kWh is not fixed. Which? found in its 2022 tests that the real range of the electric cars it tested was on average 18% lower than the official figure. It says weather, driving style and speed all matter, and that you get fewer miles on a motorway than around town. That article is from 2022, so it is older than our other sources, but the point still holds: use the efficiency you actually get. Many cars show an average on the dashboard, and over a few weeks that is a better input than a brochure figure.</p>
 
 <h2 id="year">From a mile to a year</h2>
-<p>To get a yearly cost, multiply by your mileage. In the example above, 8,000 miles a year at 3.5 miles per kWh needs about 2,286 kWh of electricity a year (8,000 ÷ 3.5). At 26.32p that is about £602, and at 32.69p about £747. The <a href="calculators/ev-charging.html">calculator</a> does this sum for a mix of home and public charging. For what it leaves out, see <a href="ev-charging-calculator-limits.html">what the charging calculator leaves out</a>.</p>
+<p>To get a yearly cost, multiply by your mileage. In the example above, 8,000 miles a year at 3.5 miles per kWh needs about 2,286 kWh of electricity a year (8,000 ÷ 3.5). At 32.69p that is about £747, and at the previous quarter’s 26.32p it would have been about £602. The <a href="calculators/ev-charging.html">calculator</a> does this sum for a mix of home and public charging. For what it leaves out, see <a href="ev-charging-calculator-limits.html">what the charging calculator leaves out</a>.</p>
 ''',
  [_OFGEM_CAP, _OFGEM_PR, _ZAPMAP, _EON, _WHICH])
 
@@ -381,13 +381,13 @@ _ea_page("ev", "ev-home-vs-public-charging-cost.html",
 '''
 <div class="card" style="background:#e7f2ef;border-left:5px solid #d9822b;margin:0 0 1.2rem"><p><strong>Key points</strong></p><ul>
 <li>Zapmap’s October 2026 averages for pay-as-you-go public charging are 54p/kWh (3 to 49kW) and 82p/kWh (50kW and above).</li>
-<li>Ofgem’s average home electricity rate on default tariffs is 26.32p/kWh now, and 32.69p/kWh from 1 January 2027.</li>
+<li>Ofgem’s average home electricity rate on default tariffs is 32.69p/kWh for 1 January to 31 March 2027, up from 26.32p/kWh in the previous quarter.</li>
 <li>Electricity from public charge points is standard-rated for VAT (20%), while domestic electricity currently has a temporary zero rate until 30 June 2027.</li>
 </ul></div>
 
 <h2 id="prices">Published prices</h2>
 <p><strong>Public charging.</strong> Zapmap’s monthly index gives weighted average pay-as-you-go prices. For October 2026 they are <strong>54p/kWh</strong> for standard and standard-plus chargers (3kW up to 49kW) and <strong>82p/kWh</strong> for rapid and ultra-rapid chargers (50kW and above). Zapmap says the pay-as-you-go price is what drivers can pay without a membership or special deal, so many drivers pay less, and prices differ a lot between networks. It says its rapid and ultra-rapid average is up about 8% on a year earlier, and about 2% for the slower chargers.</p>
-<p><strong>Home charging.</strong> On a default tariff, Ofgem’s average Direct Debit electricity unit rate is <strong>26.32p/kWh</strong> for 1 October to 31 December 2026 and <strong>32.69p/kWh</strong> for 1 January to 31 March 2027, plus a standing charge. These are averages for England, Scotland and Wales. A time-of-use or EV tariff can have a much lower rate in some hours (see <a href="ev-tariffs-off-peak-charging.html">EV tariffs and off-peak charging</a>). The Energy Saving Trust (page last updated March 2025) says charging at home is currently the cheapest way to charge, and that charging at home at off-peak times can save more.</p>
+<p><strong>Home charging.</strong> On a default tariff, Ofgem’s average Direct Debit electricity unit rate is <strong>32.69p/kWh</strong> for 1 January to 31 March 2027 (it was 26.32p/kWh for 1 October to 31 December 2026), plus a standing charge of 54.77p a day. These are averages for England, Scotland and Wales. A time-of-use or EV tariff can have a much lower rate in some hours (see <a href="ev-tariffs-off-peak-charging.html">EV tariffs and off-peak charging</a>). The Energy Saving Trust (page last updated March 2025) says charging at home is currently the cheapest way to charge, and that charging at home at off-peak times can save more.</p>
 
 <h2 id="vat">The VAT difference</h2>
 <p>HMRC says electricity for domestic use is usually subject to the reduced rate of VAT, and a temporary zero rate has applied in Great Britain from 1 October 2026 (Ofgem says to 30 June 2027). Legislation that took effect on 1 November 2026 confirms that electricity supplied through publicly accessible charge points is not supplied for domestic use for VAT, so it is standard rated (20%). Electricity used to charge an EV as part of the general supply to your home may continue to qualify for the relief. HMRC’s brief is addressed to charge point operators. We have not checked whether each network’s advertised price includes VAT, so check this on the price you see.</p>
@@ -395,15 +395,13 @@ _ea_page("ev", "ev-home-vs-public-charging-cost.html",
 <h2 id="example">Worked example (hypothetical)</h2>
 <div class="card"><p><strong>Assumptions – an example, not a quote.</strong> 8,000 miles a year at 3.5 miles per kWh (about 2,286 kWh a year). Charging losses are ignored, as in the calculator. The home price is Ofgem’s default-tariff average, and the public price is Zapmap’s 82p/kWh rapid average. Your own mix and prices will differ.</p></div>
 <div class="table-scroll"><table><caption class="sr">Yearly charging cost under different mixes, hypothetical</caption><thead><tr><th scope="col">Where the car is charged</th><th scope="col">Home price</th><th scope="col">Cost per mile (blended)</th><th scope="col">Yearly cost</th></tr></thead><tbody>
-<tr><td>All at home</td><td>26.32p</td><td>7.5p</td><td>£602</td></tr>
 <tr><td>All at home</td><td>32.69p</td><td>9.3p</td><td>£747</td></tr>
-<tr><td>90% home, 10% public rapid</td><td>26.32p</td><td>9.1p</td><td>£729</td></tr>
-<tr><td>80% home, 20% public rapid</td><td>26.32p</td><td>10.7p</td><td>£856</td></tr>
+<tr><td>90% home, 10% public rapid</td><td>32.69p</td><td>10.8p</td><td>£860</td></tr>
 <tr><td>80% home, 20% public rapid</td><td>32.69p</td><td>12.2p</td><td>£973</td></tr>
 <tr><td>All at public 3–49kW (54p)</td><td>n/a</td><td>15.4p</td><td>£1,234</td></tr>
 <tr><td>All at public rapid (82p)</td><td>n/a</td><td>23.4p</td><td>£1,874</td></tr>
 </tbody></table></div>
-<p>Moving from 90% to 80% home charging adds about £127 a year in this example, and doing everything on rapid chargers costs about three times as much as doing everything at home on a default tariff. The table comes from the <a href="calculators/ev-charging.html">EV charging cost calculator’s</a> own formula.</p>
+<p>Moving from 90% to 80% home charging adds about £113 a year in this example, and doing everything on rapid chargers costs about three times as much as doing everything at home on a default tariff. The table comes from the <a href="calculators/ev-charging.html">EV charging cost calculator’s</a> own formula.</p>
 
 <h2 id="mix">Why the mix matters</h2>
 <p>The share of charging you do at home matters at least as much as the exact prices. A driver who can charge at home most of the time has a very different cost profile from one who relies on public rapid chargers. Zapmap says typical EV drivers use the most expensive rapid chargers for only a fraction of the time.</p>
@@ -442,13 +440,13 @@ _ea_page("ev", "ev-tariffs-off-peak-charging.html",
 <p>The Energy Saving Trust says smart charging at home overnight could save up to 20% on charging costs, depending on your tariff, mileage and charging patterns. It gives the typical cost of installing a home charge point as around £800 to £1,200 (page last updated March 2025), and says you will typically need a smart meter and an EV or time-of-use tariff to make the most of it.</p>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A household that charges an EV with about 2,286 kWh a year (8,000 miles at 3.5 miles per kWh) and uses a further 2,500 kWh a year on everything else, all at the day rate. <em>Standard tariff:</em> 26.32p/kWh at any time (Ofgem’s average for 1 October to 31 December 2026). <em>EV tariff:</em> a made-up 7p/kWh at night and 30p/kWh by day. All EV charging happens at night. Standing charges and charging losses are ignored.</p></div>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> A household that charges an EV with about 2,286 kWh a year (8,000 miles at 3.5 miles per kWh) and uses a further 2,500 kWh a year on everything else, all at the day rate. <em>Standard tariff:</em> 32.69p/kWh at any time (Ofgem’s average for 1 January to 31 March 2027). <em>EV tariff:</em> a made-up 7p/kWh at night and 40p/kWh by day. All EV charging happens at night. Standing charges and charging losses are ignored.</p></div>
 <ul>
-<li>Saving on EV charging: 2,286 kWh × (26.32p − 7p) = about <strong>£442</strong>.</li>
-<li>Extra cost on the rest of the home: 2,500 kWh × (30p − 26.32p) = about <strong>£92</strong>.</li>
-<li>Net: about <strong>£350 a year</strong> better off on this made-up tariff, before any difference in standing charge.</li>
+<li>Saving on EV charging: 2,286 kWh × (32.69p − 7p) = about <strong>£587</strong>.</li>
+<li>Extra cost on the rest of the home: 2,500 kWh × (40p − 32.69p) = about <strong>£183</strong>.</li>
+<li>Net: about <strong>£404 a year</strong> better off on this made-up tariff, before any difference in standing charge.</li>
 </ul>
-<p>If the day rate were 36p rather than 30p, the extra cost on the rest of the home would be about £242 a year, and the net saving would fall to about £200. And if less of the car’s charging happened at night than assumed, the saving would be smaller still. The sum to remember is: <strong>kWh moved to the cheap rate × the saving per kWh, minus the extra cost on all your other use.</strong> The <a href="calculators/ev-charging.html">EV charging cost calculator</a> lets you try different home rates.</p>
+<p>If the day rate were 45p rather than 40p, the extra cost on the rest of the home would be about £308 a year, and the net saving would fall to about £279. If it were 30p, the rest of the home would cost less than on the standard tariff and the net saving would be larger. And if less of the car’s charging happened at night than assumed, the saving would be smaller still. The sum to remember is: <strong>kWh moved to the cheap rate × the saving per kWh, minus the extra cost on all your other use.</strong> The <a href="calculators/ev-charging.html">EV charging cost calculator</a> lets you try different home rates.</p>
 
 <h2 id="types">Whole-home or EV-only</h2>
 <p>The Energy Saving Trust says that most of these tariffs apply to all the electricity used in the home. Some suppliers offer tariffs where the cheaper rate is for EV charging only and is separate from other use (it calls these type-of-use tariffs). The two work differently, so ask which one you are being offered. Whole-home tariffs also reward shifting other use, such as running a washing machine or dishwasher on a timer, as Smart Energy GB suggests.</p>
@@ -481,10 +479,10 @@ _ea_page("ev", "ev-charging-calculator-limits.html",
 </ul></div>
 
 <h2 id="losses">Charging losses</h2>
-<p>The calculator’s own note says charging losses are ignored. E.ON Next’s guide says some of the electricity you are billed for is lost as heat and in battery warming, from around 10% to 25% depending on the charger, cable and weather. The <a href="ev-charging-cost-per-mile-explained.html">cost per mile article</a> shows how an assumed 10% loss changes the sum, from 7.5p to about 8.4p per mile at 26.32p/kWh. That is one supplier’s guide, so treat the range as a rough guide.</p>
+<p>The calculator’s own note says charging losses are ignored. E.ON Next’s guide says some of the electricity you are billed for is lost as heat and in battery warming, from around 10% to 25% depending on the charger, cable and weather. The <a href="ev-charging-cost-per-mile-explained.html">cost per mile article</a> shows how an assumed 10% loss changes the sum, from 9.3p to about 10.4p per mile at 32.69p/kWh. That is one supplier’s guide, so treat the range as a rough guide.</p>
 
 <h2 id="eff">Efficiency changes with conditions</h2>
-<p>The calculator uses one figure for miles per kWh. Which? says in its 2022 article that weather, driving style and speed all affect an electric car’s range, and that you get fewer miles on a motorway than around town. Its tests found real range averaged 18% below the official figure. A lower miles-per-kWh figure raises the cost per mile directly, since the sum is price ÷ miles per kWh. For example, 3.0 miles per kWh instead of 3.5 at 26.32p gives about 8.8p per mile rather than 7.5p. E.ON Next also notes that in cold weather more energy goes into warming the battery.</p>
+<p>The calculator uses one figure for miles per kWh. Which? says in its 2022 article that weather, driving style and speed all affect an electric car’s range, and that you get fewer miles on a motorway than around town. Its tests found real range averaged 18% below the official figure. A lower miles-per-kWh figure raises the cost per mile directly, since the sum is price ÷ miles per kWh. For example, 3.0 miles per kWh instead of 3.5 at 32.69p gives about 10.9p per mile rather than 9.3p. E.ON Next also notes that in cold weather more energy goes into warming the battery.</p>
 
 <h2 id="charger">A home charge point</h2>
 <p>If you do not already have one, the Energy Saving Trust gives the typical cost of installing a home charge point as around £800 to £1,200 (page last updated 25 March 2025). It also says you need off-street parking, and typically a smart meter and a suitable tariff to get the most from it. The calculator’s home rate does not include this one-off cost.</p>
@@ -494,7 +492,7 @@ _ea_page("ev", "ev-charging-calculator-limits.html",
 
 <h2 id="eved">Pay-per-mile eVED (announced, not law yet)</h2>
 <p>GOV.UK’s page on Electric Vehicle Excise Duty (updated 28 October 2026) says that from 1 April 2028 a mileage-based charge will apply to electric cars: 3p per mile for battery-electric cars and 1.5p per mile for plug-in hybrids, rising with CPI from 2029 to 2030. It says primary legislation will be introduced, so it is not law until Parliament passes it, and the details could change.</p>
-<div class="card"><p><strong>Illustration, if it goes ahead as announced (hypothetical use).</strong> At 3p per mile, 8,000 miles a year would be 8,000 × 3p = £240 a year. That is 3p on top of the electricity cost per mile in the <a href="ev-charging-cost-per-mile-explained.html">cost per mile article</a>, for example 7.5p per mile at 26.32p/kWh and 3.5 miles per kWh. The eVED would be separate from, and in addition to, the cost of the electricity.</p></div>
+<div class="card"><p><strong>Illustration, if it goes ahead as announced (hypothetical use).</strong> At 3p per mile, 8,000 miles a year would be 8,000 × 3p = £240 a year. That is 3p on top of the electricity cost per mile in the <a href="ev-charging-cost-per-mile-explained.html">cost per mile article</a>, for example 9.3p per mile at 32.69p/kWh and 3.5 miles per kWh. The eVED would be separate from, and in addition to, the cost of the electricity.</p></div>
 
 <h2 id="check">A fuller running-cost checklist</h2>
 <ul>
