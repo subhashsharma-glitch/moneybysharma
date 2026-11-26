@@ -91,7 +91,7 @@ _ea_page("bat", "home-battery-payback-explained.html",
 <div class="card" style="background:#e7f2ef;border-left:5px solid #d9822b;margin:0 0 1.2rem"><p><strong>Key points</strong></p><ul>
 <li>Payback is the battery’s cost divided by what it saves each year. The saving comes from the gap between a cheap rate and the rate you avoid paying.</li>
 <li>A battery loses some energy each time it is used, and it slowly loses capacity as it ages. Both reduce the saving.</li>
-<li>In the example below, small changes to the inputs turn a payback of under 8 years into one that does not happen within the battery’s life.</li>
+<li>In the example below, the battery does not pay back within its 12-year life. It takes a combination of changes to get it there.</li>
 </ul></div>
 
 <h2 id="idea">The idea</h2>
@@ -111,29 +111,29 @@ _ea_page("bat", "home-battery-payback-explained.html",
 </ol>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> 10 kWh usable battery. 90% round-trip efficiency. Cheap rate 7p/kWh (made up). Rate avoided 26.32p/kWh (Ofgem’s average electricity unit rate for 1 October to 31 December 2026, Direct Debit). 300 full cycles a year. Installed cost £4,000 (made up). 12-year lifespan. Capacity falls 2% a year (made up). These are the calculator’s starting values.</p></div>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> 5 kWh usable battery. 90% round-trip efficiency. Cheap rate 7p/kWh (made up). Rate avoided 26.32p/kWh (Ofgem’s average electricity unit rate for 1 October to 31 December 2026, Direct Debit). 300 full cycles a year. Cost £4,600 (the Energy Saving Trust’s figure for a 5 kWh battery system; a real quote will differ). 12-year lifespan. Capacity falls 2% a year (made up). These are the calculator’s starting values.</p></div>
 <ul>
-<li>Energy bought: 10 ÷ 0.90 = 11.11 kWh. Cost: 11.11 × 7p = about 78p.</li>
-<li>Value when used: 10 × 26.32p = £2.63.</li>
-<li>Saving per cycle: £2.63 − £0.78 = about <strong>£1.85</strong>.</li>
-<li>First-year saving: £1.85 × 300 = about <strong>£556</strong>.</li>
-<li>Simple payback ignoring fading capacity: £4,000 ÷ £556 = about <strong>7.2 years</strong>. With 2% a year capacity loss, about <strong>7.7 years</strong>.</li>
-<li>Total saving over 12 years after fading: about £5,988, so a net gain of about <strong>£1,988</strong> after the £4,000 cost.</li>
+<li>Energy bought: 5 ÷ 0.90 = 5.56 kWh. Cost: 5.56 × 7p = about 39p.</li>
+<li>Value when used: 5 × 26.32p = about £1.32.</li>
+<li>Saving per cycle: £1.32 − £0.39 = about <strong>£0.93</strong>.</li>
+<li>First-year saving: £0.93 × 300 = about <strong>£278</strong>.</li>
+<li>Simple payback ignoring fading capacity: £4,600 ÷ £278 = about <strong>16.5 years</strong>. With 2% a year capacity loss, it does <strong>not pay back within 12 years</strong>.</li>
+<li>Total saving over 12 years after fading: about £2,994, so a net result of about <strong>−£1,606</strong> after the £4,600 cost.</li>
 </ul>
-<p>That looks encouraging, but it rests on every one of those assumptions being true.</p>
+<p>On these assumptions the battery does not pay for itself within its life. That is not a verdict on any particular battery. The next table shows what would change the answer.</p>
 
 <h2 id="moves">What moves the answer most</h2>
-<p>Here is the same example with one input changed at a time. Everything else stays as above. The figures come from the calculator’s own formulas.</p>
-<div class="table-scroll"><table><caption class="sr">One change at a time, hypothetical home battery example</caption><thead><tr><th scope="col">Change one input</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Payback with fading capacity</th><th scope="col">Net gain over 12 years</th></tr></thead><tbody>
-<tr><td>Example as above</td><td>£556</td><td>7.2 years</td><td>7.7 years</td><td>+£1,988</td></tr>
-<tr><td>150 cycles a year, not 300</td><td>£278</td><td>14.4 years</td><td>Not within 12 years</td><td>−£1,006</td></tr>
-<tr><td>Cheap rate 12p, not 7p</td><td>£390</td><td>10.3 years</td><td>11.4 years</td><td>+£194</td></tr>
-<tr><td>Cheap rate 20p, not 7p</td><td>£123</td><td>32.5 years</td><td>Not within 12 years</td><td>−£2,677</td></tr>
-<tr><td>Installed cost £6,000, not £4,000</td><td>£556</td><td>10.8 years</td><td>Not within 12 years</td><td>−£12</td></tr>
-<tr><td>Efficiency 80%, not 90%</td><td>£527</td><td>7.6 years</td><td>8.1 years</td><td>+£1,674</td></tr>
-<tr><td>Rate avoided 32.69p, not 26.32p</td><td>£747</td><td>5.4 years</td><td>5.6 years</td><td>+£4,045</td></tr>
+<p>Here is the same example with one input changed at a time, then two together. Everything else stays as above. The figures come from the calculator’s own formulas.</p>
+<div class="table-scroll"><table><caption class="sr">One change at a time, then two together, hypothetical home battery example</caption><thead><tr><th scope="col">Change</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Payback with fading capacity</th><th scope="col">Net result over 12 years</th></tr></thead><tbody>
+<tr><td>Example as above</td><td>£278</td><td>16.5 years</td><td>Not within 12 years</td><td>−£1,606</td></tr>
+<tr><td>365 cycles a year, not 300</td><td>£338</td><td>13.6 years</td><td>Not within 12 years</td><td>−£957</td></tr>
+<tr><td>Cheap rate 12p, not 7p</td><td>£195</td><td>23.6 years</td><td>Not within 12 years</td><td>−£2,503</td></tr>
+<tr><td>Efficiency 80%, not 90%</td><td>£264</td><td>17.5 years</td><td>Not within 12 years</td><td>−£1,763</td></tr>
+<tr><td>Cost £3,500 (made up), not £4,600</td><td>£278</td><td>12.6 years</td><td>Not within 12 years</td><td>−£506</td></tr>
+<tr><td>Rate avoided 32.69p, not 26.32p</td><td>£374</td><td>12.3 years</td><td>Not within 12 years</td><td>−£578</td></tr>
+<tr><td>Both of the last two together</td><td>£374</td><td>9.4 years</td><td>10.3 years</td><td>+£522</td></tr>
 </tbody></table></div>
-<p class="hint">The last row uses Ofgem’s average electricity unit rate for 1 January to 31 March 2027 (32.69p/kWh, announced 25 November 2026). It only shows how sensitive the answer is. The price cap changes every three months, and the rate you actually avoid is your own tariff’s peak or day rate, which may be higher or lower than the cap.</p>
+<p class="hint">The 32.69p rows use Ofgem’s average electricity unit rate for 1 January to 31 March 2027 (announced 25 November 2026). They only show how sensitive the answer is. The price cap changes every three months, and the rate you actually avoid is your own tariff’s peak or day rate, which may be higher or lower than the cap.</p>
 <p>Two lessons stand out. The <strong>gap between the cheap rate and the rate you avoid</strong> matters most. And you only gain from cycles you actually use, so a battery that sits part-empty because your evening demand is low saves less than the formula suggests.</p>
 
 <h2 id="leaves">What the sums leave out</h2>
@@ -195,13 +195,15 @@ _ea_page("bat", "home-battery-time-of-use-tariffs.html",
 </ol>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> The same battery as in the <a href="home-battery-payback-explained.html">payback article</a>: 10 kWh usable, 90% round-trip efficiency, 300 full cycles a year, £4,000 installed, 12-year life, capacity falls 2% a year. The rate avoided is 26.32p/kWh. Only the cheap rate changes, and the three cheap rates (7p, 12p, 20p) are made up for illustration.</p></div>
-<div class="table-scroll"><table><caption class="sr">Effect of the cheap rate on a hypothetical home battery</caption><thead><tr><th scope="col">Cheap rate</th><th scope="col">Gap to 26.32p</th><th scope="col">First-year saving</th><th scope="col">Payback with fading capacity</th><th scope="col">Net gain over 12 years</th></tr></thead><tbody>
-<tr><td>7p</td><td>19.32p</td><td>£556</td><td>7.7 years</td><td>+£1,988</td></tr>
-<tr><td>12p</td><td>14.32p</td><td>£390</td><td>11.4 years</td><td>+£194</td></tr>
-<tr><td>20p</td><td>6.32p</td><td>£123</td><td>Not within 12 years</td><td>−£2,677</td></tr>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> The same battery as in the <a href="home-battery-payback-explained.html">payback article</a>: 5 kWh usable, 90% round-trip efficiency, 300 full cycles a year, £4,600 cost (the Energy Saving Trust’s figure for a 5 kWh system), 12-year life, capacity falls 2% a year. The rate avoided is 26.32p/kWh. Only the cheap rate changes, and the four cheap rates (5p, 7p, 12p, 20p) are made up for illustration.</p></div>
+<div class="table-scroll"><table><caption class="sr">Effect of the cheap rate on a hypothetical home battery</caption><thead><tr><th scope="col">Cheap rate</th><th scope="col">Gap to 26.32p</th><th scope="col">First-year saving</th><th scope="col">Simple payback</th><th scope="col">Net result over 12 years</th></tr></thead><tbody>
+<tr><td>5p</td><td>21.32p</td><td>£311</td><td>14.8 years</td><td>−£1,247</td></tr>
+<tr><td>7p</td><td>19.32p</td><td>£278</td><td>16.5 years</td><td>−£1,606</td></tr>
+<tr><td>12p</td><td>14.32p</td><td>£195</td><td>23.6 years</td><td>−£2,503</td></tr>
+<tr><td>20p</td><td>6.32p</td><td>£61</td><td>74.8 years</td><td>−£3,938</td></tr>
 </tbody></table></div>
-<p>The gap shrinks by about two-thirds between the first and last rows, but the saving falls by nearly four-fifths. That is because the energy lost in the battery is bought at the cheap rate too, so a narrow gap leaves very little margin.</p>
+<p class="hint">Simple payback ignores fading capacity. With fading capacity, none of these pays back within 12 years on these assumptions.</p>
+<p>The gap shrinks by about two-thirds between the 7p and 20p rows, but the saving falls by nearly four-fifths. That is because the energy lost in the battery is bought at the cheap rate too, so a narrow gap leaves very little margin.</p>
 <p>The Energy Saving Trust’s August 2026 research modelled over a million combinations of technology and tariff. It found tariff choice mattered a great deal, and that batteries did better paired with a heat pump on a suitable tariff than with solar panels alone. Its figures are scenario-based, so your results will differ.</p>
 
 <h2 id="contract">Contracts and the price cap</h2>
@@ -293,7 +295,7 @@ _ea_page("bat", "home-battery-cost-vat-quotes.html",
 <h2 id="cost">What home batteries cost</h2>
 <p>The Energy Saving Trust says the cost depends on the type and size of battery. It can range from £1,500 to £10,000, and a 5 kWh battery system is around £4,600. It describes a typical home system as around 10 kWh, and the typical lifespan as about 10 to 12 years. It adds that installing a battery at the same time as solar panels, or a heat pump, may reduce the cost, because the installers are already on site.</p>
 <p>The Energy Saving Trust recommends getting at least three quotes from installers certified with MCS (the Microgeneration Certification Scheme).</p>
-<p>The calculator’s starting cost of £4,000 for a 10 kWh battery is <strong>an example, not a real price</strong>. Use a quote instead.</p>
+<p>The calculator’s starting cost, £4,600 for a 5 kWh battery, is this Energy Saving Trust figure, and its capacity starts at 5 kWh to match. It is a guide, not a price you will necessarily be quoted, so use a real quote instead.</p>
 
 <h2 id="vat">VAT on batteries</h2>
 <p>HMRC’s VAT Notice 708/6 explains the temporary zero rate for energy-saving materials:</p>
@@ -304,9 +306,9 @@ _ea_page("bat", "home-battery-cost-vat-quotes.html",
 <p>The rule is about the <em>installation</em>, so ask the installer how VAT is shown on the quote and on which date the work is supplied.</p>
 
 <h2 id="example">Worked example (hypothetical)</h2>
-<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> Suppose an installer quotes £4,000 with no VAT charged, because the zero rate applies. If the same work were supplied on or after 1 April 2027 at 5% VAT, it would add 5% of £4,000, which is £200, making £4,200.</p></div>
-<p>Put those into the <a href="calculators/home-battery.html">calculator</a> with its other example values (10 kWh, 90% efficiency, 7p cheap rate, 26.32p rate avoided, 300 cycles, 12 years, 2% capacity loss) and the payback with fading capacity moves from about 7.7 years at £4,000 to about 8.1 years at £4,200. This only illustrates how a price change moves the result.</p>
-<p>A smaller battery can look different. If the 5 kWh, £4,600 figure from the Energy Saving Trust were used with all the other example values unchanged, the calculator gives a first-year saving of about £278 and no payback within 12 years. That is not a forecast. It shows why you should check how the saving is worked out for the size and tariff you are considering.</p>
+<div class="card"><p><strong>Assumptions – an example, not a quote.</strong> Suppose an installer quotes £4,600 for a 5 kWh battery with no VAT charged, because the zero rate applies. If the same work were supplied on or after 1 April 2027 at 5% VAT, it would add 5% of £4,600, which is £230, making £4,830.</p></div>
+<p>Put those into the <a href="calculators/home-battery.html">calculator</a> with its other starting values (5 kWh, 90% efficiency, 7p cheap rate, 26.32p rate avoided, 300 cycles, 12 years, 2% capacity loss). The first-year saving stays at about £278, but simple payback moves from about 16.5 years to about 17.4 years, and the net result over 12 years from about −£1,606 to about −£1,836. This only illustrates how a price change moves the result.</p>
+<p>Capacity for the money matters too. Suppose, purely as a made-up illustration, that £4,600 bought a 10 kWh battery instead. With the other starting values unchanged, the calculator gives a first-year saving of about £556 and a payback with fading capacity of about 8.9 years. The Energy Saving Trust describes a typical home system as around 10 kWh but says prices run from £1,500 to £10,000, so ask each installer for the usable capacity and the total price, then work out the cost per kWh.</p>
 
 <h2 id="quote">Checking a quote</h2>
 <p>Quotes can look similar and differ a lot. These are questions to ask, not a ranking of any product or installer:</p>

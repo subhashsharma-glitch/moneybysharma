@@ -81,14 +81,14 @@ pages["energy.html"] = page("energy.html","Energy bills, solar panels and home b
 <li>Solar panels on houses are usually "permitted development", but check if you're in a listed building, conservation area or national park.</li></ul>
 <h2 id="battery">A battery without solar</h2><p>A home battery can be charged on a cheap overnight time-of-use rate and then power your home at peak times, when you'd otherwise pay the full rate. Whether that pays back depends on the gap between the two rates, how many full cycles you use, the battery's efficiency, and its price and lifespan.</p>
 <section class="calc" id="calc" aria-labelledby="bat-h"><h3 id="bat-h" style="margin-top:0">Home battery saving and payback</h3>
-<p class="hint">Defaults: the peak rate is the October–December 2026 price-cap average unit rate (26.32p). The cheap rate (7p), battery cost (£4,000), efficiency and lifespan are <strong>example figures only</strong>, not real prices. Replace them with your own quote and tariff.</p>
+<p class="hint">Defaults: the peak rate is the October–December 2026 price-cap average unit rate (26.32p). The battery cost (£4,600) is the Energy Saving Trust's figure for a 5 kWh battery system, which is why the capacity starts at 5 kWh (<a href="https://energysavingtrust.org.uk/advice/battery-storage/" rel="noopener">Energy Saving Trust – Battery storage</a>, checked 26 November 2026). Its page says costs range from £1,500 to £10,000, so use your own quote. The cheap rate (7p), efficiency and capacity loss are <strong>example figures only</strong>, not real prices. Replace them with your own quote and tariff.</p>
 <form id="bat-form" class="fields">
-<div><label for="bat-kwh">Usable battery capacity (kWh)</label><input id="bat-kwh" type="number" min="0" step="0.5" value="10"></div>
+<div><label for="bat-kwh">Usable battery capacity (kWh)</label><input id="bat-kwh" type="number" min="0" step="0.5" value="5"></div>
 <div><label for="bat-eff">Round-trip efficiency (%)</label><input id="bat-eff" type="number" min="1" max="100" value="90"></div>
 <div><label for="bat-cheap">Cheap rate (p/kWh) <span class="hint">example</span></label><input id="bat-cheap" type="number" step="0.01" min="0" value="7"></div>
 <div><label for="bat-peak">Peak rate you avoid (p/kWh)</label><input id="bat-peak" type="number" step="0.01" min="0" value="26.32"></div>
 <div><label for="bat-cycles">Full cycles per year</label><input id="bat-cycles" type="number" min="0" max="730" value="300"></div>
-<div><label for="bat-cost">Installed cost (£) <span class="hint">example</span></label><input id="bat-cost" type="number" min="0" step="100" value="4000"></div>
+<div><label for="bat-cost">Installed cost (£) <span class="hint">Energy Saving Trust, 5 kWh</span></label><input id="bat-cost" type="number" min="0" step="100" value="4600"></div>
 <div><label for="bat-life">Lifespan (years)</label><input id="bat-life" type="number" min="1" max="30" value="12"></div>
 <div><label for="bat-degr">Capacity loss per year (%) <span class="hint">example</span></label><input id="bat-degr" type="number" min="0" max="10" step="0.5" value="2"></div></form>
 <div class="results" aria-live="polite"><div class="res"><span>First-year saving</span><b id="bat-r-annual">–</b></div><div class="res"><span>Payback (with degradation)</span><b id="bat-r-payback">–</b></div><div class="res"><span>Net gain over lifespan</span><b id="bat-r-net">–</b></div></div>

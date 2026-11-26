@@ -73,8 +73,8 @@ NAVG = [("index.html","Home"),
  ("kids-corner/","Kids Corner"),("resources.html","Resources"),("about.html","About")]
 # Home insurance article (pages26.py): False = preview (noindex, no menu/sitemap/search/Article schema). Set True to go live.
 HI_LIVE = True
-# Energy supporting articles (pages35.py): False = preview (noindex, no sitemap/search/Article schema, draft notice). Set True to publish.
-ENERGY_LIVE = False
+# Energy supporting articles (pages35.py): True = published 26 Nov 2026 (approved by Subhash). False = back to a preview (noindex, no sitemap/search, draft notice).
+ENERGY_LIVE = True
 if HI_LIVE: NAVG[1][1][1][2].append(("home-insurance-renewal.html","Home insurance renewal"))
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f4c45"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="8" r="2.6" fill="#d9822b"/></svg>'
 DISC = ("<strong>Information only – not financial advice.</strong> MoneyBySharma gives general information, not regulated financial advice, "
