@@ -557,6 +557,7 @@ print("search index:", len(SEARCH_ENTRIES), "entries,", SEARCH_BYTES, "bytes")
 if not HI_LIVE: exec(open("scripts/pages26.py").read())  # preview: after search so it stays out of it
 exec(open("scripts/pages30.py").read())  # Kids Corner (sub-folder pages, kept out of search)
 exec(open("scripts/pages33.py").read())  # email-confirmed thank-you page (after search so it stays out of it)
+exec(open("scripts/pages34.py").read())  # PREVIEW: four gilt articles (branch gilt-articles-preview only; noindex, off nav/sitemap/search)
 # Compact sign-up card on guide pages only. Not Kids Corner, calculators, tools, paper-trading, or legal pages.
 WK_GUIDE_CARD = f'<div class="wrap"><aside class="card wk" id="wk-card" aria-labelledby="weekly"><h2 id="weekly">{WK_H2}</h2><p>{WK_INTRO}</p>\n{WK_FORM}</aside></div>\n'
 for _fn in GUIDES:

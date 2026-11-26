@@ -146,7 +146,7 @@ _C32 = [
 <p>The default coupon and maturity are the same low-coupon example as on our gilts guide, from DMO data (close of business {d(GI['closeOfBusiness'])}). Prices are not fetched automatically: enter the clean price from your broker. This is not a recommendation to buy.</p>
 <p>This is the same calculator as on our <a href="gilts.html#calc">Gilts guide</a>, which also explains why low-coupon gilts can be tax-efficient.</p>
 """,
-        "related": '<a href="gilts.html#calc">Gilt vs savings on the guide</a> · <a href="gilts.html">Gilts</a> · <a href="savings.html">Savings and cash ISAs</a>',
+        "related": '<a href="gilts.html#calc">Gilt vs savings on the guide</a> · <a href="gilts.html">Gilts</a> · <a href="savings.html">Savings and cash ISAs</a> · <a href="what-is-a-gilt.html">What is a gilt? How low-coupon gilts work</a> · <a href="gilts-cgt-and-coupon-tax.html">Why the gain is free of CGT but the coupon is taxed</a> · <a href="gilts-vs-fixed-rate-bonds-and-savings.html">Gilts vs fixed-rate bonds and easy-access savings</a> · <a href="how-to-buy-gilts.html">How to buy gilts through an ISA, a SIPP or a general account</a>',
         "index": ("Gilt vs savings", "Compare a gilt held to maturity with a savings account after tax, for your tax band."),
     },
     {
